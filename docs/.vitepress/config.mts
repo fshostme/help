@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "FSHOST Help",
   description: "Get help using FSHOST.me free/pro servers",
+  base: '/',
   cleanUrls: true,
 
   head: [
