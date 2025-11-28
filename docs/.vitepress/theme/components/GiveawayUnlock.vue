@@ -1,8 +1,8 @@
 <template>
   <div class="giveaway-unlock">
     <div v-if="!unlocked" class="unlock-form">
-      <h2>🎁 Pro Server Giveaway</h2>
-      <p>You've found the hidden page! Now enter the name of our special feline racing game to unlock your prize:</p>
+      <h2>🎁 Giveaway</h2>
+      <p>Enter the name of the cat racing game, shown on our games list, to unlock your prize:</p>
 
       <div class="input-group">
         <input
