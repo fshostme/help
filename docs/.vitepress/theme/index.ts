@@ -4,6 +4,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import GiveawayUnlock from './components/GiveawayUnlock.vue'
+import NewsList from './components/NewsList.vue'
 
 export default {
   extends: DefaultTheme,
@@ -14,5 +15,6 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.component('GiveawayUnlock', GiveawayUnlock)
+    app.component('NewsList', NewsList)
   }
 } satisfies Theme

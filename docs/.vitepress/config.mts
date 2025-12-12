@@ -28,7 +28,8 @@ export default defineConfig({
           { text: 'All Games', link: '/games/' }
         ]
       },
-      { text: 'Troubleshooting', link: '/troubleshooting/' }
+      { text: 'Troubleshooting', link: '/troubleshooting/' },
+      { text: 'News', link: '/news/' }
     ],
 
     sidebar: {
@@ -310,6 +311,22 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/troubleshooting/' },
             { text: 'Connection Problems', link: '/troubleshooting/connection' }
+          ]
+        },
+        {
+          text: 'Rent Pro Server',
+          link: 'https://fshost.me/pro/pricing/'
+        },
+        {
+          text: 'Back to FSHOST.me',
+          link: 'https://fshost.me/'
+        }
+      ],
+      '/news/': [
+        {
+          text: 'News & Updates',
+          items: [
+            { text: 'All News', link: '/news/' }
           ]
         },
         {
