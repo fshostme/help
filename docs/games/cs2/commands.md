@@ -180,5 +180,5 @@ RCON commands require appropriate admin permissions.
 
 - [RCON Commands](/games/cs2/rcon) - Full RCON reference
 - [MatchZy Plugin](/games/cs2/plugins/matchzy) - Competitive match management
-- [Practice Mode](/games/cs2/plugins/prefire-practice) - Advanced practice tools
+- [Practice Mode](/games/cs2/plugins/prefire) - Advanced practice tools
 - [Admin Guide](/games/cs2/become-admin) - Admin setup instructions
