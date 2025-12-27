@@ -336,11 +336,11 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Plugin Overview', link: '/games/cs2/plugins' },
-            { text: 'CS2-SimpleAdmin', link: '/games/cs2/plugins/simpleadmin' },
+            { text: 'CS2-SimpleAdmin', link: '/games/cs2/plugins/cs2-simpleadmin' },
             { text: 'MatchZy', link: '/games/cs2/plugins/matchzy' },
             { text: 'Deathmatch', link: '/games/cs2/plugins/deathmatch' },
             { text: 'Retakes', link: '/games/cs2/plugins/retakes' },
-            { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire-practice' },
+            { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire' },
             { text: 'WeaponPaints (Skins)', link: '/games/cs2/plugins/weapon-skins' },
             { text: 'CSTV Discord', link: '/games/cs2/plugins/cstv-discord' }
           ]
