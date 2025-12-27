@@ -31,7 +31,7 @@ These dependencies are managed automatically by FSHOST - no manual installation 
 | [Deathmatch](#deathmatch) | ✕ | ✓ | Complete deathmatch mode |
 | [Retakes](#retakes) | ✕ | ✓ | Bomb site retake practice |
 | [MatchZy](#matchzy) | ✕ | ✓ | Competitive match management |
-| [OpenPrefirePrac](#prefire-practice) | ✕ | ✓ | Angle prefire training |
+| [OpenPrefirePrac](#prefire) | ✕ | ✓ | Angle prefire training |
 | CS2MapChange | ✓ | ✓ | Simplified map changing |
 | Workshop Maps | ✕ | ✓ | Load custom Steam Workshop maps |
 | [WeaponPaints](#weapon-skins) | ✕ | ✓<sup>*</sup> | Custom weapon skins |
@@ -119,7 +119,7 @@ Professional match management with practice utilities.
 - Demo recording
 - Knife rounds and ready system
 
-### Prefire Practice {#prefire-practice}
+### Prefire Practice {#prefire}
 
 Train common angle prefire positions on competitive maps.
 

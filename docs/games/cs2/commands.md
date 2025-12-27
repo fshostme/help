@@ -41,7 +41,7 @@ Return to Practice Mode if another mode was previously activated.
 
 Enable OpenPrefirePrac Mode for prefire angle training.
 
-See the [OpenPrefirePrac Plugin Guide](/games/cs2/plugins/prefire-practice) for detailed commands.
+See the [OpenPrefirePrac Plugin Guide](/games/cs2/plugins/prefire) for detailed commands.
 
 ### Retakes Mode
 **Command:** `!retake`
