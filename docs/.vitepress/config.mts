@@ -25,7 +25,8 @@ export default defineConfig({
       {
         text: 'Games',
         items: [
-          { text: 'All Games', link: '/games/' }
+          { text: 'All Games', link: '/games/' },
+          { text: 'Counter-Strike 2', link: '/games/cs2/' }
         ]
       },
       { text: 'Troubleshooting', link: '/troubleshooting/' },
@@ -293,7 +294,55 @@ export default defineConfig({
         {
           text: 'Supported Games',
           items: [
-            { text: 'All Games', link: '/games/' }
+            { text: 'All Games', link: '/games/' },
+            { text: 'Counter-Strike 2', link: '/games/cs2/' }
+          ]
+        },
+        {
+          text: 'Rent Pro Server',
+          link: 'https://fshost.me/pro/pricing/'
+        },
+        {
+          text: 'Back to FSHOST.me',
+          link: 'https://fshost.me/'
+        }
+      ],
+      '/games/cs2/': [
+        {
+          text: 'CS2 Documentation',
+          items: [
+            { text: 'Overview', link: '/games/cs2/' }
+          ]
+        },
+        {
+          text: 'Commands',
+          collapsed: false,
+          items: [
+            { text: 'Free Server Commands', link: '/games/cs2/commands-free' },
+            { text: 'Pro Server Commands', link: '/games/cs2/commands' },
+            { text: 'RCON Commands', link: '/games/cs2/rcon' }
+          ]
+        },
+        {
+          text: 'Server Management',
+          collapsed: false,
+          items: [
+            { text: 'CSTV Broadcasting', link: '/games/cs2/cstv' },
+            { text: 'Become Admin (Pro)', link: '/games/cs2/become-admin' }
+          ]
+        },
+        {
+          text: 'Plugins (Pro)',
+          collapsed: false,
+          items: [
+            { text: 'Plugin Overview', link: '/games/cs2/plugins' },
+            { text: 'CS2-SimpleAdmin', link: '/games/cs2/plugins/simpleadmin' },
+            { text: 'MatchZy', link: '/games/cs2/plugins/matchzy' },
+            { text: 'Deathmatch', link: '/games/cs2/plugins/deathmatch' },
+            { text: 'Retakes', link: '/games/cs2/plugins/retakes' },
+            { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire-practice' },
+            { text: 'WeaponPaints (Skins)', link: '/games/cs2/plugins/weapon-skins' },
+            { text: 'CSTV Discord', link: '/games/cs2/plugins/cstv-discord' }
           ]
         },
         {
