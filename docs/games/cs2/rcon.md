@@ -10,7 +10,7 @@ The official RCON system for CS2 servers is currently broken with no estimated f
 
 ### For Free Servers
 
-Access RCON using your server's password displayed on the [Free Server Panel](/servers/free/creating-server).
+Access RCON using your server's password displayed on the [Free Server Panel](https://fshost.me/free-panel).
 
 **Step 1 - Authenticate:**
 ```
