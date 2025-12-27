@@ -148,11 +148,10 @@ A Game Server Login Token links your server to your Steam account. Required for 
 
 ## Next Steps
 
-1. **New Users:** Start with [Creating a Server](/games/cs2/creating-server)
-2. **Configure:** Review [RCON Commands](/games/cs2/rcon) for customization
-3. **Admin Access:** Set up [Admin Controls](/games/cs2/become-admin) (Pro)
-4. **Enhance:** Explore [Available Plugins](/games/cs2/plugins)
-5. **Broadcast:** Enable [CSTV](/games/cs2/cstv) for demos (Pro)
+1. **Configure:** Review [RCON Commands](/games/cs2/rcon) for customization
+2. **Admin Access:** Set up [Admin Controls](/games/cs2/become-admin) (Pro)
+3. **Enhance:** Explore [Available Plugins](/games/cs2/plugins)
+4. **Broadcast:** Enable [CSTV](/games/cs2/cstv) for demos (Pro)
 
 ---
 

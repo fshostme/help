@@ -31,7 +31,7 @@ Activate CSTV through your server's control panel:
 
 ### Example Configuration
 
-```cfg
+```bash
 // CSTV Settings
 tv_enable 1
 tv_name "FSHOST Match Server"
@@ -102,7 +102,7 @@ Demos are saved to your server's `demos` directory:
 ### Camera Positions
 
 **Save current spectator position:**
-```bnash
+```bash
 spec_pos
 ```
 *Requires `sv_cheats 1`*
