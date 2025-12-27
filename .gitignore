@@ -21,6 +21,3 @@ pnpm-debug.log*
 # OS files
 .DS_Store
 Thumbs.db
-
-# Temporary - hide Counter-Strike docs until ready
-docs/games/counter-strike-2/
