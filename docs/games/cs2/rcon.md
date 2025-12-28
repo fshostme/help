@@ -13,17 +13,17 @@ The official RCON system for CS2 servers is currently broken with no estimated f
 Access RCON using your server's password displayed on the [Free Server Panel](https://fshost.me/free-panel).
 
 **Step 1 - Authenticate:**
-```
+```bash
 fake_rcon_password your_rcon_password
 ```
 
 **Step 2 - Verify Access:**
-```
+```bash
 fake_rcon say Test message
 ```
 
 **Expected Output:**
-```
+```bash
 [Client] You can now use the fake_rcon command
 Console: Test message
 ```
@@ -37,12 +37,12 @@ Pro servers use a more advanced admin system. See the [Server Admin Guide](/game
 ### Server Information
 
 **View connected players and server status:**
-```
+```bash
 fake_rcon status
 ```
 
 **List available maps:**
-```
+```bash
 fake_rcon maps *
 ```
 
@@ -56,17 +56,17 @@ fake_rcon maps *
 ### Map Control
 
 **Change map (preserves server state):**
-```
+```bash
 fake_rcon changelevel de_dust2
 ```
 
 **Load map (full reset):**
-```
+```bash
 fake_rcon map de_mirage
 ```
 
 **Quick map change via chat:**
-```
+```bash
 say !map dust2
 say_team !map nuke
 ```
@@ -78,26 +78,26 @@ Available maps: `ancient`, `anubis`, `dust2`, `inferno`, `mirage`, `nuke`, `over
 ### Match Settings
 
 **Restart current game:**
-```
+```bash
 fake_rcon mp_restartgame 5
 ```
 *Restarts after 5 seconds (Free servers only)*
 
 **Starting money:**
-```
+```bash
 fake_rcon mp_startmoney 800
 fake_rcon mp_startmoney 16000  # Max money start
 ```
 *Default: 800*
 
 **Maximum rounds:**
-```
+```bash
 fake_rcon mp_maxrounds 30
 ```
 
 ### Round Timing
 
-```
+```bash
 fake_rcon mp_roundtime 1.92        # Round duration (1:55 for competitive)
 fake_rcon mp_freezetime 15         # Freeze time at start
 fake_rcon mp_buytime 20            # Buy period in seconds
@@ -110,7 +110,7 @@ For standard competitive matches, use `mp_roundtime 1.92` which equals 1 minute 
 
 ### Economy Settings
 
-```
+```bash
 fake_rcon mp_startmoney 800
 fake_rcon mp_maxmoney 16000
 fake_rcon cash_player_killed_enemy_default 300
@@ -121,7 +121,7 @@ fake_rcon cash_player_killed_enemy_default 300
 ### Server Identity
 
 **Change server name:**
-```
+```bash
 fake_rcon hostname "Your Custom Name - free @ fshost.me"
 ```
 
@@ -132,19 +132,19 @@ Free servers must retain the FSHOST branding in the hostname.
 ### Access Control
 
 **Set server password:**
-```
+```bash
 fake_rcon sv_password "mypassword"
 ```
 
 **Remove password:**
-```
+```bash
 fake_rcon sv_password ""
 ```
 
 ## Movement & Physics
 
 **Auto bunny hopping:**
-```
+```bash
 fake_rcon sv_autobunnyhopping 1  # Enable
 fake_rcon sv_autobunnyhopping 0  # Disable (default)
 ```
@@ -156,12 +156,12 @@ These commands should only be used in practice environments.
 :::
 
 **Enable cheat commands:**
-```
+```bash
 fake_rcon sv_cheats 1
 ```
 
 **Disable cheat commands:**
-```
+```bash
 fake_rcon sv_cheats 0
 ```
 
@@ -191,7 +191,7 @@ For full practice commands like `.throw`, `.bot`, etc., a Pro server is required
 
 ### Quick Map Loading
 
-```
+```bash
 say !map ancient
 say !map dust2
 say !map mirage
@@ -205,7 +205,7 @@ Verify you've entered `fake_rcon_password` correctly. Check for typos in your pa
 
 ::: details Messages not appearing in-game
 Commands with spaces require quotes:
-```
+```bash
 fake_rcon say "Your message here"
 ```
 :::

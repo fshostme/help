@@ -20,7 +20,7 @@ Free servers have restricted functionality compared to Pro servers. Advanced fea
 ### Competitive Configurations
 
 **ESL 5v5:**
-```
+```bash
 /esl5on5
 ```
 Standard ESL competitive configuration.
@@ -30,7 +30,7 @@ This configuration does not include pause, unpause, or tech timeout commands.
 :::
 
 **Scrim:**
-```
+```bash
 /scrim
 ```
 Default scrim configuration with all rounds enabled.
@@ -42,7 +42,7 @@ Pause and tech timeout commands are not available.
 ### Practice Modes
 
 **Practice Mode:**
-```
+```bash
 /pracc
 ```
 Basic practice configuration.
@@ -52,7 +52,7 @@ Advanced practice commands like `.throw`, `.bot`, `.pause`, and `.tech` are not 
 :::
 
 **Pregame:**
-```
+```bash
 /pregame
 ```
 Default pregame warmup configuration.
@@ -76,7 +76,7 @@ Default pregame warmup configuration.
 ### Custom Map Selection
 
 **Change to specific map:**
-```
+```bash
 /map dust2
 /map mirage
 /map nuke
@@ -85,31 +85,31 @@ Default pregame warmup configuration.
 ## Utility Commands
 
 **List available commands:**
-```
+```bash
 /help
 ```
 
 **List map commands:**
-```
+```bash
 /maps
 ```
 
 ## Quick Start Examples
 
 ### Starting a Competitive Match
-```
+```bash
 /esl5on5              # Load competitive config
 /map dust2            # Change to Dust2
 ```
 
 ### Practice Session
-```
+```bash
 /pracc                # Load practice mode
 /dust2                # Change map
 ```
 
 ### Deathmatch
-```
+```bash
 /dm                   # Start deathmatch
 /mirage               # Change to Mirage
 ```

@@ -45,12 +45,12 @@ These dependencies are managed automatically by FSHOST - no manual installation 
 Execute RCON commands directly through your in-game console.
 
 **Setup:**
-```
+```bash
 fake_rcon_password your_password
 ```
 
 **Usage:**
-```
+```bash
 fake_rcon status
 fake_rcon say "Server restarting in 5 minutes"
 ```
@@ -60,7 +60,7 @@ fake_rcon say "Server restarting in 5 minutes"
 Quick map changes via chat command.
 
 **Usage:**
-```
+```bash
 !map de_dust2
 !map de_mirage
 ```
@@ -144,7 +144,7 @@ WeaponPaints requires a Game Server Login Token from Steam. Generate one at [Ste
 
 ::: details How do I check installed plugins?
 Use the following command in console after RCON authentication:
-```
+```bash
 fake_rcon css_plugins list
 ```
 :::

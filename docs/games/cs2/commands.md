@@ -85,40 +85,40 @@ Switch to Wingman Mode for 2v2 matches with MatchZy enabled.
 ```
 
 **Mirage:**
-```
+```bash
 !mirage
 ```
 
 **Nuke:**
-```
+```bash
 !nuke
 ```
 
 **Overpass:**
-```
+```bash
 !overpass
 ```
 
 **Train:**
-```
+```bash
 !train
 ```
 
 **Vertigo:**
-```
+```bash
 !vertigo
 ```
 
 ### Custom Map Loading
 
 **Load specific map:**
-```
+```bash
 !map de_dust2
 !map de_mirage
 ```
 
 **Load Workshop map:**
-```
+```bash
 !wsmap 1511919777
 ```
 
@@ -142,7 +142,7 @@ Show a list of available map commands.
 Execute RCON commands for server control.
 
 **Usage:**
-```
+```bash
 !rcon mp_restartgame 1
 !rcon sv_cheats 1
 ```
@@ -154,14 +154,14 @@ RCON commands require appropriate admin permissions.
 ## Quick Reference
 
 ### Starting a Practice Session
-```
+```bash
 !pracc                    # Load practice mode
 !prefireon                # Enable prefire practice
 !map de_dust2             # Change to desired map
 ```
 
 ### Switching Game Modes
-```
+```bash
 !comp                     # Competitive
 !dmon                     # Deathmatch
 !retake                   # Retakes
@@ -169,7 +169,7 @@ RCON commands require appropriate admin permissions.
 ```
 
 ### Map Management
-```
+```bash
 !maps                     # List available maps
 !dust2                    # Quick load Dust2
 !map de_ancient           # Load specific map

@@ -93,7 +93,7 @@ playdemo yourdemo.dem
 ### Demo File Location
 
 Demos are saved to your server's `demos` directory:
-```
+```bash
 /game/csgo/demos/yourdemo.dem
 ```
 

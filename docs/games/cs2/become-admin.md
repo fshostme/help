@@ -29,12 +29,12 @@ The easiest way to manage admins is through the web interface.
 1. **Connect to your Pro server**
 2. **Open in-game chat**
 3. **Enter login command:**
-   ```
+   ```bash
    /login YOUR_RCON_PASSWORD
    ```
 
 **Success Confirmation:**
-```
+```bash
 [Admin Manager] Processing login request...
 [Admin Manager] Login successful. You are now an admin.
 ```
@@ -53,17 +53,17 @@ The easiest way to manage admins is through the web interface.
 ### Adding Admins
 
 **By SteamID with flags:**
-```
+```bash
 /addadmin 76561198975357634 99 z
 ```
 
 **By SteamID with role:**
-```
+```bash
 /addadmin 76561198975357634 Moderator
 ```
 
 **By player name:**
-```
+```bash
 /addadmin PlayerName Helper
 ```
 
@@ -73,7 +73,7 @@ Use SteamID64 format for permanent admin assignments. Find yours at [steamid.io]
 
 ### Removing Admins
 
-```
+```bash
 /removeadmin 76561198975357634
 /removeadmin PlayerName
 ```
@@ -85,32 +85,32 @@ Use SteamID64 format for permanent admin assignments. Find yours at [steamid.io]
 Roles allow organized permission structures with immunity levels.
 
 **Command Structure:**
-```
+```bash
 /css_addrole <RoleName> <Flags> <Immunity>
 ```
 
 **Example Roles:**
 
 **VIP Role:**
-```
+```bash
 /css_addrole VIP ao 10
 ```
 *Reservation access, immunity 10*
 
 **Moderator Role:**
-```
+```bash
 /css_addrole Moderator abdh 50
 ```
 *Ban, kick, chat management, immunity 50*
 
 **Admin Role:**
-```
+```bash
 /css_addrole Admin abcdefghijklmn 100
 ```
 *Full admin permissions, immunity 100*
 
 **Owner Role:**
-```
+```bash
 /css_addrole Owner z 100
 ```
 *Complete control, maximum immunity*
@@ -138,7 +138,7 @@ Roles allow organized permission structures with immunity levels.
 
 ### Assigning Roles
 
-```
+```bash
 /css_addadmin PlayerName VIP
 /css_addadmin 76561198975357634 Moderator
 ```
@@ -146,12 +146,12 @@ Roles allow organized permission structures with immunity levels.
 ### Managing Roles
 
 **List all roles:**
-```
+```bash
 /css_roles
 ```
 
 **Delete a role:**
-```
+```bash
 /css_removeRole RoleName
 ```
 
@@ -160,31 +160,31 @@ Roles allow organized permission structures with immunity levels.
 ### Common Moderation Commands
 
 **Kick Player:**
-```
+```bash
 /css_kick PlayerName
 /css_kick PlayerName Reason for kick
 ```
 
 **Ban Player:**
-```
+```bash
 /css_ban PlayerName 0
 /css_ban PlayerName 60 Breaking rules
 ```
 *Minutes: 0 = permanent*
 
 **Temporary Ban:**
-```
+```bash
 /css_ban PlayerName 1440  # 24 hour ban
 /css_ban PlayerName 10080 # 7 day ban
 ```
 
 **Mute Player:**
-```
+```bash
 /css_mute PlayerName
 ```
 
 **Unmute Player:**
-```
+```bash
 /css_unmute PlayerName
 ```
 
@@ -200,7 +200,7 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 - **100:** Owner/root access
 
 **Example Hierarchy:**
-```
+```bash
 /css_addrole Helper abd 10      # Can kick/ban immunity <10
 /css_addrole Mod abdfh 50       # Can manage immunity <50
 /css_addrole Admin z 99         # Can manage immunity <99
@@ -211,7 +211,7 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 
 ### Small Server Setup
 
-```
+```bash
 /css_addrole VIP o 5
 /css_addrole Admin z 99
 
@@ -221,7 +221,7 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 
 ### Large Community Setup
 
-```
+```bash
 /css_addrole VIP o 5
 /css_addrole Helper abd 20
 /css_addrole Moderator abdefh 50

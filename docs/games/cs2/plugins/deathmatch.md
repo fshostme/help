@@ -25,7 +25,7 @@ The Deathmatch plugin transforms your CS2 server into a fast-paced training envi
 ### Weapon Selection
 
 **Open weapon menu:**
-```
+```bash
 css_gun
 css_guns
 /w
@@ -38,7 +38,7 @@ Opens the weapon selection menu where you can choose your primary weapon, second
 ### View Available Weapons
 
 **List allowed weapons:**
-```
+```bash
 css_gun
 ```
 
@@ -53,7 +53,7 @@ Your weapon selection is saved and automatically applied on each respawn.
 Some servers may have custom weapon shortcuts configured by admins. These allow quick weapon selection without opening menus.
 
 **Example shortcuts (if configured):**
-```
+```bash
 /ak              # Equip AK-47
 /m4              # Equip M4A4
 /awp             # Equip AWP
@@ -68,7 +68,7 @@ These commands require root admin permissions (`@css/root`).
 ### Spawn Editor
 
 **Toggle spawn editor:**
-```
+```bash
 css_dm_editor
 ```
 
@@ -77,7 +77,7 @@ Enables or disables the spawn editor mode for creating custom spawn points.
 ### Start Custom Mode
 
 **Launch specific mode:**
-```
+```bash
 css_dm_startmode 1
 css_dm_startmode 2
 ```
@@ -87,7 +87,7 @@ Starts a custom deathmatch configuration by ID.
 ### Distance Checker
 
 **Check spawn distances:**
-```
+```bash
 css_dm_checkdistance 500
 css_dm_checkdistance 1000
 ```
@@ -258,7 +258,7 @@ Verify spawn protection is enabled in server configuration. Some servers disable
 ## Command Reference
 
 **Player Commands:**
-```
+```bash
 css_gun              # Open weapon menu or list weapons
 css_guns             # Weapon selection menu
 /w                   # Weapon menu (shorthand)
@@ -267,7 +267,7 @@ css_guns             # Weapon selection menu
 ```
 
 **Admin Commands:**
-```
+```bash
 css_dm_editor        # Toggle spawn editor
 css_dm_startmode <ID>     # Start custom mode
 css_dm_checkdistance <N>  # Show distance beams

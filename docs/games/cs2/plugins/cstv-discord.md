@@ -97,7 +97,7 @@ When a match completes and CSTV recording stops:
 
 Discord notifications typically include:
 
-```
+```bash
 🎬 New CS2 Demo Available
 
 Map: de_dust2
