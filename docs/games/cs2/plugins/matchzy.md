@@ -6,6 +6,36 @@ Professional match management and practice tools for CS2 competitive play.
 MatchZy is available exclusively on Pro servers.
 :::
 
+::: danger FSHOST Customized Version - DO NOT REPLACE
+**Critical Warning:** FSHOST uses a **heavily customized fork** of MatchZy with significant additional features and integrations. 
+
+**If you replace this with the original MatchZy from GitHub, you will lose:**
+
+### Custom Commands
+- **`.teamsize`** - Quick team size configuration (alias for `.readyrequired`)
+- **`.settings` / `.config`** - Enhanced match settings display
+- **`.abort`** - Alternative match restart command
+- **`.autopause`** - Intelligent auto-pause system for 5v5 matches
+- **`.autopause_minplayers`** - Configure auto-pause thresholds
+- **`.autopause_delay`** - Set auto-resume delay
+
+### Custom Features
+- **Auto-Pause System** - Automatically pauses when teams drop below configured player count (5v5 only)
+- **Auto-Resume** - Automatically resumes when both teams reach minimum players
+- **Restart Confirmation** - 30-second confirmation system for critical actions
+- **Stop Command Cooldown** - 3-second cooldown to prevent spam
+- **Enhanced Backup Management** - Improved round backup and restore system
+
+### Version Information
+- **Current Version:** 0.8.16
+- **Author:** WD- Edited by Miksen
+- **Based on:** [MatchZy by shobhit-pathak](https://github.com/shobhit-pathak/MatchZy)
+
+**⚠️ WARNING:** Contact FSHOST support before making any plugin changes. Replacing this plugin will break FSHOST-specific integrations and remove critical features.
+
+Original MatchZy repository: [shobhit-pathak/MatchZy](https://github.com/shobhit-pathak/MatchZy)
+:::
+
 ## Overview
 
 MatchZy streamlines management for practice sessions, PUGs, scrims, and competitive matches with features including ready systems, pause functionality, tactical timeouts, and comprehensive practice utilities.
@@ -69,6 +99,10 @@ Pauses the match for technical issues during freeze time.
 
 Both teams must type `.unpause` to resume the match.
 
+::: tip Auto-Pause Feature
+FSHOST's custom version includes an intelligent auto-pause system that automatically pauses 5v5 matches when a team drops below the minimum player count and auto-resumes when both teams are back to full strength.
+:::
+
 ### Tactical Timeouts
 
 **Call tactical timeout:**
@@ -108,8 +142,8 @@ After winning the knife round:
 
 Both teams must type `.stop` to restore the backup of the current round.
 
-::: warning Backup Required
-Round restore only works if round backups are enabled and a backup exists for the current round.
+::: warning Enhanced Stop System
+FSHOST's version includes a 3-second cooldown on the `.stop` command to prevent spam and a 30-second vote timeout for better control.
 :::
 
 ### Coaching
@@ -127,6 +161,62 @@ Round restore only works if round backups are enabled and a backup exists for th
 
 ::: info Coaching Restrictions
 Coaches can spectate and communicate with their team but cannot control players or access certain information depending on server configuration.
+:::
+
+## FSHOST Exclusive Auto-Pause System
+
+These commands are **exclusive** to FSHOST's customized MatchZy:
+
+### Auto-Pause Toggle
+
+**Enable/disable auto-pause:**
+```bash
+.autopause
+!autopause
+```
+
+Toggles the automatic pause system on/off.
+
+**How it works:**
+- Automatically pauses when a team drops below minimum players
+- Only active for 5v5 matches (10 total players)
+- Disabled for smaller formats (1v1, 2v2, 3v3, 4v4)
+- Automatically resumes when both teams reach minimum players
+
+**Example output:**
+```bash
+Auto-pause is now ENABLED
+Match will auto-pause when teams have fewer than 5 players
+```
+
+### Configure Minimum Players
+
+**Set auto-pause threshold:**
+```bash
+.autopause_minplayers 5
+!autopause_minplayers 4
+```
+
+Sets the minimum number of players required before auto-pause triggers (1-5).
+
+**Default:** 5 players per team
+
+### Configure Auto-Resume Delay
+
+**Set resume delay:**
+```bash
+.autopause_delay 10
+!autopause_delay 15
+```
+
+Sets the delay (in seconds) before auto-resuming when teams are balanced.
+
+**Default:** Configurable via server settings
+
+::: tip Auto-Pause Best Practices
+- Enable auto-pause for competitive matches to handle player disconnects gracefully
+- Set minimum players to match your match format (5 for 5v5, 3 for 3v3, etc.)
+- Use reasonable auto-resume delays (10-15 seconds) to give teams time to prepare
 :::
 
 ## Practice Mode Commands
@@ -436,6 +526,7 @@ Force starts the match without waiting for ready-ups.
 **Restart match:**
 ```bash
 .restart
+.abort              # FSHOST custom alias
 .endmatch
 .forceend
 .end
@@ -443,6 +534,10 @@ Force starts the match without waiting for ready-ups.
 ```
 
 Force restarts/resets the current match.
+
+::: tip FSHOST Custom Feature
+The `.abort` command is an FSHOST-exclusive alias for `.restart`, providing an intuitive way to abort and restart matches.
+:::
 
 ### Admin Pause
 
@@ -470,6 +565,10 @@ Force unpauses the match regardless of team unpause requests.
 ```
 
 Restores the backup of round 15.
+
+::: info Enhanced Backup System
+FSHOST's version includes improved backup sanitization to prevent server crashes and enhanced restore confirmation with timeouts.
+:::
 
 ### Veto Control
 
@@ -516,22 +615,46 @@ To whitelist players, add Steam64 IDs to `cfg/matchzy/whitelist.cfg` on the serv
 
 **Set ready count:**
 ```bash
-.teamsize 5
+.teamsize 5             # FSHOST custom command
 .readyrequired 5
 .readyrequired 0        # All connected must ready
 ```
 
 Sets the minimum number of ready players required to start.
 
+::: tip FSHOST Custom Feature
+The `.teamsize` command is exclusive to FSHOST's customized version and provides a quick, intuitive way to set team size requirements.
+
+**Examples:**
+```bash
+.teamsize 5     # 5v5 match
+.teamsize 3     # 3v3 match  
+.teamsize 1     # 1v1 match
+```
+:::
+
 ### Server Settings
 
 **View current settings:**
 ```bash
-.settings
-.options
+.settings               # FSHOST enhanced command
+.config                 # FSHOST custom alias
+css_settings
+css_config
 ```
 
-Displays current configuration (knife enabled, ready requirements, etc.).
+Displays comprehensive match configuration including:
+- Knife round status
+- Ready requirements
+- Playout mode status
+- Team names
+- Auto-pause settings
+- Technical pause limits
+- And more...
+
+::: tip FSHOST Custom Feature
+The `.config` commands are FSHOST-exclusive aliases that provide enhanced settings display with more detailed information than the standard command.
+:::
 
 ### Communication
 
@@ -576,6 +699,34 @@ Exits practice mode and returns to match mode.
 
 Exits dry-run mode back to standard practice mode.
 
+## FSHOST Custom Features Summary
+
+These features are **exclusive** to FSHOST's customized MatchZy version and **will be lost** if you replace it with the original:
+
+### Commands
+| Command | Description | Type |
+|---------|-------------|------|
+| `.teamsize` | Quick team size configuration | Admin |
+| `.config` | Settings display alias | All Players |
+| `.abort` | Alternative restart command | Admin |
+| `.autopause` | Toggle auto-pause system | Admin |
+| `.autopause_minplayers` | Set pause threshold | Admin |
+| `.autopause_delay` | Set auto-resume delay | Admin |
+
+### Systems
+- **Auto-Pause System** - Automatically manages pauses based on player count (5v5 only)
+- **Auto-Resume System** - Automatically resumes when teams are balanced
+- **Restart Confirmation** - 30-second safety confirmation for critical actions
+- **Enhanced Stop System** - 3-second cooldown and 30-second vote timeout
+- **Backup Sanitization** - Prevents dangerous commands in backup restores
+- **Performance Optimizations** - FSHOST infrastructure-specific improvements
+
+### Configuration
+- Custom ConVars for auto-pause behavior
+- Enhanced backup management settings
+- Improved stop command controls
+- FSHOST-specific default values
+
 ## Common Workflows
 
 ### Starting a Competitive Match
@@ -586,6 +737,15 @@ Exits dry-run mode back to standard practice mode.
 # Knife round occurs
 # Winning team chooses side with .stay or .switch
 # Match goes live
+```
+
+### Setting Up Auto-Pause for 5v5
+
+```bash
+.autopause                    # Enable auto-pause
+.autopause_minplayers 5       # Require 5 players per team
+.autopause_delay 15           # 15 second resume delay
+.match                        # Start match
 ```
 
 ### Practice Session Setup
@@ -625,8 +785,33 @@ Ensure practice mode is enabled with `.prac` before saving lineups.
 Pauses can only be initiated during freeze time. Try again at round start.
 :::
 
+::: details Missing custom commands
+If `.teamsize`, `.config`, or `.autopause` commands don't work, verify you're using FSHOST's customized MatchZy version. Contact support if these commands are missing.
+:::
+
+::: details Auto-pause not working
+Auto-pause only activates for 5v5 matches (10 total players). It is automatically disabled for smaller formats. Ensure `autopause` is enabled with the `.autopause` command.
+:::
+
+## Version Information
+
+**Current Version:** 0.8.16 - Modified by Miksen  
+**Module Author:** WD- Edited by Miksen  
+**Based on:** [MatchZy by shobhit-pathak](https://github.com/shobhit-pathak/MatchZy)  
+**FSHOST Modifications:** Extensive custom features and integrations  
+
+::: danger Critical Warning
+**DO NOT** replace this plugin with the original MatchZy from GitHub. You will lose:
+- All custom commands (`.teamsize`, `.options`, `.autopause`, etc.)
+- Auto-pause/auto-resume system
+- Enhanced backup management
+
+**Always contact FSHOST support before making plugin changes.**
+:::
+
 ## Additional Resources
 
-- [Practice Guide](/games/cs2/commands) - More practice commands
 - [Admin Setup](/games/cs2/become-admin) - Configure admin access
 - [RCON Commands](/games/cs2/rcon) - Server configuration
+- [Original MatchZy Docs](https://shobhit-pathak.github.io/MatchZy/) - Upstream documentation (features may differ)
+- [FSHOST Support](https://fshost.me/discord) - Get help with FSHOST-specific features

@@ -162,7 +162,7 @@ For organizations with multiple servers or teams:
 3. Organize Discord channels by server or team
 
 **Example structure:**
-```
+```bash
 #team-a-demos
 #team-b-demos
 #practice-demos

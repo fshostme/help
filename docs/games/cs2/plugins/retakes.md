@@ -24,7 +24,7 @@ Practice bomb site retakes with customizable loadouts, spawn positions, and team
 ### Accessing Weapon Menus
 
 **Chat-based weapon menu:**
-```
+```bash
 .guns
 .gun
 !guns
@@ -34,7 +34,7 @@ Practice bomb site retakes with customizable loadouts, spawn positions, and team
 Opens the weapon selection menu in chat.
 
 **Center screen menu:**
-```
+```bash
 !gunsmenu
 !gunmenu
 .gunmenus
@@ -62,7 +62,7 @@ Spawn management commands require admin permissions.
 ### Viewing Spawns
 
 **Display spawn points:**
-```
+```bash
 !showspawns A
 !showspawns B
 ```
@@ -76,7 +76,7 @@ Shows all spawn positions for the specified bombsite.
 ### Adding Spawn Points
 
 **Add new spawn:**
-```
+```bash
 !addspawn CT Y
 !addspawn CT N
 !addspawn T Y
@@ -90,7 +90,7 @@ Adds a spawn point at your current position.
 - `Y` or `N` - Can this spawn be used for the bomb planter?
 
 **Examples:**
-```
+```bash
 !addspawn CT Y        # CT spawn, can be planter
 !addspawn T N         # T spawn, not planter
 !addspawn CT N        # CT spawn, not planter
@@ -103,7 +103,7 @@ Stand in the desired position and view direction before using `!addspawn`. The s
 ### Removing Spawns
 
 **Delete nearest spawn:**
-```
+```bash
 !removespawn
 ```
 
@@ -112,7 +112,7 @@ Removes the spawn point closest to your current position for the currently shown
 ### Teleporting to Spawns
 
 **Teleport to nearest:**
-```
+```bash
 !nearestspawn
 ```
 
@@ -121,7 +121,7 @@ Instantly teleports you to the nearest spawn point. Useful for testing spawn pos
 ### Exit Spawn Editor
 
 **Stop editing spawns:**
-```
+```bash
 !hidespawns
 ```
 
@@ -132,7 +132,7 @@ Exits spawn editing mode and hides all spawn indicators.
 ### Scrambling Teams
 
 **Randomize teams:**
-```
+```bash
 !scramble
 ```
 
@@ -149,7 +149,7 @@ Use this command when teams become unbalanced or to mix up player matchups.
 Advanced configuration is available through the config file:
 
 **Location:**
-```
+```bash
 csgo/addons/counterstrikesharp/configs/plugins/RetakesAllocator/RetakesAllocator.json
 ```
 
@@ -200,7 +200,7 @@ The configuration file allows you to customize:
 For admins setting up custom spawns:
 
 1. **Show spawns for a site:**
-   ```
+   ```bash
    !showspawns A
    ```
 
@@ -209,19 +209,19 @@ For admins setting up custom spawns:
    - Aim in the direction players should face
 
 3. **Add the spawn:**
-   ```
+   ```bash
    !addspawn CT Y
    ```
 
 4. **Test the spawn:**
-   ```
+   ```bash
    !nearestspawn
    ```
 
 5. **Repeat for all positions**
 
 6. **Exit editor:**
-   ```
+   ```bash
    !hidespawns
    ```
 
@@ -260,13 +260,13 @@ Check that your server has write permissions to the configuration directory. Con
 ## Command Summary
 
 **Player Commands:**
-```
+```bash
 .guns / !guns              # Open weapon menu
 !gunsmenu                  # Center screen menu
 ```
 
 **Admin Commands:**
-```
+```bash
 !showspawns A              # Show A site spawns
 !addspawn CT Y             # Add CT spawn (planter: yes)
 !removespawn               # Remove nearest spawn

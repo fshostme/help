@@ -26,17 +26,17 @@ These dependencies are managed automatically by FSHOST - no manual installation 
 | [FSH-AdminManager](#admin-manager) | ✕ | ✓ | Advanced admin system with role hierarchy |
 | css_rcon | ✕ | ✓ | Execute RCON commands via console |
 | [FakeRcon](#fake-rcon) | ✓ | ✓ | In-game console RCON access |
-| [CSTVDiscord](#cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |
+| [DemoURL](#cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |
 | FixDemoVoiceChat | ✕ | ✓ | Enable voice in demo recordings |
 | [Deathmatch](#deathmatch) | ✕ | ✓ | Complete deathmatch mode |
 | [Retakes](#retakes) | ✕ | ✓ | Bomb site retake practice |
-| [MatchZy](#matchzy) | ✕ | ✓ | Competitive match management |
-| [OpenPrefirePrac](#prefire) | ✕ | ✓ | Angle prefire training |
+| [FSH-MatchZy](#matchzy) | ✕ | ✓ | Competitive match management **customized** |
+| [OpenPrefirePrac](#prefire) | ✕ | ✓ | Prefire training |
 | CS2MapChange | ✓ | ✓ | Simplified map changing |
 | Workshop Maps | ✕ | ✓ | Load custom Steam Workshop maps |
-| [WeaponPaints](#weapon-skins) | ✕ | ✓<sup>*</sup> | Custom weapon skins |
-
-<sup>*</sup> Requires GSLT (Game Server Login Token)
+| [WeaponPaints](#weapon-skins) | ✕ | ✓ | Custom weapon skins |
+| [Demo Monitor](#demo-monitor) | ✕ | ✓ | Automatic demo file organization |
+| [TVFIX (CSTV Fix)](#tvfix) | ✕ | ✓ | Auto-restart CSTV after matches |
 
 ## Plugin Details
 
@@ -134,11 +134,39 @@ Enable custom weapon skins for players.
 
 **Requirements:**
 - Pro server
-- GSLT (Game Server Login Token)
 
-::: warning GSLT Requirement
-WeaponPaints requires a Game Server Login Token from Steam. Generate one at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers).
-:::
+### Demo Monitor {#demo-monitor}
+
+Automatic demo file organization for clean server management.
+
+**Features:**
+- Automatically moves completed demos to `/demos/` folder
+- Real-time monitoring of recording status
+- Periodic cleanup every 30 seconds
+- Safe file handling (prevents corruption)
+- MatchZy compatibility
+
+**How it helps:**
+Keeps your server files organized by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder. No more cluttered directories or manual file management.
+
+### TVFIX (CSTV Fix) {#tvfix}
+
+Prevents CSTV recording failures after matches.
+
+**Features:**
+- Auto-restarts CSTV after match completion
+- Smart detection of recording status
+- 25-second safe delay for demo writing
+- Map change protection
+- Toggle command for admins
+
+**How it helps:**
+Solves a CS2 bug where CSTV fails to record demos after the first match ends. Automatically restarts SourceTV between matches to ensure reliable demo recording for tournaments and competitive play.
+
+**Requirements:**
+- Pro server with CSTV enabled
+- `+tv_enable 1` in launch parameters
+
 
 ## Frequently Asked Questions
 

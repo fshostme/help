@@ -32,7 +32,7 @@ The main menu provides options for:
 Begin practicing on a selected route.
 
 **Examples:**
-```
+```bash
 !prefire prac          # Opens route selection menu
 !prefire prac 1        # Start route #1 directly
 !prefire prac 5        # Start route #5 directly
@@ -45,7 +45,7 @@ Begin practicing on a selected route.
 Switch to another map for practice.
 
 **Example:**
-```
+```bash
 !prefire map de_dust2
 !prefire map de_mirage
 !prefire map de_inferno
@@ -70,7 +70,7 @@ Set the difficulty level for bot reactions and accuracy.
 - **6** - Expert (instant reaction, high accuracy)
 
 **Example:**
-```
+```bash
 !prefire df 3          # Medium difficulty
 !prefire df 5          # Very hard difficulty
 ```
@@ -86,7 +86,7 @@ Set the training mode type.
 - **full** - Complete route in sequence
 
 **Example:**
-```
+```bash
 !prefire mode rand     # Random angle selection
 !prefire mode full     # Full route practice
 ```
@@ -105,7 +105,7 @@ Set weapons for practice bots.
 - `awp` - AWP sniper
 
 **Example:**
-```
+```bash
 !prefire bw ak         # Bots use AK-47
 !prefire bw rand       # Random weapons
 !prefire bw awp        # AWP practice
@@ -123,7 +123,7 @@ Set the language for practice mode messages.
 - `zh` - Chinese
 
 **Example:**
-```
+```bash
 !prefire lang en       # English
 !prefire lang pt       # Portuguese
 ```
@@ -135,7 +135,7 @@ Set the language for practice mode messages.
 Stop practicing and exit prefire practice mode.
 
 **Example:**
-```
+```bash
 !prefire exit
 ```
 
@@ -144,32 +144,32 @@ Stop practicing and exit prefire practice mode.
 ### Recommended Setup
 
 1. **Load the plugin:**
-   ```
+   ```bash
    !prefireon
    ```
 
 2. **Select your map:**
-   ```
+   ```bash
    !prefire map de_dust2
    ```
 
 3. **Configure difficulty:**
-   ```
+   ```bash
    !prefire df 4
    ```
 
 4. **Choose training mode:**
-   ```
+   ```bash
    !prefire mode full
    ```
 
 5. **Set bot weapons:**
-   ```
+   ```bash
    !prefire bw ak
    ```
 
 6. **Start practice:**
-   ```
+   ```bash
    !prefire prac 1
    ```
 
@@ -177,7 +177,7 @@ Stop practicing and exit prefire practice mode.
 
 For a quick practice session with default settings:
 
-```
+```bash
 !prefireon             # Enable plugin
 !prefire               # Open menu
 # Select route from menu
@@ -219,7 +219,7 @@ Try using the console command `css_prefire` instead of the chat command.
 
 Quick reference for all commands:
 
-```
+```bash
 !prefireon                    # Enable plugin
 !prefire                      # Open main menu
 !prefire prac [number]        # Start route

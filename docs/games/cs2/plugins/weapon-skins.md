@@ -3,11 +3,7 @@
 Customize weapon skins, floats, seeds, gloves, and agent models on your CS2 server.
 
 ::: tip Pro Feature
-WeaponPaints plugin is available exclusively on Pro servers and requires a GSLT (Game Server Login Token).
-:::
-
-::: warning Development Status
-WeaponPaints is actively developed. Some features like full agent support and advanced customization options may be incomplete or subject to change.
+WeaponPaints plugin is available exclusively on Pro servers
 :::
 
 ## Features
@@ -35,15 +31,6 @@ For the best customization experience, use the web interface at [skins.fsho.st](
 4. Join your server
 5. Your skins automatically apply
 
-### Syncing Skins
-
-**Refresh your skins:**
-```
-!wp
-```
-
-Use this command if you've changed skins via the website and want to reload them without reconnecting.
-
 ## In-Game Commands
 
 All commands use the `!` prefix in chat:
@@ -51,14 +38,14 @@ All commands use the `!` prefix in chat:
 ### General Commands
 
 **Weapon Paints help:**
-```
+```bash
 !ws
 ```
 
 Displays available weapon paint commands.
 
 **Refresh skins:**
-```
+```bash
 !wp
 ```
 
@@ -67,28 +54,28 @@ Reloads your skin configuration from the database.
 ### Skin Selection
 
 **Weapon skins menu:**
-```
+```bash
 !skins
 ```
 
 Opens in-game menu for selecting weapon skins.
 
 **Knife skins menu:**
-```
+```bash
 !knife
 ```
 
 Browse and select knife skins.
 
 **Glove skins menu:**
-```
+```bash
 !gloves
 ```
 
 Choose from available glove skins.
 
 **Agent skins menu:**
-```
+```bash
 !agents
 ```
 
@@ -97,14 +84,14 @@ Select agent/player models.
 ### Cosmetics
 
 **Collectible pins:**
-```
+```bash
 !pins
 ```
 
 Select and equip collectible pins.
 
 **Music kits:**
-```
+```bash
 !music
 ```
 
@@ -169,7 +156,7 @@ Lower float values (closer to 0.00) result in cleaner, less worn skins. Set to 0
 
 Quick reference for all commands:
 
-```
+```bash
 !ws              # Show available commands
 !wp              # Refresh/reload skins
 !skins           # Weapon skins menu
@@ -179,16 +166,6 @@ Quick reference for all commands:
 !pins            # Collectible pins menu
 !music           # Music kit menu
 ```
-
-## Setup Requirements
-
-### GSLT (Game Server Login Token)
-
-WeaponPaints requires a valid GSLT:
-
-1. Generate token at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers)
-2. Configure token in your server panel
-3. Restart server to apply
 
 ## Data Synchronization
 
@@ -203,7 +180,7 @@ WeaponPaints requires a valid GSLT:
 
 If your skins don't appear after changing them:
 
-```
+```bash
 !wp
 ```
 
