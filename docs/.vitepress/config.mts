@@ -337,6 +337,7 @@ export default defineConfig({
           items: [
             { text: 'Plugin Overview', link: '/games/cs2/plugins' },
             { text: 'CS2-SimpleAdmin', link: '/games/cs2/plugins/cs2-simpleadmin' },
+            { text: 'AdminManager', link: '/games/cs2/plugins/adminmanager' },
             { text: 'MatchZy', link: '/games/cs2/plugins/matchzy' },
             { text: 'Deathmatch', link: '/games/cs2/plugins/deathmatch' },
             { text: 'Retakes', link: '/games/cs2/plugins/retakes' },

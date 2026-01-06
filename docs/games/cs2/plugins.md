@@ -9,7 +9,7 @@ These core components are automatically installed and maintained on all servers:
 | Component | Purpose |
 |-----------|---------|
 | **Metamod:Source** | Foundation layer enabling server modifications |
-| **CounterStrikeSharp** | Server-side modding framework for plugin support |
+| **CounterStrikeSharp** - [Forked](<https://github.com/mrc4tt/CounterStrikeSharp>) | Server-side modding framework for plugin support |
 | **MultiAddonManager** | Handles workshop content and client downloads |
 
 ::: tip Automatic Updates
@@ -23,7 +23,7 @@ These dependencies are managed automatically by FSHOST - no manual installation 
 | Plugin | Free | Pro | Description |
 |--------|------|-----|-------------|
 | [CS2-SimpleAdmin](#cs2-simpleadmin) | ✕ | ✓ | Essential admin tools and commands |
-| [FSH-AdminManager](#admin-manager) | ✕ | ✓ | Advanced admin system with role hierarchy |
+| [FSH-AdminManager](/games/cs2/plugins/adminmanager.md) | ✕ | ✓ | Advanced admin system with role hierarchy |
 | css_rcon | ✕ | ✓ | Execute RCON commands via console |
 | [FakeRcon](#fake-rcon) | ✓ | ✓ | In-game console RCON access |
 | [DemoURL](#cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |

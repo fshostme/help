@@ -10,7 +10,7 @@ Our most popular game server!
 Features:
 - Full workshop support
 - RCON access
-- Plugin/mod support (CounterStrikeSharp, Metamod)
+- Plugin/mod support
 - Preinstalled addons for matches
 - Competitive & casual modes
 

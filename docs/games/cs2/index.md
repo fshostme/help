@@ -26,6 +26,7 @@ Enhance your Pro server with these powerful plugins.
 
 ### Administration
 - [CS2-SimpleAdmin](/games/cs2/plugins/cs2-simpleadmin) - Core admin functionality
+- [FSH-AdminManager](/games/cs2/plugins/adminmanager) - Admin Manager (Management)
 
 ### Game Modes
 - [Deathmatch](/games/cs2/plugins/deathmatch) - Fast-paced FFA game mode

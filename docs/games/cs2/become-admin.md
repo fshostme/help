@@ -131,7 +131,6 @@ Roles allow organized permission structures with immunity levels.
 | `j` | Team | Manage teams |
 | `k` | Config | Execute configs |
 | `l` | Reservation | Reserved slots |
-| `m` | Root | Root admin access |
 | `n` | Custom | Custom permissions |
 | `o` | Rcon | RCON access |
 | `z` | Full | All permissions |
