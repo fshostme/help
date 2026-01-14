@@ -7,8 +7,8 @@ Comprehensive guides for managing and configuring your CS1.6 game server on FSHO
 Essential documentation to get your server running.
 
 ### Server Setup
-- [Become a Server Admin](/cs16/becomeadmin) - Gain administrative control with AMXModX
-- [RCON Commands](/cs16/rcon) - Remote console command reference
+- [Become a Server Admin](/games/cs16/becomeadmin) - Gain administrative control with AMXModX
+- [RCON Commands](/games/cs16/rcon) - Remote console command reference
 
 ### Server Management
 - **RCON Access** - Full remote control via console
@@ -150,7 +150,7 @@ rcon pb_autokill 1    # Auto-kill bots when humans die
 ```
 
 ::: info Pro Feature
-PODBot commands require a Pro server and admin privileges. Learn more about [becoming an admin](/cs16/becomeadmin).
+PODBot commands require a Pro server and admin privileges. Learn more about [becoming an admin](/games/cs16/becomeadmin).
 :::
 
 ## Getting Support
@@ -165,7 +165,7 @@ PODBot commands require a Pro server and admin privileges. Learn more about [bec
 ### Common Questions
 
 ::: details How do I become an admin?
-Follow the complete [Admin Setup Guide](/cs16/becomeadmin) which covers:
+Follow the complete [Admin Setup Guide](/games/cs16/becomeadmin) which covers:
 1. Logging into RCON
 2. Using amx_addadmin command
 3. Understanding admin flags
@@ -177,7 +177,7 @@ Yes! Check our [map library](https://dl.fsho.st/cs16/maps/) first. If your maps 
 :::
 
 ::: details How do I add bots?
-Bots (PODBot) are available on Pro servers only. Use admin commands like `amx_pbmenu` to control bots. See [RCON Commands](/cs16/rcon) for details.
+Bots (PODBot) are available on Pro servers only. Use admin commands like `amx_pbmenu` to control bots. See [RCON Commands](/games/cs16/rcon) for details.
 :::
 
 ::: details What is AMXModX?
@@ -221,7 +221,7 @@ Free servers have temporary admin (resets on restart). Pro servers offer permane
 - `sv_gravity` - Gravity setting
 - `sv_cheats` - Enable cheats (testing only)
 
-Full reference: [RCON Commands](/cs16/rcon)
+Full reference: [RCON Commands](/games/cs16/rcon)
 
 ### Security Best Practices
 
@@ -235,9 +235,8 @@ Full reference: [RCON Commands](/cs16/rcon)
 
 ## Next Steps
 
-1. **New Users:** Start with [Creating a Server](/cs16/dashboard)
-2. **Admin Setup:** Follow [Become Admin Guide](/cs16/becomeadmin)
-3. **Configuration:** Review [RCON Commands](/cs16/rcon)
+2. **Admin Setup:** Follow [Become Admin Guide](/games/cs16/becomeadmin)
+3. **Configuration:** Review [RCON Commands](/games/cs16/rcon)
 4. **Custom Content:** Browse [Map Library](https://dl.fsho.st/cs16/maps/)
 5. **Advanced:** Explore AMXModX plugins (Pro)
 6. **Get Help:** Join [Discord](https://fshost.me/discord)

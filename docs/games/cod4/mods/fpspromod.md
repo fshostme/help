@@ -93,7 +93,7 @@ Anti-cheat and demo upload are enabled automatically.
 ```
 
 ::: info Mode Commands
-FPS Promod uses the same mode commands as standard Promod LIVE. See [Promod LIVE documentation](/cod4/mods/promodlive) for full command reference.
+FPS Promod uses the same mode commands as standard Promod LIVE. See [Promod LIVE documentation](/games/cod4/mods/promodlive) for full command reference.
 :::
 
 ## Release Notes
@@ -199,7 +199,7 @@ For mod-specific issues:
 
 ## Related Resources
 
-- [Promod LIVE](/cod4/mods/promodlive) - Standard Promod documentation
-- [CoD4 RCON Commands](/cod4/rcon) - Server management
+- [Promod LIVE](/games/cod4/mods/promodlive) - Standard Promod documentation
+- [CoD4 RCON Commands](/games/cod4/rcon) - Server management
 - [FPSChallenge.eu](https://fpschallenge.eu/) - Official website
 - [GitHub Repository](https://github.com/warkingous/promod_x) - Source code and releases

@@ -274,6 +274,6 @@ Exact commands may vary by server configuration. Check server rules or ask admin
 ## Related Resources
 
 - [CoDJumper.com](https://www.codjumper.com/) - Official website
-- [CoD4 RCON Commands](/cod4/rcon) - Server management
-- [Stock Custom Maps](/cod4/mods/stock-custom-maps) - Additional maps
+- [CoD4 RCON Commands](/games/cod4/rcon) - Server management
+- [Stock Custom Maps](/games/cod4/mods/stock-custom-maps) - Additional maps
 - [Support](https://fshost.me/discord) - Get help

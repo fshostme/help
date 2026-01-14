@@ -210,6 +210,6 @@ rcon sv_restart 1
 
 ## Related Resources
 
-- [Become a Server Admin](/cs16/becomeadmin) - Gain admin rights
+- [Become a Server Admin](/games/cs16/becomeadmin) - Gain admin rights
 - [Support](https://fshost.me/discord) - Get help
 - [PODBot Documentation](http://podbotmm.bots-united.com/doc_v3/html/pbmm_configuration.html) - Bot commands

@@ -242,7 +242,7 @@ Possible causes:
 
 ## Related Resources
 
-- [CoD4 RCON Commands](/cod4/rcon) - Server management
-- [Stock Custom Maps](/cod4/mods/stock-custom-maps) - Add variety
+- [CoD4 RCON Commands](/games/cod4/rcon) - Server management
+- [Stock Custom Maps](/games/cod4/mods/stock-custom-maps) - Add variety
 - [Screenshots](https://fshost.me/screenshots) - View servers
 - [Support](https://fshost.me/discord) - Get help

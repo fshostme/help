@@ -291,7 +291,7 @@ All standard RCON commands work normally.
 
 ## Related Resources
 
-- [CoD4 RCON Commands](/cod4/rcon) - Server management
-- [Promod LIVE](/cod4/mods/promodlive) - Competitive gameplay
-- [GunGame](/cod4/mods/gungame) - Alternative mod
+- [CoD4 RCON Commands](/games/cod4/rcon) - Server management
+- [Promod LIVE](/games/cod4/mods/promodlive) - Competitive gameplay
+- [GunGame](/games/cod4/mods/gungame) - Alternative mod
 - [Support](https://fshost.me/discord) - Get help

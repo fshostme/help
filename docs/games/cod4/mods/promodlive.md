@@ -181,6 +181,6 @@ Check your mr# parameter:
 
 ## Related Resources
 
-- [CoD4 RCON Commands](/cod4/rcon) - Server management
-- [FPSChallenge.eu Promod](/cod4/mods/fps-promod) - Alternative Promod variant
+- [CoD4 RCON Commands](/games/cod4/rcon) - Server management
+- [FPSChallenge.eu Promod](/games/cod4/mods/fps-promod) - Alternative Promod variant
 - [Screenshots](https://fshost.me/screenshots) - View server

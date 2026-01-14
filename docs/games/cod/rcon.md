@@ -129,6 +129,6 @@ Take a screenshot (you will need PunkBuster (PB) enabled for this).
 
 ## Related Resources
 
-- [Creating a Server](/cod/dashboard) - Setup guide
+- [Creating a Server](/games/cod/dashboard) - Setup guide
 - [Screenshots](https://fshost.me/screenshots) - View server screenshots
 - [Support](https://fshost.me/discord) - Get help
