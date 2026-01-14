@@ -8,7 +8,6 @@ Essential documentation to get your server running.
 
 ### Server Setup
 - [RCON Commands](/games/cod4/rcon) - Remote console command reference
-- [Server Mods](/games/cod4/mods/) - Available mod overview
 - [Screenshots](https://fshost.me/screenshots) - View server screenshots
 
 ### Server Management
@@ -486,15 +485,6 @@ Detailed documentation for each mod:
 - **[GunGame](/games/cod4/mods/gungame)** - Progressive weapon gameplay
 - **[CoDJumper](/games/cod4/mods/codjumper)** - Jump mechanics and maps
 - **[Stock Custom Maps](/games/cod4/mods/stock-custom-maps)** - Custom map setup
-
-## Next Steps
-
-1. **New Users:** [Create a Server](/games/cod4/dashboard)
-2. **Choose Mod:** Browse [Available Mods](/games/cod4/mods/)
-3. **Configuration:** Review [RCON Commands](/games/cod4/rcon)
-4. **Competitive:** Set up [Promod](/games/cod4/mods/promodlive)
-5. **Fun:** Try [GunGame](/games/cod4/mods/gungame)
-6. **Get Help:** Join [Discord](https://fshost.me/discord)
 
 ---
 

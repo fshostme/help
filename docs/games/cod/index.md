@@ -355,11 +355,10 @@ Full reference: [RCON Commands](/games/cod/rcon)
 
 ## Next Steps
 
-1. **New Users:** Start with [Creating a Server](/games/cod/dashboard)
-2. **Configuration:** Review [RCON Commands](/games/cod/rcon)
-3. **Game Modes:** Experiment with different modes
-4. **Screenshots:** Check [Server Screenshots](https://fshost.me/screenshots)
-5. **Get Help:** Join [Discord](https://fshost.me/discord)
+1. **Configuration:** Review [RCON Commands](/games/cod/rcon)
+2. **Game Modes:** Experiment with different modes
+3. **Screenshots:** Check [Server Screenshots](https://fshost.me/screenshots)
+4. **Get Help:** Join [Discord](https://fshost.me/discord)
 
 ---
 

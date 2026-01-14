@@ -400,12 +400,11 @@ Call of Duty 2 features:
 
 ## Next Steps
 
-1. **New Users:** Start with [Creating a Server](/games/cod2/dashboard)
-2. **Configuration:** Review [RCON Commands](/games/cod2/rcon)
-3. **Game Modes:** Experiment with different modes
-4. **Friendly Fire:** Choose appropriate setting
-5. **Screenshots:** Check [Server Screenshots](https://fshost.me/screenshots)
-6. **Get Help:** Join [Discord](https://fshost.me/discord)
+1. **Configuration:** Review [RCON Commands](/games/cod2/rcon)
+2. **Game Modes:** Experiment with different modes
+3. **Friendly Fire:** Choose appropriate setting
+4. **Screenshots:** Check [Server Screenshots](https://fshost.me/screenshots)
+5. **Get Help:** Join [Discord](https://fshost.me/discord)
 
 ---
 
