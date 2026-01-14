@@ -161,7 +161,6 @@ Take a screenshot on **CoD4x**.
 
 ## Related Resources
 
-- [Mods Overview](/games/cod4/mods/) - Available mods
 - [Promod LIVE](/games/cod4/mods/promodlive) - Competitive mod
 - [Screenshots](https://fshost.me/screenshots) - View server screenshots
 - [Support](https://fshost.me/discord) - Get help
