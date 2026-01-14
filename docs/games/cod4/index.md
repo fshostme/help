@@ -67,7 +67,7 @@ Enhance your server with these popular mods.
 - Balanced gameplay
 - Professional settings
 
-**[FPSChallenge.eu Promod](/games/cod4/mods/fpspromod)**
+**[FPSChallenge.eu Promod](/games/cod4/mods/fps-promod)**
 - Enhanced Promod variant
 - Built-in anti-cheat
 - Automatic demo upload
@@ -272,7 +272,7 @@ Uses same commands as Promod LIVE but includes:
 - Demo upload integration
 - Enhanced security
 
-See [FPS Promod documentation](/games/cod4/mods/fpspromod).
+See [FPS Promod documentation](/games/cod4/mods/fps-promod).
 
 ### GunGame Configuration
 
@@ -378,7 +378,7 @@ No, mods are selected during server creation. To change mods, create a new serve
 :::
 
 ::: details What's the difference between Promod and FPS Promod?
-FPS Promod includes built-in anti-cheat and automatic demo upload. It's based on Promod LIVE with enhancements. See [FPS Promod page](/games/cod4/mods/fpspromod).
+FPS Promod includes built-in anti-cheat and automatic demo upload. It's based on Promod LIVE with enhancements. See [FPS Promod page](/games/cod4/mods/fps-promod).
 :::
 
 ::: details How do I add custom maps?
@@ -481,7 +481,7 @@ Full reference: [RCON Commands](/games/cod4/rcon)
 Detailed documentation for each mod:
 
 - **[Promod LIVE](/games/cod4/mods/promodlive)** - Competitive settings and modes
-- **[FPS Promod](/games/cod4/mods/fpspromod)** - Enhanced anti-cheat features
+- **[FPS Promod](/games/cod4/mods/fps-promod)** - Enhanced anti-cheat features
 - **[GunGame](/games/cod4/mods/gungame)** - Progressive weapon gameplay
 - **[CoDJumper](/games/cod4/mods/codjumper)** - Jump mechanics and maps
 - **[Stock Custom Maps](/games/cod4/mods/stock-custom-maps)** - Custom map setup
