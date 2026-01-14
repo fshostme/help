@@ -26,7 +26,11 @@ export default defineConfig({
         text: 'Games',
         items: [
           { text: 'All Games', link: '/games/' },
-          { text: 'Counter-Strike 2', link: '/games/cs2/' }
+          { text: 'Counter-Strike 2', link: '/games/cs2/' },
+          { text: 'Counter-Strike 1.6', link: '/games/cs16/' },
+          { text: 'Call of Duty', link: '/games/cod/' },
+          { text: 'Call of Duty 2', link: '/games/cod2/' },
+          { text: 'Call of Duty 4: MW', link: '/games/cod4/' }
         ]
       },
       { text: 'Troubleshooting', link: '/troubleshooting/' },
@@ -295,7 +299,11 @@ export default defineConfig({
           text: 'Supported Games',
           items: [
             { text: 'All Games', link: '/games/' },
-            { text: 'Counter-Strike 2', link: '/games/cs2/' }
+            { text: 'Counter-Strike 2', link: '/games/cs2/' },
+            { text: 'Counter-Strike 1.6', link: '/games/cs16/' },
+            { text: 'Call of Duty', link: '/games/cod/' },
+            { text: 'Call of Duty 2', link: '/games/cod2/' },
+            { text: 'Call of Duty 4: MW', link: '/games/cod4/' }
           ]
         },
         {
