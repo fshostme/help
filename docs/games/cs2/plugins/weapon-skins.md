@@ -108,22 +108,6 @@ Before using `!music`, you must select the **default CS2 Music Kit** from your i
 !seed <value>` - Change weapon pattern seed (0-999)
 !seed` - Show the current weapon's seed value
 ```
-**Float Presets:**
-```bash
-!float fn
-!float mw
-!float ft
-!float ww
-!float bs
-```
-
-**GenCodes:**
-- (**Gloves NOT supported**)
-```bash
-!gen - Generate random skins for all weapons and knifes
-!gen <weapon> - Generate random skin for specific weapon (e.g., !gen weapon_ak47 38 200 0.94)
-```
-
 ## Web Interface Features
 
 The web interface at [skins.fsho.st](https://skins.fsho.st) provides additional capabilities:
