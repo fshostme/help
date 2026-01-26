@@ -35,7 +35,7 @@ Advanced features for competitive play:
 - Priority hardware
 - CoD4x support
 - Advanced configurations
-- FTP/SFTP access
+- FTP access
 - Custom mod configs
 - Priority support
 - No advertisements
