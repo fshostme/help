@@ -324,5 +324,5 @@ Shows all current admins on the server.
 ## Related Resources
 
 - [RCON Commands](/games/cs16/rcon) - Full RCON command reference
-- [AMXModX Commands](https://www.amxmodx.org/doc/) - Official documentation
+- [AMXModX Commands](https://wiki.alliedmods.net/Commands_(AMX_Mod_X)) - Official documentation
 - [Support](https://fshost.me/discord) - Get help
