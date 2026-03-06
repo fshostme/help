@@ -23,7 +23,7 @@ Your Steam account must meet **all** of the following:
 1. Go to [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers) and log in
 2. Scroll down to **Create a new game server account**
 3. Enter App ID: `4465480`
-4. Enter a memo to identify the server (e.g. `csgo-server-1`)
+4. Enter a memo to identify the server (e.g. `fshost-p1234`)
 5. Click **Create**
 6. Copy the **Login Token** — this is your GSLT
 
