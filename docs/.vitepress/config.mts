@@ -28,6 +28,7 @@ export default defineConfig({
           { text: 'All Games', link: '/games/' },
           { text: 'Counter-Strike 2', link: '/games/cs2/' },
           { text: 'Counter-Strike 1.6', link: '/games/cs16/' },
+          { text: 'Counter-Strike GO', link: '/games/csgo/' },
           { text: 'Call of Duty', link: '/games/cod/' },
           { text: 'Call of Duty 2', link: '/games/cod2/' },
           { text: 'Call of Duty 4: MW', link: '/games/cod4/' }
@@ -301,6 +302,7 @@ export default defineConfig({
             { text: 'All Games', link: '/games/' },
             { text: 'Counter-Strike 2', link: '/games/cs2/' },
             { text: 'Counter-Strike 1.6', link: '/games/cs16/' },
+	    { text: 'Counter-Strike GO', link: '/games/csgo/' },
             { text: 'Call of Duty', link: '/games/cod/' },
             { text: 'Call of Duty 2', link: '/games/cod2/' },
             { text: 'Call of Duty 4: MW', link: '/games/cod4/' }
