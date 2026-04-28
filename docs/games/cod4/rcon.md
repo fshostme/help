@@ -143,24 +143,7 @@ Kicks and temporarily bans a player by their name.
 
 Kicks and temporarily bans a player by their ID.
 
-### Screenshots
-
-**Take screenshot (v1.7):**
-```
-/rcon pb_sv_getss
-```
-
-Take a screenshot for **v1.7** (you will need PB enabled for this).
-
-**Take screenshot (CoD4x):**
-```
-/rcon getss
-```
-
-Take a screenshot on **CoD4x**.
-
 ## Related Resources
 
 - [Promod LIVE](/games/cod4/mods/promodlive) - Competitive mod
-- [Screenshots](https://fshost.me/screenshots) - View server screenshots
 - [Support](https://fshost.me/discord) - Get help

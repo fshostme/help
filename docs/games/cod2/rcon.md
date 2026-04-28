@@ -115,16 +115,6 @@ Kick a player using their slot number.
 
 Kick all players from the server.
 
-### Screenshots
-
-**Take screenshot:**
-```
-/rcon pb_sv_getss clientslot
-```
-
-Take a screenshot (you will need PB enabled for this).
-
 ## Related Resources
 
-- [Screenshots](https://fshost.me/screenshots) - View server screenshots
 - [Support](https://fshost.me/discord) - Get help

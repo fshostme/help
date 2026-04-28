@@ -8,7 +8,6 @@ Essential documentation to get your server running.
 
 ### Server Setup
 - [RCON Commands](/games/cod/rcon) - Remote console command reference
-- [Screenshots](https://fshost.me/screenshots) - View server screenshots
 
 ### Server Management
 - **RCON Access** - Full remote control via in-game console
@@ -250,7 +249,7 @@ FSHOST supports custom maps. Contact support to request additional maps for your
 ```
 
 ::: info PunkBuster
-PunkBuster helps maintain fair play by detecting and preventing cheating. Screenshots can be used to verify suspicious behavior.
+PunkBuster helps maintain fair play by detecting and preventing cheating.
 :::
 
 ## Getting Support
@@ -258,7 +257,6 @@ PunkBuster helps maintain fair play by detecting and preventing cheating. Screen
 ### Resources
 - **Documentation:** Browse these guides for answers
 - **Discord:** [Join FSHOST Community](https://fshost.me/discord)
-- **Screenshots:** [View Server Screenshots](https://fshost.me/screenshots)
 - **Support Channels:**
   - Free users: `#free-support`
   - Pro users: `#pro-support`
@@ -357,8 +355,7 @@ Full reference: [RCON Commands](/games/cod/rcon)
 
 1. **Configuration:** Review [RCON Commands](/games/cod/rcon)
 2. **Game Modes:** Experiment with different modes
-3. **Screenshots:** Check [Server Screenshots](https://fshost.me/screenshots)
-4. **Get Help:** Join [Discord](https://fshost.me/discord)
+3. **Get Help:** Join [Discord](https://fshost.me/discord)
 
 ---
 

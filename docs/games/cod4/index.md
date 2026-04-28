@@ -8,7 +8,6 @@ Essential documentation to get your server running.
 
 ### Server Setup
 - [RCON Commands](/games/cod4/rcon) - Remote console command reference
-- [Screenshots](https://fshost.me/screenshots) - View server screenshots
 
 ### Server Management
 - **RCON Access** - Full remote control via in-game console
@@ -232,18 +231,6 @@ Shows:
 /rcon kickall
 ```
 
-### Screenshots
-
-**For v1.7 with PunkBuster:**
-```bash
-/rcon pb_sv_getss
-```
-
-**For CoD4x:**
-```bash
-/rcon getss
-```
-
 ## Mod Configurations
 
 ### Promod Setup
@@ -323,14 +310,12 @@ See [GunGame documentation](/games/cod4/mods/gungame).
 
 **Features:**
 - Cheat detection
-- Screenshot capability
 - Player tracking
 - Ban management
 
 **Commands:**
 ```bash
 /rcon pb_sv_plist        # Player list
-/rcon pb_sv_getss        # Screenshot
 ```
 
 ### CoD4x
@@ -339,19 +324,12 @@ See [GunGame documentation](/games/cod4/mods/gungame).
 - Better performance
 - Bug fixes
 - Extended functionality
-- Custom screenshot command
-
-**Screenshot command:**
-```bash
-/rcon getss
-```
 
 ## Getting Support
 
 ### Resources
 - **Documentation:** Browse these guides
 - **Discord:** [Join FSHOST Community](https://fshost.me/discord)
-- **Screenshots:** [View Servers](https://fshost.me/screenshots)
 - **Support Channels:**
   - Free: `#free-support`
   - Pro: `#pro-support`
@@ -418,7 +396,6 @@ Contact support via [Discord](https://fshost.me/discord) with map download links
 - Don't type password in chat
 - Use PunkBuster/CoD4x anti-cheat
 - Monitor suspicious players
-- Take screenshots when needed
 :::
 
 ## Advanced Topics
