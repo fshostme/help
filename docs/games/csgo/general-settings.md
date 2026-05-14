@@ -14,7 +14,7 @@ You can also use maps from the [Steam Workshop](https://steamcommunity.com/works
 rcon host_workshop_map fileID
 ```
 
-To restart the map after X amount of seconds:
+To restart the map after X seconds:
 
 ```
 rcon mp_restartgame seconds
@@ -22,7 +22,7 @@ rcon mp_restartgame seconds
 
 ## Password
 
-You can change or remove the password to join your server by leaving the value empty.
+You can change or remove the password for joining your server by leaving the value blank.
 
 ```
 rcon sv_password ""

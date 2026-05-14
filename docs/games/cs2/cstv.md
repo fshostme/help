@@ -16,7 +16,7 @@ Activate CSTV through your server's control panel:
 
 1. Navigate to your server management page
 2. Locate the CSTV settings section
-3. Toggle CSTV to enabled
+3. Toggle CSTV to enable
 4. Note the assigned CSTV port
 
 ## Configuration
@@ -35,8 +35,8 @@ Activate CSTV through your server's control panel:
 // CSTV Settings
 tv_enable 1
 tv_name "FSHOST Match Server"
-tv_delay 0                    // 0 second delay
-tv_maxclients 10               // Max spectators
+tv_delay 0 // 0 second delay
+tv_maxclients 10 // Max spectators
 ```
 
 ## Connecting to CSTV
@@ -54,17 +54,17 @@ connect 123.45.67.89:27020
 ```
 
 ::: tip Finding Your Port
-Your CSTV port is displayed in the server panel when CSTV is enabled. It's typically your server port + 5 (e.g., if server is 27015, CSTV is 27020).
+Your CSTV port is displayed in the server panel when CSTV is enabled. It's typically your server port + 5 (e.g., if the server is on port 27015, CSTV is on 27020).
 :::
 
 ### Spectator Commands
 
 Once connected to CSTV:
 ```bash
-spec_mode           // Cycle spectator modes
-spec_next           // Next player
-spec_prev           // Previous player
-spec_player NAME    // Spectate specific player
+spec_mode // Cycle spectator modes
+spec_next // Next player
+spec_prev // Previous player
+spec_player NAME // Spectate specific player
 ```
 
 ## Demo Recording
@@ -152,7 +152,7 @@ CDemoFile::Open: couldn't open file demo.dem for reading
 **Solution:**
 1. Delete the corrupted file
 2. Re-download from your server
-3. Verify file is in correct directory: `.../game/csgo/`
+3. Verify file is in the correct directory: `.../game/csgo/`
 4. Ensure file has `.dem` extension
 :::
 
@@ -167,7 +167,7 @@ playdemo yourdemo.dem
 
 ::: details Cannot connect to CSTV
 Verify:
-- CSTV is enabled in panel
+- CSTV is enabled in the panel
 - Using correct port (server port + 5)
 - Server is running
 - No firewall blocking connection

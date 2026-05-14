@@ -2,7 +2,7 @@
 
 ## Status
 
-Shows the Slot Number, Name, SteamID, IP, and other info of the players connected.
+Shows the Slot Number, Name, SteamID, IP, and other information for connected players.
 
 ```
 rcon status

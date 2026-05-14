@@ -20,7 +20,7 @@ The easiest way to manage admins is through the web interface.
 **Benefits:**
 - Visual Steam profile avatars for easy identification
 - No in-game commands required
-- Centralized admin list management
+- Centralised admin list management
 
 ### In-Game Admin Access
 
@@ -29,9 +29,9 @@ The easiest way to manage admins is through the web interface.
 1. **Connect to your Pro server**
 2. **Open in-game chat**
 3. **Enter login command:**
-   ```bash
-   /login YOUR_RCON_PASSWORD
-   ```
+```bash
+/login YOUR_RCON_PASSWORD
+```
 
 **Success Confirmation:**
 ```bash
@@ -68,7 +68,7 @@ The easiest way to manage admins is through the web interface.
 ```
 
 ::: tip SteamID64 Format
-Use SteamID64 format for permanent admin assignments. Find yours at [steamid.io](https://steamid.io)
+Use the SteamID64 format for permanent admin assignments. Find yours at [steamid.io](https://steamid.io)
 :::
 
 ### Removing Admins
@@ -82,7 +82,7 @@ Use SteamID64 format for permanent admin assignments. Find yours at [steamid.io]
 
 ### Creating Roles
 
-Roles allow organized permission structures with immunity levels.
+Roles allow organised permission structures with immunity levels.
 
 **Command Structure:**
 ```bash
@@ -173,7 +173,7 @@ Roles allow organized permission structures with immunity levels.
 
 **Temporary Ban:**
 ```bash
-/css_ban PlayerName 1440  # 24 hour ban
+/css_ban PlayerName 1440 # 24 hour ban
 /css_ban PlayerName 10080 # 7 day ban
 ```
 
@@ -200,10 +200,10 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 
 **Example Hierarchy:**
 ```bash
-/css_addrole Helper abd 10      # Can kick/ban immunity <10
-/css_addrole Mod abdfh 50       # Can manage immunity <50
-/css_addrole Admin z 99         # Can manage immunity <99
-/css_addrole Owner z 100        # Cannot be managed by anyone
+/css_addrole Helper abd 10 # Can kick/ban immunity <10
+/css_addrole Mod abdfh 50 # Can manage immunity <50
+/css_addrole Admin z 99 # Can manage immunity <99
+/css_addrole Owner z 100 # Cannot be managed by anyone
 ```
 
 ## Role Examples
@@ -212,7 +212,7 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 
 ```bash
 /css_addrole VIP o 5
-/css_addrole Admin z 99
+/css_addrAdmindmin z 99
 
 /css_addadmin 76561198975357634 Admin
 /css_addadmin FriendName VIP
@@ -238,8 +238,8 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 1. Use strong, unique RCON passwords
 2. Never share RCON password publicly
 3. Grant minimum necessary permissions
-4. Regularly review admin list
-5. Use web interface for easier management
+4. Regularly review the admin list
+5. Use the web interface for easier management
 :::
 
 ::: warning Permission Guidelines
@@ -260,10 +260,10 @@ Verify:
 - Server is Pro tier, not free
 :::
 
-::: details Cannot add admin
+::: details Cannot Admin
 Check:
 - Your immunity is higher than the target
-- Using correct SteamID64 format
+- Using the correct SteamID64 format
 - Role name exists (if using roles)
 - Syntax is correct
 :::
@@ -272,7 +272,7 @@ Check:
 Admin changes save automatically to the database. If changes don't persist:
 - Verify you have sufficient permissions
 - Check server logs for errors
-- Contact support if issue continues
+- Contact support if the issue continues
 :::
 
 ## Getting Help

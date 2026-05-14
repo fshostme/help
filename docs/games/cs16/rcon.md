@@ -48,9 +48,9 @@ You can change or remove the password to join your server by leaving the value e
 rcon hostname "CUSTOM HOSTNAME - free @ fshost.me"
 ```
 
-You can change the hostname on the request form or if you want to change it after you've started it, you can do so using this command.
+You can change the hostname on the request form, or, if you want to change it after you've started, you can do so using this command.
 
-::: warning Required Advert
+::: Warning Required Advert
 Please note that you are required to keep the advert part in the hostname.
 :::
 
@@ -63,14 +63,14 @@ Please note that you are required to keep the advert part in the hostname.
 rcon status
 ```
 
-Shows the Slot Number, Name, SteamID, IP, and other info of the players connected.
+Shows the Slot Number, Name, SteamID, IP, and other information for the connected players.
 
 **Players list:**
 ```
 rcon users
 ```
 
-Get list of all players.
+Get a list of all players.
 
 **Kick player:**
 ```
@@ -114,7 +114,7 @@ Enabling `sv_cheats` can affect gameplay and may pose security risks. Only use i
 :::
 
 ::: tip Using Impulse 101
-If you want to make use of `impulse 101` (client side), then you need to enable sv_cheats and do changemap to a random map.
+If you want to use `impulse 101` (client-side), you need to enable sv_cheats and set changemap to a random map.
 :::
 
 ## PODBot Commands
@@ -130,7 +130,7 @@ Find more commands on [this page](http://podbotmm.bots-united.com/doc_v3/html/pb
 | RCON Command | Description |
 |--------------|-------------|
 | `rcon pb add [1-100]` | Adds a bot with specified skill (1-100). Example: `rcon pb add 35` |
-| `rcon pb_autokill 0/1` | Turns on/off auto killing bots if all human players are dead already. Default is off (0) |
+| `rcon pb_autokill 0/1` | Turns on/off auto-killing bots if all human players are dead already. Default is off (0) |
 | `rcon pb removebots` | Kicks bots from your server until reaching pb_minbots |
 
 ### Examples
@@ -188,16 +188,16 @@ rcon sv_restart 1
 ## Troubleshooting
 
 ::: details RCON password not working
-- Verify password from panel is correct
+- Verify the password from the panel is correct
 - Check for typos
-- Make sure you're using `rcon_password` not `rcon login`
-- Try reconnecting to server
+- Make sure you're using `rcon_password`, not `rcon login`
+- Try reconnecting to the  server
 :::
 
 ::: details Can't change map
-- Verify map name is correct
+- Verify the map name is correct
 - Use `rcon maps *` to list available maps
-- Check if custom map is uploaded
+- Check if the custom map is uploaded
 - Try `rcon changelevel` instead of `rcon map`
 :::
 

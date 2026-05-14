@@ -76,11 +76,11 @@ amxmodmenu
 ```
 
 ::: danger Important Security Warning
-**We highly recommend avoiding entering your password directly in public chat.** 
+**We highly recommend avoiding entering your password directly in public chat.**
 
 If you've already done so and encounter an error message: `You have no entry to the server...`
 
-Please contact our support team immediately via [Discord](https://fshost.me/discord).
+Please get in touch with our support team immediately via [Discord](https://fshost.me/discord).
 :::
 
 ## AMXModX Admin Levels
@@ -184,7 +184,7 @@ amx_cfg <config file>
 
 ### Chat Commands
 
-**Admin say:**
+**Admin says:**
 ```
 amx_say <message>
 ```
@@ -204,9 +204,9 @@ amx_vote <question> <option1> <option2>
 ## Free vs Pro Servers
 
 ::: warning Free Server Limitation
-**Please note that our free CS 1.6 service does not offer permanent admin privileges.**
+**Please note that our free CS 1.6 service does not provide permanent admin privileges.**
 
-Admin access is temporary and will reset when the server restarts or after a certain period.
+Admin access is temporary and will reset either when the server restarts or after a set period.
 :::
 
 ::: tip Upgrade to Pro
@@ -224,16 +224,16 @@ For permanent admin privileges on your CS 1.6 server, consider upgrading to [Pro
 
 ::: details RCON password doesn't work
 **Check:**
-- Password copied correctly from panel
-- No extra spaces in command
-- Using `rcon_password` not `rcon login`
+- Password copied from the panel correctly
+- No extra spaces in the command
+- Using `rcon_password`, not `rcon login`
 - Server is actually your server
 :::
 
 ::: details "You have no entry to the server" error
 This typically means:
 - RCON password was entered incorrectly
-- You may have typed password in public chat (security risk)
+- You may have typed a password in a public chat (security risk)
 
 **Solution:**
 Contact support immediately via [Discord](https://fshost.me/discord).
@@ -245,14 +245,14 @@ Contact support immediately via [Discord](https://fshost.me/discord).
 - Command syntax is correct
 - Nickname is in quotes
 - Flags are in quotes
-- No typos in command
+- No typos in the command
 :::
 
 ::: details Admin menu not appearing
 **Try:**
 - Type `amxmodmenu` in console
 - Verify admin was added successfully
-- Reconnect to server
+- Reconnect to the server
 - Check admin flags include 'u' (menu access)
 :::
 
@@ -260,7 +260,7 @@ Contact support immediately via [Discord](https://fshost.me/discord).
 **Check:**
 - You have the required flag for that command
 - Command syntax is correct
-- You're targeting correct player
+- You're targeting the correct player
 - Command exists on this server
 :::
 
@@ -289,7 +289,7 @@ Contact support immediately via [Discord](https://fshost.me/discord).
 **When adding other admins:**
 - Give minimum necessary permissions
 - Don't give 'l' flag (RCON access) to untrusted admins
-- Use immunity ('a') carefully
+- Use immunity (' a') carefully
 - Review assigned flags regularly
 
 ## Advanced Admin Management

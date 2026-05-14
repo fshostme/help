@@ -1,6 +1,6 @@
 # In-Game Commands
 
-List of available in-game commands on our servers. You can use either the RCON command in console or the chat command.
+List of available in-game commands on our servers. You can use either the RCON command in the console or the chat command.
 
 ## Gamemodes
 
@@ -14,16 +14,16 @@ List of available in-game commands on our servers. You can use either the RCON c
 
 | RCON | Chat Command | Info |
 | --- | --- | --- |
-| `rcon fix` | `!fix` | This will fix problems with plugins or configs bug |
+| `rcon fix` | `!fix` | This will fix problems with plugins or config bugs |
 
 ## Match Configs
 
 | RCON | Chat Command | Info |
 | --- | --- | --- |
-| `rcon esl5on5` | `!esl5on5` | Execute the esl5on5.cfg file - Standard ESL5on5 config |
-| `rcon scrim` | `!scrim` | Execute the scrim config - Standard scrim config with all rounds |
-| `rcon warmod` | `!warmod` | Execute warmod - Designed for competitive matches |
-| `rcon retake` | `!retake` | Execute retake - Competitive-minded gamemode called retakes |
+| `rcon esl5on5` | `!esl5on5` | Execute the esl5on5.cfg file - Standard ESL5on5 configuration |
+| `rcon scrim` | `!scrim` | Execute the scrim config - Standard scrim config with all rounds included |
+| `rcon warmod` | `!warmod` | Execute warmod - designed for competitive matches |
+| `rcon retake` | `!retake` | Execute retake - Competitive-minded gamemode called Retakes |
 
 ## Plugins
 

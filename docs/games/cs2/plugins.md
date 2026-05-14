@@ -76,7 +76,7 @@ Core administrative functionality for server management.
 
 ### Admin Manager {#admin-manager}
 
-Advanced admin system with customizable roles and permissions.
+Advanced admin system with customisable roles and permissions.
 
 **Features:**
 - Role-based permission system
@@ -102,7 +102,7 @@ Full-featured deathmatch game mode.
 
 ### Retakes {#retakes}
 
-Practice bomb site retakes with customizable scenarios.
+Practice bomb site retakes with customisable scenarios.
 
 **Features:**
 - Automatic team balancing
@@ -137,7 +137,7 @@ Enable custom weapon skins for players.
 
 ### Demo Monitor {#demo-monitor}
 
-Automatic demo file organization for clean server management.
+Automatic demo file organisation for clean server management.
 
 **Features:**
 - Automatically moves completed demos to `/demos/` folder
@@ -147,7 +147,7 @@ Automatic demo file organization for clean server management.
 - MatchZy compatibility
 
 **How it helps:**
-Keeps your server files organized by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder. No more cluttered directories or manual file management.
+Keeps your server files organised by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder: no more cluttered directories or manual file management.
 
 ### TVFIX (CSTV Fix) {#tvfix}
 
@@ -170,8 +170,8 @@ Solves a CS2 bug where CSTV fails to record demos after the first match ends. Au
 
 ## Frequently Asked Questions
 
-::: details How do I check installed plugins?
-Use the following command in console after RCON authentication:
+::: details How do I check which plugins are installed?
+Use the following command in the console after RCON authentication:
 ```bash
 fake_rcon css_plugins list
 ```
@@ -184,11 +184,11 @@ fake_rcon css_plugins list
 :::
 
 ::: details What is a GSLT and why is it needed?
-A Game Server Login Token links your server to a Steam account, helping prevent abuse. Some plugins require thisz. Pro users can configure GSLT in the control panel.
+A Game Server Login Token links your server to a Steam account, helping prevent abuse. Some plugins require this. Pro users can configure GSLT in the control panel.
 :::
 
 ::: details How do I configure plugins?
-**Pro servers:** Configure via FTP access (request in Discord #pro-support) or using RCON commands.
+**Pro servers:** Configure via FTP access (request in #pro-support on Discord) or via RCON commands.
 
-Configuration methods vary by plugin - refer to individual plugin documentation for specifics.
+Configuration methods vary by plugin; refer to the individual plugin documentation for specifics.
 :::
