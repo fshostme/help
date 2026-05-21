@@ -415,7 +415,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/fshostme/help-fshost/edit/main/:path',
+      pattern: 'https://github.com/fshostme/help/edit/master/docs/:path',
       text: 'Edit this page on GitHub'
     },
 
