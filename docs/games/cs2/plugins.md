@@ -31,15 +31,15 @@ These addons are managed automatically by FSHOST - no manual installation needed
 | [FSH-AdminManager](/games/cs2/plugins/adminmanager) | ✕ | ✓ | Advanced admin system with role hierarchy |
 | css_rcon | ✕ | ✓ | Execute RCON commands via console |
 | [FakeRcon](#fake-rcon) | ✓ | ✓ | In-game console RCON access |
-| [DemoURL](games/cs2/plugins/cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |
+| [DemoURL](/games/cs2/plugins/cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |
 | FixDemoVoiceChat | ✕ | ✓ | Enable voice in demo recordings |
-| [Deathmatch](games/cs2/plugins/deathmatch) | ✕ | ✓ | Complete deathmatch mode |
-| [Retakes](games/cs2/plugins/retakes) | ✕ | ✓ | Bomb site retake practice |
+| [Deathmatch](/games/cs2/plugins/deathmatch) | ✕ | ✓ | Complete deathmatch mode |
+| [Retakes](/games/cs2/plugins/retakes) | ✕ | ✓ | Bomb site retake practice |
 | [FSH-MatchZy](/games/cs2/plugins/matchzy) | ✕ | ✓ | Competitive match management **customized** |
-| [OpenPrefirePrac](games/cs2/plugins/prefire) | ✕ | ✓ | Prefire training |
+| [OpenPrefirePrac](/games/cs2/plugins/prefire) | ✕ | ✓ | Prefire training |
 | CS2MapChange | ✓ | ✓ | Simplified map changing |
 | Workshop Maps | ✕ | ✓ | Load custom Steam Workshop maps |
-| [WeaponPaints](games/cs2/plugins/weapon-skins) | ✕ | ✓ | Custom weapon skins |
+| [WeaponPaints](/games/cs2/plugins/weapon-skins) | ✕ | ✓ | Custom weapon skins |
 | [Demo Monitor](#demo-monitor) | ✕ | ✓ | Automatic demo file organization |
 | [TVFIX (CSTV Fix)](#tvfix) | ✕ | ✓ | Auto-restart CSTV after matches |
 
