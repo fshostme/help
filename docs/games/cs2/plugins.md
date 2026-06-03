@@ -1,19 +1,24 @@
-# CS2 Server Plugins
+# CS2 Server Addons & Plugins
 
-Complete overview of available plugins and addons for Counter-Strike 2 servers on FSHOST.
+Complete overview of the addons and plugins available for Counter-Strike 2 servers on FSHOST.
 
-## Required Dependencies
+::: info Addons vs. Plugins
+- **Addons** are the core components that the server runs on (Metamod:Source, CounterStrikeSharp, MultiAddonManager). They are preinstalled and maintained automatically — you don't manage them yourself.
+- **Plugins** are the optional features that run on top of those addons (admin tools, game modes, etc.). Availability depends on your server type, as shown in the comparison below.
+:::
 
-These core components are automatically installed and maintained on all servers:
+## Core Addons
+
+These core components are preinstalled and maintained automatically on all servers:
 
 | Component | Purpose |
 |-----------|---------|
-| **Metamod:Source** | Foundation layer enabling server modifications |
-| **CounterStrikeSharp** - [Forked](<https://github.com/mrc4tt/CounterStrikeSharp>) | Server-side modding framework for plugin support |
-| **MultiAddonManager** | Handles workshop content and client downloads |
+| **Metamod:Source** | Foundation layer that enables server modifications |
+| **CounterStrikeSharp** - [Forked](<https://github.com/mrc4tt/CounterStrikeSharp>) | Server-side modding framework that plugins are built on |
+| **MultiAddonManager** | Handles Workshop content and client downloads |
 
 ::: tip Automatic Updates
-These dependencies are managed automatically by FSHOST - no manual installation needed.
+These addons are managed automatically by FSHOST — no manual installation needed.
 :::
 
 ## Plugin Comparison
@@ -147,7 +152,7 @@ Automatic demo file organisation for clean server management.
 - MatchZy compatibility
 
 **How it helps:**
-Keeps your server files organised by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder: no more cluttered directories or manual file management.
+Keeps your server files organised by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder — no more cluttered directories or manual file management.
 
 ### TVFIX (CSTV Fix) {#tvfix}
 
@@ -190,5 +195,6 @@ A Game Server Login Token links your server to a Steam account, helping prevent 
 ::: details How do I configure plugins?
 **Pro servers:** Configure via FTP access (request in #pro-support on Discord) or via RCON commands.
 
-Configuration methods vary by plugin; refer to the individual plugin documentation for specifics.
+Configuration methods vary by plugin; refer to the individual plugin's documentation for specifics.
 :::
+
