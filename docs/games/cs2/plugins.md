@@ -3,7 +3,7 @@
 Complete overview of the addons and plugins available for Counter-Strike 2 servers on FSHOST.
 
 ::: info Addons vs. Plugins
-- **Addons** are the core components that the server runs on (Metamod:Source, CounterStrikeSharp, MultiAddonManager). They are preinstalled and maintained automatically — you don't manage them yourself.
+- **Addons** are the core components that the server runs on (Metamod:Source, CounterStrikeSharp, MultiAddonManager). They are preinstalled and maintained automatically - you don't manage them yourself.
 - **Plugins** are the optional features that run on top of those addons (admin tools, game modes, etc.). Availability depends on your server type, as shown in the comparison below.
 :::
 
@@ -18,7 +18,7 @@ These core components are preinstalled and maintained automatically on all serve
 | **MultiAddonManager** | Handles Workshop content and client downloads |
 
 ::: tip Automatic Updates
-These addons are managed automatically by FSHOST — no manual installation needed.
+These addons are managed automatically by FSHOST - no manual installation needed.
 :::
 
 ## Plugin Comparison
@@ -28,18 +28,18 @@ These addons are managed automatically by FSHOST — no manual installation need
 | Plugin | Free | Pro | Description |
 |--------|------|-----|-------------|
 | [CS2-SimpleAdmin](#cs2-simpleadmin) | ✕ | ✓ | Essential admin tools and commands |
-| [FSH-AdminManager](/games/cs2/plugins/adminmanager.md) | ✕ | ✓ | Advanced admin system with role hierarchy |
+| [FSH-AdminManager](/games/cs2/plugins/adminmanager) | ✕ | ✓ | Advanced admin system with role hierarchy |
 | css_rcon | ✕ | ✓ | Execute RCON commands via console |
 | [FakeRcon](#fake-rcon) | ✓ | ✓ | In-game console RCON access |
-| [DemoURL](#cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |
+| [DemoURL](games/cs2/plugins/cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |
 | FixDemoVoiceChat | ✕ | ✓ | Enable voice in demo recordings |
-| [Deathmatch](#deathmatch) | ✕ | ✓ | Complete deathmatch mode |
-| [Retakes](#retakes) | ✕ | ✓ | Bomb site retake practice |
-| [FSH-MatchZy](#matchzy) | ✕ | ✓ | Competitive match management **customized** |
-| [OpenPrefirePrac](#prefire) | ✕ | ✓ | Prefire training |
+| [Deathmatch](games/cs2/plugins/deathmatch) | ✕ | ✓ | Complete deathmatch mode |
+| [Retakes](games/cs2/plugins/retakes) | ✕ | ✓ | Bomb site retake practice |
+| [FSH-MatchZy](/games/cs2/plugins/matchzy) | ✕ | ✓ | Competitive match management **customized** |
+| [OpenPrefirePrac](games/cs2/plugins/prefire) | ✕ | ✓ | Prefire training |
 | CS2MapChange | ✓ | ✓ | Simplified map changing |
 | Workshop Maps | ✕ | ✓ | Load custom Steam Workshop maps |
-| [WeaponPaints](#weapon-skins) | ✕ | ✓ | Custom weapon skins |
+| [WeaponPaints](games/cs2/plugins/weapon-skins) | ✕ | ✓ | Custom weapon skins |
 | [Demo Monitor](#demo-monitor) | ✕ | ✓ | Automatic demo file organization |
 | [TVFIX (CSTV Fix)](#tvfix) | ✕ | ✓ | Auto-restart CSTV after matches |
 
@@ -152,7 +152,7 @@ Automatic demo file organisation for clean server management.
 - MatchZy compatibility
 
 **How it helps:**
-Keeps your server files organised by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder — no more cluttered directories or manual file management.
+Keeps your server files organised by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder - no more cluttered directories or manual file management.
 
 ### TVFIX (CSTV Fix) {#tvfix}
 
@@ -161,7 +161,6 @@ Prevents CSTV recording failures after matches.
 **Features:**
 - Auto-restarts CSTV after match completion
 - Smart detection of recording status
-- 25-second safe delay for demo writing
 - Map change protection
 - Toggle command for admins
 
@@ -170,8 +169,6 @@ Solves a CS2 bug where CSTV fails to record demos after the first match ends. Au
 
 **Requirements:**
 - Pro server with CSTV enabled
-- `+tv_enable 1` in launch parameters
-
 
 ## Frequently Asked Questions
 
