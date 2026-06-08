@@ -63,7 +63,6 @@ RCON guides for other games coming soon:
 - Counter-Strike: Source
 - Half-Life Deathmatch
 - Medal of Honor: Allied Assault
-- Minecraft
 - Team Fortress 2
 - Valheim
 
