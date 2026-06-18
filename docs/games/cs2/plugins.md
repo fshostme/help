@@ -14,7 +14,7 @@ These core components are preinstalled and maintained automatically on all serve
 | Component | Purpose |
 |-----------|---------|
 | **Metamod:Source** | Foundation layer that enables server modifications |
-| **CounterStrikeSharp** - [Forked](<https://github.com/mrc4tt/CounterStrikeSharp>) | Server-side modding framework that plugins are built on |
+| **CounterStrikeSharp** - **Forked** | Server-side modding framework that plugins are built on |
 | **MultiAddonManager** | Handles Workshop content and client downloads |
 
 ::: tip Automatic Updates

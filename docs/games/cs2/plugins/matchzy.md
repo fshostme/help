@@ -6,36 +6,6 @@ Professional match management and practice tools for CS2 competitive play.
 MatchZy is available exclusively on Pro servers.
 :::
 
-::: danger FSHOST Customized Version - DO NOT REPLACE
-**Critical Warning:** FSHOST uses a **heavily customized fork** of MatchZy with significant additional features and integrations. 
-
-**If you replace this with the original MatchZy from GitHub, you will lose:**
-
-### Custom Commands
-- **`.teamsize`** - Quick team size configuration (alias for `.readyrequired`)
-- **`.settings` / `.config`** - Enhanced match settings display
-- **`.abort`** - Alternative match restart command
-- **`.autopause`** - Intelligent auto-pause system for 5v5 matches
-- **`.autopause_minplayers`** - Configure auto-pause thresholds
-- **`.autopause_delay`** - Set auto-resume delay
-
-### Custom Features
-- **Auto-Pause System** - Automatically pauses when teams drop below configured player count (5v5 only)
-- **Auto-Resume** - Automatically resumes when both teams reach minimum players
-- **Restart Confirmation** - 30-second confirmation system for critical actions
-- **Stop Command Cooldown** - 3-second cooldown to prevent spam
-- **Enhanced Backup Management** - Improved round backup and restore system
-
-### Version Information
-- **Current Version:** 0.8.16
-- **Author:** WD- Edited by Miksen
-- **Based on:** [MatchZy by shobhit-pathak](https://github.com/shobhit-pathak/MatchZy)
-
-**⚠️ WARNING:** Contact FSHOST support before making any plugin changes. Replacing this plugin will break FSHOST-specific integrations and remove critical features.
-
-Original MatchZy repository: [shobhit-pathak/MatchZy](https://github.com/shobhit-pathak/MatchZy)
-:::
-
 ## Overview
 
 MatchZy streamlines management for practice sessions, PUGs, scrims, and competitive matches with features including ready systems, pause functionality, tactical timeouts, and comprehensive practice utilities.
