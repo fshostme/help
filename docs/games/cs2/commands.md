@@ -57,58 +57,17 @@ Switch to Wingman Mode for 2v2 matches with MatchZy enabled.
 
 ### Active Duty Maps
 
-**Ancient:**
 ```bash
 !ancient
-```
-
-**Ancient Night Variant:**
-```bash
-!ancient_night
-!ancientn
-!ancientnight
-```
-
-**Anubis:**
-```bash
 !anubis
-```
-
-**Dust2:**
-```bash
 !dust2
-```
-
-**Inferno:**
-```bash
 !inferno
-```
-
-**Mirage:**
-```bash
 !mirage
-```
-
-**Nuke:**
-```bash
 !nuke
-```
-
-**Overpass:**
-```bash
-!overpass
-```
-
-**Train:**
-```bash
+!cache
 !train
-```
-
-**Vertigo:**
-```bash
 !vertigo
 ```
-
 ### Custom Map Loading
 
 **Load specific map:**
@@ -180,5 +139,5 @@ RCON commands require appropriate admin permissions.
 
 - [RCON Commands](/games/cs2/rcon) - Full RCON reference
 - [MatchZy Plugin](/games/cs2/plugins/matchzy) - Competitive match management
-- [Practice Mode](/games/cs2/plugins/prefire) - Advanced practice tools
+- [OpenPrefire Mode](/games/cs2/plugins/prefire) - Advanced prefire tools
 - [Admin Guide](/games/cs2/become-admin) - Admin setup instructions
