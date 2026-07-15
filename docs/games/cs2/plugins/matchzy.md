@@ -820,7 +820,7 @@ Opens an in-game wizard that builds a match configuration (teams, maps, format) 
 
 ## Server Configuration (ConVars)
 
-Set these in a server config file or via RCON. Common ones:
+MatchZy loads its config from `csgo/cfg/MatchZy/config.cfg`, which runs automatically every time the plugin loads. Set your ConVars there for persistent defaults, edit the file and run `exec MatchZy/config.cfg` to apply changes without a restart, or set any of them on the fly via RCON. Common ones:
 
 | ConVar | Default | Purpose |
 |--------|---------|---------|
