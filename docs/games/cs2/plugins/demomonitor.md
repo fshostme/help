@@ -8,237 +8,59 @@ Demo Monitor is available exclusively on Pro servers with CSTV enabled.
 
 ## Overview
 
-Demo Monitor is a FSHOST-exclusive plugin that automatically organizes your CSTV demo files by moving completed recordings from the root game directory into a dedicated `demos/` folder. This keeps your server files clean and makes demo management significantly easier.
+By default CS2 writes CSTV demos straight into `/game/csgo/`, mixed in with configs and logs. After a few weeks that folder is hard to work with over FTP.
 
-## Why FSHOST Offers This
+Demo Monitor is a FSHOST-exclusive plugin that moves each finished demo into `/game/csgo/demos/` instead, so every recording ends up in one place. It is loaded on your server already, and there is nothing to configure.
 
-### The Problem
-
-By default, CS2 servers save CSTV demo files directly in the `/game/csgo/` directory. This creates several issues:
-
-- **Cluttered directory** - Demo files mix with config files, logs, and other important files
-- **Difficult file management** - Finding specific demos becomes tedious with dozens of files
-- **FTP navigation issues** - Root directory becomes hard to navigate
-- **Backup complications** - Harder to selectively backup only demo files
-
-### The Solution
-
-Demo Monitor automatically detects completed demo recordings and moves them to `/game/csgo/demos/`, providing:
-
-- **Clean organization** - All demos in one dedicated folder
-- **Easy access** - Simple FTP navigation to `/demos/`
-- **Selective management** - Delete old demos without affecting server files
-- **Better backups** - Archive only the demos folder when needed
-
-## How It Works
-
-### Automatic Detection
-
-The plugin monitors your server for demo recording activity:
-
-1. **Recording Start** - Detects when `tv_record` command is executed
-2. **Recording Stop** - Detects when `tv_stoprecord` command is executed
-3. **Completion Check** - Waits 5 seconds after recording stops to ensure file is fully written
-4. **Safe Move** - Verifies file is not locked before moving to demos folder
-
-### Periodic Scanning
-
-In addition to real-time monitoring, Demo Monitor runs a periodic scan every 30 seconds to catch any demos that might have been missed, ensuring no demo files are left in the root directory.
-
-### Smart File Handling
-
-The plugin intelligently handles edge cases:
-
-- **Active recordings** - Never moves files currently being recorded
-- **File locks** - Only moves files that are completely written and unlocked
-- **MatchZy compatibility** - Properly handles demos from MatchZy plugin
-- **Map changes** - Checks for lingering demos after map transitions
-
-## Features
-
-### Automatic Organization
-
-**Moves completed demos to:**
+**Before:**
 ```
-/game/csgo/demos/
-```
-
-**Example:**
-```bash
-Before:
 /game/csgo/match_2025-12-30.dem
 /game/csgo/scrim_inferno.dem
+```
 
-After:
+**After:**
+```
 /game/csgo/demos/match_2025-12-30.dem
 /game/csgo/demos/scrim_inferno.dem
 ```
 
-### Real-Time Monitoring
+## Where to Find Your Demos
 
-- Listens for GOTV/CSTV recording commands
-- Tracks current recording status
-- Processes completed demos immediately
+Every completed demo is in `/game/csgo/demos/`.
 
-### Periodic Cleanup
+**Via the Pro Panel:** open the file manager and browse to `game/csgo/demos/`.
 
-- Runs every 30 seconds
-- Catches missed demos
-- Ensures clean root directory
-- Handles server restart scenarios
+**Via FTP:** connect to your server and navigate to `/game/csgo/demos/`.
 
-### Safe File Operations
+Filenames follow the tool that recorded them:
 
-- Verifies files are fully written before moving
-- Checks for file locks to prevent corruption
-- Skips active recordings
-- Handles errors gracefully
+| Pattern | Source |
+|---------|--------|
+| `matchzy_[matchid]_[map].dem` | MatchZy matches |
+| `[custom_name].dem` | Manual `tv_record` |
+| `auto_[timestamp].dem` | Automatic recordings |
 
-## Configuration
+## How It Works
 
-### Directory Structure
+You record demos as normal. Demo Monitor watches for `tv_record` and `tv_stoprecord`, waits 5 seconds after recording stops so the file finishes writing, checks the file is not locked, then moves it.
 
-Demo Monitor automatically creates the demos directory if it doesn't exist:
+A scan also runs every 30 seconds to pick up anything the live check missed, such as demos left behind by a server restart or a map change.
 
-**Source directory:**
-```bash
-/game/csgo/
-```
+The plugin never touches a demo that is still recording or still being written, so a file is only moved once it is safe to move.
 
-**Target directory:**
-```bash
-/game/csgo/demos/
-```
+## Managing Disk Space
 
-### No Configuration Required
+Demos are not deleted for you. They accumulate until you remove them.
 
-The plugin works automatically with no configuration needed. Once loaded, it handles all demo organization transparently.
+::: tip Suggested Routine
+1. Download the `demos/` folder periodically over FTP or from the panel
+2. Keep match and tournament demos wherever you archive things
+3. Delete old practice and scrim demos from the server
 
-## Usage
-
-### Accessing Your Demos
-
-**Via FTP:**
-1. Connect to your server
-2. Navigate to `/game/csgo/demos/`
-3. Download or manage demo files
-
-**Via Panel:**
-- Use the Files to download your demo
-
-### Demo Recording
-
-Record demos normally - Demo Monitor handles organization automatically:
-
-**Manual recording:**
-```bash
-tv_record match_name
-tv_stoprecord
-```
-
-**MatchZy automatic recording:**
-- MatchZy records demos automatically
-- Demo Monitor moves them after completion
-
-### Finding Your Demos
-
-All completed demos are in:
-```bash
-/game/csgo/demos/
-```
-
-Organized by filename, typically:
-- `matchzy_[matchid]_[map].dem` - MatchZy matches
-- `[custom_name].dem` - Manual recordings
-- `auto_[timestamp].dem` - Automatic recordings
-
-## Technical Details
-
-### File Detection Logic
-
-**Completion criteria:**
-1. File must have `.dem` extension
-2. File must not be in demos directory already
-3. File must not be currently recording
-4. File must be fully unlocked (not being written)
-
-### Safety Mechanisms
-
-**File lock check:**
-```bash
-- Attempts exclusive file open
-- Success = file is complete
-- Failure = file still being written
-```
-
-**Delayed processing:**
-```bash
-- 5 second delay after recording stops
-- Ensures file write completion
-- Prevents corruption
-```
-
-### Compatibility
-
-**Works with:**
-- Manual CSTV recording (`tv_record`)
-- MatchZy automatic demos
-- Custom recording scripts
-- Any plugin that uses standard GOTV commands
-
-## Benefits
-
-### For Server Administrators
-
-- **Cleaner FTP** - Root directory stays organized
-- **Quick deletion** - Remove old demos without risk
-- **Better organization** - Find demos instantly
-
-### For Teams
-
-- **Predictable location** - Always know where demos are
-- **Easier sharing** - Single directory to share access
-- **Archive management** - Simple demo retention policies
-
-### For Tournaments
-
-- **Match archival** - All demos in one place
-- **Easy retrieval** - Quick access for reviews
-- **Clean structure** - Professional file organization
-
-## Troubleshooting
-
-::: details Demos not moving automatically
-**Check:**
-- CSTV is enabled on your server
-- Demo Monitor plugin is loaded (`css_plugins list`)
-- Wait 30 seconds after recording stops
-- Check server console for Demo Monitor messages
-:::
-
-::: details Demo still in root directory
-**Possible causes:**
-- File is still being written (wait a few seconds)
-- File is locked by another process
-- Demo is currently recording
-
-**Solution:**
-Wait 30 seconds for automatic cleanup.
-:::
-
-::: details Can't find my demos
-**Location:**
-All demos are automatically moved to `/game/csgo/demos/`
-
-**Access via FTP:**
-1. Connect to server
-2. Navigate to `game/csgo/demos/`
-3. Your demos are here
+Because everything lives in one folder, you can clear it out without any risk to configs or server files.
 :::
 
 ## Console Output
-
-Demo Monitor provides helpful console logging:
 
 **Recording detected:**
 ```bash
@@ -260,45 +82,39 @@ Demo Monitor provides helpful console logging:
 [Demo Monitor] Demo file is still being written or in use: match_name.dem
 ```
 
-## Best Practices
+## Troubleshooting
 
-### Demo Management
-
-::: tip Recommended Workflow
-1. Record your matches normally
-2. Let Demo Monitor organize files automatically
-3. Periodically download demos from `/demos/` folder
-4. Delete old demos to free up space
+::: details Demos not moving automatically
+**Check:**
+- CSTV is enabled on your server
+- Demo Monitor plugin is loaded (`css_plugins list`)
+- Wait 30 seconds after recording stops
+- Check server console for Demo Monitor messages
 :::
 
-### Storage Management
+::: details Demo still in root directory
+**Possible causes:**
+- File is still being written (wait a few seconds)
+- File is locked by another process
+- Demo is currently recording
 
-**Regular cleanup:**
-- Check demos folder size weekly
-- Archive important matches externally
-- Delete old practice/scrim demos
-- Keep tournament demos indefinitely
+**Solution:**
+Wait 30 seconds for the periodic scan to pick it up.
+:::
 
-### Backup Strategy
+::: details Can't find my demos
+All demos are moved to `/game/csgo/demos/`. Reach it through the file manager in the Pro Panel, or over FTP at `game/csgo/demos/`.
+:::
 
-**Simple backup approach:**
-```bash
-1. Download entire /demos/ folder via FTP
-2. Store locally or in cloud storage
-3. Delete old demos from server
-4. Keeps server storage free
-```
+## Works With Other Plugins
 
-## Integration with Other Plugins
+Demo Monitor handles demos from any source that uses the standard GOTV commands, including manual `tv_record`, MatchZy and custom recording scripts. MatchZy demos are detected the same way as any other, with no extra setup.
 
-### MatchZy Integration
+On a Pro server it sits in the middle of the demo chain:
 
-Demo Monitor works seamlessly with MatchZy:
-
-- Detects MatchZy demo recordings
-- Handles `demos/` prefix in filenames
-- Moves completed MatchZy demos automatically
-- No configuration needed
+1. **[TVFIX](/games/cs2/plugins/tvfix)** restarts CSTV so each match records
+2. **Demo Monitor** moves finished demos into `demos/`
+3. **[CSTV Discord](/games/cs2/plugins/cstv-discord)** posts the download links to your Discord
 
 ## Version Information
 

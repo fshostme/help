@@ -7,8 +7,12 @@ These commands require admin privileges. See the [Admin Setup Guide](/games/cs2/
 :::
 
 ::: info Command Usage
-Type these commands in the in-game chat using `/` or `!` prefix, not in the developer console.
+Every command on this page is a chat command. Type it in the in-game chat with a `/`, `!` or `.` prefix, whichever you prefer. They do not work when typed straight into the developer console.
 :::
+
+<!--@include: ./parts/_where-to-type.md-->
+
+New to CS2 server administration? Start with [Become a Server Admin](/games/cs2/become-admin), then come back here.
 
 ## Game Mode Commands
 

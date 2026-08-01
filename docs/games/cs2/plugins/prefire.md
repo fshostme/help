@@ -14,6 +14,12 @@ This plugin is available exclusively on Pro servers.
 2. Open chat and type `!prefire` or use `css_prefire` in console
 3. Navigate the main menu to configure your practice session
 
+::: warning Step 1 Requires Admin
+`!prefireon` switches the server into prefire mode, so it only works for admins. If nothing happens when you type it, you are not an admin on the server. See [Become a Server Admin](/games/cs2/become-admin), or ask the server owner to run it.
+
+Once an admin has enabled the mode, any player can use `!prefire` and the menu commands below.
+:::
+
 The main menu provides options for:
 - Starting practice routes
 - Changing maps

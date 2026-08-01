@@ -6,21 +6,48 @@ Complete guide to gaining admin access on your CS2 Pro server.
 Admin system commands are exclusive to Pro servers. This functionality is not available on free servers.
 :::
 
-## Admin Access Methods
+## Setup via Pro Panel
 
-### Web-Based Management
+The Pro Panel is the easiest way to add admins. No console or in-game commands are needed.
 
-The easiest way to manage admins is through the web interface.
+### Step 1: Find Your SteamID64
 
-**Access Steps:**
-1. Open your server edit page
-2. Click **Manage Admins** button
-3. Add or remove admins as needed
+Open [steamid.io](https://steamid.io) and paste your Steam profile URL. Copy the **steamID64** value, which is a 17-digit number starting with `7656119`.
 
-**Benefits:**
-- Visual Steam profile avatars for easy identification
-- No in-game commands required
-- Centralised admin list management
+### Step 2: Open the Admin Page
+
+1. Go to [fshost.me/pro/servers](https://fshost.me/pro/servers)
+2. Click **Edit** on your server
+3. Click **Manage Admins**
+
+### Step 3: Add Yourself
+
+Fill in the **Add Admin** form and click **+ Add**.
+
+![CS2 Manage Admins page](https://help.fshost.me/img/cs2-manage-admins.png)
+
+| Field | Value |
+|-------|-------|
+| **SteamID64** | Your 17-digit ID from Step 1 |
+| **Flags** | `z` for full permissions |
+| **Immunity** | `100`, the highest level |
+| **Custom Permissions** | Leave empty unless a plugin requires it |
+
+::: tip About the z Flag
+The `z` flag grants every permission at once, so there is no need to pick flags individually. Keep it for yourself and co-owners. For staff, use limited flags from the [Permission Flags](#permission-flags) table below.
+:::
+
+### Step 4: Apply the Changes
+
+Click **Reload In-Game** next to *Existing Admins*. Your admin access applies right away, without a server restart.
+
+Your entry then appears under **Existing Admins** with the Steam avatar, flags and immunity. Use the pencil icon to edit it, or the bin icon to remove it.
+
+::: warning Changes Not Showing In-Game
+Click **Reload In-Game** after adding or editing an admin. Otherwise the server keeps the old admin list until the next map change.
+:::
+
+## Other Admin Access Methods
 
 ### In-Game Admin Access
 
@@ -82,7 +109,7 @@ Use the SteamID64 format for permanent admin assignments. Find yours at [steamid
 
 ### Creating Roles
 
-Roles allow organised permission structures with immunity levels.
+Roles allow organized permission structures with immunity levels.
 
 **Command Structure:**
 ```bash
@@ -212,7 +239,7 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 
 ```bash
 /css_addrole VIP o 5
-/css_addrAdmindmin z 99
+/css_addrole Admin z 99
 
 /css_addadmin 76561198975357634 Admin
 /css_addadmin FriendName VIP
@@ -279,6 +306,6 @@ Admin changes save automatically to the database. If changes don't persist:
 
 Need assistance with admin setup?
 
-- **Web Panel:** Access admin management interface
+- **Pro Panel:** Manage admins from your server's Edit page
 - **Discord:** Join [FSHOST Discord](https://fshost.me/discord)
 - **Support:** Contact #pro-support channel

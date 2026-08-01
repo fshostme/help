@@ -8,7 +8,7 @@ Retakes plugin is available exclusively on Pro servers.
 
 ## Overview
 
-Practice bomb site retakes with customizable loadouts, spawn positions, and team configurations. Built with CounterStrikeSharp, this plugin brings the popular retakes game mode to CS2.
+Retakes drops players into the situation after the bomb has been planted: Counter-Terrorists attack the site, Terrorists defend the plant. Teams, spawns and loadouts are handled by the plugin, so rounds start immediately one after another.
 
 ## Features
 

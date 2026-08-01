@@ -36,10 +36,74 @@ MatchZy is available exclusively on Pro servers.
 
 ## Overview
 
-MatchZy streamlines management for practice sessions, PUGs, scrims, and competitive matches. FSHOST runs a customized fork with features including a ready system, knife round, tactical/technical pauses, an intelligent auto-pause system, a full practice mode, a coach system, in-game admin menus, backup/restore, map veto, GOTV demo recording, and Get5 (G5API) compatibility.
+MatchZy runs practice sessions, PUGs, scrims and competitive matches on your server. FSHOST uses a customized fork that adds a ready system, knife round, tactical and technical pauses, an auto-pause system, practice mode, a coach system, in-game admin menus, backup and restore, map veto, GOTV demo recording, and Get5 (G5API) compatibility.
 
 ::: info Command Prefixes
-Most commands work with either `.` or `!` prefix, and the same command is available in the server console as `css_<command>` (e.g. `css_ready`). Example: `.ready`, `!ready`, or `css_ready`.
+The `.`, `!` and `/` prefixes are interchangeable, so `.ready`, `!ready` and `/ready` are the same command. This page writes them with `.`, which is the convention most teams use for MatchZy.
+
+The same commands are available in the server console as `css_<command>`, for example `css_ready`.
+:::
+
+## Quick Start: Run Your First 5v5
+
+This page is a full reference. If you only want to play a match, these six steps are enough. Everything below them is optional.
+
+### Step 1: Load the Map
+
+An admin picks the map before starting the match:
+
+```bash
+!map de_dust2
+```
+
+### Step 2: Start Match Mode
+
+An admin types:
+
+```bash
+.match
+```
+
+The server switches to match mode with the knife round and ready system turned on.
+
+### Step 3: Everyone Joins a Team
+
+Players pick Terrorist or Counter-Terrorist as normal. MatchZy uses whichever teams people are on when the match starts.
+
+### Step 4: Everyone Readies Up
+
+Each player types:
+
+```bash
+.ready
+```
+
+Type `.rc` at any point to see who is still not ready. When all ten players are ready, the knife round starts on its own.
+
+### Step 5: Play the Knife Round
+
+The winning team chooses a side:
+
+```bash
+.stay      # Keep the current side
+.switch    # Change sides
+```
+
+### Step 6: Play
+
+The match goes live straight after that choice. During the match:
+
+| Command | Purpose |
+|---------|---------|
+| `.pause` | Pause during freeze time |
+| `.unpause` | Resume, both teams must type it |
+| `.tech` | Pause for a technical problem |
+| `.tac` | Take a tactical timeout |
+
+The demo is recorded automatically and lands in your server's `demos` folder. See [Demo Monitor](/games/cs2/plugins/demomonitor) for where to find it.
+
+::: tip Practice Instead of a Match
+Type `.prac` for practice mode with grenade tools, bots and spawn control. See [Practice Mode Commands](#practice-mode-commands).
 :::
 
 ## Match Management Commands
@@ -765,7 +829,7 @@ Sets the minimum number of ready players required to start (`matchzy_minimum_rea
 .configs
 ```
 
-Displays comprehensive match configuration including knife-round status, ready requirements, playout mode, team names, auto-pause settings, technical pause limits, and more.
+Displays the current match configuration: knife-round status, ready requirements, playout mode, team names, auto-pause settings, technical pause limits, and more.
 
 ### Communication
 

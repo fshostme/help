@@ -23,6 +23,10 @@ For the best customization experience, use the web interface at [skins.fsho.st](
 
 ## Getting Started
 
+::: warning Skins Only Appear on This Server
+WeaponPaints applies skins on your own server. They are not visible in official matchmaking, on Valve servers, or on other community servers, and nothing is added to your Steam inventory. Other players on your server see your skins, and you see theirs.
+:::
+
 ### Initial Setup
 
 1. Visit [skins.fsho.st](https://skins.fsho.st)
@@ -30,6 +34,14 @@ For the best customization experience, use the web interface at [skins.fsho.st](
 3. Configure your desired skins and settings
 4. Join your server
 5. Your skins automatically apply
+
+If you are already in the server when you change a skin on the website, type `!ws` in chat to reload your selection instead of reconnecting.
+
+### About GSLT
+
+A **GSLT** (Game Server Login Token) links your server to a Steam account. WeaponPaints does not need one, so you can skip this and skins will still work.
+
+It is optional, and you can add one later under your server's **Edit** page in the [Pro Panel](https://fshost.me/pro/servers).
 
 ## In-Game Commands
 
@@ -173,11 +185,11 @@ Or reconnect to the server.
 ## Troubleshooting
 
 ::: details Skins not appearing
-1. Verify GSLT is configured correctly
-2. Check you're logged into the website with the correct Steam account
-3. Use `!wp` to refresh skins
-4. Reconnect to the server
-5. Verify the plugin is enabled on your server
+1. Check you're logged into the website with the correct Steam account
+2. Use `!wp` to refresh skins
+3. Reconnect to the server
+4. Verify the plugin is enabled on your server
+5. Remember that skins only show on this server, never in matchmaking
 :::
 
 ::: details Music kit not working

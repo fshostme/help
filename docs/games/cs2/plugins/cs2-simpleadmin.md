@@ -3,7 +3,7 @@
 Essential admin commands and server management tools for CS2 Pro servers.
 
 ::: info Command Prefixes
-Most commands work with either `/` or `!` prefix. Examples: `/css_ban` or `!css_ban`
+The `/`, `!` and `.` prefixes are interchangeable, so `/css_ban`, `!css_ban` and `.css_ban` are the same command. This page writes them with `/`.
 :::
 
 ## Player Management

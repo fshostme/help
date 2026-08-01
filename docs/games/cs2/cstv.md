@@ -10,16 +10,36 @@ CSTV is available exclusively on Pro servers.
 
 CSTV enables live broadcasting of matches with a short delay, allowing spectators to watch games without participating. This is the same technology used in professional Counter-Strike tournaments for observer streams. Broadcasts can be automatically recorded for replay.
 
+Most server owners enable CSTV for one of two reasons:
+
+- **Demo recording.** Every match is saved as a `.dem` file you can download and review afterwards.
+- **Spectating.** People can watch a live match from inside CS2 without taking a player slot.
+
 ## Enabling CSTV
 
-Activate CSTV through your server's control panel:
+CSTV is switched on from the panel. You do not need to run any console commands to get it working.
 
-1. Navigate to your server management page
-2. Locate the CSTV settings section
-3. Toggle CSTV to enable
-4. Note the assigned CSTV port
+### Step 1: Open Your Server Settings
+
+1. Go to [fshost.me/pro/servers](https://fshost.me/pro/servers)
+2. Click **Edit** on your server
+3. Find the **CSTV** section
+
+### Step 2: Enable and Save
+
+Turn CSTV on, then save. The panel shows the assigned **CSTV port**, which you need in order to connect as a spectator. Write it down.
+
+### Step 3: Restart the Server
+
+CSTV starts with the server process, so the change applies on the next restart. Restart from the panel.
+
+::: tip That Is the Whole Setup
+Once CSTV is enabled and the server has restarted, demo recording works on its own. The commands in the next section are optional adjustments, not required steps.
+:::
 
 ## Configuration
+
+The panel handles the settings that matter for a normal setup. Use the commands below only when you want to change the defaults, for example to rename the broadcast or add a broadcast delay.
 
 ### Basic Settings
 
@@ -54,7 +74,7 @@ connect 123.45.67.89:27020
 ```
 
 ::: tip Finding Your Port
-Your CSTV port is displayed in the server panel when CSTV is enabled. It's typically your server port + 5 (e.g., if the server is on port 27015, CSTV is on 27020).
+Your CSTV port is displayed in the Pro Panel when CSTV is enabled. It's typically your server port + 5 (e.g., if the server is on port 27015, CSTV is on 27020).
 :::
 
 ### Spectator Commands

@@ -7,6 +7,10 @@ export default defineConfig({
   base: '/',
   cleanUrls: true,
 
+  // Reusable markdown fragments live in parts/ and are pulled into pages with
+  // <!--@include: ./parts/_name.md-->. They are not pages of their own.
+  srcExclude: ['**/parts/_*.md'],
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#1b1b1d' }],

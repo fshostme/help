@@ -2,20 +2,80 @@
 
 Guide to accessing and using RCON (Remote Console) on your CS2 server.
 
-::: danger Valve RCON Currently Non-Functional
-The official RCON system for CS2 servers is currently broken with no estimated fix date. Use `fake_rcon` as the recommended workaround for all administrative tasks.
+## What RCON Is
+
+RCON stands for Remote Console. It lets you send commands to your server from your own game client, so you can change the map, kick a player or adjust settings without touching the panel.
+
+::: danger Valve RCON Is Currently Broken
+Valve's built-in RCON system for CS2 is not working, with no fix date announced. Any guide telling you to use the `rcon` or `rcon_password` command will fail on CS2.
+
+FSHOST installs a plugin called **FakeRcon** that does the same job. Every command on this page uses `fake_rcon` instead of `rcon`. This is the supported method on both Free and Pro servers.
 :::
+
+## Before You Start
+
+You need three things in place before any command on this page works.
+
+### Step 1: Turn On the Developer Console
+
+In CS2, open **Settings** → **Game** → set **Enable Developer Console (~)** to **Yes**.
+
+The console is off by default in a fresh CS2 install, which is why commands appear to do nothing for most first-time server owners.
+
+### Step 2: Open the Console
+
+Press the **`** key (backtick or tilde, above Tab on most keyboards) while in game. Press it again to close.
+
+::: tip Console Key Does Nothing
+On some keyboard layouts the default key does not register. Rebind it in **Settings** → **Keyboard/Mouse** → **UI Keys** → **Toggle Console**.
+:::
+
+### Step 3: Join Your Own Server
+
+RCON commands are sent to the server you are currently connected to, so you must be in your server, not in the main menu.
+
+Find the IP and port on your panel, then connect from the console:
+
+```bash
+connect 123.45.67.89:27015
+```
+
+::: warning Commands Do Nothing in the Main Menu
+Typing `fake_rcon` from the main menu produces no output and no error. If nothing happens, check that you are actually connected to your server.
+:::
+
+## Where to Type Commands
+
+CS2 servers accept two different kinds of commands, and mixing them up is the most common reason a command appears to be ignored.
+
+| Type | Looks like | Where to type it | Used for |
+|------|-----------|------------------|----------|
+| Console command | `fake_rcon status` | Developer console (**`**) | Server settings, cvars, admin control |
+| Chat command | `!map dust2` | In-game chat (**Y** or **U**) | Game modes, map presets, plugin features |
+
+A chat command can also be sent from the console by putting `say` in front of it:
+
+```bash
+say !map dust2
+```
+
+This is the same as typing `!map dust2` in chat. Both forms appear on this page.
 
 ## Getting RCON Access
 
 ### For Free Servers
 
-Access RCON using your server's password displayed on the [Free Server Panel](https://fshost.me/free-panel).
+Your RCON password is shown on the [Free Server Panel](https://fshost.me/free-panel). It is the same password used for server administration.
 
 **Step 1 - Authenticate:**
+
+In the console, type `fake_rcon_password` followed by your password:
+
 ```bash
 fake_rcon_password your_rcon_password
 ```
+
+Replace `your_rcon_password` with the password from the panel. You only need to do this once per game session.
 
 **Step 2 - Verify Access:**
 ```bash
@@ -28,9 +88,15 @@ fake_rcon say Test message
 Console: Test message
 ```
 
+If you see the message appear in the in-game chat, RCON is working and every command below is available to you.
+
+::: danger Never Type Your Password in Chat
+`fake_rcon_password` belongs in the console only. Typed in chat, it is sent to every player on the server. If that happens, change your password in the panel straight away.
+:::
+
 ### For Pro Servers
 
-Pro servers use a more advanced admin system. See the [Server Admin Guide](/games/cs2/become-admin) for complete setup instructions.
+Pro servers use a full admin system with per-user permissions instead of a single shared password. See the [Server Admin Guide](/games/cs2/become-admin) for setup instructions.
 
 ## Essential Commands
 
@@ -200,7 +266,15 @@ say !map mirage
 ## Troubleshooting
 
 ::: details RCON command not working
-Verify you've entered `fake_rcon_password` correctly. Check for typos in your password.
+Check in this order:
+1. You are connected to your server, not sitting in the main menu
+2. You ran `fake_rcon_password` this session, and it returned `[Client] You can now use the fake_rcon command`
+3. The password matches the one on the panel, with no trailing space
+4. You used `fake_rcon`, not `rcon`, which is the broken Valve command
+:::
+
+::: details Nothing happens when I press the console key
+The console is disabled by default. See [Before You Start](#before-you-start) to enable it in **Settings** → **Game**.
 :::
 
 ::: details Messages not appearing in-game
@@ -210,8 +284,8 @@ fake_rcon say "Your message here"
 ```
 :::
 
-::: details Console not showing output
-Enable developer console in CS2 settings. Press `~` (tilde) to open.
+::: details A command works for other people but not for me
+Check whether it is a chat command or a console command. See [Where to Type Commands](#where-to-type-commands). Chat commands starting with `!` or `/` do not work when typed directly into the console.
 :::
 
 ## Usage Examples

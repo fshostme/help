@@ -8,7 +8,7 @@ The full Deathmatch plugin is available exclusively on Pro servers.
 
 ## Overview
 
-The Deathmatch plugin transforms your CS2 server into a fast-paced training environment with instant respawns, weapon selection menus, and optimized spawning systems.
+The Deathmatch plugin runs free-for-all deathmatch on your server, with instant respawns, a weapon selection menu and spawn points placed to keep players apart. It is normally used for aim warmup before a match.
 
 ## Features
 

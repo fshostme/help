@@ -6,14 +6,14 @@
 
 ## Overview
 
-FSH-AdminManager is the core system that powers admin management on your CS2 server. It works seamlessly with your FSHOST.me control panel, allowing you to manage admins through the **"Manage Admins"** interface without touching the admins.json file.
+FSH-AdminManager is the plugin behind admin management on your CS2 server. It reads your admin list from the Pro Panel, so you add and edit admins through the **Manage Admins** page instead of editing the `admins.json` file by hand.
 
 **Managed by:** Miksen
 
 ## How It Works
 
 ### Panel Integration
-FSH-AdminManager connects your server to the **"Manage Admins"** section in your control panel. When you add or edit admins through the panel:
+FSH-AdminManager connects your server to the **"Manage Admins"** section in your Pro Panel. When you add or edit admins through the panel:
 
 1. **Instant Updates** - Changes are applied to your server immediately (within 2 seconds)
 2. **No Server Restart** - Admins are loaded automatically when players connect
@@ -33,7 +33,7 @@ FSH-AdminManager connects your server to the **"Manage Admins"** section in your
 ## Managing Admins Through Your Panel
 
 ### Adding an Admin
-1. Go to **"Manage Admins"** in your control panel
+1. Go to **"Manage Admins"** in your Pro Panel
 2. Enter the player's **SteamID64** (format: 76561198XXXXXXXXX)
 3. Select permission flags (see flags table below)
 4. Set immunity level if needed
@@ -59,7 +59,7 @@ If you have root access (`z` flag), you can also manage admins in-game:
 
 ## Permission Flags
 
-FSH-AdminManager uses a comprehensive flag system for granular permission control:
+Permissions are set with flags, one letter per permission:
 
 | Flag | Description |
 |------|-------------|

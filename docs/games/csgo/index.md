@@ -1,10 +1,12 @@
-# CS:GO RCON Commands
+# CS:GO Documentation
 
-Find out how to control your CS:GO game server!
+Guides for managing and configuring your CS:GO game server on FSHOST.
 
 ## Getting Started
 
 To manage your CS:GO server, you'll need to connect via RCON or use in-game chat commands. First, log in as an admin.
+
+New here? Work through the sections in the order below. [Admin Login](./admin-login) is the one to start with, since most other commands need admin access first.
 
 ## Sections
 

@@ -81,7 +81,7 @@ Core administrative functionality for server management.
 
 ### Admin Manager {#admin-manager}
 
-Advanced admin system with customisable roles and permissions.
+Advanced admin system with customizable roles and permissions.
 
 **Features:**
 - Role-based permission system
@@ -107,7 +107,7 @@ Full-featured deathmatch game mode.
 
 ### Retakes {#retakes}
 
-Practice bomb site retakes with customisable scenarios.
+Practice bomb site retakes with customizable scenarios.
 
 **Features:**
 - Automatic team balancing
@@ -142,7 +142,7 @@ Enable custom weapon skins for players.
 
 ### Demo Monitor {#demo-monitor}
 
-Automatic demo file organisation for clean server management.
+Automatic demo file organization for clean server management.
 
 **Features:**
 - Automatically moves completed demos to `/demos/` folder
@@ -152,7 +152,7 @@ Automatic demo file organisation for clean server management.
 - MatchZy compatibility
 
 **How it helps:**
-Keeps your server files organised by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder - no more cluttered directories or manual file management.
+Keeps your server files organized by automatically moving finished CSTV demo recordings from the root `/game/csgo/` directory into a dedicated `/game/csgo/demos/` folder - no more cluttered directories or manual file management.
 
 ### TVFIX (CSTV Fix) {#tvfix}
 
@@ -186,7 +186,7 @@ fake_rcon css_plugins list
 :::
 
 ::: details What is a GSLT and why is it needed?
-A Game Server Login Token links your server to a Steam account, helping prevent abuse. Some plugins require this. Pro users can configure GSLT in the control panel.
+A Game Server Login Token links your server to a Steam account. It is optional on FSHOST servers, and none of the plugins listed above require one. Pro users who want to set a GSLT can do so in the Pro Panel.
 :::
 
 ::: details How do I configure plugins?

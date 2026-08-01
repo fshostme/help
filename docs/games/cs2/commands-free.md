@@ -6,6 +6,10 @@ Available commands for CS2 Free servers.
 Free servers have restricted functionality compared to Pro servers. Advanced features like pause commands, tech timeouts, and custom practice utilities are not available.
 :::
 
+<!--@include: ./parts/_where-to-type.md-->
+
+You do not need admin rights or a password for the commands on this page. Any player on a Free server can use them.
+
 ## Game Mode Commands
 
 | Command | Description |
@@ -130,16 +134,17 @@ Free servers do not support:
 For full functionality including all practice commands, match management, and plugin support, consider upgrading to a [Pro Server](https://fshost.me/pro/pricing/cs2).
 :::
 
-## Command Aliases
+## Command Prefixes and Aliases
 
-Most commands work with both `/` and `!` prefixes:
-- `/dm` = `!deathmatch`
-- `/comp` = `!comp`
-- `/map` = `!map`
+The `/`, `!` and `.` prefixes are interchangeable. `/comp`, `!comp` and `.comp` all do the same thing, so use whichever you prefer. This page writes them with `/`.
 
-::: info Note on Aliases
-Currently, only `/dm` has the alias `!deathmatch`. Other commands do not have additional aliases unless specified.
-:::
+That is separate from an alias, which is a second name for the same command. Only one exists on Free servers:
+
+| Command | Alias |
+|---------|-------|
+| `/dm` | `!deathmatch` |
+
+No other command has an alternative name. If a command is not listed on this page, it is not available on Free servers.
 
 ## Getting Help
 

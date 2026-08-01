@@ -71,7 +71,7 @@ The server must be restarted for the webhook configuration to take effect.
 
 If CSTV isn't already enabled:
 
-1. In your server panel, enable **CSTV**
+1. In your Pro Panel, enable **CSTV**
 2. Configure CSTV settings (port, delay, etc.)
 3. Save and restart server
 
@@ -191,19 +191,12 @@ Webhook URLs allow anyone with the URL to post to your Discord channel. Never sh
 
 ## Best Practices
 
-::: tip Organization Tips
-- Create separate Discord channels for different demo types
-- Use descriptive webhook names
-- Set up webhooks for competitive vs. practice servers separately
-- Archive old demos periodically to save space
-- Document your demo naming conventions
+::: tip Keeping Demos Findable
+Point practice and competitive servers at different Discord channels. Scrim demos pile up fast, and mixing them with match demos makes the channel hard to search later.
 :::
 
-::: tip Demo Storage
-- Regularly back up important demos
-- Download tournament/competitive demos immediately
-- Clear practice demos periodically to save server storage
-- Consider external storage for long-term demo archives
+::: tip Storage
+Demos stay on the server until you delete them. Download anything worth keeping soon after the match, then clear out old practice demos. See [Demo Monitor](/games/cs2/plugins/demomonitor) for where the files live.
 :::
 
 ## Limitations
@@ -241,28 +234,3 @@ Example: `2025-12-27_14-30-45_de_dust2_TeamA_vs_TeamB.dem`
 - [MatchZy Plugin](/games/cs2/plugins/matchzy) - Enhanced match information
 - [Demo Playback](/games/cs2/cstv#demo-playback) - How to watch demos
 - [Discord Support](https://fshost.me/discord) - Get help with setup
-
-## Integration Examples
-
-### For Competitive Teams
-
-1. Create webhook in `#match-demos` channel
-2. Configure Pro server with webhook
-3. Enable CSTV for all matches
-4. Team reviews demos after each match
-5. Archive important matches
-
-### For Communities
-
-1. Webhook in `#community-highlights` channel
-2. Record PUGs and community matches
-3. Players download their favorite matches
-4. Create highlight reels from demos
-
-### For Tournament Organizers
-
-1. Separate webhooks per division/bracket
-2. Archive all tournament demos
-3. Review for rule violations
-4. Share demos with casters/analysts
-5. Preserve tournament history
