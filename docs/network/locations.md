@@ -18,6 +18,7 @@ We offer server locations across multiple regions:
 - **Germany** - Frankfurt and Falkenstein
 - **France** - Gravelines
 - **Finland** - Helsinki
+- **Poland** - Warsaw
 
 ### Asia-Pacific
 - **Singapore** - Excluding CS2
@@ -27,7 +28,6 @@ We're open to adding more locations based on demand and pricing. We'd need at le
 
 Potential future locations:
 - **United Kingdom**
-- **Poland**
 
 ## How to Choose a Location
 
