@@ -40,6 +40,7 @@ These addons are managed automatically by FSHOST - no manual installation needed
 | CS2MapChange | ✓ | ✓ | Simplified map changing |
 | Workshop Maps | ✕ | ✓ | Load custom Steam Workshop maps |
 | [WeaponPaints](/games/cs2/plugins/weapon-skins) | ✕ | ✓ | Custom weapon skins |
+| [Custom Commands](/games/cs2/plugins/customcommands) | ✕ | ✓ | Create your own chat commands via JSON files |
 | [Demo Monitor](#demo-monitor) | ✕ | ✓ | Automatic demo file organization |
 | [TVFIX (CSTV Fix)](#tvfix) | ✕ | ✓ | Auto-restart CSTV after matches |
 
@@ -190,7 +191,7 @@ A Game Server Login Token links your server to a Steam account. It is optional o
 :::
 
 ::: details How do I configure plugins?
-**Pro servers:** Configure via FTP access (request in #pro-support on Discord) or via RCON commands.
+**Pro servers:** Configure via FTP access (request by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page) or via RCON commands.
 
 Configuration methods vary by plugin; refer to the individual plugin's documentation for specifics.
 :::

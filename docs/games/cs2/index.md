@@ -129,7 +129,7 @@ fake_rcon say "Server restarting in 5 minutes"
 ::: details How do I access my server files?
 **Free servers:** Limited file access via RCON commands
 
-**Pro servers:** Full FTP access available. Request credentials in Discord #pro-support.
+**Pro servers:** Full FTP access available. Request credentials by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page.
 :::
 
 ::: details Can I use custom maps?

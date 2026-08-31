@@ -173,7 +173,7 @@ The configuration file allows you to customize:
 ### Accessing the Config
 
 **Pro servers:**
-1. Connect via FTP (request access in Discord #pro-support)
+1. Connect via FTP (request access by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page)
 2. Navigate to config location
 3. Edit `RetakesAllocator.json`
 4. Restart server to apply changes

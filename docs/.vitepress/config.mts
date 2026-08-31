@@ -357,6 +357,7 @@ export default defineConfig({
             { text: 'Retakes', link: '/games/cs2/plugins/retakes' },
             { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire' },
             { text: 'WeaponPaints (Skins)', link: '/games/cs2/plugins/weapon-skins' },
+            { text: 'Custom Commands', link: '/games/cs2/plugins/customcommands' },
             { text: 'CSTV Discord', link: '/games/cs2/plugins/cstv-discord' }
           ]
         },
