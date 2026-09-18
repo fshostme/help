@@ -10,10 +10,10 @@ We can enable FTP for your server but support is limited after you install addit
 
 ## Accessing FTP
 
-1. Log in to your **[Server List](https://fshost.me/pro/servers)**
-2. Click "View" on your server
+1. Log in to the [Pro Panel](https://fshost.me/pro/servers)
+2. Click on your server name
 3. Navigate to the **Files** tab
-4. FTP details will be shown if we've enabled FTP, you'll need to contact us to get it set up
+4. The **FTP access** box shows your FTP details if we've enabled FTP. If it says FTP hasn't been set up for this server yet, contact support to get it enabled
 5. Use an FTP client like FileZilla, WinSCP, etc
 
 

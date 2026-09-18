@@ -4,8 +4,8 @@ Use the server console to monitor your server in real-time and execute admin com
 
 ## Accessing the Console
 
-1. Log in to your **[Pro Dashboard](https://fshost.me/pro)**
-2. Click "View" on your server
+1. Log in to the [Pro Panel](https://fshost.me/pro/servers)
+2. Click on your server name
 3. Navigate to the **Console** tab
 
 ## Console Interface
@@ -30,21 +30,19 @@ Bottom of console:
 
 ## Console Features
 
-### Auto-Scroll
+### Refresh Controls
 
-- Disabled by default
-- Automatically shows newest messages after sending commands
-- Disable to review older logs
-- Re-enable to jump to bottom
+Three buttons sit at the top right of the **Server Console** box.
+
+| Button | Purpose |
+|--------|---------|
+| **Refresh** | Loads the newest console output once |
+| **Auto-refresh** | Keeps loading new output on its own. It is **OFF** by default, turn it off again to review older logs |
+| **Colours** | Switches colored log output **ON** or **OFF** |
 
 ### Search/Filter
 
-Use your browser's find function Cmd+f or Ctrl+f to find specific messages:
-
-1. Click **"Search"** icon
-2. Enter search term
-3. Matching lines highlighted
-4. Use ↑/↓ to navigate results
+Use your browser's find function, Cmd+F or Ctrl+F, to find specific messages in the console output.
 
 ### Download Logs
 
