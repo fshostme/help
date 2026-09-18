@@ -342,7 +342,8 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'CSTV Broadcasting', link: '/games/cs2/cstv' },
-            { text: 'Become Admin (Pro)', link: '/games/cs2/become-admin' }
+            { text: 'Become Admin (Pro)', link: '/games/cs2/become-admin' },
+            { text: 'Automation (Pro)', link: '/games/cs2/automation' }
           ]
         },
         {

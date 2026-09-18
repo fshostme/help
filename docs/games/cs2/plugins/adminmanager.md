@@ -1,23 +1,23 @@
 # FSH-AdminManager
 
 ::: warning Critical System Plugin
-**DO NOT DELETE** - This plugin is essential for server administration. Removing it will disable all admin privileges and prevent the "Manage Admins" panel from working.
+**DO NOT DELETE** - This plugin is essential for server administration. Removing it will disable all admin privileges and prevent the **Server admins** page in the Pro Panel from working.
 :::
 
 ## Overview
 
-FSH-AdminManager is the plugin behind admin management on your CS2 server. It reads your admin list from the Pro Panel, so you add and edit admins through the **Manage Admins** page instead of editing the `admins.json` file by hand.
+FSH-AdminManager is the plugin behind admin management on your CS2 server. It reads your admin list from the Pro Panel, so you add and edit admins through the **Server admins** page instead of editing the `admins.json` file by hand.
 
 **Managed by:** Miksen
 
 ## How It Works
 
 ### Panel Integration
-FSH-AdminManager connects your server to the **"Manage Admins"** section in your Pro Panel. When you add or edit admins through the panel:
+FSH-AdminManager connects your server to the **Server admins** page in your Pro Panel. Find it under the **Settings** tab on your server's page. When you add or edit admins through the panel:
 
-1. **Instant Updates** - Changes are applied to your server immediately (within 2 seconds)
-2. **No Server Restart** - Admins are loaded automatically when players connect
-3. **Real-Time Sync** - The plugin checks the database and applies permissions live
+1. **Reload in-game** - Click **Reload in-game** on the **Server admins** page and the changes apply straight away. The server must be online
+2. **No Server Restart** - You do not need to restart the server to apply admin changes
+3. **Loaded on Start** - If you skip the reload, the new admin list is picked up the next time the server restarts
 
 ### Automatic Permission Loading
 - When a player connects to your server, FSH-AdminManager checks their SteamID64
@@ -33,23 +33,23 @@ FSH-AdminManager connects your server to the **"Manage Admins"** section in your
 ## Managing Admins Through Your Panel
 
 ### Adding an Admin
-1. Go to **"Manage Admins"** in your Pro Panel
+1. Open the **Settings** tab on your server's page in the [Pro Panel](https://fshost.me/pro/servers), then click **Server admins**
 2. Enter the player's **SteamID64** (format: 76561198XXXXXXXXX)
 3. Select permission flags (see flags table below)
 4. Set immunity level if needed
-5. Save - the admin will be active on their next connection!
+5. Click **+ Add**, then **Reload in-game** to apply it straight away
 
 ### Editing Admin Permissions
 If you made a mistake or need to change someone's permissions:
-1. Find the admin in your **"Manage Admins"** list
+1. Find the admin in your **Server admins** list
 2. Click ✏️  for Edit
 3. Update their flags or immunity
-4. Save - changes apply immediately
+4. Save, then click **Reload in-game** to apply the change straight away
 
 ### Removing an Admin
 1. Find the admin in your list
 2. Click 🗑️  to delete
-3. Confirm - they'll lose admin privileges on next connection
+3. Confirm, then click **Reload in-game** to remove their privileges straight away
 
 ### In-Game Commands (For Server Owners)
 If you have root access (`z` flag), you can also manage admins in-game:
@@ -137,7 +137,7 @@ Yes, FSH-AdminManager is designed to work alongside other plugins. Many admin to
 
 If you're experiencing issues or need help:
 
-1. **Check the Manage Admins panel** - ensure the SteamID64 and flags are correct
+1. **Check the Server admins page** - ensure the SteamID64 and flags are correct
 2. **Have the player reconnect** - admins load on connection
 3. **Try `/css_reloadadmins`** in console - forces a refresh
 4. **Contact FSHOST.me support** - we manage the backend and can help troubleshoot
@@ -149,5 +149,5 @@ All database configuration, updates, and technical maintenance are handled by FS
 ---
 
 ::: danger Remember
-FSH-AdminManager is **essential infrastructure** provided and managed by FSHOST.me. Never delete this plugin. If you need to make changes to admins management, use the **"Manage Admins"** panel or contact support.
+FSH-AdminManager is **essential infrastructure** provided and managed by FSHOST.me. Never delete this plugin. If you need to make changes to admins management, use the **Server admins** page or contact support.
 :::

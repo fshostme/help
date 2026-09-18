@@ -22,12 +22,13 @@ CSTV is switched on from the panel. You do not need to run any console commands 
 ### Step 1: Open Your Server Settings
 
 1. Go to [fshost.me/pro/servers](https://fshost.me/pro/servers)
-2. Click **Edit** on your server
-3. Find the **CSTV** section
+2. Click on your server name
+3. Open the **Settings** tab, or click **Edit** in the top right. Both open **Game settings**
+4. Scroll down to the **CSTV** section
 
 ### Step 2: Enable and Save
 
-Turn CSTV on, then save. The panel shows the assigned **CSTV port**, which you need in order to connect as a spectator. Write it down.
+Set **Enable CSTV** to **Yes**, then click **Save changes**. The **CSTV port** is assigned automatically, so there is no port to fill in. To keep spectators out, fill in **CSTV password (optional)** with 4 to 20 letters and digits. Leave it empty for an open broadcast.
 
 ### Step 3: Restart the Server
 
@@ -39,13 +40,14 @@ Once CSTV is enabled and the server has restarted, demo recording works on its o
 
 ## Configuration
 
-The panel handles the settings that matter for a normal setup. Use the commands below only when you want to change the defaults, for example to rename the broadcast or add a broadcast delay.
+The panel handles the settings that matter for a normal setup. Use the commands below only when you want to change the defaults, for example to rename the broadcast or change the broadcast delay.
 
 ### Basic Settings
 
 | Command | Description |
 |---------|-------------|
 | `tv_name "name"` | Set broadcaster name shown in server browser |
+| `tv_delay 90` | Broadcast delay in seconds. The default is `90` |
 | `tv_record "filename"` | Start recording a demo |
 | `tv_stoprecord` | Stop current demo recording |
 
@@ -55,7 +57,7 @@ The panel handles the settings that matter for a normal setup. Use the commands 
 // CSTV Settings
 tv_enable 1
 tv_name "FSHOST Match Server"
-tv_delay 0 // 0 second delay
+tv_delay 90 // Broadcast delay in seconds, 90 is the default
 tv_maxclients 10 // Max spectators
 ```
 
@@ -74,7 +76,7 @@ connect 123.45.67.89:27020
 ```
 
 ::: tip Finding Your Port
-Your CSTV port is displayed in the Pro Panel when CSTV is enabled. It's typically your server port + 5 (e.g., if the server is on port 27015, CSTV is on 27020).
+Open the **Files** tab on your server's page in the Pro Panel. The **CSTV** box shows the full `connect` command under **Spectate server**, including the CSTV port. The CSTV port is not the same as your game port.
 :::
 
 ### Spectator Commands
@@ -141,6 +143,10 @@ spec_goto 1234.5 -678.9 100.0 0 90
 
 ### Accessing Demos
 
+Recorded demos are listed under **Demo files** on the **Files** tab of your server's page. The list is refreshed every minute and demos are deleted after 7 days, so download the ones you want to keep. **Copy feed URL** gives you a JSON feed of the same list for your own tools.
+
+With FTP access you can also fetch them by hand:
+
 1. Connect to your server via FTP
 2. Navigate to `/game/csgo/demos`
 3. Download `.dem` files
@@ -188,7 +194,7 @@ playdemo yourdemo.dem
 ::: details Cannot connect to CSTV
 Verify:
 - CSTV is enabled in the panel
-- Using correct port (server port + 5)
+- Using the port shown under **Files** → **CSTV** → **Spectate server**, not the game port
 - Server is running
 - No firewall blocking connection
 :::

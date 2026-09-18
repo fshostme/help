@@ -17,34 +17,35 @@ Open [steamid.io](https://steamid.io) and paste your Steam profile URL. Copy the
 ### Step 2: Open the Admin Page
 
 1. Go to [fshost.me/pro/servers](https://fshost.me/pro/servers)
-2. Click **Edit** on your server
-3. Click **Manage Admins**
+2. Click on your server name
+3. Open the **Settings** tab. The **Edit** button in the top right opens the same page
+4. Click **Server admins** in the **Server settings** menu on the left
 
 ### Step 3: Add Yourself
 
-Fill in the **Add Admin** form and click **+ Add**.
+Fill in the **Add admin** form and click **+ Add**.
 
-![CS2 Manage Admins page](https://help.fshost.me/img/cs2-manage-admins.png)
+![CS2 Server admins page](https://help.fshost.me/img/cs2-server-admins.png)
 
 | Field | Value |
 |-------|-------|
 | **SteamID64** | Your 17-digit ID from Step 1 |
 | **Flags** | `z` for full permissions |
 | **Immunity** | `100`, the highest level |
-| **Custom Permissions** | Leave empty unless a plugin requires it |
+| **Custom permissions** | Optional. Leave empty unless a plugin requires it |
 
 ::: tip About the z Flag
-The `z` flag grants every permission at once, so there is no need to pick flags individually. Keep it for yourself and co-owners. For staff, use limited flags from the [Permission Flags](#permission-flags) table below.
+The `z` flag grants every permission at once, so there is no need to pick flags individually. The **z** button next to the **Flags** field fills it in for you, and the **...** button lets you pick individual flags. Keep it for yourself and co-owners. For staff, use limited flags from the [Permission Flags](#permission-flags) table below.
 :::
 
 ### Step 4: Apply the Changes
 
-Click **Reload In-Game** next to *Existing Admins*. Your admin access applies right away, without a server restart.
+Click **Reload in-game** next to **Existing admins**. Your admin access applies right away, without a server restart.
 
-Your entry then appears under **Existing Admins** with the Steam avatar, flags and immunity. Use the pencil icon to edit it, or the bin icon to remove it.
+Your entry then appears under **Existing admins** with the Steam avatar, flags and immunity. Use the pencil icon to edit it, or the bin icon to remove it.
 
 ::: warning Changes Not Showing In-Game
-Click **Reload In-Game** after adding or editing an admin. Otherwise the server keeps the old admin list until the next map change.
+Click **Reload in-game** after adding or editing an admin. Otherwise the server keeps the old admin list until the next server restart.
 :::
 
 ## Other Admin Access Methods
@@ -281,7 +282,7 @@ Immunity determines the admin hierarchy. Higher immunity cannot be affected by l
 
 ::: details Login command not working
 Verify:
-- Using correct RCON password (from panel)
+- Using the correct RCON password. It is shown under **Connection info** on the **Overview** tab of your server's page
 - Password has no typos or extra spaces
 - You're on the correct server
 - Server is Pro tier, not free
@@ -306,6 +307,6 @@ Admin changes save automatically to the database. If changes don't persist:
 
 Need assistance with admin setup?
 
-- **Pro Panel:** Manage admins from your server's Edit page
+- **Pro Panel:** Manage admins under **Settings** → **Server admins** on your server's page
 - **Discord:** Join [FSHOST Discord](https://fshost.me/discord)
 - **Support:** Contact #pro-support channel

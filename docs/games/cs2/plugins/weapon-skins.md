@@ -41,7 +41,7 @@ If you are already in the server when you change a skin on the website, type `!w
 
 A **GSLT** (Game Server Login Token) links your server to a Steam account. WeaponPaints does not need one, so you can skip this and skins will still work.
 
-It is optional, and you can add one later under your server's **Edit** page in the [Pro Panel](https://fshost.me/pro/servers).
+It is optional, and you can add one later in the [Pro Panel](https://fshost.me/pro/servers). Open the **Settings** tab on your server's page and fill in **Steam GSLT (Game Server Login Token)** in the **WeaponPaints (skins)** section.
 
 ## In-Game Commands
 

@@ -15,7 +15,7 @@ Follow the path for the server you have. Both take about ten minutes.
 
 ### Pro Server
 
-1. **Connect to your server.** The IP and port are on your server's page at [fshost.me/pro/servers](https://fshost.me/pro/servers)
+1. **Connect to your server.** The IP and port are at the top of your server's page at [fshost.me/pro/servers](https://fshost.me/pro/servers). Click **Join via Steam**, or use **Other ways to join** → **Copy console command** and paste it into the CS2 console
 2. **Make yourself an admin.** [Become a Server Admin](/games/cs2/become-admin), the panel method takes four steps
 3. **Learn the in-game commands** for maps, game modes and admin actions: [Pro Server Commands](/games/cs2/commands)
 4. **Add the features you want.** [Plugin Overview](/games/cs2/plugins) covers match management, deathmatch, skins and demos
@@ -30,6 +30,7 @@ Follow the path for the server you have. Both take about ten minutes.
 
 ### Advanced Features
 - [CSTV Broadcasting](/games/cs2/cstv) - Enable spectating and demo recording (Pro)
+- [Automation](/games/cs2/automation) - Automatic game updates and scheduled restarts (Pro)
 - [Plugin Overview](/games/cs2/plugins) - Available plugins and addons
 
 ## Pro Server Plugins

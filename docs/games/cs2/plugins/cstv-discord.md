@@ -57,11 +57,12 @@ You can create multiple webhooks pointing to different channels for organizing d
 ### Adding Webhook to Server
 
 1. Log in to your **Pro Panel**
-2. Navigate to your server's **Edit** page
-3. Locate **Discord Webhook URL (Optional)** field
-4. Paste your webhook URL
-5. Click **Save**
-6. **Restart your CS2 server** to apply changes
+2. Open the **Settings** tab on your server's page. It opens on **Game settings**
+3. Scroll down to the **CSTV** section and set **Enable CSTV** to **Yes**. The webhook field only appears when CSTV is enabled
+4. Locate the **Discord webhook URL (optional)** field in the same section
+5. Paste your webhook URL
+6. Click **Save changes**
+7. **Restart your CS2 server** to apply changes
 
 ::: warning Restart Required
 The server must be restarted for the webhook configuration to take effect.
@@ -71,9 +72,9 @@ The server must be restarted for the webhook configuration to take effect.
 
 If CSTV isn't already enabled:
 
-1. In your Pro Panel, enable **CSTV**
-2. Configure CSTV settings (port, delay, etc.)
-3. Save and restart server
+1. In your Pro Panel, open **Settings** → **Game settings** and set **Enable CSTV** to **Yes**
+2. Optionally fill in **CSTV password (optional)**. The CSTV port is assigned automatically
+3. Click **Save changes** and restart the server
 
 See the [CSTV Guide](/games/cs2/cstv) for detailed CSTV configuration.
 
