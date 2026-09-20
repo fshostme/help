@@ -1,3 +1,31 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+import { data as css } from './plugins/css-version.data.js'
+
+// SSR/build-time value renders first (no flicker, works if GitHub is down).
+// On the client, refresh live so a new release shows without a docs rebuild.
+const cssVersion = ref(css.version)
+const cssUrl = ref(css.url)
+
+onMounted(async () => {
+  try {
+    const res = await fetch(
+      'https://api.github.com/repos/mrc4tt/CounterStrikeSharp/releases/latest',
+      { headers: { Accept: 'application/vnd.github+json' }, signal: AbortSignal.timeout(8000) }
+    )
+    if (!res.ok) return
+    const json = await res.json()
+    const tag = (json.tag_name || '').replace(/^v/, '')
+    if (tag) {
+      cssVersion.value = tag
+      cssUrl.value = json.html_url || cssUrl.value
+    }
+  } catch {
+    /* keep the build-time value */
+  }
+})
+</script>
+
 # CS2 Server Addons & Plugins
 
 Complete overview of the addons and plugins available for Counter-Strike 2 servers on FSHOST.
@@ -14,7 +42,7 @@ These core components are preinstalled and maintained automatically on all serve
 | Component | Purpose |
 |-----------|---------|
 | **Metamod:Source** | Foundation layer that enables server modifications |
-| **CounterStrikeSharp** - **Forked** | Server-side modding framework that plugins are built on |
+| [**CounterStrikeSharp**](https://github.com/mrc4tt/CounterStrikeSharp) - **Forked** | Server-side modding framework that plugins are built on. Latest release: <a :href="cssUrl" target="_blank" rel="noreferrer">{{ cssVersion }}</a> |
 | **MultiAddonManager** | Handles Workshop content and client downloads |
 
 ::: tip Automatic Updates
