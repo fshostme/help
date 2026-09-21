@@ -20,6 +20,7 @@ The server page is split into tabs.
 | **Settings** | **Game settings**, **Server admins** and **Automation** |
 | **Actions** | **Server actions**, a log of who started, stopped or restarted the server and when |
 | **Billing** | **Server pricing**, **Your balance** and **Charge history** |
+| **Team** | **Team members** and **Add a team member**. See [Team Access](/servers/pro/team-access) |
 
 The top of the page stays the same on every tab. It shows the server status, the IP and port with a **Copy** button, **Join via Steam**, and the **Edit**, **Stop** and **Restart** buttons.
 

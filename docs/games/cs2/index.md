@@ -31,6 +31,7 @@ Follow the path for the server you have. Both take about ten minutes.
 ### Advanced Features
 - [CSTV Broadcasting](/games/cs2/cstv) - Enable spectating and demo recording (Pro)
 - [Automation](/games/cs2/automation) - Automatic game updates and scheduled restarts (Pro)
+- [Team Access](/servers/pro/team-access) - Let teammates control the server from their own accounts (Pro)
 - [Plugin Overview](/games/cs2/plugins) - Available plugins and addons
 
 ## Pro Server Plugins

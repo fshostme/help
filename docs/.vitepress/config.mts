@@ -79,6 +79,7 @@ export default defineConfig({
                 { text: 'Creating a Server', link: '/servers/pro/creating-server' },
                 { text: 'Server List', link: '/servers/pro/server-list' },
                 { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+                { text: 'Team Access', link: '/servers/pro/team-access' },
                 { text: 'File Manager', link: '/servers/pro/file-manager' },
                 { text: 'Console Access', link: '/servers/pro/console' }
               ]
@@ -130,6 +131,7 @@ export default defineConfig({
                 { text: 'Creating a Server', link: '/servers/pro/creating-server' },
                 { text: 'Server List', link: '/servers/pro/server-list' },
                 { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+                { text: 'Team Access', link: '/servers/pro/team-access' },
                 { text: 'File Manager', link: '/servers/pro/file-manager' },
                 { text: 'Console Access', link: '/servers/pro/console' }
               ]
@@ -181,6 +183,7 @@ export default defineConfig({
                 { text: 'Creating a Server', link: '/servers/pro/creating-server' },
                 { text: 'Server List', link: '/servers/pro/server-list' },
                 { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+                { text: 'Team Access', link: '/servers/pro/team-access' },
                 { text: 'Server Moves', link: '/servers/pro/server-moves' },
                 { text: 'File Manager', link: '/servers/pro/file-manager' },
                 { text: 'Console Access', link: '/servers/pro/console' }
@@ -233,6 +236,7 @@ export default defineConfig({
                 { text: 'Creating a Server', link: '/servers/pro/creating-server' },
                 { text: 'Server List', link: '/servers/pro/server-list' },
                 { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+                { text: 'Team Access', link: '/servers/pro/team-access' },
                 { text: 'File Manager', link: '/servers/pro/file-manager' },
                 { text: 'Console Access', link: '/servers/pro/console' }
               ]
@@ -284,6 +288,7 @@ export default defineConfig({
                 { text: 'Creating a Server', link: '/servers/pro/creating-server' },
                 { text: 'Server List', link: '/servers/pro/server-list' },
                 { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+                { text: 'Team Access', link: '/servers/pro/team-access' },
                 { text: 'File Manager', link: '/servers/pro/file-manager' },
                 { text: 'Console Access', link: '/servers/pro/console' }
               ]

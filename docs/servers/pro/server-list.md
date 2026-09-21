@@ -21,6 +21,12 @@ The main area shows all your servers:
 - **View** - Button to view the server and control it
 - **View more arrow** - See quick connect command and price/renewal date
 
+### Shared with You
+
+Servers you help run for someone else are listed under **Shared with you**, below your own servers. Each one is marked **Owned by (username)**. Billing stays with the owner.
+
+See [Team Access](/servers/pro/team-access) for how to join a server team or share your own server.
+
 ## Server Status Indicators
 
 Understanding status colors:
