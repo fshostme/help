@@ -31,12 +31,12 @@ See [Team Access](/servers/pro/team-access) for how to join a server team or sha
 
 Understanding status colors:
 
-- 🟢 **Green (Running)** - Server is online and accepting connections
-- 🔴 **Red (Stopped)** - Server is offline
-- 🟠 **Orange Spinner (Starting)** - Server is starting up
-- 🟠 **Orange Spinner (Stopping)** - Server is stopping
-- 🟠 **Orange Spinner (Updating)** - Update in progress
-- 🔴️ **Red (Crashed)** - Server encountered an error and was stopped
+- **Green (Running)** - Server is online and accepting connections
+- **Red (Stopped)** - Server is offline
+- **Orange Spinner (Starting)** - Server is starting up
+- **Orange Spinner (Stopping)** - Server is stopping
+- **Orange Spinner (Updating)** - Update in progress
+- **Red (Crashed)** - Server encountered an error and was stopped
 
 ## Creating a New Server
 

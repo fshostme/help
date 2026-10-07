@@ -28,9 +28,7 @@ Demo Monitor is a FSHOST-exclusive plugin that moves each finished demo into `/g
 
 Every completed demo is in `/game/csgo/demos/`.
 
-**Via the Pro Panel:** open the file manager and browse to `game/csgo/demos/`.
-
-**Via FTP:** connect to your server and navigate to `/game/csgo/demos/`.
+Download them from **Demo files** on the **Files** tab of your server's page in the [Pro Panel](https://fshost.me/pro/servers). The list refreshes every minute, and demos are deleted after 7 days. Demos are not available over FTP yet.
 
 Filenames follow the tool that recorded them:
 
@@ -103,7 +101,7 @@ Wait 30 seconds for the periodic scan to pick it up.
 :::
 
 ::: details Can't find my demos
-All demos are moved to `/game/csgo/demos/`. Reach it through the file manager in the Pro Panel, or over FTP at `game/csgo/demos/`.
+All demos are moved to `/game/csgo/demos/`, and that folder is what the **Demo files** list on the **Files** tab shows. A demo only appears once recording has stopped, and demos older than 7 days are deleted.
 :::
 
 ## Works With Other Plugins

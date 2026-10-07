@@ -156,13 +156,13 @@ No other command has an alternative name. If a command is not listed on this pag
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| Basic game modes | ✓ | ✓ |
-| Map changing | ✓ | ✓ |
+| Basic game modes | Yes | Yes |
+| Map changing | Yes | Yes |
 | Competitive configs | Limited | Full |
 | Practice commands | Basic | Advanced |
-| Match management | ✕ | ✓ |
-| Admin system | ✕ | ✓ |
-| Workshop maps | ✕ | ✓ |
-| CSTV | ✕ | ✓ |
+| Match management | No | Yes |
+| Admin system | No | Yes |
+| Workshop maps | No | Yes |
+| CSTV | No | Yes |
 
 [View Full Comparison →](/servers/free-vs-pro)

@@ -1,5 +1,92 @@
 import { defineConfig } from 'vitepress'
 
+// Shown at the bottom of every sidebar.
+const footerLinks = [
+  {
+    text: 'Rent Pro Server',
+    link: 'https://fshost.me/pro/pricing/'
+  },
+  {
+    text: 'Back to FSHOST.me',
+    link: 'https://fshost.me/'
+  }
+]
+
+// Every game with its own section. Used by the Games menu in the top nav and by
+// the game sidebars, so a new game only has to be added here.
+const gameLinks = [
+  { text: 'All Games', link: '/games/' },
+  { text: 'Counter-Strike 2', link: '/games/cs2/' },
+  { text: 'Counter-Strike 1.6', link: '/games/cs16/' },
+  { text: 'Counter-Strike GO', link: '/games/csgo/' },
+  { text: 'Call of Duty', link: '/games/cod/' },
+  { text: 'Call of Duty 2', link: '/games/cod2/' },
+  { text: 'Call of Duty 4: MW', link: '/games/cod4/' }
+]
+
+// Sidebar for a single game: its own pages first, then the list of other games.
+function gameSidebar(title: string, items: { text: string, link: string }[]) {
+  return [
+    { text: title, items },
+    { text: 'Other Games', collapsed: true, items: gameLinks },
+    ...footerLinks
+  ]
+}
+
+// The sidebar shown on general, network and server pages. Every one of those
+// path prefixes uses this same list, so a page added here shows up on all of them.
+const mainSidebar = [
+  {
+    text: 'General',
+    collapsed: false,
+    items: [
+      { text: 'Getting Started', link: '/getting-started' },
+      { text: 'RCON', link: '/rcon' },
+      { text: 'Account and Security', link: '/account' },
+      { text: 'FAQ', link: '/faq' }
+    ]
+  },
+  {
+    text: 'Network',
+    collapsed: false,
+    items: [
+      { text: 'Locations', link: '/network/locations' },
+      { text: 'Ping Test', link: '/network/ping-test' },
+      { text: 'MTR Report', link: '/network/mtr' }
+    ]
+  },
+  {
+    text: 'Servers',
+    items: [
+      { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
+      {
+        text: 'Free',
+        collapsed: true,
+        items: [
+          { text: 'Creating a Server', link: '/servers/free/creating-server' }
+        ]
+      },
+      {
+        text: 'Pro',
+        collapsed: true,
+        items: [
+          { text: 'Creating a Server', link: '/servers/pro/creating-server' },
+          { text: 'Server List', link: '/servers/pro/server-list' },
+          { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+          { text: 'Team Access', link: '/servers/pro/team-access' },
+          { text: 'Billing and Top-Up', link: '/servers/pro/billing' },
+          { text: 'Support Tickets', link: '/servers/pro/support' },
+          { text: 'Server Moves', link: '/servers/pro/server-moves' },
+          { text: 'FTP Access', link: '/servers/pro/ftp' },
+          { text: 'File Manager', link: '/servers/pro/file-manager' },
+          { text: 'Console Access', link: '/servers/pro/console' }
+        ]
+      }
+    ]
+  },
+  ...footerLinks
+]
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "FSHOST Help",
@@ -28,303 +115,59 @@ export default defineConfig({
       { text: 'RCON', link: '/rcon' },
       {
         text: 'Games',
-        items: [
-          { text: 'All Games', link: '/games/' },
-          { text: 'Counter-Strike 2', link: '/games/cs2/' },
-          { text: 'Counter-Strike 1.6', link: '/games/cs16/' },
-          { text: 'Counter-Strike GO', link: '/games/csgo/' },
-          { text: 'Call of Duty', link: '/games/cod/' },
-          { text: 'Call of Duty 2', link: '/games/cod2/' },
-          { text: 'Call of Duty 4: MW', link: '/games/cod4/' }
-        ]
+        items: gameLinks
       },
       { text: 'Troubleshooting', link: '/troubleshooting/' },
       { text: 'News', link: '/news/' }
     ],
 
     sidebar: {
-      '/': [
-        {
-          text: 'General',
-          collapsed: false,
-          items: [
-            { text: 'Getting Started', link: '/getting-started' },
-            { text: 'RCON', link: '/rcon' },
-            { text: 'FAQ', link: '/faq' }
-          ]
-        },
-        {
-          text: 'Network',
-          collapsed: false,
-          items: [
-            { text: 'Locations', link: '/network/locations' },
-            { text: 'Ping Test', link: '/network/ping-test' }
-          ]
-        },
-        {
-          text: 'Servers',
-          items: [
-            { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
-            {
-              text: 'Free',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/free/creating-server' }
-              ]
-            },
-            {
-              text: 'Pro',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/pro/creating-server' },
-                { text: 'Server List', link: '/servers/pro/server-list' },
-                { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
-                { text: 'Team Access', link: '/servers/pro/team-access' },
-                { text: 'File Manager', link: '/servers/pro/file-manager' },
-                { text: 'Console Access', link: '/servers/pro/console' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
-      ],
-      '/servers/free/': [
-        {
-          text: 'General',
-          collapsed: false,
-          items: [
-            { text: 'Getting Started', link: '/getting-started' },
-            { text: 'RCON', link: '/rcon' },
-            { text: 'FAQ', link: '/faq' }
-          ]
-        },
-        {
-          text: 'Network',
-          collapsed: false,
-          items: [
-            { text: 'Locations', link: '/network/locations' },
-            { text: 'Ping Test', link: '/network/ping-test' }
-          ]
-        },
-        {
-          text: 'Servers',
-          items: [
-            { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
-            {
-              text: 'Free',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/free/creating-server' }
-              ]
-            },
-            {
-              text: 'Pro',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/pro/creating-server' },
-                { text: 'Server List', link: '/servers/pro/server-list' },
-                { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
-                { text: 'Team Access', link: '/servers/pro/team-access' },
-                { text: 'File Manager', link: '/servers/pro/file-manager' },
-                { text: 'Console Access', link: '/servers/pro/console' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
-      ],
-      '/servers/pro/': [
-        {
-          text: 'General',
-          collapsed: false,
-          items: [
-            { text: 'Getting Started', link: '/getting-started' },
-            { text: 'RCON', link: '/rcon' },
-            { text: 'FAQ', link: '/faq' }
-          ]
-        },
-        {
-          text: 'Network',
-          collapsed: false,
-          items: [
-            { text: 'Locations', link: '/network/locations' },
-            { text: 'Ping Test', link: '/network/ping-test' }
-          ]
-        },
-        {
-          text: 'Servers',
-          items: [
-            { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
-            {
-              text: 'Free',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/free/creating-server' }
-              ]
-            },
-            {
-              text: 'Pro',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/pro/creating-server' },
-                { text: 'Server List', link: '/servers/pro/server-list' },
-                { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
-                { text: 'Team Access', link: '/servers/pro/team-access' },
-                { text: 'Server Moves', link: '/servers/pro/server-moves' },
-                { text: 'File Manager', link: '/servers/pro/file-manager' },
-                { text: 'Console Access', link: '/servers/pro/console' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
-      ],
-      '/network/': [
-        {
-          text: 'General',
-          collapsed: false,
-          items: [
-            { text: 'Getting Started', link: '/getting-started' },
-            { text: 'RCON', link: '/rcon' },
-            { text: 'FAQ', link: '/faq' }
-          ]
-        },
-        {
-          text: 'Network',
-          collapsed: false,
-          items: [
-            { text: 'Locations', link: '/network/locations' },
-            { text: 'Ping Test', link: '/network/ping-test' }
-          ]
-        },
-        {
-          text: 'Servers',
-          items: [
-            { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
-            {
-              text: 'Free',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/free/creating-server' }
-              ]
-            },
-            {
-              text: 'Pro',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/pro/creating-server' },
-                { text: 'Server List', link: '/servers/pro/server-list' },
-                { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
-                { text: 'Team Access', link: '/servers/pro/team-access' },
-                { text: 'File Manager', link: '/servers/pro/file-manager' },
-                { text: 'Console Access', link: '/servers/pro/console' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
-      ],
-      '/servers/': [
-        {
-          text: 'General',
-          collapsed: false,
-          items: [
-            { text: 'Getting Started', link: '/getting-started' },
-            { text: 'RCON', link: '/rcon' },
-            { text: 'FAQ', link: '/faq' }
-          ]
-        },
-        {
-          text: 'Network',
-          collapsed: false,
-          items: [
-            { text: 'Locations', link: '/network/locations' },
-            { text: 'Ping Test', link: '/network/ping-test' }
-          ]
-        },
-        {
-          text: 'Servers',
-          items: [
-            { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
-            {
-              text: 'Free',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/free/creating-server' }
-              ]
-            },
-            {
-              text: 'Pro',
-              collapsed: true,
-              items: [
-                { text: 'Creating a Server', link: '/servers/pro/creating-server' },
-                { text: 'Server List', link: '/servers/pro/server-list' },
-                { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
-                { text: 'Team Access', link: '/servers/pro/team-access' },
-                { text: 'File Manager', link: '/servers/pro/file-manager' },
-                { text: 'Console Access', link: '/servers/pro/console' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
-      ],
+      '/': mainSidebar,
+      '/servers/free/': mainSidebar,
+      '/servers/pro/': mainSidebar,
+      '/network/': mainSidebar,
+      '/servers/': mainSidebar,
       '/games/': [
         {
           text: 'Supported Games',
+          items: gameLinks
+        },
+        ...footerLinks
+      ],
+      '/games/cs16/': gameSidebar('Counter-Strike 1.6', [
+        { text: 'Overview', link: '/games/cs16/' },
+        { text: 'Become Admin', link: '/games/cs16/becomeadmin' },
+        { text: 'RCON Commands', link: '/games/cs16/rcon' }
+      ]),
+      '/games/cod/': gameSidebar('Call of Duty', [
+        { text: 'Overview', link: '/games/cod/' },
+        { text: 'RCON Commands', link: '/games/cod/rcon' }
+      ]),
+      '/games/cod2/': gameSidebar('Call of Duty 2', [
+        { text: 'Overview', link: '/games/cod2/' },
+        { text: 'RCON Commands', link: '/games/cod2/rcon' }
+      ]),
+      '/games/cod4/': [
+        {
+          text: 'Call of Duty 4: MW',
           items: [
-            { text: 'All Games', link: '/games/' },
-            { text: 'Counter-Strike 2', link: '/games/cs2/' },
-            { text: 'Counter-Strike 1.6', link: '/games/cs16/' },
-	    { text: 'Counter-Strike GO', link: '/games/csgo/' },
-            { text: 'Call of Duty', link: '/games/cod/' },
-            { text: 'Call of Duty 2', link: '/games/cod2/' },
-            { text: 'Call of Duty 4: MW', link: '/games/cod4/' }
+            { text: 'Overview', link: '/games/cod4/' },
+            { text: 'RCON Commands', link: '/games/cod4/rcon' }
           ]
         },
         {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
+          text: 'Mods',
+          collapsed: false,
+          items: [
+            { text: 'Promod LIVE', link: '/games/cod4/mods/promodlive' },
+            { text: 'FPSChallenge.eu Promod', link: '/games/cod4/mods/fps-promod' },
+            { text: 'GunGame', link: '/games/cod4/mods/gungame' },
+            { text: 'CoDJumper', link: '/games/cod4/mods/codjumper' },
+            { text: 'Stock Custom Maps', link: '/games/cod4/mods/stock-custom-maps' }
+          ]
         },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
+        { text: 'Other Games', collapsed: true, items: gameLinks },
+        ...footerLinks
       ],
       '/games/cs2/': [
         {
@@ -364,17 +207,12 @@ export default defineConfig({
             { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire' },
             { text: 'WeaponPaints (Skins)', link: '/games/cs2/plugins/weapon-skins' },
             { text: 'Custom Commands', link: '/games/cs2/plugins/customcommands' },
-            { text: 'CSTV Discord', link: '/games/cs2/plugins/cstv-discord' }
+            { text: 'CSTV Discord', link: '/games/cs2/plugins/cstv-discord' },
+            { text: 'Demo Monitor', link: '/games/cs2/plugins/demomonitor' },
+            { text: 'TVFIX (CSTV Fix)', link: '/games/cs2/plugins/tvfix' }
           ]
         },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
+        ...footerLinks
       ],
       '/troubleshooting/': [
         {
@@ -384,14 +222,7 @@ export default defineConfig({
             { text: 'Connection Problems', link: '/troubleshooting/connection' }
           ]
         },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
+        ...footerLinks
       ],
       '/news/': [
         {
@@ -400,14 +231,7 @@ export default defineConfig({
             { text: 'All News', link: '/news/' }
           ]
         },
-        {
-          text: 'Rent Pro Server',
-          link: 'https://fshost.me/pro/pricing/'
-        },
-        {
-          text: 'Back to FSHOST.me',
-          link: 'https://fshost.me/'
-        }
+        ...footerLinks
       ]
     },
 
@@ -418,7 +242,7 @@ export default defineConfig({
 
     footer: {
       message: 'FSHOST.me - Free and Premium Game Server Hosting',
-      copyright: 'Copyright © 2024 FSHOST.me'
+      copyright: `Copyright © ${new Date().getFullYear()} FSHOST.me`
     },
 
     search: {

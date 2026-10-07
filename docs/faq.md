@@ -58,7 +58,7 @@ Pro server pricing varies based on the game. Our price includes an 18-slot (play
 <details>
 <summary>What payment methods do you accept?</summary>
 
-We accept various payment methods including credit cards, PayPal, and other popular payment providers. Our payment processor is Stripe so you can check on their site for supported countries.
+We accept various payment methods including credit cards, PayPal, and other popular payment providers. Our payment processor is Stripe so you can check on their site for supported countries. See [Billing and Top-Up](/servers/pro/billing#top-up-your-balance) for how to add money to your balance.
 
 </details>
 
@@ -66,6 +66,8 @@ We accept various payment methods including credit cards, PayPal, and other popu
 <summary>Can I cancel my Pro server subscription?</summary>
 
 We don't currently run a subscription for servers. All payments are manual top-ups by you so we can't take any money without it being in your FSHOST account balance first.
+
+A running server renews from your balance on its renewal date. To stop paying, stop the server. Stopped servers are not charged. See [Billing and Top-Up](/servers/pro/billing#how-charging-works).
 
 </details>
 
@@ -88,7 +90,7 @@ Pro servers have console access available through the Console tab. See [Console 
 <details>
 <summary>Can I install custom plugins or mods?</summary>
 
-Pro servers support custom plugins and mods through FTP, please talk to support to get started. Free servers do not have this customisation option.
+Pro servers support custom plugins and mods through FTP, please talk to support to get started. See [FTP Access](/servers/pro/ftp). Free servers do not have this customization option.
 
 </details>
 
@@ -107,13 +109,14 @@ We have servers in multiple locations worldwide. See our [Locations](/network/lo
 You can get help through:
 - Our [Common Issues](/troubleshooting/) section
 - Discord community at [fshost.me/discord](https://fshost.me/discord)
-- Support tickets through email/contact form [fshost.me/contact](https://fshost.me/contact)
+- Pro customers: support tickets on [Pro Support](https://fshost.me/pro/support). See [Support Tickets](/servers/pro/support)
+- Everyone else: the contact form at [fshost.me/contact](https://fshost.me/contact)
 
 </details>
 
 <details>
 <summary>How quickly do you respond to support requests?</summary>
 
-Normally within a few minutes. We aim to respond to all support requests (during work hours) within 1 hour. Anything opened outside of working hours will be within 12 hours max. Pro server customers receive priority support over free.
+Normally within a few minutes. We aim to respond to all support requests (during work hours) within 1 hour. Anything opened outside of working hours will be within 12 hours max. Pro server customers receive priority support over free. The [Pro Support](https://fshost.me/pro/support) page shows whether support is online right now and how fast recent tickets were answered.
 
 </details>

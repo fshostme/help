@@ -197,7 +197,7 @@ Point practice and competitive servers at different Discord channels. Scrim demo
 :::
 
 ::: tip Storage
-Demos stay on the server until you delete them. Download anything worth keeping soon after the match, then clear out old practice demos. See [Demo Monitor](/games/cs2/plugins/demomonitor) for where the files live.
+Demos are deleted from the server automatically after 7 days. Download anything worth keeping soon after the match. The Discord upload is not affected, so the copy in your channel stays. See [Demo Monitor](/games/cs2/plugins/demomonitor) for where the files live.
 :::
 
 ## Limitations

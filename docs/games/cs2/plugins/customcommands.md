@@ -42,7 +42,7 @@ csgo/addons/counterstrikesharp/configs/plugins/CustomCommands/
 Every `.json` file in this folder is loaded as a command file, except `CustomCommands.json`, which is the plugin's own configuration. You can keep everything in one file or split commands into several files, for example `info.json` and `admin.json`.
 
 ::: tip FTP Access
-Editing files requires FTP access to your server. Request access by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page.
+Editing files requires FTP access to your server. Request access by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page. See [FTP Access](/servers/pro/ftp).
 :::
 
 ## Preinstalled Command Files

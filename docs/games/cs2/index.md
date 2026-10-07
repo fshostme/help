@@ -131,7 +131,7 @@ fake_rcon say "Server restarting in 5 minutes"
 ::: details How do I access my server files?
 **Free servers:** Limited file access via RCON commands
 
-**Pro servers:** Full FTP access available. Request credentials by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page.
+**Pro servers:** FTP access to the `addons` and `cfg` folders. Request credentials by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page. See [FTP Access](/servers/pro/ftp).
 :::
 
 ::: details Can I use custom maps?
@@ -154,13 +154,13 @@ A Game Server Login Token links your server to a Steam account. It is optional o
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| Basic Admin Tools | ✕ | ✓ |
-| CSTV Broadcasting | ✕ | ✓ |
-| Match Management | ✕ | ✓ |
-| Custom Plugins | ✕ | ✓ |
-| Workshop Maps | ✕ | ✓ |
-| FTP Access | ✕ | ✓ |
-| Priority Support | ✕ | ✓ |
+| Basic Admin Tools | No | Yes |
+| CSTV Broadcasting | No | Yes |
+| Match Management | No | Yes |
+| Custom Plugins | No | Yes |
+| Workshop Maps | No | Yes |
+| FTP Access | No | Yes |
+| Priority Support | No | Yes |
 
 ## Next Steps
 

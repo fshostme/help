@@ -8,8 +8,8 @@ Troubleshooting when players cannot connect to your game server.
 
 First, verify your server is actually online:
 
-1. Check **[Dashboard](https://fshost.me/pro/servers)**
-2. Status should be 🟢 **"Running"** (green)
+1. Check the [Pro Panel](https://fshost.me/pro/servers)
+2. Status should be **Running** (green)
 3. If not, start the server
 4. Wait 30-60 seconds for full startup
 5. Check console to see if it's outputting logs
@@ -69,6 +69,10 @@ Some ISPs block game ports or IPs:
 
 - Player should contact ISP
 - Try VPN as workaround
+
+### High Ping or Packet Loss
+
+If players lag even though the server is close to them, we need an [MTR Report](/network/mtr) from each affected player, along with their IP address. We cannot investigate without it.
 - Not much we can do server-side
 
 ## Need Help?

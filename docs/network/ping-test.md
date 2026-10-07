@@ -82,6 +82,8 @@ If all locations show high ping:
 - Try from a different device or network
 - Contact your ISP if problems continue
 
+If the ping is only high on your server, or only for some players, send us an [MTR Report](/network/mtr). We need it to look into the problem.
+
 ## Next Steps
 
 Once you've identified the best location:

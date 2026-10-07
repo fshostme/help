@@ -7,11 +7,12 @@ Should you come across an issue, check here for troubleshooting with your FSHOST
 ### Server Issues
 
 - **[Connection Problems](/troubleshooting/connection)** - Can't connect to server
+- **[CS2 Demos Missing](/games/cs2/cstv#troubleshooting)** - A recorded demo is not in the **Demo files** list
 
 ### Network Issues
 
-- **High Ping** - Latency and connection quality
-- **Timeout Errors** - Connection timeouts
+- **[High Ping](/network/ping-test#high-ping-to-all-locations)** - Latency and connection quality. Test each location on the [Ping Test](/network/ping-test) page, then send us an [MTR Report](/network/mtr)
+- **[Timeout Errors](/troubleshooting/connection#connection-failed)** - The game cannot reach the server or the connection drops
 
 ## Quick Troubleshooting
 

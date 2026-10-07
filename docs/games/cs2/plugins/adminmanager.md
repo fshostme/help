@@ -42,13 +42,13 @@ FSH-AdminManager connects your server to the **Server admins** page in your Pro 
 ### Editing Admin Permissions
 If you made a mistake or need to change someone's permissions:
 1. Find the admin in your **Server admins** list
-2. Click ✏️  for Edit
+2. Click the pencil icon to edit
 3. Update their flags or immunity
 4. Save, then click **Reload in-game** to apply the change straight away
 
 ### Removing an Admin
 1. Find the admin in your list
-2. Click 🗑️  to delete
+2. Click the trash icon to delete
 3. Confirm, then click **Reload in-game** to remove their privileges straight away
 
 ### In-Game Commands (For Server Owners)

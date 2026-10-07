@@ -17,21 +17,21 @@ Before you begin, make sure you have:
 
 You'll be asked to configure:
 
-- **Server Location**: Whichever you prefer - see **[Ping Test](/network/locations#ping-test)**
+- **Server Location**: Whichever you prefer - see **[Ping Test](/network/ping-test)**
 - **Hostname**: What your server will be called and is shown in server browser
 - **Server Slots**: Number of player slots (free is limited)
 - **Game Version**: Usually the latest is recommended
 - Other settings are available based on game
 
 
-### 4. Panel
+### 2. Start the Server
 
 After clicking "Create", your server will begin to start:
 
 - Very fast setup, usually 30-60 seconds.
 - You'll have 5 mins to join it before it goes offline.
 
-### 5. Controlling Your Server
+### 3. Connect to Your Server
 
 Find your connection information:
 

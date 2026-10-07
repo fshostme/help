@@ -29,7 +29,7 @@ CS2 replaced CS:GO on the same Steam App ID, so a CS2 library entry is the same 
 3. Enter App ID: `4465480`
 4. Enter a memo to identify the Server (e.g. `fshost-p1234`)
 5. Click **Create**
-6. Copy the **Login Token** — this is your GSLT
+6. Copy the **Login Token**. This is your GSLT
 
 ::: warning Use App ID 4465480, Not 730
 `4465480` is the legacy CS:GO application, which is what a CS:GO Server runs on. `730` is Counter-Strike 2.

@@ -15,11 +15,11 @@ The server page is split into tabs.
 | Tab | What it holds |
 |-----|---------------|
 | **Overview** | Status, connection info, player count and resource usage |
-| **Files** | **FTP access** details. For Counter-Strike 2 also the **CSTV** spectate address and the **Demo files** list |
+| **Files** | **FTP access** details, see [FTP Access](/servers/pro/ftp). For Counter-Strike 2 also the **CSTV** spectate address and the **Demo files** list |
 | **Console** | **Server console** output, with a box to send commands on games that support it |
 | **Settings** | **Game settings**, **Server admins** and **Automation** |
 | **Actions** | **Server actions**, a log of who started, stopped or restarted the server and when |
-| **Billing** | **Server pricing**, **Your balance** and **Charge history** |
+| **Billing** | **Server pricing**, **Your balance** and **Charge history**. See [Billing and Top-Up](/servers/pro/billing) |
 | **Team** | **Team members** and **Add a team member**. See [Team Access](/servers/pro/team-access) |
 
 The top of the page stays the same on every tab. It shows the server status, the IP and port with a **Copy** button, **Join via Steam**, and the **Edit**, **Stop** and **Restart** buttons.
@@ -48,6 +48,33 @@ Below them, the overview is split into boxes.
 | **Server status** | **Scan status** and **Last scanned**. We check regularly that your server is online and answers server queries, this is the result and time of the latest check |
 | **Player statistics** | Graph of the player count over time |
 | **Server query response** | Raw data your server returns to a server query, such as name, map and player count |
+
+### Actions Tab
+
+**Server actions** is a log of everything done to your server, newest first. Each row shows the **Action**, the **User** who did it, their **User type** and when it happened.
+
+| Action | Meaning |
+|--------|---------|
+| **Started** | The server was started |
+| **Stopped** | The server was stopped |
+| **Restarted** | The server was restarted, by hand or by a scheduled restart |
+| **Force Stopped** | The server was stopped without waiting for it to shut down cleanly |
+| **Updated** | A game update was applied, by hand or automatically |
+| **Moved** | The server was moved to another location. See [Server Moves](/servers/pro/server-moves) |
+| **Extended by N days** | Staff added free days to the server's renewal date |
+| **Deleted** | The server was deleted |
+
+| User type | Who |
+|-----------|-----|
+| **Owner** | You, the owner of the server |
+| **Team member** | Someone on the server's team. See [Team Access](/servers/pro/team-access) |
+| **Former team member** | Someone who was on the team then, but has been removed since |
+| **Staff** | FSHOST staff, usually while helping you on a support ticket |
+| **Bot** | FSHOST automation: scheduled restarts and automatic updates |
+
+::: tip Something Changed That You Did Not Do?
+Check the **Actions** tab first. It shows who started, stopped or updated the server. If a team member should no longer have access, remove them on the **Team** tab.
+:::
 
 ### Quick Actions
 

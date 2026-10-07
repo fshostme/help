@@ -14,7 +14,7 @@ Use the server console to monitor your server in real-time and execute admin com
 
 The console window shows some or all of the following:
 
-- **Server startup** - Initialisation messages
+- **Server startup** - Initialization messages
 - **Player connections** - Join/leave notifications
 - **Game events** - Kills, deaths, rounds, etc.
 - **Errors/Warnings** - Issues and alerts

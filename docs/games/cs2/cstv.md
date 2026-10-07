@@ -145,11 +145,7 @@ spec_goto 1234.5 -678.9 100.0 0 90
 
 Recorded demos are listed under **Demo files** on the **Files** tab of your server's page. The list is refreshed every minute and demos are deleted after 7 days, so download the ones you want to keep. **Copy feed URL** gives you a JSON feed of the same list for your own tools.
 
-With FTP access you can also fetch them by hand:
-
-1. Connect to your server via FTP
-2. Navigate to `/game/csgo/demos`
-3. Download `.dem` files
+Demos are not available over FTP yet. CS2 FTP access covers the `addons` and `cfg` folders only, see [FTP Access](/servers/pro/ftp).
 
 ### Playing Downloaded Demos
 
@@ -167,6 +163,16 @@ C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\ga
 6. Launch CS2 and use console: `playdemo filename`
 
 ## Troubleshooting
+
+::: details My demo is not in the Demo files list
+Work through these in order:
+
+1. **Wait a minute.** The **Demo files** list on the **Files** tab refreshes every minute, and a demo only appears once `tv_stoprecord` has run or the map has ended.
+2. **Check the age.** Demos older than 7 days are deleted automatically. See [CS2 Demo Retention Change](/news/cs2-demo-retention).
+3. **Check that CSTV is enabled.** Without CSTV nothing is recorded. See [Enabling CSTV](#enabling-cstv).
+
+Still missing? Open a ticket on [Pro Support](https://fshost.me/pro/support) with the server number and roughly when the demo was recorded.
+:::
 
 ::: details Demo file won't play
 **Error Message:**

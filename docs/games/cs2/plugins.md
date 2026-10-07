@@ -55,22 +55,22 @@ These addons are managed automatically by FSHOST - no manual installation needed
 
 | Plugin | Free | Pro | Description |
 |--------|------|-----|-------------|
-| [CS2-SimpleAdmin](#cs2-simpleadmin) | ✕ | ✓ | Essential admin tools and commands |
-| [FSH-AdminManager](/games/cs2/plugins/adminmanager) | ✕ | ✓ | Advanced admin system with role hierarchy |
-| css_rcon | ✕ | ✓ | Execute RCON commands via console |
-| [FakeRcon](#fake-rcon) | ✓ | ✓ | In-game console RCON access |
-| [DemoURL](/games/cs2/plugins/cstv-discord) | ✕ | ✓ | Auto-post demo links to Discord |
-| FixDemoVoiceChat | ✕ | ✓ | Enable voice in demo recordings |
-| [Deathmatch](/games/cs2/plugins/deathmatch) | ✕ | ✓ | Complete deathmatch mode |
-| [Retakes](/games/cs2/plugins/retakes) | ✕ | ✓ | Bomb site retake practice |
-| [FSH-MatchZy](/games/cs2/plugins/matchzy) | ✕ | ✓ | Competitive match management **customized** |
-| [OpenPrefirePrac](/games/cs2/plugins/prefire) | ✕ | ✓ | Prefire training |
-| CS2MapChange | ✓ | ✓ | Simplified map changing |
-| Workshop Maps | ✕ | ✓ | Load custom Steam Workshop maps |
-| [WeaponPaints](/games/cs2/plugins/weapon-skins) | ✕ | ✓ | Custom weapon skins |
-| [Custom Commands](/games/cs2/plugins/customcommands) | ✕ | ✓ | Create your own chat commands via JSON files |
-| [Demo Monitor](#demo-monitor) | ✕ | ✓ | Automatic demo file organization |
-| [TVFIX (CSTV Fix)](#tvfix) | ✕ | ✓ | Auto-restart CSTV after matches |
+| [CS2-SimpleAdmin](#cs2-simpleadmin) | No | Yes | Essential admin tools and commands |
+| [FSH-AdminManager](/games/cs2/plugins/adminmanager) | No | Yes | Advanced admin system with role hierarchy |
+| css_rcon | No | Yes | Execute RCON commands via console |
+| [FakeRcon](#fake-rcon) | Yes | Yes | In-game console RCON access |
+| [DemoURL](/games/cs2/plugins/cstv-discord) | No | Yes | Auto-post demo links to Discord |
+| FixDemoVoiceChat | No | Yes | Enable voice in demo recordings |
+| [Deathmatch](/games/cs2/plugins/deathmatch) | No | Yes | Complete deathmatch mode |
+| [Retakes](/games/cs2/plugins/retakes) | No | Yes | Bomb site retake practice |
+| [FSH-MatchZy](/games/cs2/plugins/matchzy) | No | Yes | Competitive match management **customized** |
+| [OpenPrefirePrac](/games/cs2/plugins/prefire) | No | Yes | Prefire training |
+| CS2MapChange | Yes | Yes | Simplified map changing |
+| Workshop Maps | No | Yes | Load custom Steam Workshop maps |
+| [WeaponPaints](/games/cs2/plugins/weapon-skins) | No | Yes | Custom weapon skins |
+| [Custom Commands](/games/cs2/plugins/customcommands) | No | Yes | Create your own chat commands via JSON files |
+| [Demo Monitor](#demo-monitor) | No | Yes | Automatic demo file organization |
+| [TVFIX (CSTV Fix)](#tvfix) | No | Yes | Auto-restart CSTV after matches |
 
 ## Plugin Details
 

@@ -70,12 +70,12 @@ RCON guides for other games coming soon:
 
 ### Common Security Mistakes
 
-❌ **Don't**:
+**Don't**:
 - Use simple passwords like "admin123"
 - Share RCON password publicly
 - Reuse passwords across servers
 
-✅ **Do**:
+**Do**:
 - Use password generators for strong passwords
 - Keep RCON credentials private
 - Enable logging for RCON commands

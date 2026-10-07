@@ -177,7 +177,7 @@ Benefits:
 For server-related issues:
 - [Discord](https://fshost.me/discord)
 - #cod4-support channel
-- Pro server panel
+- [Pro Support](https://fshost.me/pro/support) for Pro servers
 
 ### FPSChallenge.eu Support
 
@@ -190,12 +190,12 @@ For mod-specific issues:
 
 | Feature | Standard Promod | FPS Promod |
 |---------|----------------|------------|
-| Core Gameplay | ✓ | ✓ |
-| Match System | ✓ | ✓ |
-| Built-in Anti-cheat | ✕ | ✓ |
-| Auto Demo Upload | ✕ | ✓ |
+| Core Gameplay | Yes | Yes |
+| Match System | Yes | Yes |
+| Built-in Anti-cheat | No | Yes |
+| Auto Demo Upload | No | Yes |
 | Bug Fixes | Base | Enhanced |
-| FSHOST Integration | ✓ | ✓ (Enhanced) |
+| FSHOST Integration | Yes | Yes (enhanced) |
 
 ## Related Resources
 

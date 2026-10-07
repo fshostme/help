@@ -192,14 +192,14 @@ Free servers have temporary admin (resets on restart). Pro servers offer permane
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| RCON Access | ✓ | ✓ |
+| RCON Access | Yes | Yes |
 | AMXModX Admin | Temporary | Permanent |
-| PODBot Support | ✕ | ✓ |
-| Custom Maps | ✓ | ✓ |
-| FTP Access | ✕ | ✓ |
-| Advanced Plugins | Limited | ✓ |
-| Priority Support | ✕ | ✓ |
-| No Advertisements | ✕ | ✓ |
+| PODBot Support | No | Yes |
+| Custom Maps | Yes | Yes |
+| FTP Access | No | Yes |
+| Advanced Plugins | Limited | Yes |
+| Priority Support | No | Yes |
+| No Advertisements | No | Yes |
 
 [View Full Comparison →](/servers/free-vs-pro)
 

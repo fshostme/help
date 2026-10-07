@@ -204,10 +204,10 @@ All standard RCON commands work normally.
 
 | Feature | Stock Custom Maps | Promod | Other Mods |
 |---------|-------------------|--------|------------|
-| Custom Maps | ✓ | ✓ | ✓ |
-| Gameplay Changes | ✕ | ✓ | ✓ |
-| Stock Settings | ✓ | ✕ | ✕ |
-| Easy Setup | ✓ | ✕ | Varies |
+| Custom Maps | Yes | Yes | Yes |
+| Gameplay Changes | No | Yes | Yes |
+| Stock Settings | Yes | No | No |
+| Easy Setup | Yes | No | Varies |
 | Client Downloads | Minimal | Required | Required |
 
 ## Use Cases

@@ -36,9 +36,9 @@ By choosing Pro, you help us continue offering free servers and making improveme
 - High-performance dedicated resources (we run high-end AMD Ryzen CPUs)
 - Ticket-based priority support
 - Similar server locations to free
-- Ad-free control panel and server
+- Ad-free Pro Panel and server
 - Monitoring by us as standard (we'll probably fix your server before you know about it)
-- Advanced features and customisation
+- Advanced features and customization
 - Higher player capacity (all pricing includes up to 18 players and can be increased for extra)
 - Warm fuzzy feeling of supporting independent hosting
 
@@ -50,7 +50,7 @@ By choosing Pro, you help us continue offering free servers and making improveme
 
 ## Why Upgrade to Pro?
 
-### You Need More Customisation
+### You Need More Customization
 If our free server options aren't enough and you need to customise your server, Pro gives you that.
 
 ### You Want to Support Us
@@ -59,7 +59,7 @@ We often come across players that have followed our journey and want to support 
 ### You Need Reliable Support
 Pro users get ticket-based support directly from us (the 2 people who built FSHOST). We prioritize Pro issues and typically respond within hours, if not minutes.
 
-### You're Running a Community/Organisation
+### You're Running a Community/Organization
 If people or team members depend on your server being up 24/7, Pro's dedicated resources, automatic error alerts to us, and priority support give you peace of mind.
 
 ## Pricing

@@ -1,6 +1,6 @@
 # Creating a Pro Server
 
-Step-by-step guide to creating a new :zap: **Pro** game server on FSHOST.me.
+Step-by-step guide to creating a new **Pro** game server on FSHOST.me.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Before you begin, make sure you have:
 
 ## Step 2: Select your Location
 
-1. Pick the server location closest to your players - see **[Ping Test](/network/locations#ping-test)**
+1. Pick the server location closest to your players - see **[Ping Test](/network/ping-test)**
 2. Click Create Server
 
 Switching location can be done by staff but is limited to 2-3 moves per server.

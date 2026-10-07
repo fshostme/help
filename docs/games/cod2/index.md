@@ -126,7 +126,7 @@ After changing game modes, you must restart the map for changes to take effect.
 /rcon login your_rcon_password
 ```
 
-Find your RCON password on your [server panel](https://fshost.me/free-panel).
+Find your RCON password on your [Free Server Panel](https://fshost.me/free-panel).
 
 ::: info CoD2 Login
 Note that CoD2 uses `/rcon login` (not `/rconpassword` like CoD1).
@@ -314,15 +314,15 @@ Strategy mode (strat) is designed for practice and training. It typically has re
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| All Game Modes | ✓ | ✓ |
-| RCON Access | ✓ | ✓ |
-| Friendly Fire Control | ✓ | ✓ |
-| PunkBuster | ✓ | ✓ |
+| All Game Modes | Yes | Yes |
+| RCON Access | Yes | Yes |
+| Friendly Fire Control | Yes | Yes |
+| PunkBuster | Yes | Yes |
 | Custom Maps | Limited | Extended |
-| Map Rotation | ✓ | ✓ |
-| Advanced Config | ✕ | ✓ |
-| Priority Support | ✕ | ✓ |
-| No Advertisements | ✕ | ✓ |
+| Map Rotation | Yes | Yes |
+| Advanced Config | No | Yes |
+| Priority Support | No | Yes |
+| No Advertisements | No | Yes |
 
 ## Server Administration Tips
 

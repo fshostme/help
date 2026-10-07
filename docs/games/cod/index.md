@@ -122,7 +122,7 @@ After changing game modes, always restart the map for changes to take effect.
 /rconpassword your_rcon_password
 ```
 
-Find your RCON password on your [server panel](https://fshost.me/free-panel).
+Find your RCON password on your [Free Server Panel](https://fshost.me/free-panel).
 
 ### Basic Commands
 
@@ -281,7 +281,7 @@ Contact FSHOST support via [Discord](https://fshost.me/discord) with your custom
 :::
 
 ::: details What is RCON password?
-RCON (Remote Console) password allows you to manage your server remotely. Find it on your [server panel](https://fshost.me/free-panel).
+RCON (Remote Console) password allows you to manage your server remotely. Find it on your [Free Server Panel](https://fshost.me/free-panel).
 :::
 
 ::: details Can I disable PunkBuster?
@@ -292,14 +292,14 @@ PunkBuster is enabled by default. For configuration changes, contact support. No
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| All Game Modes | ✓ | ✓ |
-| RCON Access | ✓ | ✓ |
-| PunkBuster | ✓ | ✓ |
+| All Game Modes | Yes | Yes |
+| RCON Access | Yes | Yes |
+| PunkBuster | Yes | Yes |
 | Custom Maps | Limited | Extended |
-| Map Rotation | ✓ | ✓ |
-| Advanced Config | ✕ | ✓ |
-| Priority Support | ✕ | ✓ |
-| No Advertisements | ✕ | ✓ |
+| Map Rotation | Yes | Yes |
+| Advanced Config | No | Yes |
+| Priority Support | No | Yes |
+| No Advertisements | No | Yes |
 
 ## Server Administration Tips
 

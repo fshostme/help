@@ -367,15 +367,15 @@ Contact support via [Discord](https://fshost.me/discord) with map download links
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| All Game Modes | ✓ | ✓ |
-| Mod Support | ✓ | ✓ |
-| RCON Access | ✓ | ✓ |
-| CoD4x | ✕ | ✓ |
-| FTP Access | ✕ | ✓ |
-| Custom Configs | ✕ | ✓ |
+| All Game Modes | Yes | Yes |
+| Mod Support | Yes | Yes |
+| RCON Access | Yes | Yes |
+| CoD4x | No | Yes |
+| FTP Access | No | Yes |
+| Custom Configs | No | Yes |
 | Advanced Mods | Limited | Full |
-| Priority Support | ✕ | ✓ |
-| No Advertisements | ✕ | ✓ |
+| Priority Support | No | Yes |
+| No Advertisements | No | Yes |
 
 ## Server Administration Tips
 
