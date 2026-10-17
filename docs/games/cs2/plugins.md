@@ -59,7 +59,7 @@ These addons are managed automatically by FSHOST - no manual installation needed
 | [FSH-AdminManager](/games/cs2/plugins/adminmanager) | No | Yes | Advanced admin system with role hierarchy |
 | css_rcon | No | Yes | Execute RCON commands via console |
 | [FakeRcon](#fake-rcon) | Yes | Yes | In-game console RCON access |
-| [DemoURL](/games/cs2/plugins/cstv-discord) | No | Yes | Auto-post demo links to Discord |
+| [Discord Demo Links](/games/cs2/plugins/cstv-discord) | No | Yes | Post demo download links to Discord |
 | FixDemoVoiceChat | No | Yes | Enable voice in demo recordings |
 | [Deathmatch](/games/cs2/plugins/deathmatch) | No | Yes | Complete deathmatch mode |
 | [Retakes](/games/cs2/plugins/retakes) | No | Yes | Bomb site retake practice |
@@ -117,13 +117,15 @@ Advanced admin system with customizable roles and permissions.
 - Immunity levels
 - Flexible admin hierarchy
 
-### CSTV Discord {#cstv-discord}
+### Discord Demo Links {#cstv-discord}
 
-Automatically share match demos to your Discord server.
+Posts a message to your Discord channel when a CSTV demo has finished recording. Set it up with **Discord webhook URL (optional)** in the **CSTV** section of **Game settings**.
 
 **Requirements:**
 - Pro server with CSTV enabled
-- Discord webhook configuration
+- A Discord webhook
+
+See [Discord Demo Links](/games/cs2/plugins/cstv-discord).
 
 ### Deathmatch {#deathmatch}
 
@@ -209,7 +211,7 @@ fake_rcon css_plugins list
 :::
 
 ::: details Can I request additional plugins?
-**Pro servers:** Submit plugin requests through the support panel. Requests are reviewed for compatibility and security.
+**Pro servers:** Open a ticket on [Pro Support](https://fshost.me/pro/support). Requests are reviewed for compatibility and security.
 
 **Free servers:** Limited to the plugins listed in the Free column above.
 :::
@@ -219,7 +221,7 @@ A Game Server Login Token links your server to a Steam account. It is optional o
 :::
 
 ::: details How do I configure plugins?
-**Pro servers:** Configure via FTP access (request by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page) or via RCON commands.
+**Pro servers:** Plugin configs are in `addons/counterstrikesharp/configs/plugins/` over FTP (request it by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page), or change settings with RCON commands. Server settings go in your config template, see [Config Files](/games/cs2/config-files).
 
 Configuration methods vary by plugin; refer to the individual plugin's documentation for specifics.
 :::

@@ -1,237 +1,100 @@
-# CSTV Discord Integration
+# Discord Demo Links
 
-Automatically post CS2 demo recordings to Discord via webhook.
+Get a message with a download link in your Discord channel each time a CSTV demo on your CS2 Pro server has finished recording.
 
-::: tip Pro Feature
-This plugin requires both a Pro server and CSTV enabled.
+::: warning Pro Server Only
+Discord demo links need a Pro server with CSTV turned on. Free servers do not have CSTV.
 :::
-
-## Overview
-
-The CSTV Discord plugin automatically sends demo download links to your Discord server whenever a match is recorded. Perfect for teams and communities that want to review matches and preserve demos.
-
-## Requirements
-
-- Pro server with CSTV enabled
-- Discord server with appropriate permissions
-- Webhook URL from Discord
-
-## Features
-
-- Automatic demo URL posting to Discord
-- Match information in notifications
-- Direct download links
-- Configurable webhook integration
-- No manual upload needed
-
-## Discord Webhook Setup
-
-### Creating a Webhook
-
-1. **Open Discord** and navigate to your server
-2. **Right-click** the channel where you want demo links posted
-3. Select **Edit Channel**
-4. Navigate to **Integrations** → **Webhooks**
-5. Click **New Webhook**
-
-![Discord Webhook Example](https://help.fshost.me/img/image-2.png)
-
-### Configuring the Webhook
-
-**Customize your webhook:**
-- **Name** - Choose any name (e.g., "CS2 Demos", "Match Recordings")
-- **Avatar** - Optional custom avatar for webhook posts
-- **Channel** - Select target channel for demo notifications
-
-### Getting the Webhook URL
-
-1. Click **Copy Webhook URL**
-2. Save this URL - you'll need it for server configuration
-
-::: tip Multiple Channels
-You can create multiple webhooks pointing to different channels for organizing demos by team, tournament, or practice vs. competitive matches.
-:::
-
-## Server Configuration
-
-### Adding Webhook to Server
-
-1. Log in to your **Pro Panel**
-2. Open the **Settings** tab on your server's page. It opens on **Game settings**
-3. Scroll down to the **CSTV** section and set **Enable CSTV** to **Yes**. The webhook field only appears when CSTV is enabled
-4. Locate the **Discord webhook URL (optional)** field in the same section
-5. Paste your webhook URL
-6. Click **Save changes**
-7. **Restart your CS2 server** to apply changes
-
-::: warning Restart Required
-The server must be restarted for the webhook configuration to take effect.
-:::
-
-### Enabling CSTV
-
-If CSTV isn't already enabled:
-
-1. In your Pro Panel, open **Settings** → **Game settings** and set **Enable CSTV** to **Yes**
-2. Optionally fill in **CSTV password (optional)**. The CSTV port is assigned automatically
-3. Click **Save changes** and restart the server
-
-See the [CSTV Guide](/games/cs2/cstv) for detailed CSTV configuration.
 
 ## How It Works
 
-### Automatic Demo Posting
+You create a webhook in Discord and paste its address into **Discord webhook URL (optional)** in the Pro Panel. When a demo has finished recording, the server posts a message with a link to the demo in that Discord channel, so your team can download it.
 
-When a match completes and CSTV recording stops:
+On a Pro server, these plugins work together:
 
-1. Demo file is automatically generated on server
-2. Plugin detects the new demo file
-3. Download URL is created
-4. Webhook sends notification to Discord with:
-   - Match information
-   - Team names (if available)
-   - Map played
-   - Direct download link
-   - Timestamp
+1. **[TVFIX](/games/cs2/plugins/tvfix)** restarts CSTV so each match records
+2. **[Demo Monitor](/games/cs2/plugins/demomonitor)** moves finished demos into the `demos` folder
+3. **Discord Demo Links** posts a download link to your Discord channel
 
-### Notification Example
+You do not install anything. The webhook field is all you set up.
 
-Discord notifications typically include:
+## Step 1: Create a Webhook in Discord
 
-```bash
-🎬 New CS2 Demo Available
+You need the **Manage Webhooks** permission on the Discord server.
 
-Map: de_dust2
-Match: TeamA vs TeamB
-Date: 2025-12-27 10:30 UTC
+1. Open Discord and go to your server
+2. Hover over the channel where demos should be posted and click the cog icon, **Edit Channel**
+3. Open **Integrations** and click **Webhooks**
+4. Click **New Webhook**
+5. Give it a name, for example `CS2 Demos`, and check the channel
+6. Click **Copy Webhook URL**
 
-Download: [Click here to download]
-```
+![New webhook in Discord channel settings](https://help.fshost.me/img/image-2.png)
 
-## Demo Management
+## Step 2: Add the Webhook in the Pro Panel
 
-### Accessing Demos
+1. Go to the [Pro Panel](https://fshost.me/pro/servers)
+2. Click on your server name
+3. Open the **Settings** tab. It opens on **Game settings**
+4. Scroll down to **CSTV** and set **Enable CSTV** to **Yes**. The webhook field only shows when CSTV is on
+5. Paste the address into **Discord webhook URL (optional)**
 
-**Via Discord:**
-- Click the download link in Discord
-- Demo downloads directly to your computer
+![CSTV section with the Discord webhook URL field](https://help.fshost.me/img/pro-cs2-cstv-discord.png)
 
-**Via Server:**
-- Connect via FTP
-- Navigate to `/demos`
-- Download `.dem` files manually
+The address must start with `https://discord.com/api/webhooks/`. If you copied one that starts with `https://discordapp.com/`, `https://ptb.discord.com/` or `https://canary.discord.com/`, change the start to `https://discord.com/`. The rest stays the same.
 
-### Playing Demos
+## Step 3: Save and Restart
 
-See the [CSTV Guide](/games/cs2/cstv#demo-playback) for instructions on playing downloaded demos.
+1. Click **Save changes**
+2. Restart the server
+
+The webhook is only picked up when the server starts.
+
+## Getting Demos Without Discord
+
+Every finished demo is also listed under **Demo files** on the **Files** tab, where you can download it. See [CSTV](/games/cs2/cstv#accessing-demos).
+
+::: warning Links Stop Working After 7 Days
+The Discord message holds a link, not the demo file. Demos are deleted from the server after 7 days, and the link stops working then. Download any demo worth keeping within 7 days.
+:::
+
+## Changing or Removing the Webhook
+
+- **Different channel:** create a new webhook in that channel, paste it over the old one, save and restart
+- **Turn it off:** clear **Discord webhook URL (optional)**, save and restart
+
+::: danger Keep the Webhook Private
+Anyone with the webhook address can post in your Discord channel. If it leaks, delete the webhook in Discord, create a new one, and put the new address in the Pro Panel.
+:::
 
 ## Troubleshooting
 
-::: details Webhook not posting to Discord
-**Check:**
-1. Webhook URL is correct and complete
-2. Webhook hasn't been deleted in Discord
-3. Bot permissions in Discord channel allow posting
-4. Server has been restarted after adding webhook
-5. CSTV is enabled and recording demos
+::: details I cannot see the Discord webhook URL field
+Set **Enable CSTV** to **Yes** in the **CSTV** section. The field only shows when CSTV is on.
 :::
 
-::: details Wrong channel receiving notifications
-Verify the webhook is configured for the intended channel in Discord. Each webhook is tied to a specific channel.
+::: details The panel refuses the webhook address
+The address must look like `https://discord.com/api/webhooks/<numbers>/<letters and numbers>`. Copy it again with **Copy Webhook URL**, and change `discordapp.com`, `ptb.discord.com` or `canary.discord.com` to `discord.com`. Do not add spaces or anything after the address.
 :::
 
-::: details Demo links not working
-Ensure your server has proper demo file storage configured and demos are being saved to the correct directory.
+::: details No message arrives in Discord
+- Check that you restarted the server after saving
+- Check that a demo actually finished. It shows under **Demo files** on the **Files** tab
+- Check that the webhook still exists in Discord under **Integrations** → **Webhooks**
+- One webhook posts to one channel. Check you are looking in the right one
 :::
 
-::: details No notifications after matches
-Verify:
-- CSTV is enabled and recording
-- Matches are completing properly
-- Demo files are being generated (`/demos/` directory)
-- Webhook URL is correctly saved in panel
+::: details The download link does not work
+The demo is older than 7 days and has been deleted from the server. Old demos cannot be restored.
 :::
 
-## Advanced Configuration
-
-### Multiple Webhooks
-
-For organizations with multiple servers or teams:
-
-1. Create separate webhooks for each server/team
-2. Configure each server with its specific webhook
-3. Organize Discord channels by server or team
-
-**Example structure:**
-```bash
-#team-a-demos
-#team-b-demos
-#practice-demos
-#tournament-demos
-```
-
-### Custom Webhook Names
-
-Customize webhook display names to identify the source:
-
-- "Pro Server 1 - Demos"
-- "Practice Server - Recordings"
-- "TeamName - Match Demos"
-
-### Webhook Security
-
-::: warning Keep Webhook URLs Private
-Webhook URLs allow anyone with the URL to post to your Discord channel. Never share webhook URLs publicly.
+::: details Messages go to the wrong channel
+Each webhook belongs to one channel. Create a webhook in the channel you want and replace the address in the Pro Panel.
 :::
 
-**If compromised:**
-1. Delete the old webhook in Discord
-2. Create a new webhook
-3. Update server configuration
-4. Restart server
+## Related Pages
 
-## Best Practices
-
-::: tip Keeping Demos Findable
-Point practice and competitive servers at different Discord channels. Scrim demos pile up fast, and mixing them with match demos makes the channel hard to search later.
-:::
-
-::: tip Storage
-Demos are deleted from the server automatically after 7 days. Download anything worth keeping soon after the match. The Discord upload is not affected, so the copy in your channel stays. See [Demo Monitor](/games/cs2/plugins/demomonitor) for where the files live.
-:::
-
-## Limitations
-
-- Requires Pro server
-- CSTV must be enabled and functional
-- Limited to Discord webhook functionality
-- No retroactive posting of old demos
-- Webhook rate limits apply (Discord side)
-
-## Additional Features
-
-### Match Information
-
-When using match management plugins (like MatchZy), notifications can include:
-- Team names
-- Player rosters
-- Match scores
-- Round counts
-- Server configuration used
-
-### File Naming
-
-Demos are typically named with:
-- Date and time
-- Map name
-- Team names (if configured)
-- Match ID (if applicable)
-
-Example: `2025-12-27_14-30-45_de_dust2_TeamA_vs_TeamB.dem`
-
-## Related Resources
-
-- [CSTV Setup Guide](/games/cs2/cstv) - Enable and configure CSTV
-- [MatchZy Plugin](/games/cs2/plugins/matchzy) - Enhanced match information
-- [Demo Playback](/games/cs2/cstv#demo-playback) - How to watch demos
-- [Discord Support](https://fshost.me/discord) - Get help with setup
+- [CSTV](/games/cs2/cstv) - Turn on CSTV, watch and record matches
+- [Demo Monitor](/games/cs2/plugins/demomonitor) - Where demo files are kept
+- [TVFIX](/games/cs2/plugins/tvfix) - Makes sure each match records
+- [MatchZy](/games/cs2/plugins/matchzy) - Records match demos automatically

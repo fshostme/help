@@ -112,7 +112,7 @@ On a Pro server it sits in the middle of the demo chain:
 
 1. **[TVFIX](/games/cs2/plugins/tvfix)** restarts CSTV so each match records
 2. **Demo Monitor** moves finished demos into `demos/`
-3. **[CSTV Discord](/games/cs2/plugins/cstv-discord)** posts the download links to your Discord
+3. **[Discord Demo Links](/games/cs2/plugins/cstv-discord)** posts download links to your Discord
 
 ## Version Information
 

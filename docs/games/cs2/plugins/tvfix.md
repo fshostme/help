@@ -118,7 +118,7 @@ TVFIX makes up one part of the demo chain on a Pro server:
 
 1. **TVFIX** restarts CSTV so each match records
 2. **[Demo Monitor](/games/cs2/plugins/demomonitor)** moves finished demos into the `demos/` folder
-3. **[CSTV Discord](/games/cs2/plugins/cstv-discord)** posts the download links to your Discord
+3. **[Discord Demo Links](/games/cs2/plugins/cstv-discord)** posts download links to your Discord
 
 It also works alongside [MatchZy](/games/cs2/plugins/matchzy), which records its own match demos. The two do not conflict.
 
@@ -135,7 +135,7 @@ It also works alongside [MatchZy](/games/cs2/plugins/matchzy), which records its
 - [CSTV Setup Guide](/games/cs2/cstv) - Enable and configure CSTV
 - [Demo Monitor](/games/cs2/plugins/demomonitor) - Organize demo files
 - [MatchZy Plugin](/games/cs2/plugins/matchzy) - Automatic match demos
-- [CSTV Discord](/games/cs2/plugins/cstv-discord) - Upload demos to Discord
+- [Discord Demo Links](/games/cs2/plugins/cstv-discord) - Post demo download links to Discord
 
 ## FAQ
 

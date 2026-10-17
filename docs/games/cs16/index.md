@@ -1,40 +1,47 @@
-# Counter-Strike 1.6 Documentation
+# Counter-Strike 1.6
 
-Comprehensive guides for managing and configuring your CS1.6 game server on FSHOST.
+Guides for running your Counter-Strike 1.6 server on FSHOST.
 
-## Quick Start Guides
+## New Here? Start With These
 
-Essential documentation to get your server running.
+Follow the path for the server you have.
 
-### Server Setup
-- [Become a Server Admin](/games/cs16/becomeadmin) - Gain administrative control with AMXModX
-- [RCON Commands](/games/cs16/rcon) - Remote console command reference
+### Free Server
 
-### Server Management
-- **RCON Access** - Full remote control via console
-- **AMXModX Admin** - Powerful admin plugin system
-- **PODBot Support** - Add bots to your server (Pro only)
-- **Custom Maps** - Extensive custom map library
+1. **Connect to your server.** Find the IP and port on the [Free Server Panel](https://fshost.me/free-panel), then open the console and type `connect IP:PORT`
+2. **Log in to RCON** with the password from the panel: [RCON Commands](/games/cs16/rcon#log-into-rcon)
+3. **Make yourself an admin** for the session: [Become a Server Admin](/games/cs16/becomeadmin)
+
+### Pro Server
+
+1. **Connect to your server.** The IP and port are at the top of your server's page at [fshost.me/pro/servers](https://fshost.me/pro/servers)
+2. **Make yourself an admin:** [Become a Server Admin](/games/cs16/becomeadmin)
+3. **Change your settings** in the config template: [Config Files](/games/cs16/config-files)
+4. **Add plugins and maps** over FTP: [AMX Mod X Plugins](/games/cs16/plugins) and [Custom Maps and FastDL](/games/cs16/custom-maps)
+
+## Guides
+
+- [Become a Server Admin](/games/cs16/becomeadmin) - Add admins with AMX Mod X
+- [RCON Commands](/games/cs16/rcon) - Console commands for maps, players and settings
+- [Config Files](/games/cs16/config-files) - Which config file to edit over FTP (Pro)
+- [AMX Mod X Plugins](/games/cs16/plugins) - Install your own plugins (Pro)
+- [Custom Maps and FastDL](/games/cs16/custom-maps) - Upload maps and set up fast downloads (Pro)
 
 ## Server Types
 
 ### Free Servers
-Perfect for casual play and testing:
-- Quick deployment
-- AMXModX pre-installed
+- AMX Mod X preinstalled
 - RCON access
-- Custom maps support
-- Basic configuration options
+- Maps from our map library
 
 [Create Free Server →](https://fshost.me/free/cs16)
 
 ### Pro Servers
-Advanced features for serious communities:
 - Permanent admin access
-- PODBot support
-- FTP access
-- Custom configurations
-- Priority support
+- PODBot bots
+- FTP access for configs, plugins and maps
+- FastDL on request
+- Priority support through [Pro Support](https://fshost.me/pro/support) tickets
 - No advertisements
 
 [View Pro Plans →](https://fshost.me/pro/pricing/cs16)
@@ -99,10 +106,9 @@ rcon amx_addadmin "YourName" "abcdefghijklmnopqrstu"
 
 ### Available Maps
 
-FSHOST provides an extensive custom map library.<br /> 
-Check available maps: [CS1.6 Maps Library →](https://dl.fsho.st/cs16/maps/)
+Browse the [CS 1.6 map library](https://dl.fsho.st/cs16/maps/) for custom maps we can install for you. Pro servers can also upload their own maps, see [Custom Maps and FastDL](/games/cs16/custom-maps).
 
-## AMXModX Features
+## AMX Mod X
 
 ### Admin System
 
@@ -122,12 +128,14 @@ amxmodmenu                 # Open admin menu
 
 ### Plugin Support
 
-AMXModX comes pre-installed with essential plugins:
+AMX Mod X comes preinstalled with these plugins:
 - Admin commands
 - Map management
 - Player voting
 - Statistics tracking
 - Reserved slots (Pro)
+
+Pro servers can add their own plugins, see [AMX Mod X Plugins](/games/cs16/plugins).
 
 ## PODBot Commands (Pro Only)
 
@@ -173,19 +181,19 @@ Follow the complete [Admin Setup Guide](/games/cs16/becomeadmin) which covers:
 :::
 
 ::: details Can I add custom maps?
-Yes! Check our [map library](https://dl.fsho.st/cs16/maps/) first. If your maps aren't there, [contact us](https://fshost.me/contact) with download links.
+Yes. Check our [map library](https://dl.fsho.st/cs16/maps/) first and ask on a ticket to get a map installed. Pro servers can also upload their own maps over FTP, see [Custom Maps and FastDL](/games/cs16/custom-maps).
 :::
 
 ::: details How do I add bots?
 Bots (PODBot) are available on Pro servers only. Use admin commands like `amx_pbmenu` to control bots. See [RCON Commands](/games/cs16/rcon) for details.
 :::
 
-::: details What is AMXModX?
-AMXModX is a powerful admin and plugin system for Half-Life games including CS1.6. It provides admin commands, player management, and extensive customization options.
+::: details What is AMX Mod X?
+AMX Mod X is the admin and plugin system for Half-Life games, including CS 1.6. It provides admin commands, votes, map changes and player management.
 :::
 
 ::: details Do I need permanent admin access?
-Free servers have temporary admin (resets on restart). Pro servers offer permanent admin access with custom configurations via FTP.
+Free servers have temporary admin, which resets on restart. On Pro servers, admins stay after a restart.
 :::
 
 ## Feature Comparison
@@ -193,7 +201,7 @@ Free servers have temporary admin (resets on restart). Pro servers offer permane
 | Feature | Free | Pro |
 |---------|------|-----|
 | RCON Access | Yes | Yes |
-| AMXModX Admin | Temporary | Permanent |
+| AMX Mod X Admin | Temporary | Permanent |
 | PODBot Support | No | Yes |
 | Custom Maps | Yes | Yes |
 | FTP Access | No | Yes |
@@ -232,15 +240,3 @@ Full reference: [RCON Commands](/games/cs16/rcon)
 - Use strong passwords
 - Be careful with 'l' flag (RCON access) for other admins
 :::
-
-## Next Steps
-
-2. **Admin Setup:** Follow [Become Admin Guide](/games/cs16/becomeadmin)
-3. **Configuration:** Review [RCON Commands](/games/cs16/rcon)
-4. **Custom Content:** Browse [Map Library](https://dl.fsho.st/cs16/maps/)
-5. **Advanced:** Explore AMXModX plugins (Pro)
-6. **Get Help:** Join [Discord](https://fshost.me/discord)
-
----
-
-**Need Help?** Visit our [Discord](https://fshost.me/discord) or browse the documentation sections above.

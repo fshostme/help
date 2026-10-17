@@ -78,6 +78,7 @@ const mainSidebar = [
           { text: 'Support Tickets', link: '/servers/pro/support' },
           { text: 'Server Moves', link: '/servers/pro/server-moves' },
           { text: 'FTP Access', link: '/servers/pro/ftp' },
+          { text: 'Before You Modify Files', link: '/servers/pro/before-you-modify' },
           { text: 'File Manager', link: '/servers/pro/file-manager' },
           { text: 'Console Access', link: '/servers/pro/console' }
         ]
@@ -137,7 +138,10 @@ export default defineConfig({
       '/games/cs16/': gameSidebar('Counter-Strike 1.6', [
         { text: 'Overview', link: '/games/cs16/' },
         { text: 'Become Admin', link: '/games/cs16/becomeadmin' },
-        { text: 'RCON Commands', link: '/games/cs16/rcon' }
+        { text: 'RCON Commands', link: '/games/cs16/rcon' },
+        { text: 'Config Files (Pro)', link: '/games/cs16/config-files' },
+        { text: 'AMX Mod X Plugins (Pro)', link: '/games/cs16/plugins' },
+        { text: 'Custom Maps and FastDL (Pro)', link: '/games/cs16/custom-maps' }
       ]),
       '/games/cod/': gameSidebar('Call of Duty', [
         { text: 'Overview', link: '/games/cod/' },
@@ -191,7 +195,9 @@ export default defineConfig({
           items: [
             { text: 'CSTV Broadcasting', link: '/games/cs2/cstv' },
             { text: 'Become Admin (Pro)', link: '/games/cs2/become-admin' },
-            { text: 'Automation (Pro)', link: '/games/cs2/automation' }
+            { text: 'Automation (Pro)', link: '/games/cs2/automation' },
+            { text: 'Config Files (Pro)', link: '/games/cs2/config-files' },
+            { text: 'Workshop Maps (Pro)', link: '/games/cs2/workshop-maps' }
           ]
         },
         {
@@ -207,7 +213,7 @@ export default defineConfig({
             { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire' },
             { text: 'WeaponPaints (Skins)', link: '/games/cs2/plugins/weapon-skins' },
             { text: 'Custom Commands', link: '/games/cs2/plugins/customcommands' },
-            { text: 'CSTV Discord', link: '/games/cs2/plugins/cstv-discord' },
+            { text: 'Discord Demo Links', link: '/games/cs2/plugins/cstv-discord' },
             { text: 'Demo Monitor', link: '/games/cs2/plugins/demomonitor' },
             { text: 'TVFIX (CSTV Fix)', link: '/games/cs2/plugins/tvfix' }
           ]

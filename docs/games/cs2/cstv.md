@@ -207,4 +207,4 @@ Verify:
 
 ## CSTV + Discord Integration
 
-For automatic demo uploads to Discord, see the [DiscordDemoURL Plugin](/games/cs2/plugins/cstv-discord) documentation.
+To get a Discord message each time a demo has finished recording, add a webhook in **Discord webhook URL (optional)**. See [Discord Demo Links](/games/cs2/plugins/cstv-discord).

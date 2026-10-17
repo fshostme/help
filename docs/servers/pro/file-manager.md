@@ -52,10 +52,21 @@ When you log in with FTP, each folder you have access to shows up at the top lev
 
 ```
 /addons/   - Metamod, CounterStrikeSharp and plugins
-/cfg/      - Configuration files, such as server.cfg
+/cfg/      - Configuration files. Edit cfg/pro/fshost_template_<id>.cfg
 ```
 
-Demos are not included on FTP yet. Download them from **Demo files** on the **Files** tab. See [CSTV](/games/cs2/cstv#accessing-demos).
+See [CS2 Config Files](/games/cs2/config-files) for which file to edit.
+
+### Counter-Strike 1.6
+
+```
+/cstrike/   - Maps, configs, AMX Mod X and Metamod
+/fastdl/    - Copies of files players download
+```
+
+See [CS 1.6 Config Files](/games/cs16/config-files), [AMX Mod X Plugins](/games/cs16/plugins) and [Custom Maps and FastDL](/games/cs16/custom-maps).
+
+CS2 demos are not included on FTP yet. Download them from **Demo files** on the **Files** tab. See [CSTV](/games/cs2/cstv#accessing-demos).
 
 ### Minecraft
 
@@ -71,12 +82,8 @@ Demos are not included on FTP yet. Download them from **Demo files** on the **Fi
 
 ### Before Editing Files
 
-::: tip Safety First
-1. **Backup First** - Always backup before editing important files
-2. **Test Changes** - Make small changes and test
-3. **Keep Originals** - Keep a copy of original configs
-4. **Use Comments** - Comment your changes for future reference
-:::
+See [Before You Modify Files](/servers/pro/before-you-modify) for a full checklist.
+
 
 ### Configuration File Tips
 

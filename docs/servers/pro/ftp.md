@@ -6,6 +6,8 @@ FTP lets you upload and edit files on your Pro server, such as configs, plugins 
 FTP is only available on Pro servers, and only for some games. The [pricing page](https://fshost.me/pro/pricing) for your game says whether FTP is included.
 :::
 
+Before you change anything, read [Before You Modify Files](/servers/pro/before-you-modify).
+
 ## Step 1: Request FTP Access
 
 1. Open a ticket on [Pro Support](https://fshost.me/pro/support)
@@ -92,13 +94,13 @@ FastDL is available for these games:
 - Call of Duty 2
 - Call of Duty 4: Modern Warfare
 
-Ask for it on your FTP ticket. Once it is set up, the **Files** tab shows **Your FastDL URL**.
+Ask for it on your FTP ticket. Once it is set up, the **Files** tab shows **Your FastDL URL**, in the form `http://X.fsho.st/ServerID/fastdl`. `X.fsho.st` is the address of the [location](/network/locations) your Pro server runs in, for example our server in Frankfurt or Helsinki. Each location has its own address, and it is the same as the FTP **Host**. `ServerID` is your server number, the number in **P1234**. Copy the URL from the **Files** tab rather than typing it.
 
 To use it:
 
 1. Connect with FTP and open the `fastdl` folder
 2. Upload a copy of the files players need, using the exact same paths as on the server. A file the server loads from `maps/de_custom.bsp` goes to `fastdl/maps/de_custom.bsp`
-3. Point your game at the FastDL URL in the server config:
+3. Point your game at the FastDL URL in the server config. On CS 1.6, edit the config template, see [CS 1.6 Config Files](/games/cs16/config-files):
 
 | Game | Setting |
 |------|---------|
@@ -106,6 +108,8 @@ To use it:
 | Call of Duty 2, Call of Duty 4 | `sv_wwwBaseURL "<your FastDL URL>"` and `sv_wwwDownload 1` |
 
 4. Restart the server
+
+For a full walkthrough on CS 1.6, see [Custom Maps and FastDL](/games/cs16/custom-maps).
 
 ::: warning HTTP Only
 Keep the FastDL URL on `http://`. Most games cannot download over `https://`.
