@@ -72,6 +72,48 @@ These addons are managed automatically by FSHOST - no manual installation needed
 | [Demo Monitor](#demo-monitor) | No | Yes | Automatic demo file organization |
 | [TVFIX (CSTV Fix)](#tvfix) | No | Yes | Auto-restart CSTV after matches |
 
+## Installed vs. Loaded {#installed-vs-loaded}
+
+::: warning Pro Server Only
+This section covers Pro servers. Free servers run a fixed plugin set.
+:::
+
+Every plugin in the table above is installed on a Pro server, but not every plugin is loaded when the server starts. The game mode plugins stay off until you turn them on, because they change how rounds work and would clash with each other.
+
+### Loaded when the server starts
+
+These run from the first boot, with no action needed:
+
+- CS2-SimpleAdmin and CS2-SimpleAdmin Fun Commands
+- FSH-AdminManager
+- css_rcon (CS2Rcon)
+- FSH-MatchZy
+- Custom Commands
+- CS2MapChange, Workshop Map Changer, NextMap and AutoChangeMapIfEmpty
+- Discord Demo Links, Demo Monitor, TVFIX and FixDemoVoiceChat
+- WeaponPaints
+
+Shared helper plugins such as CS2MenuManager and RayTraceImpl also load at start. Other plugins depend on them, and they have no commands of their own.
+
+### Installed, but off until you turn them on
+
+| Plugin | Chat command | Pro Panel console |
+|--------|-------------|-------------------|
+| [Deathmatch](/games/cs2/plugins/deathmatch) | `!dmon` | `exec custom/dmon.cfg` |
+| [Retakes](/games/cs2/plugins/retakes) | `!retake` | `exec custom/retakes.cfg` |
+| [OpenPrefirePrac](/games/cs2/plugins/prefire) | `!prefireon` | `exec custom/prefireon.cfg` |
+
+There are two ways to turn one on:
+
+1. **In-game:** type the chat command. You must be an admin on the server, see [Become a Server Admin](/games/cs2/become-admin).
+2. **Pro Panel:** open the **Console** tab of your server at <https://fshost.me/pro/servers> and send the console command. See [Console Access](/servers/pro/console). Only the server owner can send console commands.
+
+::: tip One mode at a time
+Starting a mode unloads the plugins of the previous one, MatchZy included. Use `!matchzy` or `!pracc` to go back to MatchZy. The full list of mode commands is in [Pro Server Commands](/games/cs2/commands#game-mode-commands).
+:::
+
+To see what is loaded right now, run `css_plugins list` in the Pro Panel console, or `fake_rcon css_plugins list` in your game console.
+
 ## Plugin Details
 
 ### Fake Rcon {#fake-rcon}
