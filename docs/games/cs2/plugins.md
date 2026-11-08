@@ -63,7 +63,7 @@ These addons are managed automatically by FSHOST - no manual installation needed
 | FixDemoVoiceChat | No | Yes | Enable voice in demo recordings |
 | [Deathmatch](/games/cs2/plugins/deathmatch) | No | Yes | Complete deathmatch mode |
 | [Retakes](/games/cs2/plugins/retakes) | No | Yes | Bomb site retake practice |
-| [FSH-MatchZy](/games/cs2/plugins/matchzy) | No | Yes | Competitive match management **customized** |
+| [MatchZy](/games/cs2/plugins/matchzy) | No | Yes | Competitive match management **customized** |
 | [OpenPrefirePrac](/games/cs2/plugins/prefire) | No | Yes | Prefire training |
 | CS2MapChange | Yes | Yes | Simplified map changing |
 | Workshop Maps | No | Yes | Load custom Steam Workshop maps |
@@ -87,7 +87,7 @@ These run from the first boot, with no action needed:
 - CS2-SimpleAdmin and CS2-SimpleAdmin Fun Commands
 - FSH-AdminManager
 - css_rcon (CS2Rcon)
-- FSH-MatchZy
+- MatchZy
 - Custom Commands
 - CS2MapChange, Workshop Map Changer, NextMap and AutoChangeMapIfEmpty
 - Discord Demo Links, Demo Monitor, TVFIX and FixDemoVoiceChat

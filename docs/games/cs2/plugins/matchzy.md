@@ -10,15 +10,18 @@ const url = ref(matchzy.url)
 onMounted(async () => {
   try {
     const res = await fetch(
-      'https://git.miksen.me/api/v1/repos/mikkel/matchzy/releases/latest',
-      { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(8000) }
+      'https://api.github.com/repos/mrc4tt/MatchZy/releases/latest',
+      { 
+        headers: { Accept: 'application/vnd.github+json' }, 
+        signal: AbortSignal.timeout(8000) 
+      }
     )
     if (!res.ok) return
     const json = await res.json()
     const tag = (json.tag_name || '').replace(/^v/, '')
     if (tag) {
       version.value = tag
-      url.value = json.html_url || url.value
+      url.value = json.html_url || 'https://github.com/mrc4tt/MatchZy/releases/latest'
     }
   } catch {
     /* keep the build-time value */
