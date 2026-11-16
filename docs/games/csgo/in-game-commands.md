@@ -1,3 +1,7 @@
+---
+description: "In-game chat and RCON commands available on FSHOST.me CS:GO servers."
+---
+
 # In-Game Commands
 
 List of available in-game commands on our servers. You can use either the RCON command in the console or the chat command.

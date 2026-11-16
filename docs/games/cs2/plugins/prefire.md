@@ -1,245 +1,126 @@
+---
+description: "Practice prefire angles against bots on competitive maps with OpenPrefirePrac on your CS2 Pro server: how to start it and all commands."
+---
+
 # OpenPrefirePrac Plugin
 
-Server-side prefire practice plugin for CS2, powered by CounterStrikeSharp. Practice common prefire angles on competitive maps with support for concurrent multiplayer sessions.
+Prefire practice against bots on competitive maps.
 
-::: tip Pro Feature
-This plugin is available exclusively on Pro servers.
+::: warning Pro Server Only
+OpenPrefirePrac is available on Pro servers only.
 :::
 
-## Getting Started
+## Overview
 
-**Activating the Plugin:**
+OpenPrefirePrac places bots on the common angles along a route through a map. You walk the route and clear the angles one by one. Several players can practice at the same time.
 
-1. Enable the plugin with `!prefireon` command
-2. Open chat and type `!prefire` or use `css_prefire` in console
-3. Navigate the main menu to configure your practice session
-
-::: warning Step 1 Requires Admin
-`!prefireon` switches the server into prefire mode, so it only works for admins. If nothing happens when you type it, you are not an admin on the server. See [Become a Server Admin](/games/cs2/become-admin), or ask the server owner to run it.
-
-Once an admin has enabled the mode, any player can use `!prefire` and the menu commands below.
+::: tip Practicing With Several Players
+Each player's route needs its own bots, which can go above the usual 5 players per team. Turn on **Max players override (-maxplayers_override)** in the **Advanced** section of **Game settings**, save and restart the server.
 :::
 
-The main menu provides options for:
-- Starting practice routes
-- Changing maps
-- Setting difficulty
-- Selecting training mode
-- Choosing bot weapons
-- Changing language
-- Exiting practice mode
+FSHOST runs a build of [lengran/OpenPrefirePrac](https://github.com/lengran/OpenPrefirePrac).
 
-## Command Reference
+## Starting Prefire Mode
 
-### Start Practice
+OpenPrefirePrac is installed on every Pro server but does not run until you start it. See [Installed vs. Loaded](/games/cs2/plugins#installed-vs-loaded).
 
-**Command:** `!prefire prac [route_number]`
+### Step 1: Turn On Prefire Mode
 
-Begin practicing on a selected route.
+An admin with the `g` (map) flag types in chat:
 
-**Examples:**
 ```bash
-!prefire prac          # Opens route selection menu
-!prefire prac 1        # Start route #1 directly
-!prefire prac 5        # Start route #5 directly
+!prefireon
 ```
 
-### Map Selection
+This unloads MatchZy and the other game mode plugins and loads OpenPrefirePrac. If nothing happens, you are not an admin with that flag. See [Become a Server Admin](/games/cs2/become-admin), or ask the server owner to run it.
 
-**Command:** `!prefire map [map_name]`
+### Step 2: Open the Menu
 
-Switch to another map for practice.
+Once prefire mode is on, any player can type:
 
-**Example:**
 ```bash
-!prefire map de_dust2
-!prefire map de_mirage
-!prefire map de_inferno
+!prefire
 ```
 
-::: tip Supported Maps
-OpenPrefirePrac includes prefire routes for all active duty competitive maps.
-:::
+The menu lets you pick a route, the map, the difficulty, the training mode, the bot weapons and the language, or stop practicing.
 
-### Difficulty Settings
+To leave prefire mode, start another mode, for example `!matchzy` or `!pracc`. See [Pro Server Commands](/games/cs2/commands#game-mode-commands).
 
-**Command:** `!prefire df [1-6]`
+## Commands
 
-Set the difficulty level for bot reactions and accuracy.
+The `!` and `/` prefixes are interchangeable in chat. This page writes them with `!`.
 
-**Difficulty Levels:**
-- **1** - Very Easy (slow reaction, poor accuracy)
-- **2** - Easy
-- **3** - Medium
-- **4** - Hard
-- **5** - Very Hard
-- **6** - Expert (instant reaction, high accuracy)
+| Command | What it does |
+|---------|--------------|
+| `!prefire` | Opens the main menu |
+| `!prefire prac <number>` | Starts a route by its number. Without a number it shows how many routes there are |
+| `!prefire map <map>` | Changes to another map with routes, for example `!prefire map de_mirage`. Only works while nobody is practicing |
+| `!prefire df <1-6>` | Sets the difficulty |
+| `!prefire mode <rand\|full>` | Sets the training mode |
+| `!prefire bw <rand\|ump\|ak\|sct\|awp>` | Sets the bots' weapon |
+| `!prefire lang <en\|pt\|zh>` | Sets the language to English, Portuguese or Chinese |
+| `!prefire exit` | Stops practicing |
+| `!prefire help` | Shows the list of shortcuts |
 
-**Example:**
-```bash
-!prefire df 3          # Medium difficulty
-!prefire df 5          # Very hard difficulty
-```
+### Difficulty
+
+The difficulty sets how much health you get back, not how well the bots aim:
+
+| Level | Health |
+|-------|--------|
+| `1` | +500 HP per kill |
+| `2` | +100 HP per kill |
+| `3` | Back to 100 HP after a kill |
+| `4` | +25 HP per kill |
+| `5` | 500 HP |
+| `6` | 100 HP |
 
 ### Training Mode
 
-**Command:** `!prefire mode [rand/full]`
-
-Set the training mode type.
-
-**Modes:**
-- **rand** - Random selection of angles
-- **full** - Complete route in sequence
-
-**Example:**
-```bash
-!prefire mode rand     # Random angle selection
-!prefire mode full     # Full route practice
-```
+| Mode | What it does |
+|------|--------------|
+| `full` | Spawns every bot on the route |
+| `rand` | Spawns only part of the bots |
 
 ### Bot Weapons
 
-**Command:** `!prefire bw [weapon_type]`
+| Value | Weapon |
+|-------|--------|
+| `rand` | Random |
+| `ump` | UMP-45 |
+| `ak` | AK-47 |
+| `sct` | SSG 08 |
+| `awp` | AWP |
 
-Set weapons for practice bots.
+## Maps With Routes
 
-**Available Weapons:**
-- `rand` - Random weapon selection
-- `usp` - USP-S pistol
-- `ak` - AK-47 rifle
-- `sct` - SSG 08 (Scout) sniper
-- `awp` - AWP sniper
+Routes are included for these maps:
 
-**Example:**
-```bash
-!prefire bw ak         # Bots use AK-47
-!prefire bw rand       # Random weapons
-!prefire bw awp        # AWP practice
-```
+- `de_ancient`
+- `de_anubis`
+- `de_cache`
+- `de_dust2`
+- `de_inferno`
+- `de_mirage`
+- `de_nuke`
+- `de_overpass`
+- `de_train`
+- `de_vertigo`
 
-### Language Selection
-
-**Command:** `!prefire lang [language_code]`
-
-Set the language for practice mode messages.
-
-**Supported Languages:**
-- `en` - English
-- `pt` - Portuguese
-- `zh` - Chinese
-
-**Example:**
-```bash
-!prefire lang en       # English
-!prefire lang pt       # Portuguese
-```
-
-### Exit Practice
-
-**Command:** `!prefire exit`
-
-Stop practicing and exit prefire practice mode.
-
-**Example:**
-```bash
-!prefire exit
-```
-
-## Practice Workflow
-
-### Recommended Setup
-
-1. **Load the plugin:**
-   ```bash
-   !prefireon
-   ```
-
-2. **Select your map:**
-   ```bash
-   !prefire map de_dust2
-   ```
-
-3. **Configure difficulty:**
-   ```bash
-   !prefire df 4
-   ```
-
-4. **Choose training mode:**
-   ```bash
-   !prefire mode full
-   ```
-
-5. **Set bot weapons:**
-   ```bash
-   !prefire bw ak
-   ```
-
-6. **Start practice:**
-   ```bash
-   !prefire prac 1
-   ```
-
-### Quick Practice Session
-
-For a quick practice session with default settings:
-
-```bash
-!prefireon             # Enable plugin
-!prefire               # Open menu
-# Select route from menu
-```
-
-## Practice Tips
-
-::: tip Difficulty Progression
-Start with difficulty level 2-3 when learning new angles, then increase to 4-5 as you improve. Level 6 is for advanced players seeking maximum challenge.
-:::
-
-::: tip Full Route vs Random
-- **Full route:** Best for learning all angles on a route systematically
-- **Random mode:** Better for reaction training and testing your knowledge
-:::
-
-::: tip Bot Weapons
-Practice against the weapons you'll commonly face:
-- Use `ak` or `usp` for realistic competitive scenarios
-- Use `awp` to practice peeking against AWPers
-- Use `rand` for varied practice situations
-:::
+`!prefire map` only accepts these maps.
 
 ## Troubleshooting
 
-::: details Plugin not responding
-Verify you've activated the plugin with `!prefireon` before using other commands.
+::: details `!prefire` does nothing
+Prefire mode is not on. An admin has to type `!prefireon` first. The owner can also send `exec custom/prefireon` in the **Console** tab of the Pro Panel.
 :::
 
-::: details Routes not loading
-Ensure you're on a supported competitive map. Not all custom maps have prefire routes configured.
+::: details `!prefire map` does not change the map
+Either someone is practicing a route right now, or the map has no routes. Wait until everyone has stopped with `!prefire exit`, and pick a map from the list above.
 :::
 
-::: details Can't see the menu
-Try using the console command `css_prefire` instead of the chat command.
-:::
+## Related Pages
 
-## Command Summary
-
-Quick reference for all commands:
-
-```bash
-!prefireon                    # Enable plugin
-!prefire                      # Open main menu
-!prefire prac [number]        # Start route
-!prefire map [name]           # Change map
-!prefire df [1-6]             # Set difficulty
-!prefire mode [rand/full]     # Set training mode
-!prefire bw [weapon]          # Set bot weapons
-!prefire lang [code]          # Set language
-!prefire exit                 # Exit practice
-!prefire help                 # Show command help
-```
-
-## Additional Resources
-
-- [Practice Mode Guide](/games/cs2/plugins/matchzy) - MatchZy practice features
-- [Pro Commands](/games/cs2/commands) - All Pro server commands
-- [Admin Guide](/games/cs2/become-admin) - Admin access setup
+- [MatchZy](/games/cs2/plugins/matchzy) - Practice mode with grenade and spawn tools
+- [Pro Server Commands](/games/cs2/commands) - Game mode commands
+- [Become a Server Admin](/games/cs2/become-admin) - Admin flags

@@ -1,156 +1,95 @@
+---
+description: "TVFIX restarts CSTV after a match ends so the next match on your CS2 Pro server records a demo too."
+---
+
 # TVFIX (CSTV Fix)
 
-Automatic CSTV restart system to prevent recording failures after matches.
+Restarts CSTV after a match ends, so the next match records as well.
 
-::: tip Pro Feature
-TVFIX is available exclusively on Pro servers with CSTV enabled.
+::: warning Pro Server Only
+TVFIX runs on Pro servers with CSTV turned on. Free servers do not have CSTV.
 :::
 
 ## Overview
 
-CS2 has a bug where CSTV stops recording after the first match on a map ends. There is no error message, so the usual way to find out is discovering the demo missing afterwards.
+TVFIX is a FSHOST plugin that helps keep demo recording working when several matches are played on the same map. After a match that was recorded ends, it switches CSTV off and on again.
 
-TVFIX is a FSHOST-exclusive plugin that fixes this. It waits for a match to end, then restarts CSTV so the next match records normally. It is loaded on your server already, and there is nothing to configure.
+It loads when the server starts and has no settings. It only does something when CSTV is turned on in the Pro Panel, see [CSTV](/games/cs2/cstv#enabling-cstv).
 
 ## How It Works
 
-### Restart Sequence
+1. A match ends and the win panel shows
+2. TVFIX waits 5 seconds, then checks that a demo was recorded in this match: `tv_record` and then `tv_stoprecord` must both have run
+3. If so, it waits another 20 seconds
+4. It runs `tv_enable 0`, and `tv_enable 1` on the next server frame
+5. Chat shows `[TVFIX] CSTV was restarted`
 
-```
-1. Match ends (win panel shown)
-2. Wait 5 seconds (demo write completion)
-3. Wait 20 more seconds (safe buffer)
-4. tv_enable 0
-5. tv_enable 1
-6. Chat notification: "CSTV was restarted"
-```
+If no demo was recorded during the match, nothing is restarted. The 25 second delay is fixed and cannot be changed.
 
-The full delay is 25 seconds and cannot be changed. It gives the demo file time to finish writing, and keeps the restart clear of map votes and other post-match activity.
+### When the Restart Is Skipped
 
-### When It Restarts
+A pending restart is cancelled when:
 
-TVFIX only restarts CSTV when all of these are true:
-
-- A demo was recorded, meaning both `tv_record` and `tv_stoprecord` ran
-- The match actually ended, detected from the win panel
-- No map change is scheduled
-- 25 seconds have passed since the match ended
-
-### When It Holds Off
-
-A pending restart is cancelled if the map changes, a new round starts first, or the map ends. Restarting mid-transition risks the demo, so TVFIX skips it instead.
+- The map changes, through `map` or `changelevel`
+- The map ends
 
 ## Turning It Off
 
-TVFIX runs on its own and needs no setup. To switch it off temporarily, for example during map testing or a practice session with no recording:
+To switch the automatic restart off, for example while testing maps without recording, run this in the **Console** tab of the Pro Panel:
 
 ```bash
 css_tv_restart_toggle
 ```
 
-The same command switches it back on.
+Run it again to switch it back on. Chat shows which state it is in:
 
-## Chat Notifications
-
-**Restart executed:**
-```
-[TVFIX] CSTV was restarted
-```
-
-**Toggle status:**
-```
+```bash
 [TVFIX] Automatic TV restart is now enabled.
 [TVFIX] Automatic TV restart is now disabled.
 ```
 
+The setting is not saved. TVFIX is on again after the next server restart.
+
 ## Console Output
 
-**Plugin loaded:**
-```
+When the plugin loads, the server console shows:
+
+```bash
 [TVFIX] Plugin loaded successfully
 ```
 
-**Launch parameter check:**
-```
+If the server was started without CSTV, TVFIX switches itself off and shows:
+
+```bash
 [TVFIX] +tv_enable 1 NOT found in launch parameters. Disabling plugin.
 ```
 
-**Match end detected:**
-```
-[TVFIX] Match end detected. Waiting 5 sec before checking demo status...
-```
-
-**Restart prevented:**
-```
-[TVFIX] Restart cancelled - map change detected
-```
-
-## Verifying It Works
-
-1. Record a test demo
-2. Play a full match to completion
-3. Start a second match
-4. Check that both demos were recorded
-5. Check that [Demo Monitor](/games/cs2/plugins/demomonitor) moved the files into `demos/`
+Turn on CSTV in **Game settings** and restart the server. See [CSTV](/games/cs2/cstv#enabling-cstv).
 
 ## Troubleshooting
 
-::: details CSTV not restarting automatically
-**Check:**
-- Plugin is loaded: `css_plugins list`
-- Plugin is enabled: `css_tv_restart_toggle` (should say enabled)
-- Demo was actually recorded (tv_record and tv_stoprecord used)
-- 25 seconds have passed since match end
-- No map change occurred during restart delay
+::: details CSTV was not restarted after a match
+Check that:
+
+- CSTV is on in **Game settings** and the server has restarted since
+- A demo was recorded in that match, with both `tv_record` and `tv_stoprecord`
+- The map did not change within 25 seconds of the match ending
+- TVFIX is loaded: run `css_plugins list` in the **Console** tab
+- You did not switch it off with `css_tv_restart_toggle`
 :::
-
-## Known Limitations
-
-| Limitation | Detail |
-|------------|--------|
-| Fixed 25 second delay | Cannot be adjusted. CSTV is briefly down during this window. |
-| Launch parameter required | The server needs `+tv_enable 1` in its launch parameters. TVFIX disables itself if it is missing. |
-| Map changes cancel the restart | Intentional, to avoid restarting mid-transition. |
 
 ## Works With Other Plugins
 
-TVFIX makes up one part of the demo chain on a Pro server:
+TVFIX is one part of the demo chain on a Pro server:
 
 1. **TVFIX** restarts CSTV so each match records
-2. **[Demo Monitor](/games/cs2/plugins/demomonitor)** moves finished demos into the `demos/` folder
+2. **[Demo Monitor](/games/cs2/plugins/demomonitor)** moves finished demos into the `demos` folder
 3. **[Discord Demo Links](/games/cs2/plugins/cstv-discord)** posts download links to your Discord
 
-It also works alongside [MatchZy](/games/cs2/plugins/matchzy), which records its own match demos. The two do not conflict.
+TVFIX reacts to any `tv_record` and `tv_stoprecord`, whether you record by hand or [MatchZy](/games/cs2/plugins/matchzy) records the match.
 
-## Version Information
+## Related Pages
 
-**Plugin Name:** TVFIX  
-**Version:** 1.0.0  
-**Author:** FSHOST.me  
-**Description:** Automatically restart SourceTV at match end with delay  
-**Type:** FSHOST Exclusive
-
-## Related Resources
-
-- [CSTV Setup Guide](/games/cs2/cstv) - Enable and configure CSTV
-- [Demo Monitor](/games/cs2/plugins/demomonitor) - Organize demo files
-- [MatchZy Plugin](/games/cs2/plugins/matchzy) - Automatic match demos
-- [Discord Demo Links](/games/cs2/plugins/cstv-discord) - Post demo download links to Discord
-
-## FAQ
-
-::: details Why does TVFIX wait 25 seconds?
-The delay gives the demo file time to finish writing and lets post-match activity settle. Restarting sooner risks a corrupt demo.
-:::
-
-::: details Can I adjust the timing?
-No. The 25 second delay is fixed, and is the shortest interval that tested reliably.
-:::
-
-::: details Does TVFIX work without MatchZy?
-Yes. TVFIX works with any CSTV recording setup, including manual recording, MatchZy, or other match plugins.
-:::
-
-::: details What if I change maps manually?
-TVFIX detects the map change and cancels the scheduled restart, so it does not interfere with the transition.
-:::
+- [CSTV](/games/cs2/cstv) - Turn on CSTV and download demos
+- [Demo Monitor](/games/cs2/plugins/demomonitor) - Where finished demos go
+- [Discord Demo Links](/games/cs2/plugins/cstv-discord) - Post demo links to Discord

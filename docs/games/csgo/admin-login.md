@@ -1,3 +1,7 @@
+---
+description: "Log in as admin on your CS:GO server from the console."
+---
+
 # Admin Login
 
 Open your console and run one of the following commands to log in to your server as admin.

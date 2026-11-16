@@ -229,3 +229,68 @@ details li {
 }
 
 
+
+/**
+ * Pro tag in the sidebar
+ * -------------------------------------------------------------------------- */
+
+.pro-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+  vertical-align: 1px;
+  color: var(--vp-c-warning-1);
+  background-color: var(--vp-c-warning-soft);
+}
+
+/**
+ * "Still need help?" box under each guide
+ * -------------------------------------------------------------------------- */
+
+.page-help {
+  margin-top: 48px;
+  padding: 16px 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background-color: var(--vp-c-bg-soft);
+}
+
+.page-help-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.page-help-text {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+.page-help-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.page-help-links a {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.page-help-links a:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}

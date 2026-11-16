@@ -1,26 +1,30 @@
+---
+description: "Create your own chat commands on a CS2 Pro server with JSON files, no coding required."
+---
+
 # Custom Commands Plugin
 
 Create your own chat commands for your CS2 server using simple JSON files. No coding required.
 
-::: tip Pro Feature
+::: warning Pro Server Only
 The Custom Commands plugin is available exclusively on Pro servers.
 :::
 
 ## Overview
 
-Custom Commands lets you define your own commands, for example `/discord`, `/ws` or `/knife`, in small JSON files. When a player types the command in chat, the plugin can reply to that player, print a message to everyone, or run server console commands. The plugin watches your JSON files and reloads itself automatically when you change them, so new commands go live within a minute of saving.
+Custom Commands lets you define your own commands, for example `/discord` or `/rules`, in small JSON files. Pick names that no other plugin already uses, so not `/ws` or `/knife`, which belong to [WeaponPaints](/games/cs2/plugins/weapon-skins). When a player types the command in chat, the plugin can reply to that player, print a message to everyone, or run server console commands. The plugin checks your JSON files and reloads the commands when you change them, so new commands go live within a minute of saving.
 
 Typical uses:
 
 - An info command like `/discord` that prints your community's Discord invite
-- A `/restart` shortcut for admins that runs `mp_restartgame 1`
+- A `/restartgame` shortcut for admins that runs `mp_restartgame 1`
 - A themed command that announces something in chat with colors and the player's name
 
 ## How It Works
 
 1. You create a JSON file with one or more command definitions
 2. You upload it to the plugin's config folder on the server
-3. The plugin checks for new or changed files every 60 seconds and reloads itself
+3. The plugin checks for new or changed files every 60 seconds and reloads the commands
 4. Players can now use the command with the `.`, `!` or `/` prefix in chat, for example `.discord`, `!discord` or `/discord`
 
 Each command can do three things, in any combination:
@@ -51,15 +55,15 @@ Pro servers come with a set of command files already installed. They power the g
 
 | File | Commands | What it does |
 |------|----------|--------------|
-| `gamemodes.json` | `!comp`, `!casual`, `!ar`, `!wingman` | Switch between game modes |
-| `matchzy.json` | `!matchzy`, `!pracc` | Start MatchZy or Practice Mode |
-| `matchzyoff.json` | `!matchoff` | Disable MatchZy again |
-| `retake.json` | `!retake` | Start Retake Mode |
-| `dm.json` | `!dmon` | Start MultiCFG Deathmatch |
-| `skinson.json` | `!skinson` | Enable weapon skins |
+| `gamemodes.json` | `!casual`, `!ar`, `!wingman` | Switch between game modes |
+| `matchzy.json` | `!matchzy`, `!pracc`, `!prac` | Start MatchZy, or MatchZy in practice mode |
+| `matchzyoff.json` | `!matchoff` | Turn MatchZy off again |
+| `retake.json` | `!retake` | Start Retakes |
+| `dm.json` | `!dmon` | Start Deathmatch |
+| `skinson.json` | `!skinson` | Turn weapon skins back on |
 | `cmds.json` | `!skinsoff`, `!maps`, `!gm`, `!prefireon` | Skins off, map and mode help texts, prefire mode |
 
-These commands require the `@css/map` admin flag. The files are normal command files, so you can open them via FTP to see how they work, edit them, or use them as templates for your own.
+These commands need the `@css/map` permission, which the `g` admin flag gives. The files are normal command files, so you can open them over FTP to see how they work, or use them as templates for your own.
 
 ## Creating a Command
 
@@ -86,10 +90,10 @@ Upload the file to the config folder via FTP.
 
 ### Step 3: Wait for the reload
 
-The plugin scans for new or changed files every 60 seconds and reloads itself automatically. Watch the server console for:
+The plugin scans for new or changed files every 60 seconds and reloads the commands. Watch the server console for:
 
 ```bash
-[Custom Commands] A new file 'mycommands' has been created, the plugin will be reloaded.
+[Custom Commands] A new file 'mycommands' has been created, reloading commands.
 ```
 
 ### Step 4: Test in-game
@@ -118,8 +122,8 @@ Each command definition supports these fields:
 | `AllMessage` | No | List of chat lines printed to all players. Supports `{PLAYERNAME}` |
 | `ExecuteCommands` | No | List of server console commands to run. Chain several commands in one entry with `;`, for example `"exec custom/casual.cfg;css_plugins unload MatchZy"` |
 | `Timer` | No | Delay in seconds before `ExecuteCommands` runs. Default is `0` (instant) |
-| `GSLTCheck` | No | Set to `true` to require a Game Server Login Token before the command works. Default is `false` |
-| `BlockedCmdMessage` | No | Custom message shown when the command's file has been blocked by an admin |
+| `GSLTCheck` | No | Set to `true` to make the command work only when the server runs with a Game Server Login Token. Default is `false` |
+| `BlockedCmdMessage` | No | Chat lines shown when the command's file is blocked. Without it, the player sees "This command is not available right now." An empty list `[]` shows nothing |
 
 ## Examples
 
@@ -142,12 +146,12 @@ One command reachable under three names. Only the first name appears in `/help`,
 
 ### Admin-only restart command
 
-Requires the `@css/root` admin flag, announces the restart to everyone, then restarts after 3 seconds:
+Requires the `@css/root` permission (the `z` admin flag), announces the restart to everyone, then restarts after 3 seconds:
 
 ```json
 [
   {
-    "Name": "rr,restart",
+    "Name": "restartgame,rg",
     "Description": "Restart the game",
     "Permission": "@css/root",
     "Timer": 3,
@@ -168,9 +172,9 @@ Does not show up in `/help` and gives no chat output at all:
 ```json
 [
   {
-    "Name": "prac",
+    "Name": "aimprac",
     "Hidden": true,
-    "Description": "Practice mode",
+    "Description": "Aim practice settings",
     "Permission": "@css/root",
     "ExecuteCommands": [
       "sv_cheats 1",
@@ -199,7 +203,8 @@ From the preinstalled `matchzy.json`:
       "{DarkRed}This command is unavailable while MatchZy is already running."
     ],
     "ExecuteCommands": [
-      "exec custom/matchzyload.cfg;css_custom_json_off matchzy"
+      "exec custom/matchzyload.cfg",
+      "css_custom_json_off matchzy"
     ]
   }
 ]
@@ -214,7 +219,8 @@ And the counterpart in `matchzyoff.json`:
     "Description": "Disable MatchZy!",
     "Permission": "@css/map",
     "ExecuteCommands": [
-      "exec custom/matchzyoff.cfg;css_custom_json_on matchzy"
+      "exec custom/matchzyoff.cfg",
+      "css_custom_json_on matchzy"
     ]
   }
 ]
@@ -261,7 +267,7 @@ The plugin's own settings live in `CustomCommands.json` in the same folder:
 
 ```json
 {
-  "Blocked Files": [],
+  "Blocked Files": ["matchzy"],
   "Blocked Listeners": [],
   "Allow Help Command": true
 }
@@ -269,7 +275,7 @@ The plugin's own settings live in `CustomCommands.json` in the same folder:
 
 | Setting | Description |
 |---------|-------------|
-| `Blocked Files` | Command files that are currently disabled. Managed with the block commands below |
+| `Blocked Files` | Command files that are currently disabled. Managed with the block commands below. `matchzy` is in the list by default, because MatchZy is already loaded when the server starts |
 | `Blocked Listeners` | Game commands to block completely on the server, for example `kill` |
 | `Allow Help Command` | Set to `false` to disable `/help` |
 
@@ -287,7 +293,7 @@ css_custom_json_off mycommands
 css_custom_json_on mycommands
 ```
 
-Use the file name without the `.json` extension. While a file is blocked, its commands reply with a "command is blocked" message, or with the command's own `BlockedCmdMessage` if one is set.
+Use the file name without the `.json` extension. While a file is blocked, its commands reply "This command is not available right now.", or with the command's own `BlockedCmdMessage` if one is set.
 
 ## Troubleshooting
 
@@ -308,7 +314,7 @@ Check the spelling of the color tag against the list above. Tags are written in 
 :::
 
 ::: details Command replies that a token is not set
-The command has `"GSLTCheck": true` and the server is running without a Game Server Login Token. Either set a GSLT on the server or remove the `GSLTCheck` field from the command.
+The command has `"GSLTCheck": true` and the server is running without a Game Server Login Token. The reply is "This command needs a Game Server Login Token (+sv_setsteamaccount) on the server." Either set a GSLT in **Game settings** or remove the `GSLTCheck` field from the command. The token is only used while **Skins (WeaponPaints)** is on, see [WeaponPaints](/games/cs2/plugins/weapon-skins#about-gslt).
 :::
 
 ## Command Summary

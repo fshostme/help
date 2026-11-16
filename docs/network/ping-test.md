@@ -1,20 +1,23 @@
+---
+description: "Test your ping to each FSHOST.me location before you create a server, on the Network Test page or from the command line."
+---
+
 # Ping Test
 
-Test the latency to our server locations before creating your server to ensure the best performance for your players.
+Test the latency to our server locations before creating your server, so you pick the one with the best performance for your players.
 
-## How to Test Ping
+## Step 1: Open the Network Test Page
 
-Use these domain patterns to test ping to our locations:
+1. Log in at [fshost.me](https://fshost.me)
+2. Go to [fshost.me/network](https://fshost.me/network)
 
-```bash
-ping usX.fsho.st    # US locations
-ping deX.fsho.st    # German locations
-ping frX.fsho.st    # France
-ping sgX.fsho.st    # Singapore
-```
+The page lists every location with its machines. Each machine is marked **Free**, **Pro** or both, so you can see which servers it takes.
 
-Replace `X` with the location number (usually 1, 2, 3, etc.).  
-You can see all our locations on our [Looking Glass](https://fshost.me/lg) page.
+## Step 2: Run the Test
+
+Click **Test Your Connection**. The page pings every machine three times from your browser and shows the average in milliseconds. The machine with the lowest ping is highlighted.
+
+Click **Re-test Connection** to run it again. If a machine shows **Ping timeout** or **Ping failed**, your network could not reach it from the browser. Try the command line test below.
 
 ## Understanding Ping Results
 
@@ -22,43 +25,49 @@ Lower ping times mean better performance:
 
 - **0-50ms** - Excellent connection, ideal for competitive gaming
 - **50-100ms** - Good connection, suitable for most games
-- **100-150ms** - Acceptable, may start to feel the delay
+- **100-150ms** - Acceptable, you may start to feel the delay
 - **150ms+** - High latency, may affect gameplay
 
-## Windows Ping Command
+## Testing From the Command Line
+
+Each machine has its own address ending in `.fsho.st`. On a computer, the Network Test page shows it next to each machine. Use that address with `ping`, in place of `X.fsho.st` below.
+
+### Windows
 
 Open Command Prompt and run:
 
-```cmd
-ping us2.fsho.st
+```bash
+ping X.fsho.st
 ```
 
 Example output:
+
 ```
 Reply from X.X.X.X: bytes=32 time=25ms TTL=54
 ```
 
-## macOS/Linux Ping Command
+### macOS and Linux
 
 Open Terminal and run:
 
 ```bash
-ping -c 4 us2.fsho.st
+ping -c 4 X.fsho.st
 ```
 
-Example Output;
+Example output:
+
 ```
 64 bytes from X.X.X.X: icmp_seq=0 ttl=50 time=25.630 ms
 ```
 
-The `-c 4` flag sends 4 packets instead of continuous pinging.
+The `-c 4` flag sends 4 packets instead of pinging until you stop it.
 
 ## Choosing the Best Location
 
-1. Test ping to multiple locations
+1. Test ping to several locations
 2. Choose the location with the lowest average ping
 3. Consider where most of your players are located
-4. If players are spread across regions, choose a central location
+4. If players are spread across regions, choose a location in between
 
 ::: tip
 Test ping at different times of day to get an accurate picture of network performance.
@@ -70,9 +79,8 @@ Test ping at different times of day to get an accurate picture of network perfor
 
 If ping doesn't work:
 - Check your internet connection
-- Try from a different network
-- Some networks block ICMP (ping) packets (we don't)
-- Contact support if issues persist
+- Some networks block ping packets. Try from a different network, or use the [Network Test](https://fshost.me/network) page
+- Check that you copied the machine's address correctly
 
 ### High Ping to All Locations
 
@@ -87,6 +95,6 @@ If the ping is only high on your server, or only for some players, send us an [M
 ## Next Steps
 
 Once you've identified the best location:
-- See [Locations](/network/locations) for available regions or use our [Looking Glass](https://fshost.me/lg)
+- See [Server Locations](/network/locations) for the available regions
 - Create your server in the chosen location
-- Remember: location changes are limited (2-3 per server)
+- Choose carefully. You cannot move a server yourself, see [Changing Locations](/network/locations#changing-locations)

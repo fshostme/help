@@ -1,9 +1,13 @@
+---
+description: "Open a support ticket for your Pro server in the Pro Panel, and what to include."
+---
+
 # Support Tickets
 
 Pro customers get priority support through tickets in the Pro Panel. Staff replies arrive by email and on the ticket page, so you do not have to keep the page open.
 
 ::: warning Pro Server Only
-Tickets are available once you have had a Pro server or made a top-up. Free server users can ask for help on our [Discord](https://fshost.me/discord).
+Tickets are available once you have had a Pro server or made a top-up. Free server users can ask for help in `#free-support` on our [Discord](https://fshost.me/discord).
 :::
 
 ## Open the Support Page
@@ -12,7 +16,18 @@ Click **Support** in the Pro Panel menu, or go to [fshost.me/pro/support](https:
 
 ![Support page in the Pro Panel](https://help.fshost.me/img/pro-support.png)
 
-The bar at the top shows whether support is online right now, the support hours in UTC and how fast staff have replied recently. Outside support hours it says **Support is offline** and when it is next online. You can still open a ticket at any time, and it is answered when staff are back.
+The bar at the top says **Support is online.** or **Support is offline.**, shows today's support hours in UTC and how fast staff have replied recently. When support is offline, it shows when it is next online. You can still open a ticket at any time, and it is answered when staff are back.
+
+## Support Hours and Reply Times
+
+| Day | Support hours (UTC) |
+|-----|---------------------|
+| Monday to Saturday | 08:00 to 21:00 |
+| Sunday | 10:00 to 19:00 |
+
+During support hours, Pro tickets are usually answered within 10 minutes, and we aim to reply within 1 hour. Outside support hours, the longest wait is 12 hours.
+
+Support answers in English or Danish.
 
 **Your tickets** lists every ticket you have opened, with its **Ref**, **Category**, related **Servers**, **Status**, number of **Replies** and **Last activity**. Click a row to open the ticket.
 
@@ -37,7 +52,9 @@ Open the **Category** list and pick the closest match. You can type in the **Sea
 | **Mods / plugin help** | Installing or fixing mods and plugins |
 | **Server configuration** | Game settings, config files and server options |
 | **FTP** | Requesting FTP access or problems logging in. See [FTP Access](/servers/pro/ftp) |
+| **Database** | A MySQL database for a plugin. **Request a database** on the **Files** tab opens this for you |
 | **Switch server location** | Moving your server to another location. See [Server Moves](/servers/pro/server-moves) |
+| **Pro server limit** | Raising the number of Pro servers you can have |
 | **Account** | Login, email and account settings |
 | **Other** | Anything that does not fit above |
 
@@ -47,7 +64,7 @@ Under **Related servers**, tick the servers the ticket is about. This is optiona
 
 ### Step 4: Write Your Message
 
-Describe the problem in the **Message** box. It needs at least 6 words. A good message includes:
+Describe the problem in the **Message** box. It needs at least 6 words and can be up to 5000 characters. A good message includes:
 
 - What happened, and any error message word for word
 - What you already tried
@@ -57,7 +74,7 @@ The message is plain text. Paste error messages and console output directly into
 
 ### Step 5: Send the Ticket
 
-Click **Open ticket**. You are taken to the ticket page, and you get an email when staff reply.
+Click **Open ticket**. A **Ticket opened** message shows the ticket's reference, and you are taken to the ticket page. You get an email when staff reply.
 
 ::: tip Limits
 You can have up to **3** open tickets at a time, and open one new ticket every 30 minutes. If you hit either limit, the **New ticket** button tells you why. Add new details to an existing ticket instead of opening another.

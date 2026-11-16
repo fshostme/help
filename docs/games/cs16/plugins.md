@@ -1,3 +1,7 @@
+---
+description: "Install your own AMX Mod X plugins on a Counter-Strike 1.6 Pro server over FTP."
+---
+
 # Installing AMX Mod X Plugins
 
 How to add your own AMX Mod X plugins to a Counter-Strike 1.6 Pro server.

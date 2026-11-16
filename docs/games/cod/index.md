@@ -1,362 +1,81 @@
-# Call of Duty Documentation
+---
+description: "Get started with your Call of Duty server on FSHOST.me: connect, log in to RCON, change map and game mode, and compare Free and Pro."
+---
 
-Comprehensive guides for managing and configuring your Call of Duty game server on FSHOST.
+# Call of Duty
 
-## Quick Start Guides
+Guides for running your Call of Duty (CoD1) server on FSHOST.
 
-Essential documentation to get your server running.
+## New Here? Start With These
 
-### Server Setup
-- [RCON Commands](/games/cod/rcon) - Remote console command reference
+Follow the path for the server you have.
 
-### Server Management
-- **RCON Access** - Full remote control via in-game console
-- **Game Mode Configuration** - Multiple game modes available
-- **Map Management** - Stock and custom map rotation
-- **PunkBuster Support** - Anti-cheat system
+### Free Server
 
-## Server Types
+1. **Connect to your server.** Find the IP and port on the [Free Server Panel](https://fshost.me/free-panel), then open the console and type `/connect IP:PORT`
+2. **Log in to RCON** with the password from the panel: [Log into RCON](/games/cod/rcon#log-into-rcon)
+3. **Change the map or game mode:** [Map Commands](/games/cod/rcon#map-commands) and [Game Modes](/games/cod/rcon#game-modes)
 
-### Free Servers
-Perfect for casual play and testing:
-- Quick deployment
-- All game modes available
-- Custom map support
-- PunkBuster anti-cheat
-- RCON access
+### Pro Server
 
-[Create Free Server →](https://fshost.me/free/cod)
+1. **Connect to your server.** The IP and port are at the top of your server's page at [fshost.me/pro/servers](https://fshost.me/pro/servers)
+2. **Log in to RCON.** The password is the **RCON password** field in **Game settings**: [Log into RCON](/games/cod/rcon#log-into-rcon)
+3. **Change the map or game mode:** [Map Commands](/games/cod/rcon#map-commands) and [Game Modes](/games/cod/rcon#game-modes)
+4. **Change the mod, version or PunkBuster** in **Game settings** on the Pro Panel: [Managing Your Server](/servers/pro/managing-server)
 
-### Pro Servers
-Advanced features for competitive play:
-- Priority hardware
-- Advanced configurations
-- Custom settings
-- Priority support
-- Extended map library
-- No advertisements
+## Guides
 
-[View Pro Plans →](https://fshost.me/pro)
+- [RCON Commands](/games/cod/rcon) - Maps, game modes, hostname, password and player management
 
-## Available Game Modes
+## Game Modes
 
-### Multiplayer Modes
+| Mode | `g_gametype` |
+|------|--------------|
+| Behind Enemy Lines | `bel` |
+| Deathmatch | `dm` |
+| Headquarters | `hq` |
+| Retrieval | `re` |
+| Search and Destroy | `sd` |
+| Team Deathmatch | `tdm` |
 
-| Mode | Command | Description |
-|------|---------|-------------|
-| **Base Assault** | `g_gametype bas` | Capture and defend base objectives |
-| **Behind Enemy Lines** | `g_gametype bel` | Tactical infiltration gameplay |
-| **Capture the Flag** | `g_gametype ctf` | Classic flag capture mode |
-| **Deathmatch** | `g_gametype dm` | Free-for-all combat |
-| **Domination** | `g_gametype dom` | Control point capture |
-| **Headquarters** | `g_gametype hq` | King of the hill style |
-| **Retrieval** | `g_gametype re` | Objective-based retrieval |
-| **Search and Destroy** | `g_gametype sd` | Bomb plant/defuse mode |
-| **Team Deathmatch** | `g_gametype tdm` | Team-based elimination |
-
-## Common Tasks
-
-### Server Configuration
-
-**Change hostname:**
-```bash
-/rcon sv_hostname "^6Your Server Name ^7- free @ fshost.me"
-```
-
-**Set password:**
-```bash
-/rcon g_password "password123"
-```
-
-**Remove password:**
-```bash
-/rcon g_password ""
-```
-
-### Game Mode Setup
-
-**Change to Search and Destroy:**
 ```bash
 /rcon g_gametype sd
 /rcon map_restart
 ```
 
-**Change to Team Deathmatch:**
-```bash
-/rcon g_gametype tdm
-/rcon map_restart
-```
-
-::: tip Map Restart Required
-After changing game modes, always restart the map for changes to take effect.
+::: tip Restart After Changing Mode
+The new game mode only takes effect after `/rcon map_restart` or a map change.
 :::
 
-### Map Management
-
-**Change map:**
-```bash
-/rcon map mp_harbor
-```
-
-**Quick restart:**
-```bash
-/rcon fast_restart
-```
-
-**Map rotation:**
-```bash
-/rcon map_rotate
-```
-
-**Full restart:**
-```bash
-/rcon map_restart
-```
-
-## RCON Setup
-
-### Logging In
-
-**Open console in-game and login:**
-```bash
-/rconpassword your_rcon_password
-```
-
-Find your RCON password on your [Free Server Panel](https://fshost.me/free-panel).
-
-### Basic Commands
-
-**Check server status:**
-```bash
-/rcon status
-```
-
-**Kick player:**
-```bash
-/rcon clientkick slot_number
-```
-
-**Kick all players:**
-```bash
-/rcon kickall
-```
-
-## Player Management
-
-### Status and Information
-
-**View connected players:**
-```bash
-/rcon status
-```
-
-Shows:
-- Slot number
-- Player name
-- GUID
-- IP address
-- Connection info
-
-**PunkBuster player list:**
-```bash
-/rcon pb_sv_plist
-```
-
-Get PunkBuster player list (if PB is enabled).
-
-### Moderation
-
-**Kick player:**
-```bash
-/rcon clientkick 3
-```
-
-Kicks player in slot 3.
-
-**Take screenshot:**
-```bash
-/rcon pb_sv_getss slot_number
-```
-
-Captures player screenshot via PunkBuster.
-
-## Map Rotation
-
-### Stock Maps
-
-Call of Duty includes numerous stock maps across various settings:
-- **Urban Combat** - City-based maps
-- **Beach Assaults** - Coastal operations
-- **Rural Settings** - Countryside battles
-- **Industrial Areas** - Factory and warehouse maps
-
-### Custom Maps
-
-FSHOST supports custom maps. Contact support to request additional maps for your server.
-
-## Configuration Examples
-
-### Competitive Setup
-
-**Search and Destroy:**
-```bash
-/rcon g_gametype sd
-/rcon sv_hostname "^1Competitive S&D ^7- free @ fshost.me"
-/rcon map_restart
-```
-
-### Public Server
-
-**Team Deathmatch:**
-```bash
-/rcon g_gametype tdm
-/rcon sv_hostname "^6Public TDM Server ^7- free @ fshost.me"
-/rcon g_password ""
-/rcon map_restart
-```
-
-### Private Match
-
-**With password protection:**
-```bash
-/rcon g_gametype ctf
-/rcon g_password "private123"
-/rcon sv_hostname "^3Private Match ^7- free @ fshost.me"
-/rcon map_restart
-```
-
-## PunkBuster Anti-Cheat
-
-### Features
-
-**Enabled by default on FSHOST servers:**
-- Real-time cheat detection
-- Screenshot capability
-- Player tracking
-- Ban management
-- Automated updates
-
-### PunkBuster Commands
-
-**View PB status:**
-```bash
-/rcon pb_sv_plist
-```
-
-**Take screenshot:**
-```bash
-/rcon pb_sv_getss player_slot
-```
-
-::: info PunkBuster
-PunkBuster helps maintain fair play by detecting and preventing cheating.
-:::
-
-## Getting Support
-
-### Resources
-- **Documentation:** Browse these guides for answers
-- **Discord:** [Join FSHOST Community](https://fshost.me/discord)
-- **Support Channels:**
-  - Free users: `#free-support`
-  - Pro users: `#pro-support`
-
-### Common Questions
-
-::: details How do I change the game mode?
-Use the `g_gametype` command followed by the mode code:
-```bash
-/rcon g_gametype sd
-/rcon map_restart
-```
-See [Available Game Modes](#available-game-modes) for all codes.
-:::
-
-::: details Why must I keep the advert in hostname?
-Free servers require the "free @ fshost.me" advert as part of the hostname. This is a requirement for using our free hosting service.
-:::
-
-::: details How do I add custom maps?
-Contact FSHOST support via [Discord](https://fshost.me/discord) with your custom map requests and download links.
-:::
-
-::: details What is RCON password?
-RCON (Remote Console) password allows you to manage your server remotely. Find it on your [Free Server Panel](https://fshost.me/free-panel).
-:::
-
-::: details Can I disable PunkBuster?
-PunkBuster is enabled by default. For configuration changes, contact support. Note that disabling it may increase cheating.
-:::
-
-## Feature Comparison
+## Free vs Pro
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| All Game Modes | Yes | Yes |
-| RCON Access | Yes | Yes |
-| PunkBuster | Yes | Yes |
-| Custom Maps | Limited | Extended |
-| Map Rotation | Yes | Yes |
-| Advanced Config | No | Yes |
-| Priority Support | No | Yes |
-| No Advertisements | No | Yes |
+| RCON access | Yes | Yes |
+| Version v1.1 or v1.5 | Yes | Yes |
+| Mods: Pam 110, CoD1 Mania, CoDBase | Yes | Yes |
+| PunkBuster on or off | Yes | Yes |
+| Change the mod after creation | No | Yes |
+| Your own custom mod | No | Yes |
+| FTP access (on request) | No | Yes |
+| Hostname advert required | Yes | No |
 
-## Server Administration Tips
+[Create Free Server →](https://fshost.me/free/cod) · [View Pro Plans →](https://fshost.me/pro) · [Full comparison](/servers/free-vs-pro)
 
-### Best Practices
+## FAQ
 
-::: tip Server Management
-- **Regular monitoring** - Check player activity
-- **Fair moderation** - Use kick/ban responsibly
-- **Map variety** - Rotate different maps and modes
-- **Active presence** - Be available for players
-- **Clear rules** - Establish server guidelines
+::: details Why must I keep the advert in my hostname?
+Free servers must keep `free @ fshost.me` at the end of the hostname. The advert is only in the hostname, not in chat. If it is removed, it is added back automatically. Pro servers have no advert.
 :::
 
-### Security
-
-::: warning Protect Your Server
-- Never share RCON password publicly
-- Don't type RCON password in game chat
-- Change password if compromised
-- Use PunkBuster for anti-cheat
-- Monitor player behavior
+::: details How do I change the mod on a Free server?
+The mod is chosen when you create the server and cannot be changed on the Free Server Panel. Stop the server and create a new one with the mod you want. On Pro servers, change **Mod** in **Game settings**.
 :::
 
-## Advanced Topics
+::: details Can I turn PunkBuster off?
+Yes. Free servers choose PunkBuster **On** or **Off** when the server is created. Pro servers have a **PunkBuster** toggle in **Game settings**.
+:::
 
-### Color Codes
-
-Use color codes in hostname:
-- `^1` - Red
-- `^2` - Green
-- `^3` - Yellow
-- `^4` - Blue
-- `^5` - Cyan
-- `^6` - Pink/Magenta
-- `^7` - White (default)
-
-**Example:**
-```bash
-/rcon sv_hostname "^6Awesome ^1CoD ^2Server ^7- free @ fshost.me"
-```
-
-### Server Variables
-
-Common server settings:
-- `g_gametype` - Game mode
-- `g_password` - Server password
-- `sv_hostname` - Server name
-- `sv_maxclients` - Max players
-
-Full reference: [RCON Commands](/games/cod/rcon)
-
-## Next Steps
-
-1. **Configuration:** Review [RCON Commands](/games/cod/rcon)
-2. **Game Modes:** Experiment with different modes
-3. **Get Help:** Join [Discord](https://fshost.me/discord)
-
----
-
-**Need Help?** Visit our [Discord](https://fshost.me/discord) or browse the documentation sections above.
+::: details Where do I find my RCON password?
+Free servers show it on the [Free Server Panel](https://fshost.me/free-panel). On Pro servers it is the **RCON password** field in **Game settings**.
+:::

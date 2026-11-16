@@ -1,3 +1,7 @@
+---
+description: "Go from a new FSHOST.me account to a running game server: choose Free or Pro, pick a location, create the server and connect."
+---
+
 # Getting Started
 
 New to FSHOST.me? This page takes you from an account to a running game server, and points you to the right guide for each step.
@@ -14,7 +18,7 @@ Once you are in, we recommend turning on two factor authentication. See [Account
 |---|------|-----|
 | Cost | Free | Monthly price per server, paid from your balance |
 | Runs | While people are playing on it | Until you stop it |
-| Ads | Yes, in the hostname and chat | No |
+| Ads | Yes, in the hostname | No |
 | Support | Community, on Discord | Priority, with support tickets |
 | Plugins and FTP | Predefined only | Yes, FTP on request |
 
@@ -42,8 +46,8 @@ Full guide: [Creating a Free Server](/servers/free/creating-server)
 
 1. Add money to your balance on the [Top-up](https://fshost.me/pro/top-up) page
 2. Pick your game on the [Pricing](https://fshost.me/pro/pricing) page and click **Create**
-3. Choose a location and configure the server
-4. Click **Start**. The first month's price is taken from your balance
+3. Choose a location and how many months to pay for, then click **Create server**
+4. Configure the server, click **Save changes**, then **Start**
 
 Full guides: [Creating a Pro Server](/servers/pro/creating-server) and [Billing and Top-Up](/servers/pro/billing)
 
@@ -65,10 +69,3 @@ Can't connect? See [Connection Problems](/troubleshooting/connection).
 - [All Games](/games/) - Guides for each game, with commands, admin setup and mods
 - [Managing Your Server](/servers/pro/managing-server) - Settings, automation and updates on Pro servers
 - [Team Access](/servers/pro/team-access) - Let friends start and stop your Pro server
-
-## Need Help?
-
-- **[FAQ](/faq)** - Answers to the most common questions
-- **[Troubleshooting](/troubleshooting/)** - Fixes for common problems
-- **[Discord](https://fshost.me/discord)** - Community help for everyone
-- **[Pro Support](https://fshost.me/pro/support)** - Support tickets for Pro customers. See [Support Tickets](/servers/pro/support)

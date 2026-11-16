@@ -1,168 +1,110 @@
+---
+description: "How to change the map on a CS2 Free server with RCON and chat commands, and what Free servers do not include."
+---
+
 # Free Server Commands
 
-Available commands for CS2 Free servers.
+How to change the map and settings on a CS2 Free server.
 
-::: warning Limited Features
-Free servers have restricted functionality compared to Pro servers. Advanced features like pause commands, tech timeouts, and custom practice utilities are not available.
+::: warning Free Servers Only
+This page covers Free servers. On a Pro server, see [Pro Server Commands](/games/cs2/commands).
 :::
 
-<!--@include: ./parts/_where-to-type.md-->
+Free servers have a small, fixed setup. You control them with RCON from the game console. The game mode commands, plugins and **Server admins** page of a Pro server are not part of it.
 
-You do not need admin rights or a password for the commands on this page. Any player on a Free server can use them.
+## What a Free Server Runs
 
-## Game Mode Commands
+| Setting | On a Free server |
+|---------|------------------|
+| Game mode | Competitive |
+| Start map | The map you picked under **Map** when you created the server |
+| Bots | Off |
+| CSTV | Off |
+| RCON | `fake_rcon`, with the **RCON Password** you picked when you created the server |
 
-| Command | Description |
-|---------|-------------|
-| `/comp` | Switch to Competitive game mode |
-| `/casual` | Switch to Casual game mode |
-| `/dm` or `!deathmatch` | Start Deathmatch mode |
-| `/wingman` | Switch to Wingman (2v2) game mode |
+The **Map** list on the create form has these maps: `de_ancient`, `de_anubis`, `de_cache`, `de_dust2`, `de_inferno`, `de_mirage`, `de_nuke`, `de_overpass`, `de_train`, `de_vertigo`, `cs_office`, and the Arms Race maps `ar_baggage`, `ar_pool_day` and `ar_shoots`.
 
-## Configuration Presets
-
-### Competitive Configurations
-
-**ESL 5v5:**
-```bash
-/esl5on5
-```
-Standard ESL competitive configuration.
-
-::: warning No Ready System
-This configuration does not include pause, unpause, or tech timeout commands.
+::: tip Join Within 5 Minutes
+Free servers stop when they are empty. Join within 5 minutes of starting the server, or it stops again.
 :::
 
-**Scrim:**
+## Step 1: Log In to RCON
+
+Turn on the developer console, join your server and log in with your RCON password:
+
 ```bash
-/scrim
-```
-Default scrim configuration with all rounds enabled.
-
-::: warning Limited Features
-Pause and tech timeout commands are not available.
-:::
-
-### Practice Modes
-
-**Practice Mode:**
-```bash
-/pracc
-```
-Basic practice configuration.
-
-::: warning Limited Practice Features
-Advanced practice commands like `.throw`, `.bot`, `.pause`, and `.tech` are not available. For full practice features, a Pro server is required.
-:::
-
-**Pregame:**
-```bash
-/pregame
-```
-Default pregame warmup configuration.
-
-## Map Commands
-
-### Direct Map Changes
-
-| Command | Map |
-|---------|-----|
-| `/ancient` | de_ancient |
-| `/anubis` | de_anubis |
-| `/dust2` | de_dust2 |
-| `/inferno` | de_inferno |
-| `/mirage` | de_mirage |
-| `/nuke` | de_nuke |
-| `/overpass` | de_overpass |
-| `/train` | de_train |
-| `/vertigo` | de_vertigo |
-
-### Custom Map Selection
-
-**Change to specific map:**
-```bash
-/map dust2
-/map mirage
-/map nuke
+fake_rcon_password your_rcon_password
 ```
 
-## Utility Commands
+The full steps are in [RCON Commands](/games/cs2/rcon#before-you-start). Your RCON password is on the [Free Server Panel](https://fshost.me/free-panel), next to the `connect` command.
 
-**List available commands:**
+## Step 2: Change the Map
+
+Send the map change from the console:
+
 ```bash
-/help
+fake_rcon changelevel de_mirage
 ```
 
-**List map commands:**
+You can also type part of the map name:
+
 ```bash
-/maps
+fake_rcon css_map mirage
 ```
 
-## Quick Start Examples
+`css_map` finds the map whose name contains what you typed. If more than one map matches, use the full name.
 
-### Starting a Competitive Match
+## Map Commands in Chat
+
+The same map changes also exist as chat commands. The `!` and `/` prefixes are interchangeable. This page uses `!`.
+
+| Command | What it does |
+|---------|--------------|
+| `!map <name>` | Changes the map. `!changemap` and `!changelevel` do the same |
+| `!maplist` | Lists the maps on the server |
+
+Every player on a free server can use `!map`. If a command replies **You don't have permission to use this command.**, use the RCON commands from [Step 2](#step-2-change-the-map) instead.
+
+## Other Settings
+
+Any server command works through `fake_rcon`, for example:
+
 ```bash
-/esl5on5              # Load competitive config
-/map dust2            # Change to Dust2
+fake_rcon mp_restartgame 1
+fake_rcon mp_maxrounds 24
+fake_rcon sv_password newpassword
 ```
 
-### Practice Session
-```bash
-/pracc                # Load practice mode
-/dust2                # Change map
-```
+See [RCON Commands](/games/cs2/rcon) for more.
 
-### Deathmatch
-```bash
-/dm                   # Start deathmatch
-/mirage               # Change to Mirage
-```
+## Not on Free Servers
 
-## Limitations on Free Servers
-
-Free servers do not support:
-- Advanced admin commands
-- Pause and unpause during matches
-- Tech timeout functionality
-- Custom practice utilities (grenades, bots, spawns)
-- Workshop map loading
-- Advanced match management
-- CSTV recording
-- Custom plugins
-
-::: tip Upgrade for More Features
-For full functionality including all practice commands, match management, and plugin support, consider upgrading to a [Pro Server](https://fshost.me/pro/pricing/cs2).
-:::
-
-## Command Prefixes and Aliases
-
-The `/`, `!` and `.` prefixes are interchangeable. `/comp`, `!comp` and `.comp` all do the same thing, so use whichever you prefer. This page writes them with `/`.
-
-That is separate from an alias, which is a second name for the same command. Only one exists on Free servers:
-
-| Command | Alias |
-|---------|-------|
-| `/dm` | `!deathmatch` |
-
-No other command has an alternative name. If a command is not listed on this page, it is not available on Free servers.
-
-## Getting Help
-
-- **In-game:** Type `/help` to see available commands
-- **Discord:** Join [FSHOST Community](https://fshost.me/discord) for support
-- **Upgrade:** Learn about [Pro Server features](/servers/free-vs-pro)
-
-## Comparison: Free vs Pro
+These need a Pro server:
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| Basic game modes | Yes | Yes |
-| Map changing | Yes | Yes |
-| Competitive configs | Limited | Full |
-| Practice commands | Basic | Advanced |
-| Match management | No | Yes |
-| Admin system | No | Yes |
-| Workshop maps | No | Yes |
-| CSTV | No | Yes |
+| RCON | Yes | Yes |
+| Change the map | Yes | Yes |
+| Choose the game mode in the panel | No | Yes |
+| Game mode chat commands, such as Deathmatch, Retakes and MatchZy practice | No | Yes |
+| Steam Workshop maps and collections | No | Yes |
+| Bots | No | Yes |
+| CSTV spectating and demos | No | Yes |
+| Plugins such as MatchZy and CS2-SimpleAdmin | No | Yes |
+| **Server admins** page in the panel | No | Yes |
 
-[View Full Comparison →](/servers/free-vs-pro)
+[View Pro Plans →](https://fshost.me/pro/pricing/cs2) · [Full comparison](/servers/free-vs-pro)
+
+## Troubleshooting
+
+::: details "You are not logged in"
+Run `fake_rcon_password` with your RCON password first. See [RCON Commands](/games/cs2/rcon#troubleshooting).
+:::
+
+::: details "No maps found with the name"
+No map on the server has that name. Check the spelling, or use one of the maps listed in [What a Free Server Runs](#what-a-free-server-runs).
+:::
+
+::: details My server stopped
+Free servers stop when nobody is playing on them. Create a new one and join it within 5 minutes. See [Creating a Free Server](/servers/free/creating-server).
+:::

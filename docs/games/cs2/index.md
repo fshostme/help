@@ -1,10 +1,14 @@
-# Counter-Strike 2 Documentation
+---
+description: "Get started with your Counter-Strike 2 server on FSHOST.me: connect, log in to RCON, become admin, add plugins and Workshop maps, and compare Free and Pro."
+---
 
-Guides for managing and configuring your CS2 game server on FSHOST.
+# Counter-Strike 2
+
+Guides for running your CS2 server on FSHOST.
 
 ## New Here? Start With These
 
-Follow the path for the server you have. Both take about ten minutes.
+Follow the path for the server you have.
 
 ### Free Server
 
@@ -16,146 +20,75 @@ Follow the path for the server you have. Both take about ten minutes.
 ### Pro Server
 
 1. **Connect to your server.** The IP and port are at the top of your server's page at [fshost.me/pro/servers](https://fshost.me/pro/servers). Click **Join via Steam**, or use **Other ways to join** → **Copy console command** and paste it into the CS2 console
-2. **Make yourself an admin.** [Become a Server Admin](/games/cs2/become-admin), the panel method takes four steps
+2. **Make yourself an admin.** [Become a Server Admin](/games/cs2/become-admin), the Pro Panel method takes four steps
 3. **Learn the in-game commands** for maps, game modes and admin actions: [Pro Server Commands](/games/cs2/commands)
 4. **Add the features you want.** [Plugin Overview](/games/cs2/plugins) covers match management, deathmatch, skins and demos
 5. **Play a Workshop map** by setting its ID in **Game settings**: [Workshop Maps](/games/cs2/workshop-maps)
 
-## Reference
+## Guides
 
-### Commands and Controls
-- [Free Server Commands](/games/cs2/commands-free) - Chat commands available on Free servers
-- [Pro Server Commands](/games/cs2/commands) - Chat commands available on Pro servers
+- [Free Server Commands](/games/cs2/commands-free) - Chat commands on Free servers
+- [Pro Server Commands](/games/cs2/commands) - Chat commands on Pro servers
 - [RCON Commands](/games/cs2/rcon) - Console commands for server settings and cvars
-- [In-Game Admin Commands](/games/cs2/become-admin#admin-commands) - Admin-specific commands (Pro)
-
-### Advanced Features
-- [CSTV Broadcasting](/games/cs2/cstv) - Enable spectating and demo recording (Pro)
-- [Automation](/games/cs2/automation) - Automatic game updates and scheduled restarts (Pro)
-- [Team Access](/servers/pro/team-access) - Let teammates control the server from their own accounts (Pro)
-- [Plugin Overview](/games/cs2/plugins) - Available plugins and addons
+- [Become a Server Admin](/games/cs2/become-admin) - Add admins in the Pro Panel (Pro)
+- [CSTV](/games/cs2/cstv) - Spectating and demo recording (Pro)
 - [Workshop Maps](/games/cs2/workshop-maps) - Run Steam Workshop maps and collections (Pro)
 - [Config Files](/games/cs2/config-files) - Which config file to edit over FTP (Pro)
+- [Automation](/games/cs2/automation) - Automatic game updates and scheduled restarts (Pro)
+- [Team Access](/servers/pro/team-access) - Let teammates control the server from their own accounts (Pro)
 
-## Pro Server Plugins
+## Plugins
 
-Extra features you can run on a Pro server.
+Pro servers come with a set of plugins. Some run from the start and some are switched on by you. See the [Plugin Overview](/games/cs2/plugins) for which is which.
 
-### Administration
-- [CS2-SimpleAdmin](/games/cs2/plugins/cs2-simpleadmin) - Ban, kick, mute and manage players
-- [FSH-AdminManager](/games/cs2/plugins/adminmanager) - Admin roles and permissions
-
-### Game Modes
-- [Deathmatch](/games/cs2/plugins/deathmatch) - Free-for-all deathmatch
-- [Retakes](/games/cs2/plugins/retakes) - Bomb site retake practice
 - [MatchZy](/games/cs2/plugins/matchzy) - Scrims, matches and practice
-- [OpenPrefirePrac](/games/cs2/plugins/prefire) - Prefire training
-
-### Customization
+- [CS2-SimpleAdmin](/games/cs2/plugins/cs2-simpleadmin) - Ban, kick, mute and manage players
+- [Deathmatch](/games/cs2/plugins/deathmatch), [Retakes](/games/cs2/plugins/retakes) and [OpenPrefirePrac](/games/cs2/plugins/prefire) - Extra game modes
 - [WeaponPaints](/games/cs2/plugins/weapon-skins) - Custom weapon skins
 - [Discord Demo Links](/games/cs2/plugins/cstv-discord) - Post demo download links to Discord
 
-## Server Types
-
-### Free Servers
-- FakeRcon and CS2MapChange included
-- Official maps and some community maps
-- RCON access
-
-[Create Free Server →](https://fshost.me/free/cs2)
-
-### Pro Servers
-- All plugins in the [Plugin Overview](/games/cs2/plugins)
-- CSTV broadcasting and demos
-- Admin management in the Pro Panel
-- FTP access for configs and plugin settings
-- [Workshop maps](/games/cs2/workshop-maps) and collections
-- Priority support through [Pro Support](https://fshost.me/pro/support) tickets
-
-[View Pro Plans →](https://fshost.me/pro/pricing/cs2)
-
-## Common Tasks
-
-These are console commands. Open the developer console with **`** and authenticate with `fake_rcon_password` first, as described in the [RCON guide](/games/cs2/rcon). Commands prefixed with `say` are chat commands sent from the console.
-
-### Server Configuration
-```bash
-# Change server name
-fake_rcon hostname "Your Server Name - fshost.me"
-
-# Set password
-fake_rcon sv_password "password123"
-
-# Configure competitive settings
-fake_rcon mp_maxrounds 30
-fake_rcon mp_startmoney 800
-fake_rcon mp_roundtime 1.92
-```
-
-### Map Management
-```bash
-# Quick map change
-say !map dust2
-
-# RCON map change
-fake_rcon changelevel de_mirage
-
-# List available maps
-fake_rcon maps *
-```
-
-### Player Management
-```bash
-# View connected players
-fake_rcon status
-
-# Kick player
-fake_rcon kick "PlayerName"
-
-# Broadcast message
-fake_rcon say "Server restarting in 5 minutes"
-```
-
-## Getting Support
-
-### Resources
-- **Documentation:** Browse these guides for answers
-- **Discord:** [Join FSHOST Community](https://fshost.me/discord)
-- **Support Channels:**
-  - Free users: `#free-support`
-  - Pro users: `#pro-support`
-
-### Common Questions
-
-::: details How do I access my server files?
-**Free servers:** Limited file access via RCON commands
-
-**Pro servers:** FTP access to the `addons` and `cfg` folders. Request credentials by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page. See [FTP Access](/servers/pro/ftp).
-:::
-
-::: details Can I use custom maps?
-**Free servers:** Access to official maps and select community maps
-
-**Pro servers:** Steam Workshop maps and collections. See [Workshop Maps](/games/cs2/workshop-maps)
-:::
-
-::: details How do I install plugins?
-- **Free:** Limited to the included plugins
-- **Pro:** Request other plugins on a ticket at [Pro Support](https://fshost.me/pro/support)
-:::
-
-::: details What is GSLT and do I need it?
-A Game Server Login Token links your server to a Steam account. It is optional on FSHOST servers, and plugins such as [WeaponPaints](/games/cs2/plugins/weapon-skins) work without one. Pro users who want to set a GSLT can do so in the Pro Panel.
-:::
-
-## Plugin Comparison
+## Free vs Pro
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| Basic Admin Tools | No | Yes |
-| CSTV Broadcasting | No | Yes |
-| Match Management | No | Yes |
-| Custom Plugins | No | Yes |
-| Workshop Maps | No | Yes |
-| FTP Access | No | Yes |
-| Priority Support | No | Yes |
+| RCON access | Yes | Yes |
+| VAC on or off | Yes | Yes |
+| Official maps | Yes | Yes |
+| Steam Workshop maps and collections | No | Yes |
+| Choose the game mode in the panel | No | Yes |
+| Bots | No | Yes |
+| CSTV spectating and demos | No | Yes |
+| Plugins such as MatchZy and CS2-SimpleAdmin | No | Yes |
+| **Skins (WeaponPaints)** | No | Yes |
+| **Server admins** page in the panel | No | Yes |
+| Steam GSLT | No | Yes |
+| FTP access (on request) | No | Yes |
+| Hostname advert required | Yes | No |
+
+[Create Free Server →](https://fshost.me/free/cs2) · [View Pro Plans →](https://fshost.me/pro/pricing/cs2) · [Full comparison](/servers/free-vs-pro)
+
+## FAQ
+
+::: details Why must I keep the advert in my hostname?
+Free servers have `- free @ fshost.me` at the end of the hostname. The advert is only in the hostname, not in chat. Pro servers have no advert.
+:::
+
+::: details Why did my Free server stop?
+Free servers stop automatically when they are empty. Join within 5 minutes of starting the server, or it stops again.
+:::
+
+::: details How do I access my server files?
+Free servers have no file access. Pro servers can get FTP access to the `addons` and `cfg` folders by opening a ticket on [Pro Support](https://fshost.me/pro/support). See [FTP Access](/servers/pro/ftp).
+:::
+
+::: details Do I need a GSLT?
+No. CS2 runs fine without one. Add a token in **Steam GSLT (optional)** under **Game settings** on the Pro Panel only if you want your server listed in the Steam server browser, or a Steam ID that stays the same after restarts for Steam Datagram Relay. If players cannot join, clear this field first. An expired, banned or reused token stops people from connecting.
+:::
+
+::: details Why does my Pro server restart every day?
+New Pro CS2 servers get a daily scheduled restart. Change or turn it off under [Automation](/games/cs2/automation).
+:::
+
+::: details Can I get a plugin that is not in the list?
+Ask on a ticket at [Pro Support](https://fshost.me/pro/support). You can also install it yourself over FTP, which we set up on request. See [FTP Access](/servers/pro/ftp) and [Before You Modify Files](/servers/pro/before-you-modify).
+:::

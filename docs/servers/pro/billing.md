@@ -1,3 +1,7 @@
+---
+description: "How Pro server billing works on FSHOST.me: top up your balance, monthly charges, renewals, deletion and refunds."
+---
+
 # Billing and Top-Up
 
 Pro servers are paid from your FSHOST account balance. You add money with a top-up, and each server takes its monthly price from that balance. There is no subscription, so nothing is charged to your card unless you top up yourself.
@@ -8,7 +12,8 @@ Billing and top-ups are part of the Pro Panel. Free servers cost nothing and hav
 
 ## How Charging Works
 
-- **Starting a new or expired server** takes one month's price from your balance. The server then runs until the same date next month.
+- **Creating a server** takes the price for the length you choose, 1, 3, 6 or 12 months, from your balance. If your balance does not cover it, you pay through Stripe instead. See [Creating a Pro Server](/servers/pro/creating-server).
+- **Starting an expired server** takes one month's price from your balance. The server then runs until the same date next month.
 - **On the renewal date**, a running server is renewed automatically if your balance holds at least the monthly price.
 - **If your balance is too low** on the renewal date, the server is stopped. It stays on your account with all its files.
 - **Stopped servers are not charged.** A server that is stopped when its renewal date passes simply expires. Nothing is taken from your balance.
@@ -34,15 +39,22 @@ Click **Top Up** in the Pro Panel menu, or go to [fshost.me/pro/top-up](https://
 
 ### Step 2: Choose an Amount and Pay
 
-![Top-up page in the Pro Panel](https://help.fshost.me/img/pro-top-up.png)
+![Top-up page with the price calculator](https://help.fshost.me/img/pro-top-up.png)
 
-1. Type the amount you want to add in the **Pro Top-up** box
-2. Click **Buy**
-3. Pick a payment method on the Stripe checkout page and complete the payment
+The **Price calculator** works out how much to add:
 
-Payments go through Stripe. You can pay with card, PayPal, iDEAL and other methods. The methods offered depend on your country, and the icons under **Supported payment methods** show the main ones.
+1. Pick a game under **Game**. Each game shows its monthly price. If you already have paid Pro servers, **My servers** adds up the monthly price of all of them
+2. Choose a **Length**: **1 month**, **3 months**, **6 months** or **12 months**
+3. Check the amount under **Added to your balance**, then click **Top up**
+4. Pick a payment method on the Stripe checkout page and complete the payment
 
-Below the payment box, the **Pricing** table lists each game, its **Available locations** and its **Price per month**. Top up at least the monthly price of the server you want to run.
+To add another amount, click **Top up a different amount** and type it in **Amount**. It must be whole euros, from €5 to €500. Click **Use the calculator instead** to go back.
+
+::: tip The calculator only adds money
+Topping up does not create or extend a server. The money goes into your balance, and your servers take their monthly price from it when they renew.
+:::
+
+Payments go through Stripe. You can pay with card, PayPal, iDEAL and other methods, depending on your country. Amounts are charged in euros, and the full amount is added to your balance.
 
 ### Step 3: Check Your Balance
 
@@ -147,7 +159,7 @@ Check the **Top-ups** list on the [Billing page](https://fshost.me/pro/billing).
 :::
 
 ::: details Clicking Start asks me to pay
-The server has expired, or it has never been started. Starting it takes one month's price from your balance. Click **Cancel** if you do not want to renew it now.
+The server has expired. Starting it takes one month's price from your balance. Click **Cancel** if you do not want to renew it now.
 :::
 
 ::: details I cannot delete my server

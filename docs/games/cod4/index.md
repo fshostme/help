@@ -1,468 +1,99 @@
-# Call of Duty 4 Documentation
+---
+description: "Get started with your Call of Duty 4: Modern Warfare server on FSHOST.me: connect, log in to RCON, change map and game mode, pick a mod, and compare Free and Pro."
+---
 
-Comprehensive guides for managing and configuring your Call of Duty 4: Modern Warfare game server on FSHOST.
+# Call of Duty 4: Modern Warfare
 
-## Quick Start Guides
+Guides for running your Call of Duty 4 server on FSHOST.
 
-Essential documentation to get your server running.
+## New Here? Start With These
 
-### Server Setup
-- [RCON Commands](/games/cod4/rcon) - Remote console command reference
+Follow the path for the server you have.
 
-### Server Management
-- **RCON Access** - Full remote control via in-game console
-- **Mod Support** - Multiple mods available
-- **Game Mode Configuration** - Six game modes
-- **Map Management** - Stock and custom maps
-- **PunkBuster Support** - Anti-cheat system
+### Free Server
 
-## Server Types
+1. **Connect to your server.** Find the IP and port on the [Free Server Panel](https://fshost.me/free-panel), then open the console (`~`) and type `/connect IP:PORT`
+2. **Log in to RCON** with the password from the panel: [Log into RCON](/games/cod4/rcon#log-into-rcon)
+3. **Change the map or game mode:** [Map Commands](/games/cod4/rcon#map-commands) and [Game Modes](/games/cod4/rcon#game-modes)
+4. **Set up your mod.** If you picked one when creating the server, see its page under [Mods](#mods)
 
-### Free Servers
-Perfect for casual play and testing:
-- Quick deployment
-- All game modes available
-- Multiple mods to choose from
-- Custom map support
-- PunkBuster anti-cheat
-- RCON access
+### Pro Server
 
-[Create Free Server →](https://fshost.me/free/cod4)
+1. **Connect to your server.** The IP and port are at the top of your server's page at [fshost.me/pro/servers](https://fshost.me/pro/servers)
+2. **Log in to RCON.** The password is the **RCON password** field in **Game settings**: [Log into RCON](/games/cod4/rcon#log-into-rcon)
+3. **Change the map or game mode:** [Map Commands](/games/cod4/rcon#map-commands), [Game Modes](/games/cod4/rcon#game-modes) and [Map Rotation](/games/cod4/rcon#map-rotation)
+4. **Change the mod, version or PunkBuster** in **Game settings** on the Pro Panel: [Managing Your Server](/servers/pro/managing-server)
 
-### Pro Servers
-Advanced features for competitive play:
-- Priority hardware
-- CoD4x support
-- Advanced configurations
-- FTP access
-- Custom mod configs
-- Priority support
-- No advertisements
+## Guides
 
-[View Pro Plans →](https://fshost.me/pro)
+- [RCON Commands](/games/cod4/rcon) - Maps, game modes, map rotation, hostname, password, kicks and bans
 
-## Available Game Modes
+## Game Modes
 
-### Standard Multiplayer Modes
+| Mode | `g_gametype` |
+|------|--------------|
+| Free For All | `dm` |
+| Team Deathmatch | `war` |
+| Search & Destroy | `sd` |
+| Domination | `dom` |
+| Headquarters | `koth` |
+| Sabotage | `sab` |
 
-| Mode | Command | Description |
-|------|---------|-------------|
-| **Free For All** | `g_gametype dm` | Deathmatch - every player for themselves |
-| **Team Deathmatch** | `g_gametype war` | Team-based elimination |
-| **Search & Destroy** | `g_gametype sd` | Competitive bomb plant/defuse |
-| **Domination** | `g_gametype dom` | Control point capture |
-| **Headquarters** | `g_gametype koth` | King of the hill style |
-| **Sabotage** | `g_gametype sab` | Objective-based bomb mode |
-
-## Server Mods
-
-Enhance your server with these popular mods.
-
-### Competitive Mods
-
-**[Promod LIVE v2.20](/games/cod4/mods/promodlive)**
-- Industry standard competitive mod
-- Used in tournaments worldwide
-- Balanced gameplay
-- Professional settings
-
-**[FPSChallenge.eu Promod](/games/cod4/mods/fps-promod)**
-- Enhanced Promod variant
-- Built-in anti-cheat
-- Automatic demo upload
-- FSHOST official provider
-
-### Fun Mods
-
-**[GunGame v1.0](/games/cod4/mods/gungame)**
-- Progressive weapon gameplay
-- Level up with each kill
-- First to complete all weapons wins
-- Multiple customization options
-
-**[CoDJumper v3.12b](/games/cod4/mods/codjumper)**
-- Parkour and movement challenges
-- Jump-based gameplay
-- Custom jump maps
-- Skill-based progression
-
-### Utility Mods
-
-**[Stock Custom Maps](/games/cod4/mods/stock-custom-maps)**
-- Use custom maps with stock settings
-- No gameplay changes
-- Easy map expansion
-- Compatible with most maps
-
-## Common Tasks
-
-### Server Configuration
-
-**Change hostname:**
-```bash
-/rcon sv_hostname "^6Your Server Name ^7- free @ fshost.me"
-```
-
-**Set password:**
-```bash
-/rcon g_password "password123"
-```
-
-**Remove password:**
-```bash
-/rcon g_password ""
-```
-
-### Game Mode Setup
-
-**Change to Search and Destroy:**
 ```bash
 /rcon g_gametype sd
 /rcon map_restart
 ```
 
-**Change to Team Deathmatch:**
-```bash
-/rcon g_gametype war
-/rcon map_restart
-```
-
-::: tip Map Restart Required
-After changing game modes, always restart the map for changes to take effect.
+::: tip Restart After Changing Mode
+The new game mode only takes effect after `/rcon map_restart` or a map change.
 :::
 
-### Map Management
+## Mods
 
-**Change map:**
-```bash
-/rcon map mp_crash
-```
+Pick a mod when you create the server. Each page covers its settings and commands.
 
-**Quick restart:**
-```bash
-/rcon fast_restart
-```
+- [Promod LIVE v2.20](/games/cod4/mods/promodlive) - Competition mod with match modes set through `promod_mode`
+- [FPSChallenge.eu Promod](/games/cod4/mods/fps-promod) - FPSChallenge.eu's match mod based on Promod LIVE
+- [GunGame v1.0](/games/cod4/mods/gungame) - Each kill moves you up to the next weapon
+- [CoDJumper v3.12b](/games/cod4/mods/codjumper) - Bounce and jump mod for parkour-style maps
+- [Stock Custom Maps](/games/cod4/mods/stock-custom-maps) - Custom maps with stock game settings
 
-**Map rotation example:**
-```bash
-/rcon sv_maprotation "gametype sd map mp_backlot map mp_crash map mp_strike"
-```
-
-## RCON Setup
-
-### Logging In
-
-**Open console (~) and login:**
-```bash
-/rcon login your_rcon_password
-```
-
-Find your RCON password on:
-- [Free Panel](https://fshost.me/free-panel)
-- [Pro Server Settings](https://fshost.me/pro/servers)
-
-### Basic Commands
-
-**Check server status:**
-```bash
-/rcon status
-```
-
-**Kick player:**
-```bash
-/rcon clientkick slot_number
-```
-
-**Ban player:**
-```bash
-/rcon banClient id
-```
-
-**Temporary ban:**
-```bash
-/rcon tempBanClient id
-```
-
-## Player Management
-
-### Status and Information
-
-**View connected players:**
-```bash
-/rcon status
-```
-
-Shows:
-- Slot number
-- Player name  
-- GUID
-- IP address
-- Connection info
-
-**PunkBuster player list:**
-```bash
-/rcon pb_sv_plist
-```
-
-### Moderation Commands
-
-**Kick player:**
-```bash
-/rcon clientkick 3
-```
-
-**Ban permanently:**
-```bash
-/rcon banClient 3
-```
-
-**Temporary ban by name:**
-```bash
-/rcon tempBanUser "PlayerName"
-```
-
-**Temporary ban by ID:**
-```bash
-/rcon tempBanClient 3
-```
-
-**Kick all players:**
-```bash
-/rcon kickall
-```
-
-## Mod Configurations
-
-### Promod Setup
-
-**Standard 5v5:**
-```bash
-/rcon promod_mode match_mr12
-```
-
-**With knife round:**
-```bash
-/rcon promod_mode match_mr12_knife
-```
-
-**2v2 match:**
-```bash
-/rcon promod_mode 2v2_mr10
-```
-
-See [Promod LIVE documentation](/games/cod4/mods/promodlive) for all modes.
-
-### FPSChallenge.eu Promod
-
-Uses same commands as Promod LIVE but includes:
-- Automatic anti-cheat
-- Demo upload integration
-- Enhanced security
-
-See [FPS Promod documentation](/games/cod4/mods/fps-promod).
-
-### GunGame Configuration
-
-Admin commands for GunGame:
-```bash
-gg_switch_team [player]    # Switch team
-gg_switch_spec [player]    # Move to spectator
-gg_set_level [player]:[level]  # Set level
-```
-
-See [GunGame documentation](/games/cod4/mods/gungame).
-
-## Configuration Examples
-
-### Competitive S&D (Promod)
-
-```bash
-/rcon promod_mode match_mr12_knife
-/rcon sv_hostname "^1Competitive S&D ^7- free @ fshost.me"
-```
-
-### Public TDM Server
-
-```bash
-/rcon g_gametype war
-/rcon g_password ""
-/rcon sv_hostname "^6Public TDM Server ^7- free @ fshost.me"
-/rcon map_restart
-```
-
-### GunGame Server
-
-```bash
-# Select GunGame mod when creating server
-/rcon sv_hostname "^3GunGame Server ^7- free @ fshost.me"
-```
-
-### Jump Server (CoDJumper)
-
-```bash
-# Select CoDJumper mod when creating server
-/rcon sv_hostname "^5Jump Server ^7- free @ fshost.me"
-```
-
-## PunkBuster & CoD4x
-
-### PunkBuster (v1.7)
-
-**Features:**
-- Cheat detection
-- Player tracking
-- Ban management
-
-**Commands:**
-```bash
-/rcon pb_sv_plist        # Player list
-```
-
-### CoD4x
-
-**Enhanced features:**
-- Better performance
-- Bug fixes
-- Extended functionality
-
-## Getting Support
-
-### Resources
-- **Documentation:** Browse these guides
-- **Discord:** [Join FSHOST Community](https://fshost.me/discord)
-- **Support Channels:**
-  - Free: `#free-support`
-  - Pro: `#pro-support`
-
-### Common Questions
-
-::: details Which mod should I choose?
-**Competitive play:** Promod LIVE or FPS Promod  
-**Fun gameplay:** GunGame  
-**Parkour:** CoDJumper  
-**Custom maps only:** Stock Custom Maps
-:::
-
-::: details How do I set up Promod?
-Select Promod when creating server, then use:
-```bash
-/rcon promod_mode match_mr12
-```
-See [Promod documentation](/games/cod4/mods/promodlive) for all options.
-:::
-
-::: details Can I change mods after creation?
-No, mods are selected during server creation. To change mods, create a new server with the desired mod.
-:::
-
-::: details What's the difference between Promod and FPS Promod?
-FPS Promod includes built-in anti-cheat and automatic demo upload. It's based on Promod LIVE with enhancements. See [FPS Promod page](/games/cod4/mods/fps-promod).
-:::
-
-::: details How do I add custom maps?
-Contact support via [Discord](https://fshost.me/discord) with map download links. Or use Stock Custom Maps mod for easy custom map support.
-:::
-
-## Feature Comparison
+## Free vs Pro
 
 | Feature | Free | Pro |
 |---------|------|-----|
-| All Game Modes | Yes | Yes |
-| Mod Support | Yes | Yes |
-| RCON Access | Yes | Yes |
-| CoD4x | No | Yes |
-| FTP Access | No | Yes |
-| Custom Configs | No | Yes |
-| Advanced Mods | Limited | Full |
-| Priority Support | No | Yes |
-| No Advertisements | No | Yes |
+| RCON access | Yes | Yes |
+| Version v1.7, [CoD4x](https://cod4x.ovh) v20 or CODTV | Yes | Yes |
+| Mods listed above | Yes | Yes |
+| Cracked (players without a valid CD key) | Yes | Yes |
+| PunkBuster on or off | Yes | Yes |
+| Change the mod after creation | No | Yes |
+| Your own custom mod | No | Yes |
+| CoD4x or CODTV auth token for master server listing | No | Yes |
+| **Disable IPv6** and **Enable cheats** settings | No | Yes |
+| FTP access and FastDL (on request) | No | Yes |
+| Hostname advert required | Yes | No |
 
-## Server Administration Tips
+[Create Free Server →](https://fshost.me/free/cod4) · [View Pro Plans →](https://fshost.me/pro) · [Full comparison](/servers/free-vs-pro)
 
-### Best Practices
+## FAQ
 
-::: tip Server Management
-- **Choose right mod** - Match mod to playstyle
-- **Clear server name** - Indicate mod/mode in hostname
-- **Fair moderation** - Use ban/kick responsibly
-- **Map variety** - Rotate popular maps
-- **Active presence** - Moderate regularly
+::: details Why must I keep the advert in my hostname?
+Free servers must keep `free @ fshost.me` at the end of the hostname. The advert is only in the hostname, not in chat. If it is removed, it is added back automatically. Pro servers have no advert.
 :::
 
-### Security
-
-::: warning Protect Your Server
-- Never share RCON password
-- Don't type password in chat
-- Use PunkBuster/CoD4x anti-cheat
-- Monitor suspicious players
+::: details How do I change the mod on a Free server?
+The mod is chosen when you create the server and cannot be changed on the Free Server Panel. Stop the server and create a new one with the mod you want. On Pro servers, change **Mod** in **Game settings**.
 :::
 
-## Advanced Topics
+::: details Which version should I pick?
+v1.7 is the official latest version. We also run the latest CoD4x (v20) and CoD4x CODTV versions. CODTV players need the CODTV client to join a CODTV server.
+:::
 
-### Color Codes
+::: details Can I turn PunkBuster off?
+Yes. Free servers choose PunkBuster **On** or **Off** when the server is created. Pro servers have a **PunkBuster** toggle in **Game settings**.
+:::
 
-Use in hostname and chat:
-- `^0` - Black
-- `^1` - Red
-- `^2` - Green
-- `^3` - Yellow
-- `^4` - Blue
-- `^5` - Cyan
-- `^6` - Pink/Magenta
-- `^7` - White (default)
-- `^8` - Team color
-- `^9` - Grey
-
-### Map Rotation
-
-**Set rotation:**
-```bash
-/rcon sv_maprotation "gametype sd map mp_backlot map mp_citystreets map mp_crash"
-```
-
-**Multiple game types:**
-```bash
-/rcon sv_maprotation "gametype sd map mp_crash gametype war map mp_backlot"
-```
-
-### Server Variables
-
-Common settings:
-- `g_gametype` - Game mode
-- `g_password` - Server password
-- `sv_hostname` - Server name
-- `sv_maprotation` - Map rotation
-- `sv_maxclients` - Max players
-
-Full reference: [RCON Commands](/games/cod4/rcon)
-
-## Popular Maps
-
-### Stock Maps
-
-**Competitive:**
-- mp_backlot
-- mp_crash
-- mp_strike
-- mp_vacant
-
-**Public:**
-- mp_shipment
-- mp_rust (CoD4x)
-- mp_crossfire
-- mp_broadcast
-
-## Mod-Specific Guides
-
-Detailed documentation for each mod:
-
-- **[Promod LIVE](/games/cod4/mods/promodlive)** - Competitive settings and modes
-- **[FPS Promod](/games/cod4/mods/fps-promod)** - Enhanced anti-cheat features
-- **[GunGame](/games/cod4/mods/gungame)** - Progressive weapon gameplay
-- **[CoDJumper](/games/cod4/mods/codjumper)** - Jump mechanics and maps
-- **[Stock Custom Maps](/games/cod4/mods/stock-custom-maps)** - Custom map setup
-
----
-
-**Need Help?** Visit our [Discord](https://fshost.me/discord) or browse the mod-specific documentation.
+::: details Why does my Pro server restart every day?
+New Pro CoD4 servers get a daily scheduled restart. Change or turn it off under [Automation](/servers/pro/managing-server#automation).
+:::

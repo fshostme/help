@@ -1,10 +1,14 @@
+---
+description: "Create a Game Server Login Token (GSLT) so players outside your network can connect to your CS:GO server."
+---
+
 # Game Server Login Token (GSLT)
 
 A Game Server Login Token (GSLT) is required for your CS:GO Server to be connectable by players outside your local network. It links your dedicated Server to your Steam account and ensures your Server can authenticate with Steam's controller servers.
 
 ::: info What does a GSLT do?
 - Allows players to connect to your Server
-- Persists your server identity if you change IP or hosting provider - players who favourited your Server can still find it
+- Persists your server identity if you change IP or hosting provider - players who favorited your Server can still find it
 - Verifies game ownership to prevent fake servers from flooding the server list
 :::
 
@@ -48,9 +52,9 @@ Anyone with your GSLT can run a server under your Steam account, and any ban it 
 ## Applying the Token
 
 1. Go to your Server in the [Pro Panel](https://fshost.me/pro/servers)
-2. Click **Edit** on your Server
-3. Paste your GSLT token into the **Steam GSLT (Game Server Login Token)** field
-4. Save and restart your Server
+2. Open the **Settings** tab, then **Game settings**
+3. Paste your GSLT token into the **Steam GSLT (Game Server Login Token)** field in the **Steam token** box
+4. Click **Save changes** and restart your Server
 
 The Server picks up the token on the next start, so the restart is not optional.
 

@@ -1,3 +1,7 @@
+---
+description: "Load predefined CS:GO configs such as competitive, casual and deathmatch with the exec command."
+---
+
 # Config Files
 
 Load predefined settings using the `exec` command:

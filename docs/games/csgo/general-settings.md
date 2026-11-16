@@ -1,3 +1,7 @@
+---
+description: "Change the map, password, hostname and restart settings on your CS:GO server."
+---
+
 # General Settings
 
 ## Map

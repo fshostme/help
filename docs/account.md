@@ -1,3 +1,7 @@
+---
+description: "Manage your FSHOST account: email, password, two factor authentication and logged-in devices. Applies to Free and Pro servers."
+---
+
 # Account and Security
 
 Manage your FSHOST account: your email, your password, two factor authentication and the devices you are logged in on. These settings apply to both free and Pro servers.
@@ -6,9 +10,11 @@ Manage your FSHOST account: your email, your password, two factor authentication
 
 1. Log in at [fshost.me](https://fshost.me)
 2. Click your username in the top right corner
-3. Click **Settings**
+3. Click **Settings** in the menu at the top of the page
 
-The settings have two tabs: **Account** and **Security**.
+You can also go straight to [fshost.me/settings](https://fshost.me/settings).
+
+The settings have two tabs: **Account** and **Security**. Opening **Security**, **Change email** or **Delete account** first asks you to confirm your password. If your account has no password, you confirm with Google or Discord instead.
 
 ## Account Tab
 
@@ -54,7 +60,7 @@ Two factor authentication (2FA) asks for a code from an authenticator app every 
 
 #### Step 1: Enable 2FA
 
-Click **Enable** under **Two Factor Authentication**. You may be asked for your password.
+Click **Enable** under **Two Factor Authentication**.
 
 #### Step 2: Scan the QR Code
 
@@ -116,9 +122,9 @@ Your account and everything attached to it is deleted, not hidden. It cannot be 
 If you still have a server online or are part of an active mix, you have to tick a box for each before you can continue:
 
 - **Active Server** - Your server is stopped when the account is deleted
-- **Active Mixes** - You leave the mix, and it is abandoned
+- **Active Mixes** - The mixes you are part of are abandoned
 
-Then click **Delete Account** and confirm with your password.
+Then click **Delete Account**.
 
 You cannot delete your account yourself if:
 
@@ -128,7 +134,7 @@ You cannot delete your account yourself if:
 ## Troubleshooting
 
 ::: details I lost my phone and cannot log in
-Use one of your recovery codes. On the **Authentication code** page, click **log in using a recovery code**. Once you are in, go to **Security**, disable two factor authentication and set it up again on your new phone. If you have no recovery codes left, contact us on [Discord](https://fshost.me/discord).
+Use one of your recovery codes. On the **Authentication code** page, click **log in using a recovery code**. Once you are in, go to **Security**, disable two factor authentication and set it up again on your new phone. If you have no recovery codes left, click **Contact us.** under **Lost all 2FA devices and backup codes?** on the login page.
 :::
 
 ::: details I cannot unlink Google or Discord
@@ -140,5 +146,5 @@ Usernames cannot be changed from the settings. Contact us and we can change it f
 :::
 
 ::: details Deleting my account shows an error
-Accounts less than a day old, and accounts that have ever made a top-up, cannot be deleted from the settings. Wait a day, or open a ticket on [Pro Support](https://fshost.me/pro/support) for a paid account.
+Accounts less than a day old, and accounts that have made a payment or been given credits, cannot be deleted from the settings. Wait a day, or open a ticket on [Pro Support](https://fshost.me/pro/support) for a paid account.
 :::

@@ -1,9 +1,13 @@
+---
+description: "Get FTP access to your Pro server to upload configs, plugins and custom maps. Set up by us on request."
+---
+
 # FTP Access
 
 FTP lets you upload and edit files on your Pro server, such as configs, plugins and custom maps. It is set up by us on request, per server.
 
 ::: warning Pro Server Only
-FTP is only available on Pro servers, and only for some games. The [pricing page](https://fshost.me/pro/pricing) for your game says whether FTP is included.
+FTP is only available on Pro servers, and only for some games. The **Files** tab on your server says **FTP is available for** your game, or **FTP is not yet available for** it.
 :::
 
 Before you change anything, read [Before You Modify Files](/servers/pro/before-you-modify).
@@ -39,11 +43,11 @@ The **FTP access** box shows everything you need to log in.
 | **Port** | `21` |
 | **Host** | The FTP address of your server's location, for example `X.fsho.st` |
 | **Username** | Your FSHOST account user ID |
-| **Password** | Your FTP password. Click the eye icon to show it, or the copy icon to copy it |
+| **Password** | Your FTP password. Click the eye icon to show it, or the copy icon to copy it. If the box says **Open a support ticket and we'll reset it for you.**, ask on a ticket with the **FTP** category |
 
 Use the copy icons next to **Host**, **Username** and **Password** so you do not mistype them.
 
-Below the details, **Login count** and **Last accessed** show how often and how recently someone logged in with this FTP account. If you see logins you did not make, open a ticket straight away.
+Below the details, **Storage used** shows how much of your FTP storage is in use. **Login count** and **Last accessed** show how often and how recently someone logged in with this FTP account. Before the first login it says **No FTP logins recorded yet.** If you see logins you did not make, open a ticket straight away.
 
 ::: danger Keep Your FTP Password Private
 Anyone with your FTP details can change or delete every file on your server. Do not share them in public channels.
@@ -51,7 +55,7 @@ Anyone with your FTP details can change or delete every file on your server. Do 
 
 ## Step 3: Connect With an FTP Client
 
-You need an FTP client that supports FTP over TLS. We recommend [FileZilla](https://filezilla-project.org/) (Windows, macOS and Linux) or [WinSCP](https://winscp.net/) (Windows).
+You need an FTP client that supports FTP over TLS. The server only accepts encrypted connections, so plain FTP does not work. We recommend [FileZilla](https://filezilla-project.org/) (Windows, macOS and Linux) or [WinSCP](https://winscp.net/) (Windows).
 
 ### FileZilla
 
@@ -63,18 +67,20 @@ You need an FTP client that supports FTP over TLS. We recommend [FileZilla](http
 6. Enter your **User** and **Password**
 7. Click **Connect**
 
-The first time you connect, FileZilla asks you to trust the server's certificate. Tick **Always trust this certificate in future sessions** and click **OK**.
+If FileZilla asks you to trust the server's certificate, check that it is issued for your **Host**, tick **Always trust this certificate in future sessions** and click **OK**.
 
 ### WinSCP
 
 1. Click **New Site**
 2. Set **File protocol** to **FTP** and **Encryption** to **TLS/SSL Explicit encryption**
 3. Enter the **Host name**, **Port number** `21`, **User name** and **Password**
-4. Click **Login** and accept the certificate
+4. Click **Login**
 
 ## What You Can Access
 
-You do not get the whole server. You see the folders we set up for you, each as a folder at the top level, for example a config folder or a plugins folder. If you need access to another folder, ask on your ticket.
+You do not get the whole server. After you log in, each server has its own folder named after its server number, for example `p1234`. Inside it are the folders we set up for you, for example a config folder or a plugins folder. If you need access to another folder, ask on your ticket.
+
+If you have more than one Pro server in the same location, they share one FTP login, and each server has its own `p` folder.
 
 For where files live in each game, see the [File Manager](/servers/pro/file-manager#important-directories) page.
 
@@ -100,7 +106,7 @@ To use it:
 
 1. Connect with FTP and open the `fastdl` folder
 2. Upload a copy of the files players need, using the exact same paths as on the server. A file the server loads from `maps/de_custom.bsp` goes to `fastdl/maps/de_custom.bsp`
-3. Point your game at the FastDL URL in the server config. On CS 1.6, edit the config template, see [CS 1.6 Config Files](/games/cs16/config-files):
+3. Point your game at the FastDL URL in the server config, in place of our default `http://dl.fsho.st/<game>`. On CS 1.6, edit the config template, see [CS 1.6 Config Files](/games/cs16/config-files):
 
 | Game | Setting |
 |------|---------|
@@ -142,5 +148,7 @@ Your client is probably using active mode. In FileZilla, open **Edit** → **Set
 :::
 
 ::: details Upload fails because the disk is full
-FTP comes with a storage quota. Delete files you no longer need, such as old demos or unused maps, or ask on a ticket for more space.
+FTP comes with a storage quota, and the upload fails with **Upload limit reached**. The quota is per account and location, so every Pro server you have in the same location uses the same storage. Log files (`.log`) and demos (`.dem`) do not count toward it.
+
+Delete files you no longer need, such as unused maps, or click **Request more storage** on the **Files** tab. It opens a ticket with the **FTP** category and your current limit filled in.
 :::

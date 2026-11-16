@@ -1,14 +1,18 @@
+---
+description: "Make yourself an admin on your CS2 Pro server in the Pro Panel, choose permission flags and immunity, and use the in-game admin commands."
+---
+
 # Become a Server Admin
 
-Complete guide to gaining admin access on your CS2 Pro server.
+Add yourself and your staff as admins on your CS2 Pro server.
 
 ::: warning Pro Server Only
-Admin system commands are exclusive to Pro servers. This functionality is not available on free servers.
+The **Server admins** page is available on CS2 Pro servers only. Free servers use RCON instead, see [RCON Commands](/games/cs2/rcon).
 :::
 
 ## Setup via Pro Panel
 
-The Pro Panel is the easiest way to add admins. No console or in-game commands are needed.
+Admins are added on the **Server admins** page of the Pro Panel. No console or in-game commands are needed.
 
 ### Step 1: Find Your SteamID64
 
@@ -23,290 +27,106 @@ Open [steamid.io](https://steamid.io) and paste your Steam profile URL. Copy the
 
 ### Step 3: Add Yourself
 
-Fill in the **Add admin** form and click **+ Add**.
+Fill in the **Add admin** form and click **Add**.
 
 ![CS2 Server admins page](https://help.fshost.me/img/cs2-server-admins.png)
 
 | Field | Value |
 |-------|-------|
 | **SteamID64** | Your 17-digit ID from Step 1 |
-| **Flags** | `z` for full permissions |
-| **Immunity** | `100`, the highest level |
-| **Custom permissions** | Optional. Leave empty unless a plugin requires it |
+| **Flags** | `z` for full access |
+| **Immunity** | A number from `0` to `100`. Use `100` for yourself |
+| **Custom permissions** | Optional. Plugin permissions in the form `@plugin/perm`, separated by spaces. Leave it empty unless a plugin asks for one |
 
 ::: tip About the z Flag
-The `z` flag grants every permission at once, so there is no need to pick flags individually. The **z** button next to the **Flags** field fills it in for you, and the **...** button lets you pick individual flags. Keep it for yourself and co-owners. For staff, use limited flags from the [Permission Flags](#permission-flags) table below.
+The `z` flag grants every permission at once. The **z** button next to the **Flags** field fills it in for you, and the **...** button lets you pick individual flags. Keep `z` for yourself and co-owners. For staff, pick flags from the [Permission Flags](#permission-flags) table below.
 :::
 
 ### Step 4: Apply the Changes
 
-Click **Reload in-game** next to **Existing admins**. Your admin access applies right away, without a server restart.
+Click **Reload in-game** next to **Existing admins**. Your admin access applies right away, without a server restart. The button is only shown while the server is running.
 
 Your entry then appears under **Existing admins** with the Steam avatar, flags and immunity. Use the pencil icon to edit it, or the bin icon to remove it.
 
 ::: warning Changes Not Showing In-Game
-Click **Reload in-game** after adding or editing an admin. Otherwise the server keeps the old admin list until the next server restart.
+Click **Reload in-game** after adding, editing or removing an admin. Otherwise the server keeps the old admin list until the next restart.
 :::
 
-## Other Admin Access Methods
+## Other Ways to Become Admin
 
-### In-Game Admin Access
+- **Log in from the console.** Type `login YOUR_RCON_PASSWORD` in the developer console to make yourself root admin. Never type it in chat. See [Log In With the RCON Password](/games/cs2/plugins/adminmanager#log-in-with-the-rcon-password)
+- **Add admins in-game.** Root admins can use `/css_addadmin` and roles. See [In-Game Commands](/games/cs2/plugins/adminmanager#in-game-commands-for-server-owners) and [Roles](/games/cs2/plugins/adminmanager#roles)
 
-**Quick Start:**
+## Permission Flags
 
-1. **Connect to your Pro server**
-2. **Open in-game chat**
-3. **Enter login command:**
-```bash
-/login YOUR_RCON_PASSWORD
-```
+These are the flags offered by the **...** button on the **Server admins** page.
 
-**Success Confirmation:**
-```bash
-[Admin Manager] Processing login request...
-[Admin Manager] Login successful. You are now an admin.
-```
+| Flag | Permission |
+|------|------------|
+| `a` | Reservation |
+| `b` | Generic |
+| `c` | Kick |
+| `d` | Ban |
+| `e` | Unban |
+| `f` | Slay |
+| `g` | Changemap |
+| `h` | Cvar |
+| `i` | Config |
+| `j` | Chat |
+| `k` | Vote |
+| `l` | Password |
+| `m` | Rcon |
+| `n` | Cheats |
+| `z` | Root, full access |
+
+Combine flags by writing them together, for example `bcd` for a moderator who can kick and ban. See [FSH-AdminManager](/games/cs2/plugins/adminmanager#permission-flags) for more examples.
+
+## Immunity
+
+Immunity decides who outranks whom. An admin with higher immunity outranks one with lower immunity. Give yourself `100` and your staff lower values.
 
 ## Admin Commands
 
-### Basic Admin Commands
+Once you are an admin, you can use the commands of the plugins on your server. The `!` and `/` prefixes are interchangeable in chat. This page uses `/`.
 
-| Command | Example | Description |
-|---------|---------|-------------|
-| `/login [password]` | `/login mypass123` | Authenticate as server admin |
-| `/admins` | - | Display list of current admins |
-| `/addadmin help` | - | Show addadmin usage guide |
-| `/rolehelp` | - | Display role management commands |
-
-### Adding Admins
-
-**By SteamID with flags:**
-```bash
-/addadmin 76561198975357634 99 z
-```
-
-**By SteamID with role:**
-```bash
-/addadmin 76561198975357634 Moderator
-```
-
-**By player name:**
-```bash
-/addadmin PlayerName Helper
-```
-
-::: tip SteamID64 Format
-Use the SteamID64 format for permanent admin assignments. Find yours at [steamid.io](https://steamid.io)
-:::
-
-### Removing Admins
+Commands for moderating players come from [CS2-SimpleAdmin](/games/cs2/plugins/cs2-simpleadmin):
 
 ```bash
-/removeadmin 76561198975357634
-/removeadmin PlayerName
+/css_kick <player> [reason]
+/css_ban <player> [time] [reason]
+/css_mute <player>
 ```
 
-## Role Management
-
-### Creating Roles
-
-Roles allow organized permission structures with immunity levels.
-
-**Command Structure:**
-```bash
-/css_addrole <RoleName> <Flags> <Immunity>
-```
-
-**Example Roles:**
-
-**VIP Role:**
-```bash
-/css_addrole VIP ao 10
-```
-*Reservation access, immunity 10*
-
-**Moderator Role:**
-```bash
-/css_addrole Moderator abdh 50
-```
-*Ban, kick, chat management, immunity 50*
-
-**Admin Role:**
-```bash
-/css_addrole Admin abcdefghijklmn 100
-```
-*Full admin permissions, immunity 100*
-
-**Owner Role:**
-```bash
-/css_addrole Owner z 100
-```
-*Complete control, maximum immunity*
-
-### Permission Flags
-
-| Flag | Permission | Description |
-|------|------------|-------------|
-| `a` | Ban | Ban players |
-| `b` | Kick | Kick players |
-| `c` | Map | Change maps |
-| `d` | Chat | Manage chat |
-| `e` | Vote | Control votes |
-| `f` | Cvars | Modify server settings |
-| `g` | Generic | Generic admin |
-| `h` | Cheats | Enable sv_cheats |
-| `i` | Slay | Kill players |
-| `j` | Team | Manage teams |
-| `k` | Config | Execute configs |
-| `l` | Reservation | Reserved slots |
-| `n` | Custom | Custom permissions |
-| `o` | Rcon | RCON access |
-| `z` | Full | All permissions |
-
-### Assigning Roles
+Admins with the `z` flag can also manage admins in-game with [FSH-AdminManager](/games/cs2/plugins/adminmanager#in-game-commands-for-server-owners):
 
 ```bash
-/css_addadmin PlayerName VIP
-/css_addadmin 76561198975357634 Moderator
+/css_reloadadmins
+/css_addadmin <player> <flags>
+/css_removeadmin <player>
 ```
 
-### Managing Roles
-
-**List all roles:**
-```bash
-/css_roles
-```
-
-**Delete a role:**
-```bash
-/css_removeRole RoleName
-```
-
-## Player Management
-
-### Common Moderation Commands
-
-**Kick Player:**
-```bash
-/css_kick PlayerName
-/css_kick PlayerName Reason for kick
-```
-
-**Ban Player:**
-```bash
-/css_ban PlayerName 0
-/css_ban PlayerName 60 Breaking rules
-```
-*Minutes: 0 = permanent*
-
-**Temporary Ban:**
-```bash
-/css_ban PlayerName 1440 # 24 hour ban
-/css_ban PlayerName 10080 # 7 day ban
-```
-
-**Mute Player:**
-```bash
-/css_mute PlayerName
-```
-
-**Unmute Player:**
-```bash
-/css_unmute PlayerName
-```
-
-## Immunity System
-
-Immunity determines the admin hierarchy. Higher immunity cannot be affected by lower immunity admins.
-
-**Immunity Levels:**
-- **0-25:** Basic moderators
-- **26-50:** Moderators
-- **51-75:** Senior moderators
-- **76-99:** Admins
-- **100:** Owner/root access
-
-**Example Hierarchy:**
-```bash
-/css_addrole Helper abd 10 # Can kick/ban immunity <10
-/css_addrole Mod abdfh 50 # Can manage immunity <50
-/css_addrole Admin z 99 # Can manage immunity <99
-/css_addrole Owner z 100 # Cannot be managed by anyone
-```
-
-## Role Examples
-
-### Small Server Setup
-
-```bash
-/css_addrole VIP o 5
-/css_addrole Admin z 99
-
-/css_addadmin 76561198975357634 Admin
-/css_addadmin FriendName VIP
-```
-
-### Large Community Setup
-
-```bash
-/css_addrole VIP o 5
-/css_addrole Helper abd 20
-/css_addrole Moderator abdefh 50
-/css_addrole Admin abdefghiklmn 75
-/css_addrole Owner z 100
-
-/css_addadmin 76561198975357634 Owner
-/css_addadmin AdminSteamID Admin
-/css_addadmin ModSteamID Moderator
-```
-
-## Best Practices
-
-::: tip Admin Security
-1. Use strong, unique RCON passwords
-2. Never share RCON password publicly
-3. Grant minimum necessary permissions
-4. Regularly review the admin list
-5. Use the web interface for easier management
-:::
-
-::: warning Permission Guidelines
-- Start with restrictive permissions
-- Grant additional access as trust builds
-- Use immunity levels strategically
-- Document your role structure
-- Remove inactive admins
-:::
+For maps, game modes and match commands, see [Pro Server Commands](/games/cs2/commands).
 
 ## Troubleshooting
 
-::: details Login command not working
-Verify:
-- Using the correct RCON password. It is shown under **Connection info** on the **Overview** tab of your server's page
-- Password has no typos or extra spaces
-- You're on the correct server
-- Server is Pro tier, not free
+::: details I do not have admin in-game
+Check that:
+
+- You clicked **Reload in-game** after adding the admin, or restarted the server
+- The SteamID64 is your own 17-digit ID, not a SteamID or a profile name
+- The **Flags** field has the flags you need, or `z` for full access
+
+If you were already on the server, reconnect.
 :::
 
-::: details Cannot Admin
-Check:
-- Your immunity is higher than the target
-- Using the correct SteamID64 format
-- Role name exists (if using roles)
-- Syntax is correct
+::: details I cannot use a command on another admin
+Your immunity must be higher than theirs. Check both entries under **Existing admins**.
 :::
 
-::: details Changes not persisting
-Admin changes save automatically to the database. If changes don't persist:
-- Verify you have sufficient permissions
-- Check server logs for errors
-- Contact support if the issue continues
+::: details I do not see Server admins in the menu
+Only the server owner sees **Server admins**. [Team Access](/servers/pro/team-access) members do not. The page is also hidden once the server has expired.
 :::
 
-## Getting Help
-
-Need assistance with admin setup?
-
-- **Pro Panel:** Manage admins under **Settings** → **Server admins** on your server's page
-- **Discord:** Join [FSHOST Discord](https://fshost.me/discord)
-- **Support:** Contact #pro-support channel
+::: details Reload in-game is missing
+The button is only shown while the server is running. Start the server first, or let the new admin list load on the next start.
+:::

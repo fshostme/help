@@ -1,3 +1,7 @@
+---
+description: "Share control of your Pro server with teammates through their own FSHOST accounts."
+---
+
 # Team Access
 
 Share control of your Pro server with teammates. They use their own FSHOST accounts, so you never hand out your login.
@@ -135,7 +139,3 @@ This is by design. Billing, **Automation**, **Server admins** and console comman
 ::: details My teammate needs in-game admin rights
 Team access covers the Pro Panel only. It does not give admin rights inside the game. Add them under **Server admins** instead, see [Become a Server Admin](/games/cs2/become-admin) for Counter-Strike 2.
 :::
-
-## Need Help?
-
-- **[Pro Support](https://fshost.me/pro/support)** - Follow the options on the Support page on our website

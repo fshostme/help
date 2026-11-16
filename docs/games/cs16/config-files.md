@@ -1,3 +1,7 @@
+---
+description: "Where a Counter-Strike 1.6 Pro server keeps its config, which file to edit over FTP and when changes take effect."
+---
+
 # Config Files
 
 Where your Counter-Strike 1.6 Pro server keeps its config, which file to edit, and when your changes take effect.

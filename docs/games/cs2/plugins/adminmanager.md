@@ -1,4 +1,12 @@
+---
+description: "FSH-AdminManager powers admin roles and the Server admins page in the Pro Panel for CS2. Do not remove it."
+---
+
 # FSH-AdminManager
+
+::: warning Pro Server Only
+FSH-AdminManager is available exclusively on Pro servers.
+:::
 
 ::: warning Critical System Plugin
 **DO NOT DELETE** - This plugin is essential for server administration. Removing it will disable all admin privileges and prevent the **Server admins** page in the Pro Panel from working.
@@ -37,7 +45,7 @@ FSH-AdminManager connects your server to the **Server admins** page in your Pro 
 2. Enter the player's **SteamID64** (format: 76561198XXXXXXXXX)
 3. Select permission flags (see flags table below)
 4. Set immunity level if needed
-5. Click **+ Add**, then **Reload in-game** to apply it straight away
+5. Click **Add**, then **Reload in-game** to apply it straight away
 
 ### Editing Admin Permissions
 If you made a mistake or need to change someone's permissions:
@@ -52,10 +60,69 @@ If you made a mistake or need to change someone's permissions:
 3. Confirm, then click **Reload in-game** to remove their privileges straight away
 
 ### In-Game Commands (For Server Owners)
-If you have root access (`z` flag), you can also manage admins in-game:
-- **`/css_reloadadmins`** - Force reload all admins from panel (useful after making changes)
-- **`/css_addadmin <player> <flags>`** - Quick add (also updates the panel)
-- **`/css_removeadmin <player>`** - Quick remove (also updates the panel)
+
+Admins with the `z` (root) flag can also manage admins in-game. Changes made this way also show up in the panel.
+
+The `!` and `/` prefixes are interchangeable in chat. You can also type the commands in the developer console without a prefix.
+
+| Command | What it does |
+|---------|--------------|
+| `/css_reloadadmins` or `!reloadadmins` | Reload every online player's admin rights, for example after a change in the panel |
+| `/css_addadmin <SteamID64 or name> <flags>` | Add an admin |
+| `/css_updateadmin <SteamID64 or name> <flags>` | Change an existing admin |
+| `/css_removeadmin <SteamID64 or name>` | Remove an admin |
+| `/css_admins` | List every admin on the server. Needs the `b` flag |
+| `/css_flags` | Show what each flag letter grants |
+| `/css_admincheck` | Show your own admin entry and whether it is active |
+
+`<flags>` can be written three ways:
+
+```bash
+/css_addadmin 76561198000000000 bcd
+/css_addadmin 76561198000000000 bcd:50
+/css_addadmin 76561198000000000 Moderator
+```
+
+The first gives flags only, the second flags with immunity 50, the third a [role](#roles).
+
+### Roles
+
+A role is a named set of flags and an immunity level. Create it once, then give it to several admins.
+
+| Command | What it does |
+|---------|--------------|
+| `/css_addrole <Name> <Flags> <Immunity>` | Create a role, or update one with the same name |
+| `/css_roleflags <Name> <Flags>` | Change the flags of a role |
+| `/css_removerole <Name>` | Remove a role |
+| `/css_roles` | List all roles. Needs the `b` flag |
+| `/rolehelp` | Show the role commands |
+
+Example:
+
+```bash
+/css_addrole VIP a 5
+/css_addrole Moderator bcd 50
+/css_addrole Admin bcdefgh 75
+/css_addadmin 76561198000000000 Moderator
+```
+
+### Log In With the RCON Password
+
+If you are not an admin yet, you can make yourself root admin from inside the server:
+
+1. Connect to your server
+2. Open the developer console. See [Before You Start](/games/cs2/rcon#before-you-start)
+3. Type `login` followed by the RCON password of your server, shown in the Pro Panel
+
+```bash
+login YOUR_RCON_PASSWORD
+```
+
+::: danger Console only
+Type `login` in the developer console, never in chat. Chat is visible to every player, so the plugin refuses the command there.
+:::
+
+You get 3 attempts. After that the command stops accepting tries from your Steam account.
 
 ## Permission Flags
 

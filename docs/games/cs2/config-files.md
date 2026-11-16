@@ -1,3 +1,7 @@
+---
+description: "Where a CS2 Pro server keeps its config, which file to edit over FTP and when changes take effect."
+---
+
 # Config Files
 
 Where your CS2 Pro server keeps its config, which file to edit, and when your changes take effect.
@@ -43,7 +47,7 @@ These are set when the server starts, so setting them in the template has no eff
 | Start map, Workshop map and collection | **Map**. See [Workshop Maps](/games/cs2/workshop-maps) |
 | Bots on or off | **Bots** |
 | VAC | **VAC** |
-| CSTV | **Enable CSTV** |
+| CSTV | **CSTV** |
 
 ## Step 1: Connect With FTP
 
@@ -91,7 +95,7 @@ fake_rcon mp_maxrounds
 
 ## Game Mode Configs
 
-The game mode and match configs, such as the ones loaded by `!esl5on5`, `!scrim` and `!prac`, are separate files in the `cfg` folder. They can set the same values as your template, so a value you set may change when one of them is loaded. See [RCON Commands](/games/cs2/rcon) for the chat commands that load them.
+The game mode commands, such as `!matchzy`, `!pracc`, `!retake` and `!dmon`, load their own configs from the `cfg/custom` folder, for example `cfg/custom/dmon.cfg`. They can set the same values as your template, so a value you set may change when a mode is started. See [Pro Server Commands](/games/cs2/commands#game-mode-commands) for the mode commands.
 
 ## Plugin Configs
 

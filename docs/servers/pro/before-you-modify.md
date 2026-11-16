@@ -1,3 +1,7 @@
+---
+description: "Read before you install plugins, upload maps or edit configs on a Pro server, so you do not break it."
+---
+
 # Before You Modify Files
 
 Read this before you install your own plugins, upload maps or edit configs on a Pro server. A few minutes of preparation saves you a broken server.
@@ -14,7 +18,7 @@ We can enable FTP for your server, but our support is limited once you install y
 
 Download every file you are about to change and keep it on your computer. Put the date in the folder name, for example `backup-2026-10-14`, so you know which copy is which.
 
-We do not back up files you change over FTP, and a server reinstall resets the server, including your config template. Keep your own copy.
+Keep your own copy. A reinstall, which only staff can do, deletes the server's game folder and sets it up again from scratch, so every file you uploaded or changed is gone, including your config template.
 
 ## Step 2: Change One Thing at a Time
 
@@ -39,7 +43,7 @@ Edit configs with a plain text editor such as [Notepad++](https://notepad-plus-p
 
 Most games only read config and plugin files when they start. After a change:
 
-1. Save **Game settings** if you changed the config template
+1. Click **Save changes** in **Game settings** if you changed the config template
 2. Restart the server from the [Pro Panel](https://fshost.me/pro/servers)
 3. Watch the **Console** tab while it starts. Errors about your change show up there
 4. Join the server and check the change works
@@ -50,7 +54,7 @@ If the server does not start or behaves wrong after a change:
 
 1. Upload your backup copy of the file over the changed one
 2. If you added a plugin, remove it or turn it off
-3. Save **Game settings** if you restored the config template
+3. Click **Save changes** in **Game settings** if you restored the config template
 4. Restart the server
 
 ## Where to Get Plugins
@@ -59,7 +63,7 @@ Only install plugins from sources you trust, such as the author's GitHub **Relea
 
 | Game | How to install plugins |
 |------|------------------------|
-| CS2 | Ask on a ticket at [Pro Support](https://fshost.me/pro/support) |
+| CS2 | Over FTP in the `addons` folder, or ask on a ticket at [Pro Support](https://fshost.me/pro/support). See [CS2 Plugins](/games/cs2/plugins) for what is already installed |
 | CS 1.6 | Over FTP, see [Installing AMX Mod X Plugins](/games/cs16/plugins) |
 
 ## When to Ask Us
@@ -68,8 +72,10 @@ Open a ticket on [Pro Support](https://fshost.me/pro/support) if:
 
 - You need FTP access or FastDL
 - You need access to a folder you cannot see
-- You need more FTP storage
+- You need more FTP storage. The **Request more storage** button on the **Files** tab opens the ticket for you
+- You need a MySQL database for a plugin. Use **Request a database** on the **Files** tab
 - The server does not start even after you restored your backup
-- You want a map from our map library installed
+- You want a map from our custom map list installed
+- You want the server reinstalled
 
 Say what you changed and when. It helps staff find the problem faster.

@@ -1,331 +1,146 @@
+---
+description: "CS2-SimpleAdmin commands for CS2 Pro servers: ban, kick, gag, mute and manage players, with the admin flag each command needs."
+---
+
 # CS2-SimpleAdmin Plugin
 
-Essential admin commands and server management tools for CS2 Pro servers.
+Admin commands for banning, kicking, muting and managing players on CS2 Pro servers.
+
+::: warning Pro Server Only
+CS2-SimpleAdmin is available on Pro servers only.
+:::
+
+## Overview
+
+CS2-SimpleAdmin loads when the server starts, together with its Fun Commands module. It gives admins commands and an in-game menu for punishing and managing players. FSHOST runs a build of [daffyyyy/CS2-SimpleAdmin](https://github.com/daffyyyy/CS2-SimpleAdmin).
+
+Who is an admin, and with which flags, is set on the **Server admins** page in the Pro Panel. See [Become a Server Admin](/games/cs2/become-admin) and [FSH-AdminManager](/games/cs2/plugins/adminmanager#permission-flags).
 
 ::: info Command Prefixes
-The `/`, `!` and `.` prefixes are interchangeable, so `/css_ban`, `!css_ban` and `.css_ban` are the same command. This page writes them with `/`.
+The `!` and `/` prefixes are interchangeable in chat. This page writes the commands with `!`, for example `!ban`. In the console, type the same command with `css_` in front, for example `css_ban`.
 :::
 
-## Player Management
+## Choosing a Player
 
-### Banning Players
+Commands that take a `<player>` accept part of a player's name, or `#` followed by their user ID, for example `#5`. Put a name with spaces in quotes. Use `!players` to list the players with their user IDs.
 
-**Ban connected player:**
+Times are in minutes. `0` means permanent.
+
+## Admin Menu
+
 ```bash
-/css_ban <player> [time] [reason]
+!admin
 ```
 
-- **player** - Player name (use quotes for spaces) or Steam ID
-- **time** - Duration in minutes (0 = permanent)
-- **reason** - Ban reason (optional, use quotes if it contains spaces)
+Opens the admin menu, where you pick a player and an action instead of typing the command. Needs the `b` flag.
 
-**Examples:**
+## Bans
+
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!ban <player> [time] [reason]` | `d` | Bans a player on the server |
+| `!addban <steamid64> [time] [reason]` | `d` | Bans a player who is not on the server |
+| `!banip <ip> [time] [reason]` | `d` | Bans an IP address |
+| `!unban <steamid64, name or ip> [reason]` | `e` | Removes a ban |
+| `!kick <player> [reason]` | `c` | Kicks a player |
+| `!warn <player> [time] [reason]` | `c` | Warns a player |
+| `!unwarn <steamid64, name or ip>` | `c` | Removes a warning |
+
 ```bash
-/css_ban "PlayerName" 30 "Cheating"
-/css_ban STEAM_1:0:12345 0 "Permanent ban"
-/css_ban "Toxic Player" 1440 "24 hour timeout"
+!ban "Player Name" 1440 "Cheating"
+!addban 76561198000000000 0 "Ban evasion"
+!kick #5 "AFK"
 ```
 
-**Ban offline player:**
+## Chat and Voice
+
+A gag blocks text chat, a mute blocks voice chat, and a silence blocks both.
+
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!gag <player> [time] [reason]` | `j` | Blocks text chat |
+| `!mute <player> [time] [reason]` | `j` | Blocks voice chat |
+| `!silence <player> [time] [reason]` | `j` | Blocks text and voice chat |
+| `!addgag`, `!addmute`, `!addsilence <steamid64> [time] [reason]` | `j` | The same, for a player who is not on the server |
+| `!ungag`, `!unmute`, `!unsilence <steamid64 or name> [reason]` | `j` | Lifts the punishment |
+
 ```bash
-/css_addban <SteamID64> [time] [reason]
+!gag "Spammer" 30 "Chat spam"
+!mute #7 60 "Mic spam"
+!unmute "Player Name"
 ```
-
-**Examples:**
-```bash
-/css_addban 76561198975357634 60 "Griefing"
-/css_addban 76561198975357634 0 "Repeated violations"
-```
-
-::: tip Time Calculations
-Common ban durations:
-- 60 minutes = 1 hour
-- 1440 minutes = 24 hours
-- 10080 minutes = 7 days
-- 43200 minutes = 30 days
-- 0 = Permanent
-:::
-
-**Remove ban:**
-```bash
-/css_unban <steamid|ip>
-```
-
-**Example:**
-```bash
-/css_unban STEAM_1:0:12345
-/css_unban 192.168.1.100
-```
-
-### IP Banning
-
-**Ban IP address:**
-```bash
-/css_banip <ip> [time] [reason]
-```
-
-**Example:**
-```bash
-/css_banip 192.168.1.1 60 "VPN detected"
-/css_banip 10.0.0.50 0 "Permanent IP ban"
-```
-
-### Kicking Players
-
-**Kick player from server:**
-```bash
-/css_kick <player> [reason]
-```
-
-**Examples:**
-```bash
-/css_kick "PlayerName"
-/css_kick STEAM_1:0:12345 "AFK"
-/css_kick "Disruptive Player" "Warning for team damage"
-```
-
-## Communication Management
-
-### Muting and Gagging
-
-**Mute text chat:**
-```bash
-/css_mute <player>
-```
-
-**Gag voice chat:**
-```bash
-/css_gag <player>
-```
-
-**Silence both text and voice:**
-```bash
-/css_silence <player>
-```
-
-**Examples:**
-```bash
-/css_mute "SpammingPlayer"
-/css_gag "LoudMic"
-/css_silence "DisruptivePlayer"
-```
-
-::: tip Unmuting
-Use the same command again to toggle the mute/gag/silence status, or use corresponding unmute commands if available.
-:::
 
 ## Player Actions
 
-### Slap and Slay
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!slay <player>` | `f` | Kills a player |
+| `!slap <player> [damage]` | `f` | Slaps a player, with optional damage |
+| `!team <player> <ct\|t\|spec>` | `c` | Moves a player to another team |
+| `!rename <player> <new name>` | `c` | Renames a player |
+| `!tp <player>` | `c` | Teleports you to a player |
+| `!bring <player>` | `c` | Teleports a player to you |
 
-**Slap player:**
-```bash
-/css_slap <player> [damage]
-```
+### Fun Commands
 
-Pushes the player and optionally deals damage.
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!god <player>` | `n` | Turns god mode on or off |
+| `!noclip <player>` | `n` | Turns noclip on or off |
+| `!respawn <player>` | `n` | Respawns a player |
+| `!give <player> <weapon>` | `n` | Gives a player a weapon |
+| `!strip <player>` | `f` | Takes all weapons from a player |
+| `!freeze <player> [duration]` | `f` | Freezes a player |
+| `!unfreeze <player>` | `f` | Unfreezes a player |
+| `!hp <player> <health>` | `f` | Sets a player's health |
+| `!speed <player> <speed>` | `f` | Sets a player's speed |
+| `!gravity <player> <gravity>` | `f` | Sets a player's gravity |
+| `!money <player> <money>` | `f` | Sets a player's money |
 
-**Examples:**
-```bash
-/css_slap "PlayerName" 5
-/css_slap "PlayerName" 0    # No damage, just push
-```
+## Messages
 
-**Kill player:**
-```bash
-/css_slay <player>
-```
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!say <message>` | `j` | Writes in chat as admin |
+| `!csay <message>` | `j` | Shows a message in the middle of the screen |
+| `!hsay <message>` | `j` | Shows a message on the HUD |
+| `!psay <player> <message>` | `j` | Sends a private message to one player |
+| `!asay <message>` | `j` | Writes to the other admins only |
 
-Instantly kills the specified player.
+## Information
 
-**Example:**
-```bash
-/css_slay "PlayerName"
-```
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!players` | `b` | Lists the players with their user IDs |
+| `!who <player>` | `b` | Shows information about a player |
+| `!history <player or steamid64> [bans\|gags\|mutes\|silences\|warns]` | `c` | Prints a player's punishment history to the console |
+| `!banlist [pattern]` | `d` | Lists bans |
+| `!penalties` | None | Shows your own active punishments. `!mypenalties` and `!comms` do the same |
 
-## Server Management
+## Server Commands
 
-### RCON Execution
-
-**Execute RCON command:**
-```bash
-/css_rcon <command> [arguments]
-```
-
-**Examples:**
-```bash
-/css_rcon sv_cheats 1
-/css_rcon mp_restartgame 5
-/css_rcon changelevel de_dust2
-```
-
-### Console Variables
-
-**View or set CVAR:**
-```bash
-/css_cvar <cvar> [value]
-```
-
-**Examples:**
-```bash
-/css_cvar sv_gravity          # View current value
-/css_cvar sv_gravity 600      # Set to 600
-/css_cvar mp_roundtime 2      # Set round time
-```
-
-## Communication Commands
-
-### Broadcasting Messages
-
-**Public message to all:**
-```bash
-/css_say <message>
-```
-
-**Example:**
-```bash
-/css_say "Server restarting in 5 minutes"
-```
-
-**Center screen message:**
-```bash
-/css_csay <message>
-```
-
-Displays message in the center of players' screens.
-
-**Example:**
-```bash
-/css_csay "Match starting in 1 minute!"
-```
-
-**Hint message:**
-```bash
-/css_hsay <message>
-```
-
-Displays as a hint notification.
-
-**Example:**
-```bash
-/css_hsay "Type !help for available commands"
-```
-
-**Private message:**
-```bash
-/css_psay <player> <message>
-```
-
-Send a message visible only to the specified player.
-
-**Example:**
-```bash
-/css_psay "PlayerName" "Please follow server rules"
-```
-
-## User Commands
-
-Available to all players:
-
-**View available commands:**
-```bash
-/help
-/commands
-```
-
-**Check time remaining:**
-```bash
-/timeleft
-```
-
-**View next map:**
-```bash
-/nextmap
-```
-
-## Common Admin Tasks
-
-### Handling Cheaters
-
-```bash
-/css_ban "SuspectedCheater" 0 "Cheating detected"
-```
-
-### Managing Toxic Players
-
-```bash
-/css_silence "ToxicPlayer"
-/css_kick "ToxicPlayer" "Toxic behavior - warning"
-```
-
-For repeat offenders:
-```bash
-/css_ban "ToxicPlayer" 1440 "Repeated toxic behavior"
-```
-
-### Server Maintenance
-
-```bash
-/css_say "Server maintenance in 5 minutes"
-/css_csay "Please finish your rounds"
-/css_rcon mp_restartgame 1
-```
-
-### Quick Moderation
-
-```bash
-/css_gag "Player"              # Stop voice spam
-/css_mute "Player"             # Stop text spam
-/css_slap "Player" 5           # Warning slap
-/css_kick "Player" "Warning"   # Remove from server
-```
-
-## Permission Levels
-
-Admin commands require appropriate permissions:
-
-- Basic moderation: kick, mute, gag
-- Advanced moderation: ban, slay, slap
-- Server control: rcon, cvar
-- Full access: All commands
-
-See the [Admin Setup Guide](/games/cs2/become-admin) for configuring permissions.
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!cvar <cvar> <value>` | `h` | Changes a server setting |
+| `!rcon <command>` | `m` | Runs a command on the server |
+| `!vote <question> <answer1> <answer2> ...` | `b` | Starts a vote |
 
 ## Troubleshooting
 
-::: details Command not working
-Verify you have admin permissions for the command. Use `/help` to see available commands for your access level.
+::: details A command says I have no permission
+Your admin entry is missing the flag the command needs. Each table above lists the flag. Ask the server owner to add it on the **Server admins** page, see [Become a Server Admin](/games/cs2/become-admin).
 :::
 
-::: details Ban not persisting
-Bans are stored in the database. Ensure your server has proper database connection configured.
+::: details The command cannot find the player
+Use a longer part of the name, put a name with spaces in quotes, or use the user ID from `!players`, for example `#5`.
 :::
 
-::: details Player identifier issues
-When using player names with spaces, always use quotes: `/css_kick "Player Name"`
-
-For reliability, use Steam IDs instead of names when possible.
+::: details A player I banned by mistake cannot join
+Unban them with `!unban <steamid64>`. The owner can also send `css_unban <steamid64>` in the **Console** tab of the Pro Panel.
 :::
 
-## Additional Resources
+## Related Pages
 
-For more advanced admin commands and features:
-- [Official CS2-SimpleAdmin Documentation](https://cs2-simpleadmin.daffyy.dev/)
-- [Admin Hierarchy Setup](/games/cs2/become-admin)
-- [RCON Commands](/games/cs2/rcon)
-
-## Ban Appeal Error
-
-If you see this error:
-```
-your client is not allowed to join this server.
-```
-
-You've been banned from the server. If you believe this is a mistake:
-1. Contact server admins on [Discord](https://fshost.me/discord)
-2. Provide your SteamID64
-3. Explain the situation
-
-::: warning Self-Bans
-If you accidentally banned yourself, contact support with your SteamID64 for assistance.
-:::
+- [Become a Server Admin](/games/cs2/become-admin) - Add admins and set flags
+- [FSH-AdminManager](/games/cs2/plugins/adminmanager) - Admin roles and permission flags
+- [RCON](/games/cs2/rcon) - Run server commands from your game console

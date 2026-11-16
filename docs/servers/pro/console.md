@@ -1,246 +1,100 @@
+---
+description: "Use the Pro Panel console to watch your server's output and send commands, and what the console allows."
+---
+
 # Console Access
 
-Use the server console to monitor your server in real-time and execute admin commands.
+The **Console** tab shows your server's live output and lets you send commands to it.
 
-## Accessing the Console
+::: warning Pro Server Only
+The console is part of the Pro Panel. Free servers are managed with [RCON](/rcon).
+:::
 
-1. Log in to the [Pro Panel](https://fshost.me/pro/servers)
+## Open the Console
+
+1. Go to [fshost.me/pro/servers](https://fshost.me/pro/servers)
 2. Click on your server name
-3. Navigate to the **Console** tab
+3. Open the **Console** tab
 
-## Console Interface
+## Reading the Output
 
-### Log Output Area
+The **Server Console** box shows the last 500 lines of server output, newest at the bottom. It scrolls down on its own when new output loads.
 
-The console window shows some or all of the following:
-
-- **Server startup** - Initialization messages
-- **Player connections** - Join/leave notifications
-- **Game events** - Kills, deaths, rounds, etc.
-- **Errors/Warnings** - Issues and alerts
-- **Admin actions** - Commands executed
-- **Plugin output** - Messages from mods/plugins
-
-### Command Input
-
-Bottom of console:
-- **Input box** - Type commands here
-- **Send button** - Execute command (or press Enter)
-- **History** - Access previous commands - __Coming Soon__
-
-## Console Features
-
-### Refresh Controls
-
-Three buttons sit at the top right of the **Server Console** box.
+Three buttons sit at the top right of the box.
 
 | Button | Purpose |
 |--------|---------|
-| **Refresh** | Loads the newest console output once |
-| **Auto-refresh** | Keeps loading new output on its own. It is **OFF** by default, turn it off again to review older logs |
-| **Colours** | Switches colored log output **ON** or **OFF** |
+| **Refresh** | Loads the newest output once |
+| **Auto-refresh** | Loads new output every 3 seconds. It is **OFF** by default. Turn it off again to read older lines without the box jumping to the bottom |
+| **Colours** | Switches colored output **ON** or **OFF** |
 
-### Search/Filter
+To find a message, use your browser's find function, Ctrl+F or Cmd+F.
 
-Use your browser's find function, Cmd+F or Ctrl+F, to find specific messages in the console output.
+Full log files are not available on the web or over FTP. If you need older logs, ask on a [support ticket](/servers/pro/support).
 
-### Download Logs
+## Sending a Command
 
-If you need your console logs, please ask support as we don't provide them on web or FTP as they're large files.
+1. Type the command in the **Send command to console** box
+2. Press Enter or click **Send**
+3. The output loads in the box after a moment
 
-## Common Console Commands
-
-::: warning Game-Specific
-Commands vary by game! These are examples. Check your game's documentation for specific commands (RCON/Admin commands).
-:::
-
-### Counter-Strike 2
+Commands go straight to the server, the same as typing them in the server's own console. Use your game's console commands, for example:
 
 ```bash
-# Change map
 changelevel de_dust2
-
-# Show message in chat from console to all
-say Hello everyone!
-
-# Restart match
 mp_restartgame 1
-```
-
-### Minecraft
-
-```bash
-# Give item to player
-give <player> diamond 64
-
-# Teleport player
-tp <player> <x> <y> <z>
-
-# Save world
-save-all
-```
-
-### General Commands (game dependent)
-
-```bash
-# Show server status
 status
-
-# Show message in chat from console to all
-say <message>
 ```
 
-## Understanding Console Output
+See your game's guide for the full list: [CS2 RCON Commands](/games/cs2/rcon), [CS 1.6 RCON Commands](/games/cs16/rcon), [CoD4 RCON Commands](/games/cod4/rcon).
 
-### Common Messages
+### What a Command Can Contain
 
-**Server Starting**
-```
-[INFO] Server starting on port 30150
-[INFO] Loading map de_dust2
-[INFO] Server ready for connections
-```
+A command may only contain letters, numbers, spaces, `_`, `-` and `/`. Anything else is refused, including quotes, dots, semicolons and `@`.
 
-**Player Activity**
-```
-[INFO] Player "John" connected (STEAM_1:0:12345)
-[INFO] Player "John" disconnected (Disconnect by user)
-```
+That means some commands cannot be sent from the console:
 
-**Errors**
-```
-[ERROR] Failed to load plugin: missing dependency
-```
+- Commands with a file name, such as `exec server.cfg`
+- Text in quotes, such as `say "Restarting soon"`. Without quotes, `say Restarting soon` works
+- Several commands on one line separated by `;`
 
-## Executing Commands
+For those, use [RCON](/rcon) in the game instead.
 
-### Basic Command Execution
+### Limits
 
-1. Type command in input box
-2. Press Enter or click **"Send"**
-3. Command executes immediately
-4. Output appears in console
+- You can send 5 commands per minute on each server. After that, wait until the console lets you send again
+- Every command you send is logged on the server
 
-### Command Syntax
+## Who Can Use the Console
 
-Most commands follow patterns:
+| | Read output | Send commands |
+|---|---|---|
+| Server owner | Yes | Yes |
+| [Team members](/servers/pro/team-access) | Yes | No |
+| Expired server | Yes | No, renew it first |
 
-```bash
-command parameter1 parameter2
-command "parameter with spaces"
-command --flag value
-```
+## Troubleshooting
 
-### Examples
-
-```bash
-# Simple command
-status
-
-# Command with parameter
-kick PlayerName
-
-# Command with multiple parameters
-ban PlayerName "Cheating" 1440
-
-# Command with spaces (use quotes)
-say "Server restarting in 2 minutes!"
-```
-
-## Monitoring with Console
-
-### Error Tracking
-
-Common errors to watch for:
-
-```
-[ERROR] Failed to connect to database
-[ERROR] Plugin crash: PluginName
-[WARNING] Map file missing: custom_map.bsp
-```
-
-## Troubleshooting with Console
-
-### Server Won't Start
-
-Look for these error messages:
-
-```
-[ERROR] Port already in use
-[ERROR] Missing game files
-[ERROR] Configuration error
-```
-
-Solutions in **[Troubleshooting](/troubleshooting/)**
-
-### Plugin Errors
-
-Identify problematic plugins:
-
-```
-[ERROR] Plugin "ExampleMod" failed to load
-[WARNING] Plugin conflict detected
-[ERROR] Null pointer exception in PluginName
-```
-
-## Advanced Console Use
-
-### RCON (Remote Console)
-
-Access console remotely:
-
-- Configure RCON password
-- Use RCON client
-- Execute commands from outside server
-- See **[RCON Guide](/rcon)**
-
-### Scripting
-
-Execute multiple commands:
-
-```bash
-# Create script file (e.g., setup.cfg)
-say "Server Setup Starting"
-g_gametype war
-scr_friendlyfire 0
-map mp_crash
-say "Server ready!"
-```
-
-Then you can add this to your main server config or execute it manually via RCON:
-```bash
-# Add this to your server config
-exec setup.cfg
-
-# Or load it via RCON
-rcon exec setup.cfg
-```
-
-## Security Considerations
-
-### Command Permissions
-
-::: danger
-Never share console access with untrusted users:
-- Full server control
-- Can shut down server
-- Can ban players
-- Can modify settings
+::: details "The command must only contain a-Z 0-9 _ - / and spaces."
+The command has a character the console does not accept, such as a quote or a dot. Remove it, or send the command with [RCON](/rcon) in the game. See [What a Command Can Contain](#what-a-command-can-contain).
 :::
 
-### Sensitive Information
+::: details "Too many commands. Please wait ... seconds before sending another command."
+You sent 5 commands within a minute. Wait the number of seconds shown, then send again.
+:::
 
-Console may display:
+::: details "Only the server owner can send console commands."
+You are a team member on this server. Team members can read the console but not send commands. Ask the owner to send the command.
+:::
 
-- Player IP addresses
-- RCON passwords (in some logs)
-- API keys from plugins
-- Be careful when sharing logs
+::: details "This server has expired. Renew it to send commands."
+Renew the server first. See [Renew an Expired Server](/servers/pro/billing#renew-an-expired-server).
+:::
 
-### Asking for Support
+::: details "No console available."
+The panel cannot find a console for the server. Start the server and try again. If it keeps happening, open a [support ticket](/servers/pro/support).
+:::
 
-You don't need to share logs with support
-
-## Need Help?
-
-- **[Pro Support](https://fshost.me/pro/support)** - Follow the options on the Support page on our website
+::: details The console is empty or does not update
+Click **Refresh**, or turn on **Auto-refresh**. If the server is stopped, there is no new output. See [Server Problems](/troubleshooting/server-problems) if it will not start.
+:::

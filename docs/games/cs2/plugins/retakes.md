@@ -1,282 +1,120 @@
+---
+description: "Bomb site retake practice on your CS2 Pro server with Retakes and RetakesAllocator: how to start it, weapon commands and the spawn editor."
+---
+
 # Retakes Plugin
 
-CS2 Retakes implementation with RetakesAllocator for customizable bomb site retake practice.
+Bomb site retakes with automatic weapon allocation.
 
-::: tip Pro Feature
-Retakes plugin is available exclusively on Pro servers.
+::: warning Pro Server Only
+The Retakes plugin is available on Pro servers only.
 :::
 
 ## Overview
 
-Retakes drops players into the situation after the bomb has been planted: Counter-Terrorists attack the site, Terrorists defend the plant. Teams, spawns and loadouts are handled by the plugin, so rounds start immediately one after another.
+Retakes drops players into the situation after the bomb has been planted: Counter-Terrorists retake the site, Terrorists defend the plant. The plugin puts players on teams, picks the bomb site and spawns, and gives everyone a loadout, so rounds follow each other without buying.
 
-## Features
+Retakes mode on a Pro server loads four plugins:
 
-- Automatic team balancing
-- Customizable weapon allocations
-- Configurable spawn positions
-- Bombsite rotation control
-- Player loadout management
-- Spawn point editor for admins
+| Plugin | What it does |
+|--------|--------------|
+| **RetakesPlugin** | Teams, bomb sites, spawns and the plant |
+| **RetakesAllocator** | Weapons, armor and grenades for each round |
+| **InstadefusePlugin** | Defuses the bomb at once when no Terrorist is alive, no grenade or fire threatens the defuser, and there is enough time left |
+| **CS2-Remove-Map-Weapons** | Removes weapons that lie on the map |
 
-## Weapon Selection Commands
+FSHOST runs builds of [b3none/cs2-retakes](https://github.com/b3none/cs2-retakes) and [yonilerner/cs2-retakes-allocator](https://github.com/yonilerner/cs2-retakes-allocator).
 
-### Accessing Weapon Menus
+## Starting Retakes
 
-**Chat-based weapon menu:**
+Retakes is installed on every Pro server but does not run until you start it. See [Installed vs. Loaded](/games/cs2/plugins#installed-vs-loaded).
+
+An admin with the `g` (map) flag types in chat:
+
 ```bash
-.guns
-.gun
-!guns
-!gun
+!retake
 ```
 
-Opens the weapon selection menu in chat.
+This unloads MatchZy and the other game mode plugins and loads the four retakes plugins. `!retakes` does the same.
 
-**Center screen menu:**
-```bash
-!gunsmenu
-!gunmenu
-.gunmenus
-```
+To leave retakes, start another mode, for example `!matchzy` or `!pracc`. See [Pro Server Commands](/games/cs2/commands#game-mode-commands).
 
-Opens the weapon selection menu in the center of your screen for easier access.
+Retakes needs bomb sites. On a map without them, such as an aim map, the map change plugin unloads Retakes.
 
-### How Weapon Selection Works
+## Round Types
 
-1. Type `.guns` or `!guns` in chat
-2. Select your preferred weapons from the menu
-3. Weapons are saved to your profile
-4. Your loadout automatically applies on spawn
+Every round is one of three types, and the weapons depend on it:
 
-::: tip Loadout Persistence
-Weapon selections are saved across rounds and server sessions.
-:::
+| Round type | Weapons | Armor |
+|------------|---------|-------|
+| Pistol | Pistols only | Kevlar, no helmet |
+| HalfBuy | Shotguns and SMGs | Kevlar and helmet |
+| FullBuy | Rifles, snipers and machine guns | Kevlar and helmet |
 
-## Spawn Management
+## Player Commands
 
-::: warning Admin Only
-Spawn management commands require admin permissions.
-:::
+| Command | What it does |
+|---------|--------------|
+| `!guns` | Opens the weapon menu in chat, where you set your preferred weapons for each team and round type. `/guns` does the same |
+| `!gunsmenu` | Opens the weapon menu in the middle of the screen. `!gunmenu` does the same |
+| `!gun <weapon> [T\|CT]` | Sets a preferred weapon directly. The round type is worked out from the weapon |
+| `!removegun <weapon> [T\|CT]` | Removes a preferred weapon |
+| `!awp` | Joins or leaves the AWP queue |
+| `!nextround` | Opens a vote for the type of the next round |
+| `!voices` | Turns the bomb site voice announcements on or off for you |
+| `!queue` | Shows your place in the waiting queue when the server is full |
 
-### Viewing Spawns
+Your weapon choices are saved, so they come back the next time you play retakes on the server.
 
-**Display spawn points:**
-```bash
-!showspawns A
-!showspawns B
-```
+## Admin Commands
 
-Shows all spawn positions for the specified bombsite.
+See [Become a Server Admin](/games/cs2/become-admin) for admin flags.
 
-**Arguments:**
-- `A` - Show A site spawns
-- `B` - Show B site spawns
+| Command | Flag | What it does |
+|---------|------|--------------|
+| `!scramble` | `b` | Scrambles the teams at the start of the next round. `!scrambleteams` does the same |
+| `!forcebombsite <A\|B>` | `z` | Plays every round on one bomb site |
+| `!forcebombsitestop` | `z` | Goes back to random bomb sites |
+| `!setnextround <P\|H\|F>` | `z` | Sets the next round to Pistol, HalfBuy or FullBuy |
 
-### Adding Spawn Points
+### Spawn Editor
 
-**Add new spawn:**
-```bash
-!addspawn CT Y
-!addspawn CT N
-!addspawn T Y
-!addspawn T N
-```
+The spawn editor needs the `z` (root) flag.
 
-Adds a spawn point at your current position.
+| Command | What it does |
+|---------|--------------|
+| `!showspawns <A\|B>` | Shows the spawns of a bomb site and starts editing it. `!spawns` and `!edit` do the same |
+| `!addspawn <T\|CT> [Y\|N]` | Adds a spawn where you stand, facing where you look, to the bomb site being shown. For a T spawn, `Y` or `N` says whether the bomb planter can spawn there. `!add` does the same |
+| `!removespawn` | Removes the spawn nearest to you. `!remove` and `!delete` do the same |
+| `!nearestspawn` | Teleports you to the nearest spawn. `!nearest` does the same |
+| `!hidespawns` | Stops editing and hides the spawns. `!done` and `!exitedit` do the same |
 
-**Arguments:**
-- `CT` or `T` - Team for this spawn
-- `Y` or `N` - Can this spawn be used for the bomb planter?
+To set up spawns:
 
-**Examples:**
-```bash
-!addspawn CT Y        # CT spawn, can be planter
-!addspawn T N         # T spawn, not planter
-!addspawn CT N        # CT spawn, not planter
-```
+1. Type `!showspawns A`
+2. Stand where a player should spawn and look in the direction they should face
+3. Type `!addspawn CT`, or `!addspawn T Y` for a T spawn the planter may use
+4. Repeat for every spawn, then do the same for B with `!showspawns B`
+5. Type `!hidespawns` when you are done
 
-::: tip Adding Spawns
-Stand in the desired position and view direction before using `!addspawn`. The spawn will use your exact position and angle.
-:::
-
-### Removing Spawns
-
-**Delete nearest spawn:**
-```bash
-!removespawn
-```
-
-Removes the spawn point closest to your current position for the currently shown bombsite.
-
-### Teleporting to Spawns
-
-**Teleport to nearest:**
-```bash
-!nearestspawn
-```
-
-Instantly teleports you to the nearest spawn point. Useful for testing spawn positions.
-
-### Exit Spawn Editor
-
-**Stop editing spawns:**
-```bash
-!hidespawns
-```
-
-Exits spawn editing mode and hides all spawn indicators.
-
-## Team Management
-
-### Scrambling Teams
-
-**Randomize teams:**
-```bash
-!scramble
-```
-
-Randomly redistributes players across both teams for the next round.
-
-::: tip When to Scramble
-Use this command when teams become unbalanced or to mix up player matchups.
-:::
-
-## Configuration
-
-### RetakesAllocator Config File
-
-Advanced configuration is available through the config file:
-
-**Location:**
-```bash
-csgo/addons/counterstrikesharp/configs/plugins/RetakesAllocator/RetakesAllocator.json
-```
-
-**Configurable Options:**
-- Team balancing rules
-- Weapon allocation probabilities
-- Equipment loadouts per role
-- Bombsite selection frequency
-- Round settings
-- Spawn selection logic
-
-::: details Example Configuration Options
-The configuration file allows you to customize:
-- How often each bombsite is selected
-- Weapon distribution (e.g., AWPs per team)
-- Utility allocation (smokes, flashes, etc.)
-- Player role assignments
-- Team size balancing
-:::
-
-### Accessing the Config
-
-**Pro servers:**
-1. Connect via FTP (request access by opening a ticket on the [Pro Support](https://fshost.me/pro/support) page)
-2. Navigate to config location
-3. Edit `RetakesAllocator.json`
-4. Restart server to apply changes
-
-## Typical Retake Round Flow
-
-1. **Round Start**
-   - Players spawn at random positions
-   - Terrorists have bomb planted at A or B
-   - Teams have pre-configured loadouts
-
-2. **Retake/Defense**
-   - CTs attempt to retake the site
-   - Ts defend the planted bomb
-   - Round ends on elimination or detonation/defusal
-
-3. **Next Round**
-   - Teams may swap or scramble
-   - New bombsite selected
-   - New spawn positions assigned
-
-## Spawn Editor Workflow
-
-For admins setting up custom spawns:
-
-1. **Show spawns for a site:**
-   ```bash
-   !showspawns A
-   ```
-
-2. **Position yourself:**
-   - Walk to desired spawn location
-   - Aim in the direction players should face
-
-3. **Add the spawn:**
-   ```bash
-   !addspawn CT Y
-   ```
-
-4. **Test the spawn:**
-   ```bash
-   !nearestspawn
-   ```
-
-5. **Repeat for all positions**
-
-6. **Exit editor:**
-   ```bash
-   !hidespawns
-   ```
-
-7. **Test in-game:**
-   - Start a retake round
-   - Verify spawns work correctly
-
-## Best Practices
-
-::: tip Spawn Placement
-- Place spawns with cover nearby
-- Ensure spawns don't face walls
-- Distribute spawns evenly around the site
-- Test spawns from both teams' perspectives
-- Mark planter spawns strategically for T side
-:::
-
-::: tip Team Balance
-Use `!scramble` regularly in casual retake sessions to maintain competitive balance and prevent one-sided rounds.
-:::
+A spawn too close to an existing one is refused.
 
 ## Troubleshooting
 
-::: details Weapon menu not appearing
-Ensure you're typing the command in chat, not console. Try both `.guns` and `!guns` syntax.
+::: details `!retake` does nothing
+`!retake` needs the `g` (map) admin flag. See [Become a Server Admin](/games/cs2/become-admin), or ask the server owner to run it. The owner can also send `exec custom/retakes` in the **Console** tab of the Pro Panel.
 :::
 
-::: details Can't add spawns
-Verify you have admin permissions. Spawn editing requires elevated access.
+::: details The weapon menu does not open
+Type `!guns` or `/guns` on its own in chat, with nothing after it. For the menu in the middle of the screen, type `!gunsmenu`.
 :::
 
-::: details Spawns not saving
-Check that your server has write permissions to the configuration directory. Contact support if issues persist.
+::: details Retakes stopped after a map change
+The new map has no bomb sites, so Retakes was unloaded. Change to a bomb defusal map and type `!retake` again.
 :::
 
-## Command Summary
+## Related Pages
 
-**Player Commands:**
-```bash
-.guns / !guns              # Open weapon menu
-!gunsmenu                  # Center screen menu
-```
-
-**Admin Commands:**
-```bash
-!showspawns A              # Show A site spawns
-!addspawn CT Y             # Add CT spawn (planter: yes)
-!removespawn               # Remove nearest spawn
-!nearestspawn              # Teleport to nearest spawn
-!hidespawns                # Exit spawn editor
-!scramble                  # Randomize teams
-```
-
-## Additional Resources
-
-- [Pro Server Commands](/games/cs2/commands) - All available commands
-- [Admin Setup](/games/cs2/become-admin) - Gain admin access
-- [Plugin List](/games/cs2/plugins) - Other available plugins
+- [Installed vs. Loaded](/games/cs2/plugins#installed-vs-loaded) - Which plugins run at start
+- [Pro Server Commands](/games/cs2/commands) - Game mode commands
+- [Become a Server Admin](/games/cs2/become-admin) - Admin flags

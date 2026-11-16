@@ -1,185 +1,108 @@
+---
+description: "Promod LIVE v2.20 competition mod for Call of Duty 4: Modern Warfare: pick it on your server and change match modes with promod_mode."
+---
+
 # Promod LIVE v2.20
 
-Competition mod for Call of Duty 4: Modern Warfare.
+Promod LIVE is the competition mod for Call of Duty 4: Modern Warfare. It is the default mod when you create a free CoD4 server.
 
-## Overview
+## Select the Mod
 
-Promod is the premier competitive modification for Call of Duty 4, providing balanced gameplay, refined settings, and professional match configurations used in tournaments worldwide.
+- **Free server:** Pick **Promod LIVE v2.20** under **Mod** when you create the server. The mod cannot be changed afterwards. To switch, create a new server.
+- **Pro server:** Pick **Promod LIVE v2.20** under **Mod** in **Game settings** on the [Pro Panel](https://fshost.me/pro/servers), save and restart the server.
 
-## Promod Modes
+## Change the Mode
 
-Changing the Promod mode can be done using the syntax `promod_mode` followed by mode parameters.
+Log into RCON first. See [Log into RCON](/games/cod4/rcon#log-into-rcon).
 
-::: tip Flexible Syntax
-The promod_mode dvar follows a specific syntax. However, you can use the segments between underscores ( _ ) in any order.
-:::
+```bash
+/rcon login type_rcon_pass_here
+/rcon promod_mode match_mr12
+```
 
-### Main Match Modes
+The mod restarts the map on its own when the mode changes, and shows **Changing To Mode** in the chat. You do not need `map_restart`.
 
-| Command | Description |
-|---------|-------------|
-| `/rcon promod_mode match` | Standard match mode, may not be used with knockout mode. Round limit = mr#*2 |
-| `/rcon promod_mode knockout` | Knockout match mode, may not be used with standard match mode |
-| `/rcon promod_mode match_mrX` | Maxrounds - Default is 10. Works only in Search & Destroy and Sabotage |
-| `/rcon promod_mode lan` | g_antilag 0, PunkBuster messages turned off, may not be used with pb mode |
-| `/rcon promod_mode hc` | Hardcore mode (disables some HUD elements and reduces health level to 30) |
-| `/rcon promod_mode knife` | Adds a knife round and an extra ready-up mode to Search & Destroy matches |
-| `/rcon promod_mode 1v1/2v2` | Disables Demolitions and Sniper classes |
+## Public Modes
 
-### Other Modes
-
-There are also some other modes that cannot be combined with the options above.
+These are full mode names. They cannot be combined with other segments.
 
 | Command | Description |
 |---------|-------------|
-| `/rcon promod_mode comp_public` | The default mode for competitive public |
-| `/rcon promod_mode comp_public_lan` | Same as above, but for LAN servers |
+| `/rcon promod_mode comp_public` | Competitive public. The mod falls back to this mode when no valid mode is set |
 | `/rcon promod_mode comp_public_hc` | Competitive public in hardcore mode |
-| `/rcon promod_mode comp_public_hc_lan` | Same as above, but for LAN servers |
-| `/rcon promod_mode custom_public` | Custom public mode reading settings from z_c_r.iwd |
-| `/rcon promod_mode custom_public_lan` | Same as above, but for LAN servers |
-| `/rcon promod_mode strat` | Strategy mode for practicing |
+| `/rcon promod_mode comp_public_lan` | Competitive public for LAN servers |
+| `/rcon promod_mode comp_public_hc_lan` | Competitive public, hardcore, for LAN servers |
+| `/rcon promod_mode custom_public` | Custom public. Reads its settings from the `custom_public` ruleset in `z_c_r.iwd` |
+| `/rcon promod_mode custom_public_lan` | Custom public for LAN servers |
+| `/rcon promod_mode strat` | Strat mode for practice |
 
-## Configuration Examples
+## Match Modes
 
-### Common Configurations
+A match mode is built from segments joined with underscores, for example `match_mr12_knife`. The segments can be in any order, and each one can only be used once.
+
+| Segment | Description |
+|---------|-------------|
+| `match` | Standard match mode. Cannot be combined with `knockout` |
+| `knockout` | Knockout match mode. Cannot be combined with `match` |
+| `mr#` | Rounds per half, for example `mr12`. The round limit is twice this number. Only works in Search & Destroy and Sabotage |
+| `knife` | Adds a knife round before a Search & Destroy match |
+| `hc` | Hardcore mode (`scr_hardcore 1`) |
+| `lan` | LAN mode. Sets `g_antilag 0`. Cannot be combined with `pb` |
+| `pb` | Turns off the PunkBuster warnings for online servers that run without PunkBuster. Cannot be combined with `lan` |
+| `1v1` or `2v2` | For 1v1 and 2v2 matches. Disables the Demolitions and Sniper classes |
+| `#:#` | Starting score, attack first and defense second, for example `3:2`. Used to continue an interrupted match |
+
+Every match mode needs `match` or `knockout`. A mode without one of them is rejected.
+
+### Examples
 
 | Command | Description |
 |---------|-------------|
-| `/rcon promod_mode 2v2_mr10` | 2v2 settings with 10 total rounds |
-| `/rcon promod_mode match_mr12` | 5v5 settings with 12 total rounds |
-| `/rcon promod_mode match_mr12_pb` | 5v5 settings with 12 total rounds without PB |
-| `/rcon promod_mode match_mr10_knife_pb` | 5v5 settings with 10 total rounds without PB but with knife round |
+| `/rcon promod_mode match_mr12` | 5v5 match, 12 rounds per half |
+| `/rcon promod_mode match_mr12_knife` | 5v5 match with a knife round |
+| `/rcon promod_mode match_mr12_pb` | 5v5 match on a server without PunkBuster |
+| `/rcon promod_mode 2v2_match_mr10` | 2v2 match, 10 rounds per half |
+| `/rcon promod_mode match_mr12_lan` | 5v5 match on a LAN |
 
-## Usage
+## Match Flow
 
-### Setting Up a Match
+In `match` and `knockout` modes, every player has to ready up before the match starts. When all players are ready, the match starts after a short countdown. The ready-up period runs again after half time.
 
-**Standard 5v5 match:**
-```
-/rcon promod_mode match_mr10
-```
+`custom_public` only uses ready-up when `promod_allow_readyup` is set to `1` in its ruleset.
 
-**With knife round:**
-```
-/rcon promod_mode match_mr10_knife
-```
+## Strat Mode
 
-**LAN tournament:**
-```
-/rcon promod_mode match_mr12_lan
-```
+`strat` is for practicing smokes, flashes and positions. In strat mode:
 
-### Practice Mode
+- The class limits for Spec Ops, Demolitions and Sniper are lifted
+- Press melee twice to save your position and use twice to load it
 
-**Strategy practice:**
-```
+```bash
 /rcon promod_mode strat
 ```
-
-### Smaller Team Sizes
-
-**2v2 match:**
-```
-/rcon promod_mode 2v2_mr10
-```
-
-**1v1 match:**
-```
-/rcon promod_mode 1v1_mr10
-```
-
-## Mode Parameters
-
-### Match Rounds
-
-Use `mrX` to set max rounds:
-- `mr10` = 10 rounds (first to 6 wins)
-- `mr12` = 12 rounds (first to 7 wins)
-- `mr15` = 15 rounds (first to 8 wins)
-
-### Combining Parameters
-
-You can combine multiple parameters with underscores in any order:
-
-**Examples:**
-```
-/rcon promod_mode lan_match_mr12_knife
-/rcon promod_mode 2v2_mr10_hc
-/rcon promod_mode match_knife_mr15_lan
-```
-
-## Features
-
-### Match Management
-- Ready-up system
-- Half-time team switching
-- Overtime configuration
-- Demo recording
-
-### Gameplay Changes
-- Balanced weapon damage
-- Refined movement mechanics
-- Optimized map timings
-- Professional ruleset enforcement
-
-### Server Settings
-- Automatic configuration
-- PunkBuster integration (optional)
-- LAN optimization
-- Anti-lag settings
-
-## Best Practices
-
-::: tip Tournament Setup
-For competitive matches, use:
-```
-/rcon promod_mode match_mr12_knife
-```
-
-This provides:
-- 12 max rounds (first to 7)
-- Knife round for side selection
-- Standard competitive settings
-:::
-
-::: tip Practice Server
-For scrims and practice:
-```
-/rcon promod_mode strat
-```
-
-This allows:
-- Free weapon access
-- Unlimited grenades
-- Quick respawns
-- Strategy development
-:::
 
 ## Troubleshooting
 
-::: details Mode not changing
-Make sure to execute the command properly:
-1. Use `/rcon login password` first
-2. Then execute the promod_mode command
-3. Restart the map if needed
+::: details The mode does not change
+The mode name is invalid. The mod shows **Error Changing To Mode** in the chat with the correct syntax, and keeps the old mode. Check that:
+- The mode uses either `match` or `knockout`, not both and not neither
+- `lan` and `pb` are not used together
+- No segment is used twice
+- You are logged into RCON
 :::
 
-::: details Players can't ready up
-Ensure you're using match mode, not strat mode:
-```
-/rcon promod_mode match_mr10
+::: details Players cannot ready up
+Ready-up only runs in `match` and `knockout` modes. Set a match mode:
+```bash
+/rcon promod_mode match_mr12
 ```
 :::
 
-::: details Wrong number of rounds
-Check your mr# parameter:
-- `mr10` = 10 rounds total
-- `mr12` = 12 rounds total
-- `mr15` = 15 rounds total
+::: details The match has the wrong number of rounds
+`mr#` is the number of rounds per half, not the total. `mr12` switches sides after 12 rounds and has a round limit of 24. `mr#` only works in Search & Destroy and Sabotage.
 :::
 
 ## Related Resources
 
-- [CoD4 RCON Commands](/games/cod4/rcon) - Server management
-- [FPSChallenge.eu Promod](/games/cod4/mods/fps-promod) - Alternative Promod variant
+- [CoD4 RCON Commands](/games/cod4/rcon) - Maps, game modes and players
+- [FPSChallenge.eu Promod](/games/cod4/mods/fps-promod) - Promod variant by FPSChallenge.eu

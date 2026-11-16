@@ -1,3 +1,7 @@
+---
+description: "Run an MTR report for high ping, lag spikes or packet loss, and send it to us so we can look into it."
+---
+
 # MTR Report
 
 If you or your players have high ping, lag spikes or packet loss on your server, we need an MTR report before we can look into it. MTR shows the route from a player's computer to our server, and at which point along that route the delay or loss starts.
@@ -89,9 +93,7 @@ An IP address is personal information. Only send it in your support ticket, neve
 
 Open a ticket on [Pro Support](https://fshost.me/pro/support) with the **Server crash / instability** category, and paste the MTR results and IP addresses into the message. See [Support Tickets](/servers/pro/support).
 
-::: warning Pro Servers Only
-We investigate network problems for Pro servers only. On a free server, try creating it in another location closer to your players. See [Ping Test](/network/ping-test).
-:::
+On a free server, ask in `#free-support` on our [Discord](https://fshost.me/discord), and do not post IP addresses there. You can also create the server in a location closer to your players. See [Ping Test](/network/ping-test).
 
 ## Reading the Results
 

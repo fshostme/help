@@ -1,6 +1,10 @@
+---
+description: "Set up automatic game updates, scheduled restarts and stop when empty for your CS2 Pro server in the Pro Panel."
+---
+
 # Automation
 
-Automatic game updates and scheduled restarts for your CS2 Pro server.
+Automatic game updates, scheduled restarts and stop when empty for your CS2 Pro server.
 
 ::: warning Pro Server Only
 Automation is part of the Pro Panel. This functionality is not available on free servers.
@@ -64,6 +68,28 @@ Three boxes at the top of the section show the state of the schedule.
 | **Last restart** | When the last scheduled restart ran |
 | **Last skipped** | When a scheduled restart was last skipped |
 
+## Stop When Empty
+
+**Stop when empty** stops the server once nobody has played on it for a while.
+
+- The countdown starts when the last player leaves, or when the server starts.
+- It only counts while the panel can reach the server, so a failed check never stops it.
+- An automatic stop shows as **FSHOST (Bot)** in the **Actions** tab.
+
+### Step 1: Turn It On
+
+Turn on **Automatically stop when empty**.
+
+### Step 2: Choose the Wait
+
+Pick how long the server must stay empty under **Empty minutes before stop**: 10, 15, 30, 60 or 120 minutes.
+
+### Step 3: Save
+
+Click **Save changes**.
+
+While the server is empty, a note shows when it has been empty since and when it will stop, unless someone joins.
+
 ## Troubleshooting
 
 ::: details Scheduled restart did not happen
@@ -77,8 +103,3 @@ Pick a quieter hour under **Restart time** if this happens often.
 ::: details Server will not start after a CS2 update
 **Apply Steam updates automatically** is switched off. Press **Steam Update Required** on your server's page, or switch automatic updates back on.
 :::
-
-## Getting Help
-
-- **Discord:** Join [FSHOST Discord](https://fshost.me/discord)
-- **Support:** Contact #pro-support channel

@@ -1,3 +1,7 @@
+---
+description: "Guides for your CS:GO Pro server on FSHOST.me: admin login, settings, configs, commands and GSLT."
+---
+
 # CS:GO Documentation
 
 Guides for managing and configuring your CS:GO game server on FSHOST.

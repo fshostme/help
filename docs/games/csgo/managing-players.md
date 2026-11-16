@@ -1,3 +1,7 @@
+---
+description: "View status, kick, ban and unban players on your CS:GO server."
+---
+
 # Managing Players
 
 ## Status

@@ -1,169 +1,89 @@
+---
+description: "Ask staff to move your Pro server to another location or machine, and what changes after a server move."
+---
+
 # Server Moves
 
-Need to move your server to a different region or machine? We can help with that.
+Staff can move your Pro server to another location or to another machine. You request a move on a support ticket.
 
-## What is a Server Move?
-
-A server move involves transferring your entire server setup to:
-
-- **Different Region** - Move to a location closer to your players
-- **Different Machine** - Transfer to another server in the same region
-
-All your files, configurations, and settings are moved for you.
-
-## How Server Moves Work
-
-### The Process
-
-1. **Contact Support** - Request a server move via **[Pro Support](https://fshost.me/pro/support)**
-2. **Choose Location** - Select your new region (see [Server Locations](/network/locations))
-3. **We Handle It** - Our team moves all your files and configuration
-4. **New Ports Assigned** - Your server will receive new port numbers
-5. **Ready to Go** - Move typically completes in around 10 minutes
-
-::: tip
-Your server will be offline during the move process. Plan accordingly!
+::: warning Pro Server Only
+Server moves are for Pro servers. A free server can simply be started again at another location from the [Games](https://fshost.me/games) page.
 :::
+
+## What Is a Server Move?
+
+A move transfers your server to a different machine, either in another location or in the same one. Your server keeps its server ID, settings and files.
 
 ## What Gets Moved
 
-Everything is transferred:
+- Your server's game files, including configs, plugins, mods and custom maps you uploaded
+- Your **FastDL** content, on games that have it
+- Your server settings in the Pro Panel
 
-- All server files
-- Configuration files
-- Custom maps and mods
-- Plugins and addons
-- World/save files
-- Server settings
+Your FTP access is set up again on the new machine.
 
 ## What Changes
 
-After the move:
-
-- **New IP Address** - Your server will have a new IP
-- **New Ports** - Game port, query port, and other ports will change
-- **New Connection Details** - Share updated info with your players
+- **IP address** - The new machine has a different IP
+- **Ports** - The game port, query port and any other ports are assigned again
 
 ::: warning Update Your Players
-Make sure to notify your players of the new connection details after the move!
+Share the new IP and port with your players after the move. Favorites and bookmarks that point at the old address stop working.
 :::
 
-## Move Limitations
+## Move Limits
 
-### Annual Limit
+Server moves are limited to **2-3 moves per year** per server. Compare locations with the [Ping Test](/network/ping-test) before you ask, so one move is enough.
 
-Server moves are limited to **2-3 moves per year** per server.
+## Request a Move
 
-This ensures:
-- Fair resource allocation
-- Stable server performance
-- Reduced administrative overhead
+### Step 1: Pick a Location
 
-### When Moves Are Needed
+See [Server Locations](/network/locations) for the available locations. Use the [Ping Test](/network/ping-test) to compare them from where your players are.
 
-Common reasons for server moves:
+### Step 2: Open a Ticket
 
-- **High Latency** - Moving closer to player base
-- **Performance Issues** - Transferring to different hardware
-- **Player Location Changed** - Community relocated
-- **Regional Events** - Temporary location change for tournaments
+1. Open **[Pro Support](https://fshost.me/pro/support)** and click **New ticket**
+2. Pick **Switch server location** as the **Category**
+3. Tick the server under **Related servers**
+4. Write which location you want to move to, and when suits you
 
-## Requesting a Move
+We usually review a move request within a few hours. See [Support Tickets](/servers/pro/support) for more on tickets.
 
-### Before You Request
+## During the Move
 
-Consider:
+The server must be stopped for the move. Staff stop it if it is running. While the move runs, the server shows the state **Moving** in the Pro Panel and cannot be started. A move usually takes around 10 minutes.
 
-1. **Check Current Performance** - Is a move really necessary?
-2. **Test Ping** - Use our [Ping Test](/network/ping-test) to compare regions
-3. **Player Locations** - Where are most of your players?
-4. **Move Count** - How many moves have you used this year?
-
-### How to Request
-
-1. Visit **[Pro Support](https://fshost.me/pro/support)**
-2. Select "Server Move Request"
-3. Provide:
-   - Current server details
-   - Desired region/location
-   - Preferred move time (if specific)
-   - Reason for move (optional)
-
-### Response Time
-
-- **Request Review** - Usually within a few hours
-- **Move Scheduling** - Coordinated with you
-- **Move Duration** - Approximately 10 minutes
-- **Verification** - We'll confirm when complete
+When the move is done, the server is left **Stopped**, and a **Moved** entry appears in the **Actions** tab. See [Actions Tab](/servers/pro/managing-server#actions-tab).
 
 ## After the Move
 
-### Update Connection Info
+### Step 1: Check the New Address
 
-1. Check your **[Server List](https://fshost.me/pro/servers)** for new details
-2. Note the new IP address
-3. Note the new port numbers
-4. Update any external services (Discord bots, websites, etc.)
+Open your server in the [Pro Panel](https://fshost.me/pro/servers). The new IP and port are at the top of the page and in the **Connection info** box on the **Overview** tab.
 
-### Notify Players
+### Step 2: Start the Server
 
-Share updated connection details:
+Click **Start**.
 
-```
-New Server Address: 12.345.67.89:30150
+### Step 3: Share the New Address
 
-Please update your favorites!
-```
-
-### Verify Everything Works
-
-After the move:
-
-- Start your server
-- Test connectivity
-- Verify all files are present
-- Check plugins/mods load correctly
-- Confirm settings are intact
+Give the new address to your players, and update anything else that points at the server, such as Discord bots or your website.
 
 ## Troubleshooting Moves
 
-### Server Won't Start After Move
+::: details Server will not start after the move
+Open the **Console** tab and look for errors. See [Console Access](/servers/pro/console). If the errors point at files or settings you did not change, reply on your move ticket.
+:::
 
-If issues occur post-move:
+::: details Files seem to be missing
+Check over FTP that you are looking in the right folder. See [FTP Access](/servers/pro/ftp). If files are still missing, reply on your move ticket straight away.
+:::
 
-1. Check console for errors
-2. Verify file permissions
-3. Review any game-specific requirements
-4. Contact support if problems persist
+::: details Players cannot connect
+Make sure players use the new IP and port. The old address no longer points at your server.
+:::
 
-### Missing Files
-
-If files appear missing:
-
-1. Check FTP access to confirm
-2. Review correct directory paths
-3. Contact support immediately
-4. We keep backups of move operations
-
-### Performance Issues Continue
-
-If moving didn't resolve issues:
-
-- May not be location-related
-- Contact support for diagnosis
-- Consider server configuration changes
-
-## Regional Options
-
-See **[Server Locations](/network/locations)** for:
-
-- Available regions
-- Location details
-- Ping testing
-- Regional specifications
-
-## Need Help?
-
-To request a server move or ask questions:
-
-- **[Pro Support](https://fshost.me/pro/support)** - Follow the options on the Support page on our website
+::: details The lag or ping did not improve
+The problem may not be the location. Open a ticket with the **Server crash / instability** category and describe what players see.
+:::

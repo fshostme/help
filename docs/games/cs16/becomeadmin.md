@@ -1,328 +1,167 @@
+---
+description: "Make yourself an admin on your Counter-Strike 1.6 server with AMX Mod X, through RCON on Free and Pro or in users.ini on Pro."
+---
+
 # Become a Server Admin
 
-Step-by-step guide to gaining administrator privileges on your CS1.6 server.
+How to make yourself an admin on your Counter-Strike 1.6 server with AMX Mod X.
 
 ## Overview
 
-To become an admin on a CS 1.6 server, you'll need to connect to the server, open the in-game console, and use RCON commands to grant yourself admin privileges through AMXModX.
+On Free and Pro servers you add an admin with RCON from the game console. On Pro servers you can also add admins in the `users.ini` file over FTP.
 
-::: tip RCON Password
-Remember to keep your RCON password safe. You can find it on your [Free Server Panel](https://fshost.me/free-panel) if you need to retrieve it.
-:::
+| Server | How long the admin lasts |
+|--------|--------------------------|
+| Free | Until the server restarts. Add yourself again after a restart |
+| Pro | Admins stay after a restart |
 
-## Step-by-Step Guide
+## Add an Admin With RCON
 
 ### Step 1: Connect to Your Server
 
 1. Launch Counter-Strike 1.6
-2. Connect to your server
-3. Wait until fully loaded
+2. Connect to your server and wait until you are in the game
 
-### Step 2: Open Console
+### Step 2: Open the Console
 
-Press **§** (section symbol, usually below ESC key) to open the in-game console.
+Press the console key. It is the key below **Esc**, which is **~** on US keyboards and **§** on some European ones.
 
-### Step 3: Login with RCON
+### Step 3: Log In With RCON
 
-Enter your RCON password using this command:
-```
+Your RCON password is on the [Free Server Panel](https://fshost.me/free-panel), or for Pro, under **RCON password** in **Game settings** on the [Pro Panel](https://fshost.me/pro/servers). The **Connection info** box on the Pro server page also shows it.
+
+```bash
 rcon_password yourpassword
 ```
 
-Replace `yourpassword` with your actual RCON password from the panel.
+Replace `yourpassword` with your RCON password.
 
 ![CS1.6 Console](https://help.fshost.me/img/cs16-console.png)
 
-### Step 4: Verify RCON Access
+### Step 4: Test RCON
 
-Test if RCON is working by sending a message:
-```
+```bash
 rcon say hello
 ```
 
-You can replace "hello" with any message to test RCON access.
-
 ![CS1.6 Console Test](https://help.fshost.me/img/cs16-console2.png)
 
-### Step 5: Confirm RCON Works
-
-If everything is working correctly, you'll see the message appear in-game.
+If RCON works, the message appears in the game.
 
 ![CS1.6 Say Command](https://help.fshost.me/img/cs16-say.png)
 
-### Step 6: Add Yourself as Admin
+### Step 5: Add Yourself as Admin
 
-Use the amx_addadmin command to grant yourself admin privileges:
-```
-rcon amx_addadmin "nickname" "flags"
-```
-
-**Example:**
-```
+```bash
 rcon amx_addadmin "PlayerName" "abcdefghijklmnopqrstu"
 ```
+
+Replace `PlayerName` with your name as it shows on the server. The second value is the list of access flags. `abcdefghijklmnopqrstu` gives every permission. See [Access Flags](#access-flags) for what each letter does.
 
 ![CS1.6 Add Admin](https://help.fshost.me/img/cs16-console3.png)
 
-::: tip Full Admin Flags
-Using `"abcdefghijklmnopqrstu"` grants all admin permissions. See the [Admin Levels table](#amxmodx-admin-levels) below for individual flag meanings.
-:::
+### Step 6: Open the Admin Menu
 
-### Step 7: Access Admin Menu
+You are now an admin. Open the AMX Mod X menu from the console:
 
-Congratulations! You're now an administrator. Access the admin menu with:
-```
+```bash
 amxmodmenu
 ```
 
-::: danger Important Security Warning
-**We highly recommend avoiding entering your password directly in public chat.**
-
-If you've already done so and encounter an error message: `You have no entry to the server...`
-
-Please get in touch with our support team immediately via [Discord](https://fshost.me/discord).
+::: danger Never Type Your Password in Chat
+`rcon_password` belongs in the console only. Typed in chat, every player on the server can read it. If that happens, change the password: on Pro, change the **RCON password** in **Game settings** and save. On Free, stop the server on the Free Server Panel and create a new one with a new password.
 :::
 
-## AMXModX Admin Levels
+## Add an Admin in users.ini (Pro)
 
-Complete reference of admin access flags and their permissions:
+::: warning Pro Server Only
+Editing `users.ini` needs [FTP](/servers/pro/ftp), which is only available on Pro servers.
+:::
 
-| Access Level | Description |
-|--------------|-------------|
-| **a** | Immunity (cannot be kicked/banned/slayed/slapped and affected by other commands) |
-| **b** | Reservation (can join on reserved slots) |
-| **c** | amx_kick command |
-| **d** | amx_ban and amx_unban commands |
-| **e** | amx_slay and amx_slap commands |
-| **f** | amx_map command |
-| **g** | amx_cvar command (not all cvars will be available) |
-| **h** | amx_cfg command |
-| **i** | amx_chat and other chat commands |
-| **j** | amx_vote and other vote commands |
-| **k** | Access to sv_password cvar (by amx_cvar command) |
-| **l** | Access to the amx_rcon command and ability to change server's RCON password |
-| **m** | Custom level M (for additional plugins) |
-| **n** | Custom level B (for additional plugins) |
-| **o** | Custom level C (for additional plugins) |
-| **p** | Custom level D (for additional plugins) |
-| **q** | Custom level E (for additional plugins) |
-| **r** | Custom level F (for additional plugins) |
-| **s** | Custom level G (for additional plugins) |
-| **t** | Custom level H (for additional plugins) |
-| **u** | Menu access |
+1. Connect with FTP and open `cstrike/addons/amxmodx/configs`
+2. Download `users.ini` and keep a copy as a backup
+3. Add a line at the bottom with the player's SteamID and flags:
 
-## Permission Examples
-
-### Full Admin Access
-
-**All permissions:**
-```
-rcon amx_addadmin "PlayerName" "abcdefghijklmnopqrstu"
+```bash
+"STEAM_0:1:12345678" "" "abcdefghijklmnopqrstu" "ce"
 ```
 
-### Moderator Access
+4. Upload `users.ini` back to the same folder
+5. Restart the server, or change the map
 
-**Kick and ban only:**
-```
-rcon amx_addadmin "ModeratorName" "abcd"
-```
+The four values are the SteamID, the password (empty here), the access flags, and the account flags. `ce` means the line is a SteamID and no password is needed. Find a player's SteamID with `rcon status`.
 
-Flags:
-- a = immunity
-- b = reserved slot
-- c = kick
-- d = ban
+## Access Flags
 
-### Basic Admin
+These are the standard AMX Mod X access flags:
 
-**Essential permissions:**
-```
-rcon amx_addadmin "AdminName" "abcdefi"
-```
+| Flag | Access |
+|------|--------|
+| `a` | Immunity. Cannot be kicked, banned, slayed or slapped |
+| `b` | Reservation. Can join on reserved slots |
+| `c` | `amx_kick` |
+| `d` | `amx_ban` and `amx_unban` |
+| `e` | `amx_slay` and `amx_slap` |
+| `f` | `amx_map` |
+| `g` | `amx_cvar`. Not all cvars are available |
+| `h` | `amx_cfg` |
+| `i` | `amx_chat` and other chat commands |
+| `j` | `amx_vote` and other vote commands |
+| `k` | Access to the `sv_password` cvar through `amx_cvar` |
+| `l` | `amx_rcon` and access to the `rcon_password` cvar |
+| `m` to `t` | Custom levels A to H, used by some plugins |
+| `u` | Menu access |
 
-Flags:
-- a = immunity
-- b = reserved slot
-- c = kick
-- d = ban
-- e = slay
-- f = map change
-- i = chat commands
+Combine flags by writing them together. For example, `bcd` gives a reserved slot, kick and ban.
 
 ## Common Admin Commands
 
-Once you're an admin, you can use these commands:
+Type these in the console once you are an admin.
 
-### Player Management
+| Command | What it does |
+|---------|--------------|
+| `amx_kick <name or #userid> [reason]` | Kicks a player |
+| `amx_ban <name or #userid> <minutes> [reason]` | Bans a player. `0` minutes is permanent |
+| `amx_slay <name or #userid>` | Kills a player |
+| `amx_map <mapname>` | Changes the map |
+| `amx_cfg <filename>` | Runs a config file |
+| `amx_say <message>` | Sends a message to all players |
+| `amx_chat <message>` | Sends a message to the other admins |
+| `amx_vote <question> <answer1> <answer2>` | Starts a vote |
+| `amx_who` | Lists the players on the server and their access |
 
-**Kick player:**
-```
-amx_kick <player> [reason]
-```
-
-**Ban player:**
-```
-amx_ban <minutes> <player> [reason]
-```
-
-**Slay player:**
-```
-amx_slay <player>
-```
-
-### Server Control
-
-**Change map:**
-```
-amx_map <mapname>
-```
-
-**Execute config:**
-```
-amx_cfg <config file>
-```
-
-### Chat Commands
-
-**Admin says:**
-```
-amx_say <message>
-```
-
-**Admin chat:**
-```
-amx_chat <message>
-```
-
-### Voting
-
-**Start vote:**
-```
-amx_vote <question> <option1> <option2>
-```
-
-## Free vs Pro Servers
-
-::: warning Free Server Limitation
-**Please note that our free CS 1.6 service does not provide permanent admin privileges.**
-
-Admin access is temporary and will reset either when the server restarts or after a set period.
-:::
-
-::: tip Upgrade to Pro
-For permanent admin privileges on your CS 1.6 server, consider upgrading to [Pro](https://fshost.me/pro):
-
-**Pro benefits:**
-- Permanent admin access
-- Custom admin configurations
-- FTP access for admin file management
-- Priority support
-- No advertisements
-:::
+See the [AMX Mod X admin commands](https://wiki.alliedmods.net/Commands_(AMX_Mod_X)) for the full list.
 
 ## Troubleshooting
 
-::: details RCON password doesn't work
-**Check:**
-- Password copied from the panel correctly
-- No extra spaces in the command
-- Using `rcon_password`, not `rcon login`
-- Server is actually your server
+::: details RCON password does not work
+- Copy the password from the panel again rather than typing it. It is case sensitive
+- Check there are no extra spaces in the command
+- Use `rcon_password`, not `rcon login`, which is for Call of Duty
+- Check that you are connected to your own server
 :::
 
-::: details "You have no entry to the server" error
-This typically means:
-- RCON password was entered incorrectly
-- You may have typed a password in a public chat (security risk)
-
-**Solution:**
-Contact support immediately via [Discord](https://fshost.me/discord).
+::: details amx_addadmin does nothing
+- Check that RCON works with `rcon status`
+- Put the name and the flags in quotes
+- Check the name matches your name on the server
 :::
 
-::: details amx_addadmin command not working
-**Verify:**
-- RCON is logged in (`rcon status` to test)
-- Command syntax is correct
-- Nickname is in quotes
-- Flags are in quotes
-- No typos in the command
-:::
-
-::: details Admin menu not appearing
-**Try:**
-- Type `amxmodmenu` in console
-- Verify admin was added successfully
+::: details Admin menu does not open
+- Type `amxmodmenu` in the console, not in chat
+- Check that your flags include `u` (menu access)
 - Reconnect to the server
-- Check admin flags include 'u' (menu access)
 :::
 
-::: details Admin commands not working
-**Check:**
-- You have the required flag for that command
-- Command syntax is correct
-- You're targeting the correct player
-- Command exists on this server
+::: details I lost admin after a restart
+On Free servers, admins added with RCON are removed when the server restarts. Add yourself again with [Step 5](#step-5-add-yourself-as-admin). On Pro servers, check that your line is still in `users.ini`.
 :::
 
-## Security Best Practices
-
-### Protect Your RCON Password
-
-::: danger Never Share RCON Password
-- Don't type in public chat
-- Don't share with untrusted players
-- Change if compromised
-- Use strong passwords
+::: details An admin command says I have no access
+Your flags do not include the one that command needs. Check the [Access Flags](#access-flags) table and add the flag.
 :::
 
-### Admin Responsibility
+## Related
 
-**As an admin:**
-- Don't abuse privileges
-- Use kick/ban fairly
-- Follow server rules
-- Help other players
-- Report issues
-
-### Flag Assignment
-
-**When adding other admins:**
-- Give minimum necessary permissions
-- Don't give 'l' flag (RCON access) to untrusted admins
-- Use immunity (' a') carefully
-- Review assigned flags regularly
-
-## Advanced Admin Management
-
-### Multiple Admins
-
-**Add multiple admins:**
-```
-rcon amx_addadmin "Admin1" "abcdef"
-rcon amx_addadmin "Admin2" "abcd"
-rcon amx_addadmin "Moderator" "abc"
-```
-
-### Temporary Admin
-
-**Limited time admin:**
-```
-rcon amx_addadmin "TempAdmin" "bcd"
-```
-
-No immunity or RCON access, just basic moderation.
-
-### View Current Admins
-
-**List admins:**
-```
-amx_who
-```
-
-Shows all current admins on the server.
-
-## Related Resources
-
-- [RCON Commands](/games/cs16/rcon) - Full RCON command reference
-- [AMXModX Commands](https://wiki.alliedmods.net/Commands_(AMX_Mod_X)) - Official documentation
-- [Support](https://fshost.me/discord) - Get help
+- [RCON Commands](/games/cs16/rcon) - Console commands for maps, players and settings
+- [AMX Mod X Plugins](/games/cs16/plugins) - Install your own plugins (Pro)

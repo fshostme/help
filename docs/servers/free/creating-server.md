@@ -1,6 +1,10 @@
+---
+description: "Create a free game server on FSHOST.me: pick a game, location, hostname and slots, then join within 5 minutes."
+---
+
 # Creating a Free Server
 
-This guide will walk you through creating your free game server on FSHOST.me.
+This guide walks you through creating a free game server on FSHOST.me.
 
 ## Prerequisites
 
@@ -8,57 +12,60 @@ Before you begin, make sure you have:
 
 1. Created an FSHOST.me account
 2. Verified your email address
-3. Chosen your game from the **[List of Games](https://fshost.me/games)**
-4. Clicked "Start Free"
 
-## Step-by-Step Guide
+You can have one free server at a time.
 
-### 1. Configure Basic Settings
+## Step 1: Choose a Game
 
-You'll be asked to configure:
+Open the [List of Games](https://fshost.me/games), click your game and click **Start Free**. Games that are only available on Pro do not have this button.
 
-- **Server Location**: Whichever you prefer - see **[Ping Test](/network/ping-test)**
-- **Hostname**: What your server will be called and is shown in server browser
-- **Server Slots**: Number of player slots (free is limited)
-- **Game Version**: Usually the latest is recommended
-- Other settings are available based on game
+## Step 2: Fill In the Settings
 
+The form asks for:
 
-### 2. Start the Server
+| Field | What to enter |
+|-------|---------------|
+| **Server Location** | Click a location to open it, then pick a machine. Each one shows your ping and how many servers are available. See [Ping Test](/network/ping-test) |
+| **Hostname** | The name of your server, shown in the server browser |
+| **Slots** | The number of player slots. The choices depend on the game |
+| **RCON Password** | Used for remote admin commands. See the [RCON Guide](/rcon) |
+| **Join Password** | Players need it to join. Leave it empty for no password |
 
-After clicking "Create", your server will begin to start:
+Depending on the game there are more fields, such as **Map**.
 
-- Very fast setup, usually 30-60 seconds.
-- You'll have 5 mins to join it before it goes offline.
+## Step 3: Start the Server
 
-### 3. Connect to Your Server
+Click **Start Your Server**. The server starts and you are taken to the [Free Server Panel](https://fshost.me/free-panel).
 
-Find your connection information:
+::: warning Join Within 5 Minutes
+You have 5 minutes to join the server before it goes offline. After that, it stops automatically when no players are on it.
+:::
 
-- **IP Address**: Listed in the panel
-- **Port**: Listed next to the IP
-- **Password**: Set in server configuration (if applicable)
+## Step 4: Connect to Your Server
 
-Once you've joined the server, you can then login to RCON and start using commands.
+The [Free Server Panel](https://fshost.me/free-panel) shows two things:
 
-You can read our help guides for your game server:
-- **[RCON Guide](/rcon)** - Remote console information
-- **[All Games](/games/)** - Browse all game-specific guides
+- The connect command, `connect IP:PORT`. Paste it into the game console. In Minecraft, add `IP:PORT` as a server under **Multiplayer** instead
+- Your RCON password, on games that have RCON
 
+Share the IP, port and join password (if set) with your players. Only share your RCON password with players you trust.
 
-## Next Steps
+## What You Can Do on a Free Server
 
-Now that your server is running:
+A free server has a limited set of options. On most games you manage it in the game with RCON, which is included. On CS2 this is `fake_rcon`. Free Minecraft servers are the exception: they run vanilla Minecraft with no RCON and no operator (op) access, and the world is not saved. See the [RCON Guide](/rcon) and the guides for your game under [All Games](/games/).
 
-- **Invite Players** - Share your server IP, port, and join password (if set). Only share your RCON password with players you trust. 
+A free server stops when no one is playing on it.
+
+If you need a server that stays online while empty, see [Free vs Pro](/servers/free-vs-pro).
 
 ## Troubleshooting
 
-Server not starting? Check our **[Common Issues](/troubleshooting/)** section:
+See [Troubleshooting](/troubleshooting/) and [Connection Problems](/troubleshooting/connection) for common issues.
 
-- **[Troubleshooting](/troubleshooting/)**
-- **[Connection Problems](/troubleshooting/connection)**
+::: details The server went offline
+Free servers stop when nobody is playing on them, and when they reach their time limit. Start a new one and join it within 5 minutes.
+:::
 
-## Need Help?
-
-Join our **[Discord](https://fshost.me/discord)** for assistance from our community and support team!
+::: details You already have a server
+You can only have one free server at a time. Open the [Free Server Panel](https://fshost.me/free-panel) to find it, or stop it to create a new one.
+:::

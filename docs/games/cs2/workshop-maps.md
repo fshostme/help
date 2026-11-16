@@ -1,3 +1,7 @@
+---
+description: "Run Steam Workshop maps and collections on your CS2 Pro server."
+---
+
 # Workshop Maps
 
 Run Steam Workshop maps and collections on your CS2 Pro server.
@@ -9,7 +13,7 @@ Workshop maps are only available on Pro servers. Free servers use the default ma
 ::: tip Quick Version: One Workshop Map
 1. Copy the map's address from the [Steam Workshop](https://steamcommunity.com/workshop/browse/?appid=730)
 2. In the [Pro Panel](https://fshost.me/pro/servers), open your server, then the **Settings** tab
-3. Under **Maps / Steam Workshop**, click **Use the Steam Workshop**
+3. In the **Map & game mode** section, click **Use the Steam Workshop**
 4. Paste the address in the field below **Workshop map ID**. The panel reads the ID for you
 5. Click **Save changes** and restart the server
 
@@ -40,9 +44,9 @@ You can also paste the whole address. The panel reads the ID for you.
 1. Go to the [Pro Panel](https://fshost.me/pro/servers)
 2. Click on your server name
 3. Open the **Settings** tab
-4. Under **Maps / Steam Workshop**, click **Use the Steam Workshop**, or pick **Steam Workshop** in the **Map** list
+4. In the **Map & game mode** section, click **Use the Steam Workshop**, or pick **Steam Workshop** in the **Map** list
 
-![Maps / Steam Workshop section with the Use the Steam Workshop button](https://help.fshost.me/img/pro-cs2-maps-section.png)
+![Map & game mode section with the Use the Steam Workshop button](https://help.fshost.me/img/pro-cs2-maps-section.png)
 
 **Map** changes to **Steam Workshop**, and the **Workshop map ID** and **Workshop collection ID** fields appear.
 
@@ -76,11 +80,13 @@ Click **Save changes**, then restart the server. The first start on a new map ta
 
 ## Changing Maps In Game
 
-Admins can change to any Workshop map by its ID:
+Admins can change to any Workshop map by its ID from the chat:
 
 ```bash
-!wsmap 3070238628
+!workmap 3070238628
 ```
+
+The chat says **Map will change once it's downloaded, please allow 10-90 seconds depending on map size.**
 
 Or from the console after [RCON login](/games/cs2/rcon):
 
@@ -88,13 +94,23 @@ Or from the console after [RCON login](/games/cs2/rcon):
 fake_rcon host_workshop_map 3070238628
 ```
 
+If you set a collection, these chat commands work on its maps:
+
+| Command | What it does |
+|---------|--------------|
+| `!listwsmaps` | Lists the maps in the collection, numbered |
+| `!setwsmap <number or name>` | Changes to a map from the list |
+| `!nextwsmap` | Skips to the next map in the collection |
+
+When a Workshop map ends, the server moves on to the next map in the collection.
+
 Normal maps still work with `!map`:
 
 ```bash
 !map de_mirage
 ```
 
-See [Pro Server Commands](/games/cs2/commands) for the full list.
+See [Pro Server Commands](/games/cs2/commands#workshop-maps) for the full list.
 
 ## Players Downloading Maps
 

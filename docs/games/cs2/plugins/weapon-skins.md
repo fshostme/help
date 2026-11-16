@@ -1,237 +1,136 @@
+---
+description: "Use custom weapon skins, knives, gloves, agents, music kits and pins on your CS2 Pro server with WeaponPaints and skins.fsho.st."
+---
+
 # WeaponPaints (Skins)
 
-Customize weapon skins, floats, seeds, gloves, and agent models on your CS2 server.
+Custom weapon skins, knives, gloves, agents, music kits and pins on your CS2 server.
 
-::: tip Pro Feature
-WeaponPaints plugin is available exclusively on Pro servers
+::: warning Pro Server Only
+WeaponPaints is available on Pro servers only.
 :::
 
-## Features
+## Overview
 
-- **Weapon Skins** - Apply any CS2 weapon skin
-- **Wear & Float** - Customize wear values for your skins
-- **Seed Control** - Set specific pattern seeds
-- **Knife Skins** - Choose from any knife skin
-- **Gloves** - Customize glove appearance
-- **Agent Skins** - Change player models (web interface only)
-- **Pins** - Equip collectible pins
-- **Music Kits** - Customize MVP music
-
-::: tip Web-Based Customization
-For the best customization experience, use the web interface at [skins.fsho.st](https://skins.fsho.st) to select skins, adjust float values, and configure advanced options.
-:::
-
-## Getting Started
+WeaponPaints applies the skins you pick on [skins.fsho.st](https://skins.fsho.st) to your weapons on the server. You can also pick skins in-game through chat menus, and change the wear and pattern of the weapon you hold.
 
 ::: warning Skins Only Appear on This Server
 WeaponPaints applies skins on your own server. They are not visible in official matchmaking, on Valve servers, or on other community servers, and nothing is added to your Steam inventory. Other players on your server see your skins, and you see theirs.
 :::
 
-### Initial Setup
+## Turning Skins On
 
-1. Visit [skins.fsho.st](https://skins.fsho.st)
-2. Sign in with Steam
-3. Configure your desired skins and settings
-4. Join your server
-5. Your skins automatically apply
+Skins are switched on in the Pro Panel:
 
-If you are already in the server when you change a skin on the website, type `!ws` in chat to reload your selection instead of reconnecting.
+1. Go to [fshost.me/pro/servers](https://fshost.me/pro/servers) and click on your server name
+2. Open the **Settings** tab, or click **Edit** in the top right. Both open **Game settings**
+3. In the **Features** section, click the **Skins (WeaponPaints)** tile so it shows **On**
+4. Click **Save changes**, then restart the server
+
+With the tile off, WeaponPaints does not run when the server starts. Typing `!skinson` in chat then replies:
+
+```bash
+WS Plugin is disabled! - You can turn it on from Server Panel
+```
 
 ### About GSLT
 
-A **GSLT** (Game Server Login Token) links your server to a Steam account. WeaponPaints does not need one, so you can skip this and skins will still work.
+A **GSLT** (Game Server Login Token) links your server to a Steam account. WeaponPaints does not need one, so you can leave **Steam GSLT (optional)** in the **Steam token** section empty and skins still work.
 
-It is optional, and you can add one later in the [Pro Panel](https://fshost.me/pro/servers). Open the **Settings** tab on your server's page and fill in **Steam GSLT (Game Server Login Token)** in the **WeaponPaints (skins)** section.
+The token is only used while **Skins (WeaponPaints)** is on. Saving **Game settings** with the tile off clears the **Steam GSLT (optional)** field.
+
+## Getting Started
+
+1. Visit [skins.fsho.st](https://skins.fsho.st)
+2. Sign in with Steam
+3. Pick your skins
+4. Join your server. Your skins are loaded when you connect
+
+If you are already on the server when you change something on the website, type `!wp` in chat to load your selection again instead of reconnecting.
 
 ## In-Game Commands
 
-All commands use the `!` prefix in chat:
+The `!` and `/` prefixes are interchangeable in chat. This page writes them with `!`.
 
-### General Commands
+### Menus
 
-**Weapon Paints help:**
-```bash
-!ws
-```
+| Command | What it does |
+|---------|--------------|
+| `!ws` | Shows the website address and the skin commands |
+| `!wp` | Loads your skins, gloves, agent, music kit and pin again from your selection |
+| `!skins` | Opens the weapon skins menu |
+| `!skins <weapon>` | Opens the skins menu for one weapon, for example `!skins ak47` or `!skins awp` |
+| `!knife` | Opens the knife menu |
+| `!gloves` | Opens the gloves menu |
+| `!agents` | Opens the agents menu |
+| `!music` | Opens the music kit menu |
+| `!pins` | Opens the pins menu. `!pin`, `!coin` and `!coins` do the same |
 
-Displays available weapon paint commands.
+`!wp` has a cooldown of 3 seconds. Typed sooner, it replies that you cannot refresh weapon paints right now.
 
-**Refresh skins:**
-```bash
-!wp
-```
+### Wear, Pattern and StatTrak
 
-Reloads your skin configuration from the database.
+These change the weapon in your hands. It must already have a skin, otherwise the command tells you to pick one with `!skins` first.
 
-### Skin Selection
+| Command | What it does |
+|---------|--------------|
+| `!float` | Shows the wear (float) of the weapon you hold |
+| `!float <value>` | Sets the wear, from `0` to `1`. `!wear` does the same |
+| `!seed` | Shows the pattern seed of the weapon you hold |
+| `!seed <value>` | Sets the pattern seed, from `0` to `999`. `!pattern` does the same |
+| `!stattrak` | Turns StatTrak on or off for the weapon you hold. `!st` does the same |
 
-**Weapon skins menu:**
-```bash
-!skins
-```
+Instead of a number, `!float` also takes a wear name:
 
-Opens in-game menu for selecting weapon skins.
-
-**Knife skins menu:**
-```bash
-!knife
-```
-
-Browse and select knife skins.
-
-**Glove skins menu:**
-```bash
-!gloves
-```
-
-Choose from available glove skins.
-
-**Agent skins menu:**
-```bash
-!agents
-```
-
-Select agent/player models.
-
-### Cosmetics
-
-**Collectible pins:**
-```bash
-!pins
-```
-
-Select and equip collectible pins.
-
-**Music kits:**
-```bash
-!music
-```
-
-Choose your MVP music kit.
-
-::: warning Music Kit Requirement
-Before using `!music`, you must select the **default CS2 Music Kit** from your in-game Steam inventory, or the custom music kit will not function.
-:::
-
-**Seed & Wear:**
-```bash
-!float <value> - Change weapon wear (0.00 to 1.00)
-!float` - Show the current weapon's float value
-!seed <value>` - Change weapon pattern seed (0-999)
-!seed` - Show the current weapon's seed value
-```
-## Web Interface Features
-
-The web interface at [skins.fsho.st](https://skins.fsho.st) provides additional capabilities:
-
-### Advanced Customization
-
-- **Float Value Control** - Set exact wear values (0.00 - 1.00)
-- **Seed Selection** - Choose specific pattern seeds
-- **Sticker Positioning** - Add and position stickers (if supported)
-- **Agent Configuration** - Full agent model customization
-- **Batch Configuration** - Configure multiple items at once
-
-### Float Values Explained
-
-Float values determine weapon wear:
-
-| Range | Condition |
-|-------|-----------|
-| 0.00 - 0.07 | Factory New |
-| 0.07 - 0.15 | Minimal Wear |
-| 0.15 - 0.38 | Field-Tested |
-| 0.38 - 0.45 | Well-Worn |
-| 0.45 - 1.00 | Battle-Scarred |
-
-::: tip Low Float Values
-Lower float values (closer to 0.00) result in cleaner, less worn skins. Set to 0.01 for nearly pristine appearance.
-:::
-
-## Command Reference
-
-Quick reference for all commands:
+| Shortcut | Wear | Float |
+|----------|------|-------|
+| `fn` | Factory New | 0.035 |
+| `mw` | Minimal Wear | 0.11 |
+| `ft` | Field-Tested | 0.265 |
+| `ww` | Well-Worn | 0.415 |
+| `bs` | Battle-Scarred | 0.725 |
 
 ```bash
-!ws              # Show available commands
-!wp              # Refresh/reload skins
-!skins           # Weapon skins menu
-!knife           # Knife skins menu
-!gloves          # Glove skins menu
-!agents          # Agent skins menu
-!pins            # Collectible pins menu
-!music           # Music kit menu
+!float 0.01
+!float fn
+!seed 661
 ```
 
-## Data Synchronization
+`!float` and `!seed` are saved to your selection, so the change stays after you reconnect.
 
-### How Sync Works
-
-1. Configure skins via web interface
-2. Join your server
-3. Skins automatically load from database
-4. Changes sync on next connect or when using `!wp`
-
-### Manual Refresh
-
-If your skins don't appear after changing them:
+### Trying a Skin Without Saving It
 
 ```bash
-!wp
+!gen <weapon> <skin_id> <seed> <float>
+!gen ak47 38 200 0.01
 ```
 
-Or reconnect to the server.
+`!gen` (or `!g`) puts a skin on a weapon to try it out. It is not saved to your selection, so it is gone after you reconnect.
+
+## Turning Skins Off and On In-Game
+
+Admins with the `g` (map) flag can switch WeaponPaints off and on without the panel:
+
+| Command | What it does |
+|---------|--------------|
+| `!skinsoff` | Turns skins off. Replies: "Skins will be set to default starting with the next map change." |
+| `!skinson` | Turns skins on again and restarts the round |
+
+These only work while **Skins (WeaponPaints)** is on in **Game settings**. See [Become a Server Admin](/games/cs2/become-admin) for admin flags.
 
 ## Troubleshooting
 
-::: details Skins not appearing
-1. Check you're logged into the website with the correct Steam account
-2. Use `!wp` to refresh skins
-3. Reconnect to the server
-4. Verify the plugin is enabled on your server
-5. Remember that skins only show on this server, never in matchmaking
+::: details Skins are not showing
+1. Check that **Skins (WeaponPaints)** is **On** in **Game settings** and the server has restarted since
+2. Check that you are signed in on [skins.fsho.st](https://skins.fsho.st) with the same Steam account you play on
+3. Type `!wp` to load your selection again, or reconnect
+4. Remember that skins only show on this server, never in matchmaking
 :::
 
-::: details Music kit not working
-Ensure you have the **default CS2 Music Kit** selected in your Steam inventory before using custom music kits.
+::: details `!float` or `!seed` says the weapon has no skin
+Pick a skin for that weapon first with `!skins` or on [skins.fsho.st](https://skins.fsho.st), then try again while holding it.
 :::
 
-::: details Agent skins not changing
-Agent skins must be configured through the web interface at [skins.fsho.st](https://skins.fsho.st). The in-game menu may have limited functionality.
+::: details `!skinson` says the plugin is disabled
+**Skins (WeaponPaints)** is off in **Game settings**. Turn it on, save and restart the server.
 :::
-
-::: details Float values not applying
-Float value customization requires configuration through the web interface. In-game menus may only allow skin selection without float control.
-:::
-
-## Best Practices
-
-::: tip Configuration Tips
-- Use the web interface for precise float and seed control
-- Configure skins before joining the server for immediate application
-- Keep float values above 0.00 to avoid potential rendering issues
-- Test new configurations in a practice server first
-:::
-
-::: tip Performance
-Weapon skins have minimal performance impact. However, on lower-end systems, simplified agent models may improve FPS.
-:::
-
-## Known Limitations
-
-- Full agent customization requires web interface
-- Some advanced sticker positioning features may be incomplete
-- Float value precision may vary by skin
-- Workshop skins are not supported
-- Skin changes require database sync (small delay possible)
-
-## Additional Resources
-
-- **Web Interface for Skins:** [skins.fsho.st](https://skins.fsho.st)
-- **GSLT Setup:** [Steam Game Server Management](https://steamcommunity.com/dev/managegameservers)
-- **Support:** [FSHOST Discord](https://fshost.me/discord) - #pro-support
-- **Plugin Updates:** Check Discord announcements for feature additions
-
-## Privacy Note
-
-WeaponPaints stores your skin preferences in the server database associated with your Steam ID. This data is used solely for providing skin functionality on FSHOST servers.

@@ -1,3 +1,7 @@
+---
+description: "What to do when players cannot connect to your game server: Connection Failed, version mismatch and high ping."
+---
+
 # Connection Problems
 
 Troubleshooting when players cannot connect to your game server.
@@ -74,7 +78,3 @@ Some ISPs block game ports or IPs:
 
 If players lag even though the server is close to them, we need an [MTR Report](/network/mtr) from each affected player, along with their IP address. We cannot investigate without it.
 - Not much we can do server-side
-
-## Need Help?
-
-- **[Pro Support](https://fshost.me/pro/support)** - Follow the options on the Support page on our website

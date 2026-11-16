@@ -1,215 +1,153 @@
+---
+description: "RCON commands for a Counter-Strike 1.6 server: logging in, changing maps, managing players, server settings and PODBot bots."
+---
+
 # RCON Commands
 
 Remote console commands for managing your Counter-Strike 1.6 server.
 
 ## Log into RCON
 
-Open console in-game by clicking § (below ESC) and run the login command to gain access to all the following commands. The RCON password will be displayed on your [panel](https://fshost.me/free-panel).
+1. Join your server
+2. Open the console with the key below **Esc**, which is **~** on US keyboards and **§** on some European ones
+3. Log in with your RCON password:
 
-**Login command:**
+```bash
+rcon_password your_rcon_password
 ```
-rcon_password type_rcon_pass_here
-```
 
-## General Settings
+| Server | Where the password is |
+|--------|-----------------------|
+| Free | The [Free Server Panel](https://fshost.me/free-panel) shows it next to the `connect` command |
+| Pro | The **RCON password** field in **Game settings** on the **Settings** tab of the [Pro Panel](https://fshost.me/pro/servers). The **Connection info** box on the server page also shows it |
 
-### Map Commands
+Then put `rcon` in front of each command, for example `rcon status`. Log in again after you reconnect.
 
-**List all maps:**
-```
+::: danger Never Type Your Password in Chat
+`rcon_password` belongs in the console only. Typed in chat, every player on the server can read it.
+:::
+
+::: tip Settings Reset on Map Change
+The server runs its config again each time a map loads, so a setting you change with RCON can go back to the config value after a map change. On Pro servers, put settings you always want in your config template, see [Config Files](/games/cs16/config-files).
+:::
+
+## Map Commands
+
+**List the maps on the server:**
+```bash
 rcon maps *
 ```
 
-**Change map:**
-```
-rcon changelevel mapnamehere
-```
-
-Change to any stock or custom map.
-
-**Restart game:**
-```
-rcon sv_restart seconds
+**Change the map:**
+```bash
+rcon changelevel de_dust2
 ```
 
-Restart the game after X amount of seconds.
+This works for stock maps and for custom maps on the server. Free servers can use the maps in the [map library](https://dl.fsho.st/cs16/maps/).
 
-### Server Settings
-
-**Password:**
+**Restart the round after a number of seconds:**
+```bash
+rcon sv_restart 3
 ```
+
+## Server Settings
+
+**Join password:**
+```bash
+rcon sv_password "newpassword"
 rcon sv_password ""
 ```
 
-You can change or remove the password to join your server by leaving the value empty.
+The empty value removes the password. On Pro servers, change **Join password** in **Game settings** instead, so the change stays after a restart.
 
-**Hostname:**
-```
-rcon hostname "CUSTOM HOSTNAME - free @ fshost.me"
-```
-
-You can change the hostname on the request form, or, if you want to change it after you've started, you can do so using this command.
-
-::: Warning Required Advert
-Please note that you are required to keep the advert part in the hostname.
-:::
-
-## Policing Your Server
-
-### Player Management
-
-**Status:**
-```
-rcon status
+**Server name:**
+```bash
+rcon hostname "My Server - free @ fshost.me"
 ```
 
-Shows the Slot Number, Name, SteamID, IP, and other information for the connected players.
+Free servers must keep `- free @ fshost.me` at the end of the name. On Pro servers, set the name under **Hostname** in **Game settings**.
 
-**Players list:**
-```
-rcon users
-```
+## Player Commands
 
-Get a list of all players.
+| Command | What it does |
+|---------|--------------|
+| `rcon status` | Lists the players with their user ID, name, SteamID and IP |
+| `rcon users` | Lists the players |
+| `rcon kick PlayerName` | Kicks a player by name |
+| `rcon kick # 12` | Kicks a player by the user ID from `rcon status` |
+| `rcon say Hello` | Sends a message to all players |
 
-**Kick player:**
-```
-rcon kick #id or name
-```
+## Gameplay Settings
 
-Kick a player by ID or name.
+| Command | What it sets |
+|---------|--------------|
+| `rcon mp_startmoney 800` | Money players start with, from 800 to 16000 |
+| `rcon mp_buytime 1.5` | Buy time, in minutes |
+| `rcon mp_roundtime 2` | Round time, in minutes |
+| `rcon mp_freezetime 6` | Freeze time at round start, in seconds |
+| `rcon mp_c4timer 35` | Time from bomb plant to explosion, in seconds |
+| `rcon mp_timelimit 20` | Time on each map, in minutes. `0` means no limit |
+| `rcon mp_friendlyfire 1` | Friendly fire on (`1`) or off (`0`) |
+| `rcon mp_autoteambalance 1` | Team balancing on (`1`) or off (`0`) |
+| `rcon mp_autokick 1` | Kicks idle players and team killers, on (`1`) or off (`0`) |
+| `rcon sv_alltalk 1` | Both teams hear each other's voice chat, on (`1`) or off (`0`) |
+| `rcon sv_voiceenable 1` | Voice chat on (`1`) or off (`0`) |
+| `rcon sv_gravity 800` | Gravity. `800` is normal |
 
-## Other RCON Commands
+To see the current value, send the command without a value, for example `rcon mp_roundtime`.
 
-### Gameplay Settings
-
-| RCON Command | Description | Default / Range |
-|--------------|-------------|-----------------|
-| `rcon mp_buytime 2` | Designate the desired amount of buy time for each round (in minutes) | |
-| `rcon mp_startmoney 1337` | Sets the amount of money players start with | Default: 800, Range: 800–16000 |
-| `rcon mp_timelimit 20` | Change the map timelimit (in minutes) | Default: 0, Range: 0–999 |
-| `rcon mp_roundtime 2` | Sets the amount of roundtime (in minutes) | Default: 5, Range: 1–9 |
-| `rcon mp_autokick 1` | Autokicks an idling person (1 is on, 0 is off) | Default: 1, Values: 0/1 |
-| `rcon mp_autoteambalance 1` | Toggles forcing of clients to join teams to make it balanced (1 = on, 0 = off) | Default: 1, Values: 0/1 |
-| `rcon mp_c4timer 45` | Sets the amount of time between C4 placement and explosion (seconds) | Default: 35, Range: 15–90 |
-| `rcon mp_freezetime 3` | Sets the amount of "freeze" time at the beginning of each round (seconds) | Default: 6, Range: 0–60 |
-| `rcon mp_friendlyfire 1` | Toggles friendly fire (1 is on, 0 is off) | Default: 0, Values: 0/1 |
-
-### Communication Settings
-
-| RCON Command | Description | Default / Range |
-|--------------|-------------|-----------------|
-| `rcon sv_alltalk 1` | Toggles team only or entire server mic chat (1 is on, 0 is off) | Default: 0, Values: 0/1 |
-| `rcon sv_voiceenable 1` | Allows clients to use mic (1 is on, 0 is off) | Default: 1, Values: 0/1 |
-
-### Advanced Settings
-
-| RCON Command | Description | Default / Range |
-|--------------|-------------|-----------------|
-| `rcon sv_cheats 1` | Toggles cheats (1 is on, 0 is off) | Default: 0, Values: 0/1 |
-| `rcon sv_gravity 800` | Sets the amount of gravity | Default: 800, Range: 100–2000 |
-
-::: danger Cheats Warning
-Enabling `sv_cheats` can affect gameplay and may pose security risks. Only use in private testing environments.
-:::
-
-::: tip Using Impulse 101
-If you want to use `impulse 101` (client-side), you need to enable sv_cheats and set changemap to a random map.
+::: warning Cheats
+`rcon sv_cheats 1` turns on cheat commands such as `impulse 101`. It takes effect after the next map change. Only use it on a practice server.
 :::
 
 ## PODBot Commands
 
-::: tip Pro Server Only
-You can use **amx_pbmenu** to control bots. You only need to be an admin on your CS1.6 server for this to be possible.
-
-Find more commands on [this page](http://podbotmm.bots-united.com/doc_v3/html/pbmm_configuration.html).
+::: warning Pro Server Only
+Bots are only available on Pro servers. Turn on **Bots** in **Game settings** on the Pro Panel, save and restart the server.
 :::
 
-### Bot Management
+The easiest way to control bots is the bot menu. As an admin, type this in the console:
 
-| RCON Command | Description |
-|--------------|-------------|
-| `rcon pb add [1-100]` | Adds a bot with specified skill (1-100). Example: `rcon pb add 35` |
-| `rcon pb_autokill 0/1` | Turns on/off auto-killing bots if all human players are dead already. Default is off (0) |
-| `rcon pb removebots` | Kicks bots from your server until reaching pb_minbots |
-
-### Examples
-
-**Add medium skill bot:**
-```
-rcon pb add 50
+```bash
+amx_pbmenu
 ```
 
-**Add expert bot:**
-```
-rcon pb add 90
-```
+You need to be an admin on the server, see [Become a Server Admin](/games/cs16/becomeadmin).
 
-**Remove all bots:**
-```
-rcon pb removebots
-```
+You can also use RCON:
 
-## Configuration Examples
+| Command | What it does |
+|---------|--------------|
+| `rcon pb add 50` | Adds a bot. The number is the skill, from 1 to 100 |
+| `rcon pb removebots` | Removes the bots |
 
-### Competitive Setup
+See the [PODBot MM documentation](http://podbotmm.bots-united.com/doc_v3/html/pbmm_configuration.html) for all bot commands and settings.
 
-**5v5 Competitive:**
-```
-rcon mp_startmoney 800
-rcon mp_roundtime 2
-rcon mp_c4timer 35
-rcon mp_freezetime 15
-rcon mp_friendlyfire 1
-```
+## Pro Panel Console
 
-### Public Server
-
-**Casual Play:**
-```
-rcon mp_startmoney 16000
-rcon mp_roundtime 5
-rcon mp_autoteambalance 1
-rcon mp_friendlyfire 0
-rcon sv_alltalk 1
-```
-
-### Practice Server
-
-**Training Setup:**
-```
-rcon sv_cheats 1
-rcon mp_startmoney 16000
-rcon mp_buytime 99
-rcon mp_roundtime 60
-rcon sv_restart 1
-```
+Pro servers also have a **Console** tab in the Pro Panel, which sends commands to the server without joining it and without `rcon`. It only accepts letters, numbers, spaces, `_`, `-` and `/`, so commands with quotes or dots still need RCON. See [Console Access](/servers/pro/console).
 
 ## Troubleshooting
 
 ::: details RCON password not working
-- Verify the password from the panel is correct
-- Check for typos
-- Make sure you're using `rcon_password`, not `rcon login`
-- Try reconnecting to the  server
+- Copy the password from the panel again rather than typing it. It is case sensitive
+- Use `rcon_password`, not `rcon login`, which is for Call of Duty
+- Log in again after you reconnect
 :::
 
 ::: details Can't change map
-- Verify the map name is correct
-- Use `rcon maps *` to list available maps
-- Check if the custom map is uploaded
-- Try `rcon changelevel` instead of `rcon map`
+- Check the spelling of the map name, without `.bsp`
+- Use `rcon maps *` to list the maps on the server
+- On Pro, check that your custom map is uploaded to `cstrike/maps`. See [Custom Maps and FastDL](/games/cs16/custom-maps)
 :::
 
 ::: details Commands not executing
-- Ensure you've logged in with `rcon_password`
-- Verify you have RCON access
-- Check command syntax
-- Try simpler commands first (like `rcon status`)
+- Log in with `rcon_password` first
+- Put `rcon` in front of the command
+- Test with a simple command such as `rcon status`
 :::
 
-## Related Resources
+## Related
 
-- [Become a Server Admin](/games/cs16/becomeadmin) - Gain admin rights
-- [Support](https://fshost.me/discord) - Get help
-- [PODBot Documentation](http://podbotmm.bots-united.com/doc_v3/html/pbmm_configuration.html) - Bot commands
+- [Become a Server Admin](/games/cs16/becomeadmin) - Add admins with AMX Mod X
+- [RCON overview](/rcon) - RCON on all games

@@ -1,3 +1,7 @@
+---
+description: "Add your own maps to a Counter-Strike 1.6 Pro server and let players download them quickly with FastDL."
+---
+
 # Custom Maps and FastDL
 
 How to add your own maps to a Counter-Strike 1.6 Pro server and let players download them quickly with FastDL.

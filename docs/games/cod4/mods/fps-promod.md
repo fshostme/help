@@ -1,205 +1,71 @@
+---
+description: "FPSChallenge.eu Promod v2.88 for Call of Duty 4: the FPSChallenge.eu match mod based on Promod LIVE, and how to run it on your server."
+---
+
 # FPSChallenge.eu Promod
 
-Specialized Promod variant by FPSChallenge.eu with enhanced features and anti-cheat.
-
-## Overview
-
-[FPSChallenge.eu](https://fpschallenge.eu/) Promod is their own match mod based off of Promod LIVE. It brings a number of fixes, changes, and improvements over the standard Promod LIVE.
+[FPSChallenge.eu](https://fpschallenge.eu/) Promod is FPSChallenge.eu's own match mod, based on Promod LIVE. It brings a number of fixes, changes and improvements over the standard Promod LIVE.
 
 ::: tip FSHOST Official Provider
-FSHOST are an official server provider for the mod. Their Anti-cheat and auto demo upload are supported by our servers.
+FSHOST is an official server provider for the mod. Its anti-cheat and automatic demo upload are supported on our servers.
 :::
 
-## Features
+## Select the Mod
 
-### Enhanced Anti-Cheat
+- **Free server:** Pick **FPSChallenge.eu Promod v2.88** under **Mod** when you create the server. The mod cannot be changed afterwards. To switch, create a new server.
+- **Pro server:** Pick **FPSChallenge.eu Promod v2.88** under **Mod** in **Game settings** on the [Pro Panel](https://fshost.me/pro/servers), save and restart the server.
 
-FPSChallenge.eu Promod includes integrated anti-cheat protection:
-- Real-time cheat detection
-- Automatic demo recording
-- Suspicious activity logging
-- Server-side verification
+## Change the Mode
 
-### Automatic Demo Upload
+FPSChallenge.eu Promod uses the same `promod_mode` modes as Promod LIVE. See [Promod LIVE](/games/cod4/mods/promodlive) for the full list of modes and segments.
 
-Matches are automatically recorded and uploaded:
-- Seamless demo capture
-- Automatic upload to FPS servers
-- No manual intervention required
-- Full match coverage
-
-### Improvements Over Standard Promod
-
-- Bug fixes and stability improvements
-- Enhanced anti-cheat integration
-- Better demo management
-- Optimized server performance
-- Updated competitive ruleset
-
-## FSHOST Integration
-
-### Supported Features
-
-FSHOST servers fully support FPSChallenge.eu Promod with:
-
-**FPS Anti-cheat:**
-- Enabled by default on FSHOST servers
-- No configuration required
-- Automatic updates
-- Tournament-ready protection
-
-**FPS Automatic Demo Upload:**
-- Demos automatically uploaded after matches
-- Accessible via FPSChallenge.eu dashboard
-- Includes full match data
-- Permanent storage
-
-### Official Server Provider
-
-As an official provider, FSHOST offers:
-- Pre-configured servers
-- Guaranteed compatibility
-- Priority support for FPS mod
-- Automatic updates
-
-## Configuration
-
-### Using FPS Promod
-
-Select FPSChallenge.eu Promod when creating your CoD4 server:
-
-1. Choose Call of Duty 4 as game
-2. Select "FPSChallenge.eu Promod" as mod
-3. Configure match settings
-4. Start server
-
-Anti-cheat and demo upload are enabled automatically.
-
-### Match Setup
-
-**Standard 5v5 match:**
-```
+```bash
+/rcon login type_rcon_pass_here
 /rcon promod_mode match_mr12
 ```
 
-**With knife round:**
-```
+**With a knife round:**
+```bash
 /rcon promod_mode match_mr12_knife
 ```
 
-**LAN tournament:**
-```
+**On a LAN:**
+```bash
 /rcon promod_mode match_mr12_lan
 ```
 
-::: info Mode Commands
-FPS Promod uses the same mode commands as standard Promod LIVE. See [Promod LIVE documentation](/games/cod4/mods/promodlive) for full command reference.
-:::
+The mod restarts the map on its own when the mode changes.
+
+## FPSChallenge.eu Promod Settings
+
+On top of the Promod LIVE modes, this version has:
+
+| Segment or setting | Description |
+|--------------------|-------------|
+| `match` without `mr#` | Plays 12 rounds per half |
+| `knockout` without `mr#` or `ot#` | Plays 12 rounds per half with 3 overtime rounds |
+| `ot#` | Number of overtime rounds in Search & Destroy, for example `ot3` |
+| `fps_match_id` | The FPSChallenge.eu match ID. Matches with a match ID are tracked by FPSChallenge.eu, and demos are named after the match ID |
 
 ## Release Notes
 
-For detailed information about changes, fixes, and improvements:
-
-**GitHub Release Notes:**
-[github.com/warkingous/promod_x/releases](https://github.com/warkingous/promod_x/releases)
-
-## Differences from Promod LIVE
-
-### Anti-Cheat Integration
-
-FPS Promod includes built-in anti-cheat that:
-- Monitors player behavior in real-time
-- Detects common cheats automatically
-- Logs suspicious activity
-- Can auto-ban repeat offenders
-
-### Demo System
-
-Enhanced demo system features:
-- Automatic recording of all competitive matches
-- Server-side demo storage
-- Automatic upload to FPS platform
-- Web-based demo viewer
-
-### Bug Fixes
-
-Numerous fixes including:
-- Spawn system improvements
-- Weapon balance adjustments
-- Map exploit fixes
-- Network optimization
-
-## Requirements
-
-### Server Requirements
-
-- Call of Duty 4 dedicated server
-- CoD4x recommended
-- FSHOST hosting (for anti-cheat/demo upload)
-- Adequate bandwidth for demo uploads
-
-### Player Requirements
-
-- Standard CoD4 client
-- No additional downloads needed
-- Compatible with Promod configs
-- CoD4x recommended for best experience
-
-## Best Practices
-
-### For Tournament Organizers
-
-::: tip Tournament Setup
-1. Use FSHOST servers for official provider status
-2. Enable match mode with knife round
-3. Verify anti-cheat is active
-4. Confirm demo upload functionality
-5. Use standard Promod commands
-:::
-
-### For Competitive Teams
-
-**Recommended settings:**
-```
-/rcon promod_mode match_mr12_knife
-```
-
-Benefits:
-- Automatic anti-cheat protection
-- Demos uploaded for review
-- FPS tournament compatibility
-- Standard competitive format
+For the changes, fixes and improvements in each version, see the [release notes on GitHub](https://github.com/warkingous/promod_x/releases).
 
 ## Support
 
-### FSHOST Support
+- **Server problems:** `#free-support` or `#pro-support` on our [Discord](https://fshost.me/discord), or a ticket on [Pro Support](https://fshost.me/pro/support) for Pro servers
+- **Mod problems, anti-cheat and demos:** [FPSChallenge.eu](https://fpschallenge.eu/)
 
-For server-related issues:
-- [Discord](https://fshost.me/discord)
-- #cod4-support channel
-- [Pro Support](https://fshost.me/pro/support) for Pro servers
+## Comparison With Promod LIVE
 
-### FPSChallenge.eu Support
-
-For mod-specific issues:
-- [FPSChallenge.eu website](https://fpschallenge.eu/)
-- FPS Discord server
-- GitHub issues page
-
-## Comparison with Standard Promod
-
-| Feature | Standard Promod | FPS Promod |
-|---------|----------------|------------|
-| Core Gameplay | Yes | Yes |
-| Match System | Yes | Yes |
-| Built-in Anti-cheat | No | Yes |
-| Auto Demo Upload | No | Yes |
-| Bug Fixes | Base | Enhanced |
-| FSHOST Integration | Yes | Yes (enhanced) |
+| Feature | Promod LIVE | FPSChallenge.eu Promod |
+|---------|-------------|------------------------|
+| `promod_mode` match modes | Yes | Yes |
+| FPSChallenge.eu anti-cheat | No | Yes |
+| Automatic demo upload | No | Yes |
 
 ## Related Resources
 
-- [Promod LIVE](/games/cod4/mods/promodlive) - Standard Promod documentation
-- [CoD4 RCON Commands](/games/cod4/rcon) - Server management
+- [Promod LIVE](/games/cod4/mods/promodlive) - Modes and segments for `promod_mode`
+- [CoD4 RCON Commands](/games/cod4/rcon) - Maps, game modes and players
 - [FPSChallenge.eu](https://fpschallenge.eu/) - Official website
-- [GitHub Repository](https://github.com/warkingous/promod_x) - Source code and releases

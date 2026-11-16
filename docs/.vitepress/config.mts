@@ -1,5 +1,12 @@
 import { defineConfig } from 'vitepress'
 
+const siteUrl = 'https://help.fshost.me'
+
+// Small "Pro" tag shown after sidebar items that only apply to Pro servers.
+// Styled by .pro-badge in theme/style.css.
+const proBadge = '<span class="pro-badge">Pro</span>'
+const siteDescription = 'Get help using FSHOST.me free/pro servers'
+
 // Shown at the bottom of every sidebar.
 const footerLinks = [
   {
@@ -61,26 +68,38 @@ const mainSidebar = [
       { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
       {
         text: 'Free',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Creating a Server', link: '/servers/free/creating-server' }
         ]
       },
       {
-        text: 'Pro',
-        collapsed: true,
+        text: 'Pro: Get Started',
+        collapsed: false,
         items: [
           { text: 'Creating a Server', link: '/servers/pro/creating-server' },
           { text: 'Server List', link: '/servers/pro/server-list' },
+          { text: 'Billing and Top-Up', link: '/servers/pro/billing' }
+        ]
+      },
+      {
+        text: 'Pro: Manage',
+        collapsed: false,
+        items: [
           { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+          { text: 'Console Access', link: '/servers/pro/console' },
           { text: 'Team Access', link: '/servers/pro/team-access' },
-          { text: 'Billing and Top-Up', link: '/servers/pro/billing' },
           { text: 'Support Tickets', link: '/servers/pro/support' },
-          { text: 'Server Moves', link: '/servers/pro/server-moves' },
-          { text: 'FTP Access', link: '/servers/pro/ftp' },
+          { text: 'Server Moves', link: '/servers/pro/server-moves' }
+        ]
+      },
+      {
+        text: 'Pro: Files',
+        collapsed: false,
+        items: [
           { text: 'Before You Modify Files', link: '/servers/pro/before-you-modify' },
-          { text: 'File Manager', link: '/servers/pro/file-manager' },
-          { text: 'Console Access', link: '/servers/pro/console' }
+          { text: 'FTP Access', link: '/servers/pro/ftp' },
+          { text: 'File Manager', link: '/servers/pro/file-manager' }
         ]
       }
     ]
@@ -91,7 +110,7 @@ const mainSidebar = [
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "FSHOST Help",
-  description: "Get help using FSHOST.me free/pro servers",
+  description: siteDescription,
   base: '/',
   cleanUrls: true,
 
@@ -99,10 +118,44 @@ export default defineConfig({
   // <!--@include: ./parts/_name.md-->. They are not pages of their own.
   srcExclude: ['**/parts/_*.md'],
 
+  sitemap: {
+    hostname: siteUrl
+  },
+
+  markdown: {
+    image: {
+      lazyLoading: true
+    }
+  },
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#1b1b1d' }],
+    ['meta', { property: 'og:site_name', content: 'FSHOST Help' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'twitter:site', content: '@fshostme' }]
   ],
+
+  // Per-page canonical URL and Open Graph tags, so links shared on Discord and
+  // X show the page title and description. A page sets its own description in
+  // frontmatter; otherwise the site description is used.
+  transformPageData(pageData) {
+    const path = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '')
+    const url = `${siteUrl}/${path}`
+    const title = pageData.frontmatter.title || pageData.title || 'FSHOST Help'
+    const description = pageData.frontmatter.description || pageData.description || siteDescription
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['link', { rel: 'canonical', href: url }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }]
+    )
+  },
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -113,14 +166,47 @@ export default defineConfig({
 
     nav: [
       { text: 'Getting Started', link: '/getting-started' },
-      { text: 'RCON', link: '/rcon' },
       {
         text: 'Games',
         items: gameLinks
       },
+      {
+        text: 'Servers',
+        items: [
+          {
+            items: [
+              { text: 'Free vs Pro', link: '/servers/free-vs-pro' },
+              { text: 'Creating a Free Server', link: '/servers/free/creating-server' },
+              { text: 'Creating a Pro Server', link: '/servers/pro/creating-server' },
+              { text: 'Managing Your Server', link: '/servers/pro/managing-server' },
+              { text: 'Billing and Top-Up', link: '/servers/pro/billing' },
+              { text: 'RCON', link: '/rcon' }
+            ]
+          },
+          {
+            items: [
+              { text: 'Open the Pro Panel', link: 'https://fshost.me/pro/servers' }
+            ]
+          }
+        ]
+      },
       { text: 'Troubleshooting', link: '/troubleshooting/' },
+      { text: 'FAQ', link: '/faq' },
       { text: 'News', link: '/news/' }
     ],
+
+    // Right-hand "On this page" list. h3 is included because the long guides
+    // (MatchZy, admin setup) are organized under h3 steps.
+    outline: {
+      level: [2, 3],
+      label: 'On this page'
+    },
+
+    notFound: {
+      title: 'PAGE NOT FOUND',
+      quote: 'This page may have moved. Try the search (Ctrl+K), or start from the help center.',
+      linkText: 'Go to the help center'
+    },
 
     sidebar: {
       '/': mainSidebar,
@@ -139,9 +225,18 @@ export default defineConfig({
         { text: 'Overview', link: '/games/cs16/' },
         { text: 'Become Admin', link: '/games/cs16/becomeadmin' },
         { text: 'RCON Commands', link: '/games/cs16/rcon' },
-        { text: 'Config Files (Pro)', link: '/games/cs16/config-files' },
-        { text: 'AMX Mod X Plugins (Pro)', link: '/games/cs16/plugins' },
-        { text: 'Custom Maps and FastDL (Pro)', link: '/games/cs16/custom-maps' }
+        { text: 'Config Files ' + proBadge, link: '/games/cs16/config-files' },
+        { text: 'AMX Mod X Plugins ' + proBadge, link: '/games/cs16/plugins' },
+        { text: 'Custom Maps and FastDL ' + proBadge, link: '/games/cs16/custom-maps' }
+      ]),
+      '/games/csgo/': gameSidebar('Counter-Strike GO', [
+        { text: 'Overview', link: '/games/csgo/' },
+        { text: 'Admin Login', link: '/games/csgo/admin-login' },
+        { text: 'General Settings', link: '/games/csgo/general-settings' },
+        { text: 'Config Files', link: '/games/csgo/config-files' },
+        { text: 'In-Game Commands', link: '/games/csgo/in-game-commands' },
+        { text: 'Managing Players', link: '/games/csgo/managing-players' },
+        { text: 'Game Server Login Token', link: '/games/csgo/gslt' }
       ]),
       '/games/cod/': gameSidebar('Call of Duty', [
         { text: 'Overview', link: '/games/cod/' },
@@ -194,28 +289,52 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'CSTV Broadcasting', link: '/games/cs2/cstv' },
-            { text: 'Become Admin (Pro)', link: '/games/cs2/become-admin' },
-            { text: 'Automation (Pro)', link: '/games/cs2/automation' },
-            { text: 'Config Files (Pro)', link: '/games/cs2/config-files' },
-            { text: 'Workshop Maps (Pro)', link: '/games/cs2/workshop-maps' }
+            { text: 'Become Admin ' + proBadge, link: '/games/cs2/become-admin' },
+            { text: 'Automation ' + proBadge, link: '/games/cs2/automation' },
+            { text: 'Config Files ' + proBadge, link: '/games/cs2/config-files' },
+            { text: 'Workshop Maps ' + proBadge, link: '/games/cs2/workshop-maps' }
           ]
         },
         {
-          text: 'Plugins (Pro)',
+          text: 'Plugins ' + proBadge,
           collapsed: false,
           items: [
             { text: 'Addons/Plugins Overview', link: '/games/cs2/plugins' },
-            { text: 'CS2-SimpleAdmin', link: '/games/cs2/plugins/cs2-simpleadmin' },
-            { text: 'AdminManager', link: '/games/cs2/plugins/adminmanager' },
-            { text: 'MatchZy', link: '/games/cs2/plugins/matchzy' },
-            { text: 'Deathmatch', link: '/games/cs2/plugins/deathmatch' },
-            { text: 'Retakes', link: '/games/cs2/plugins/retakes' },
-            { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire' },
-            { text: 'WeaponPaints (Skins)', link: '/games/cs2/plugins/weapon-skins' },
-            { text: 'Custom Commands', link: '/games/cs2/plugins/customcommands' },
-            { text: 'Discord Demo Links', link: '/games/cs2/plugins/cstv-discord' },
-            { text: 'Demo Monitor', link: '/games/cs2/plugins/demomonitor' },
-            { text: 'TVFIX (CSTV Fix)', link: '/games/cs2/plugins/tvfix' }
+            {
+              text: 'Administration',
+              collapsed: true,
+              items: [
+                { text: 'CS2-SimpleAdmin', link: '/games/cs2/plugins/cs2-simpleadmin' },
+                { text: 'AdminManager', link: '/games/cs2/plugins/adminmanager' },
+                { text: 'Custom Commands', link: '/games/cs2/plugins/customcommands' }
+              ]
+            },
+            {
+              text: 'Game Modes',
+              collapsed: true,
+              items: [
+                { text: 'MatchZy', link: '/games/cs2/plugins/matchzy' },
+                { text: 'Deathmatch', link: '/games/cs2/plugins/deathmatch' },
+                { text: 'Retakes', link: '/games/cs2/plugins/retakes' },
+                { text: 'Prefire Practice', link: '/games/cs2/plugins/prefire' }
+              ]
+            },
+            {
+              text: 'CSTV and Demos',
+              collapsed: true,
+              items: [
+                { text: 'Discord Demo Links', link: '/games/cs2/plugins/cstv-discord' },
+                { text: 'Demo Monitor', link: '/games/cs2/plugins/demomonitor' },
+                { text: 'TVFIX (CSTV Fix)', link: '/games/cs2/plugins/tvfix' }
+              ]
+            },
+            {
+              text: 'Customization',
+              collapsed: true,
+              items: [
+                { text: 'WeaponPaints (Skins)', link: '/games/cs2/plugins/weapon-skins' }
+              ]
+            }
           ]
         },
         ...footerLinks
@@ -225,7 +344,10 @@ export default defineConfig({
           text: 'Troubleshooting',
           items: [
             { text: 'Overview', link: '/troubleshooting/' },
-            { text: 'Connection Problems', link: '/troubleshooting/connection' }
+            { text: 'Connection Problems', link: '/troubleshooting/connection' },
+            { text: 'Server Problems', link: '/troubleshooting/server-problems' },
+            { text: 'RCON and Admin Problems', link: '/troubleshooting/rcon-and-admin' },
+            { text: 'Pro Files and Plugins', link: '/troubleshooting/files-and-plugins' }
           ]
         },
         ...footerLinks
@@ -252,7 +374,11 @@ export default defineConfig({
     },
 
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        // Show a snippet of the matching text under each result.
+        detailedView: true
+      }
     },
 
     editLink: {
@@ -263,8 +389,7 @@ export default defineConfig({
     lastUpdated: {
       text: 'Last updated',
       formatOptions: {
-        dateStyle: 'short',
-        timeStyle: 'short'
+        dateStyle: 'medium'
       }
     }
   }

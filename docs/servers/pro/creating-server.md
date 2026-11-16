@@ -1,3 +1,7 @@
+---
+description: "Create a Pro game server on FSHOST.me: pick a game and location, choose how many months, pay, then configure and start it."
+---
+
 # Creating a Pro Server
 
 Step-by-step guide to creating a new **Pro** game server on FSHOST.me.
@@ -8,130 +12,95 @@ Before you begin, make sure you have:
 
 1. Created an FSHOST.me account
 2. Verified your email address
-3. Chosen your game from the **[List of Games](https://fshost.me/games)**
-4. Clicked "Upgrade to Pro"
 
-## Step 1: Create Server
+You pay for the server when you create it, from your account balance or by card. See [Billing and Top-Up](/servers/pro/billing).
 
-1. From the pricing page, check over the features and locations offered for the game.
-2. Once happy, click "Create".
+## Step 1: Choose a Game
 
-## Step 2: Select your Location
+Open the [Pro Panel](https://fshost.me/pro/servers) and click **Create server**. Pick a game from the list. Each game shows its price per month.
 
-1. Pick the server location closest to your players - see **[Ping Test](/network/ping-test)**
-2. Click Create Server
+You can also start from the [List of Games](https://fshost.me/games): open a game, click **Upgrade to Pro**, check the features and locations on the pricing page, then click **Create**.
 
-Switching location can be done by staff but is limited to 2-3 moves per server.
+## Step 2: Choose a Location
 
-See **[Server Locations](/network/locations)** for detailed information.
+Under **Choose a location**, click a location to open it, then pick a machine.
 
-## Step 3: Configure Server
+- Each location and machine shows your ping to it, and how many servers are still **available**
+- Click **Re-test ping** to measure again
+- A location or machine marked **Sold out** cannot be picked. Contact us to see if we can fit you in
 
-### Basic Configuration
+Pick the location closest to your players. See [Ping Test](/network/ping-test) and [Server Locations](/network/locations).
 
-**Hostname**
-- You're free to use most characters
-- Visible to players (game-dependent)
-- Can be changed later
-
-**Server Slots**
-- Number of player slots (some bots take slots themselves)
-- Limited to 18 for most games
-- Higher slots available - contact us for pricing
-
-**Game Version**
-- Some games support multiple versions
-- Pick latest if unsure - contact support if you need help
-
-### Advanced Options
-
-Some games offer additional options:
-
-- Server password
-- Game mode/mod
-- Cracked
-- Bots
-- Map selection (workshop/custom)
-- Difficulty settings
-
-::: warning
-Advanced options vary by game. If unsure, just set it to what you think and you can change them later!
+::: tip Changing Location Later
+Staff can move a server to another location afterwards, but moves are limited. See [Server Moves](/servers/pro/server-moves).
 :::
 
-## Step 4: Review and Finish Setup
+The page also shows the **CPU cores** and **Memory** included by default. We can upgrade your cores or memory for free or a small fee, just ask in support. **What's included** lists the game's options, **Plugins / Mods** and **Configs**.
 
-Review your selections and then click **"Save"** to finish setup.
+## Step 3: Choose How Long
 
-## First Start
+Under **How long for?**, pick **1 month**, **3 months**, **6 months** or **12 months**. The total and the date the server runs until are shown next to it.
 
-Once setup is complete:
+## Step 4: Create or Pay
 
-1. Server status changes to "Stopped"
-2. Click **"Start"** to boot the server
-3. Wait 30-60 seconds for startup
-4. Status changes to "Running" once ready
+- If your balance covers the total, the button says **Create server**. The total is taken from your balance
+- If it does not, the button says **Pay** with the amount. You pay by card on Stripe, then the server is created
+
+Once the server is created, you are taken to its **Game settings** page.
+
+## Step 5: Configure the Server
+
+A new server must be configured before it can be started. The fields depend on the game. Common ones are:
+
+| Field | What to enter |
+|-------|---------------|
+| **Hostname** | The server name players see, up to 80 characters. Letters, numbers, spaces and `, # / \| = ^ ! ~ @ . : _ -` are allowed |
+| **Description** | A label of up to 40 characters to tell your servers apart. Only you see it |
+| **Slots** | The most players allowed, including bots. Most games offer 2 to 18 slots in steps of 2 |
+| **Join password** | Leave it empty for a public server |
+| **RCON password** | Used for remote admin commands. See the [RCON Guide](/rcon) |
+
+Depending on the game you may also see **Version**, **Mod**, **Game mode**, **Map**, **Bots** or **Cracked**. If you are unsure, keep the defaults. You can change everything later.
+
+Click **Save changes**.
+
+::: tip More Slots
+Need more slots than the list offers? Ask on a [support ticket](https://fshost.me/pro/support).
+:::
+
+## Step 6: Start the Server
+
+Click **Start** at the top of the page. The state changes to **Starting**, then **Running**.
 
 ## Getting Connection Details
 
-After server is running:
+- The IP and port are at the top of the server's page, with a **Copy** button and **Join via Steam** on games that support it
+- **Connection info** on the **Overview** tab shows the **Query port**, **RCON password** and **Join password**
+- For file access, open the **Files** tab. FTP is set up on request and only for some games. See [FTP Access](/servers/pro/ftp)
 
-1. You will see the connection details at the top by the status
-2. You can check on the Players/CPU/Memory stats in the **Overview** tab
-3. If you need file access, check the Files tab to see if FTP has already been partly setup and follow instructions.
-4. If there's no FTP details, we may not allow it for the game you've created (our pricing page will state this). Ask support.
+See [Managing Your Server](/servers/pro/managing-server) for everything else on the server's page, and [All Games](/games/) for game-specific guides.
 
-Share these details with players to connect!
+## Limits
 
-## Post-Creation Steps
-
-### Game-Specific Server Management
-
-Different games have different ways to manage them:
-
-- Planned: We're working on bringing all our guides here from our old documentation.
+- **One server awaiting setup at a time.** Configure your new server before you create another
+- **Paid server limit.** There is a limit on how many paid Pro servers you can own. When you reach it, the create page shows **Server limit reached**. Click **Request more servers** to open a ticket, or delete a server you no longer need
 
 ## Common Issues
 
-### Can't Start Server
+::: details Server will not start
+Open the **Console** tab and look for errors. See [Console Access](/servers/pro/console) and [Troubleshooting](/troubleshooting/). Contact us if it looks like a problem with the server and not something you changed.
+:::
 
-Server created but won't start:
-
-- Check **[Troubleshooting](/troubleshooting/)**
-- Review error logs in console
-- Verify game-specific requirements
-
-Contact us if it appears to be a problem with the server and not something you've modified.
-
-## Limits and Quotas
-
-### Pro Accounts
-
-- Multiple servers allowed
-- Higher availability
-- Multiple servers per game
-- FTP includes storage quota, please contact us if you need it increased
+::: details Paid, but the location is full
+If the location filled up while you were paying, the server list shows the payment with **Needs a new location**. Click **View** and pick another location. The payment is kept in your balance.
+:::
 
 ## Deleting a Server
 
-To remove a server, the server needs to be stopped & expired or not configured yet.
+The **Delete** button shows at the top of the server's page once the server is stopped and has expired. Click it, then **Delete server** to confirm.
 
 ::: danger
-Deleting a server is permanent and cannot be undone! All data will be lost.
+Deleting a server removes everything on it, including your configuration and any files you uploaded. It cannot be undone.
 :::
 
-### If the server is running and not expired
-1. Go to the server list
-2. Click **"View"** on the server
-3. Click **"Stop"** then wait for the expiry date to pass
-4. Once expired, click **"Delete"** and confirm deletion
-5. Server is immediately removed
-
-### If the server has already expired
-1. Go to the server list
-2. Click **"View"** on the server
-3. Click **"Delete"** and confirm deletion
-4. Server is immediately removed
-
-## Need Help?
-
-- **[Pro Support](https://fshost.me/pro/support)** - Follow the options on the Support page on our website
+See [Deleting a Server](/servers/pro/billing#deleting-a-server) for more.

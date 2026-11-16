@@ -1,166 +1,98 @@
-# CSTV (SourceTV)
+---
+description: "Turn on CSTV on your CS2 Pro server to let people spectate matches and record demos, and download your demos."
+---
 
-Professional broadcasting and demo recording for your CS2 server.
+# CSTV
 
-::: tip Pro Feature
-CSTV is available exclusively on Pro servers.
+Spectating and demo recording for your CS2 server.
+
+::: warning Pro Server Only
+CSTV is available on Pro servers only. Free servers run without CSTV.
 :::
 
 ## What is CSTV?
 
-CSTV enables live broadcasting of matches with a short delay, allowing spectators to watch games without participating. This is the same technology used in professional Counter-Strike tournaments for observer streams. Broadcasts can be automatically recorded for replay.
-
-Most server owners enable CSTV for one of two reasons:
-
-- **Demo recording.** Every match is saved as a `.dem` file you can download and review afterwards.
-- **Spectating.** People can watch a live match from inside CS2 without taking a player slot.
+CSTV lets people watch a live match from inside CS2 without taking a player slot. The broadcast runs with a 90 second delay. With CSTV on, the server can also record matches as `.dem` demo files that you download afterwards.
 
 ## Enabling CSTV
 
-CSTV is switched on from the panel. You do not need to run any console commands to get it working.
+CSTV is switched on in the Pro Panel. You do not need any console commands to get it working.
 
-### Step 1: Open Your Server Settings
+### Step 1: Open Game Settings
 
 1. Go to [fshost.me/pro/servers](https://fshost.me/pro/servers)
 2. Click on your server name
 3. Open the **Settings** tab, or click **Edit** in the top right. Both open **Game settings**
-4. Scroll down to the **CSTV** section
 
-### Step 2: Enable and Save
+### Step 2: Turn On CSTV
 
-Set **Enable CSTV** to **Yes**, then click **Save changes**. The **CSTV port** is assigned automatically, so there is no port to fill in. To keep spectators out, fill in **CSTV password (optional)** with 4 to 20 letters and digits. Leave it empty for an open broadcast.
+In the **Features** section, click the **CSTV** tile so it shows **On**. Two optional fields appear below:
 
-### Step 3: Restart the Server
+| Field | What it does |
+|-------|--------------|
+| **CSTV password (optional)** | Keeps spectators out unless they have the password. 4 to 20 characters, letters and digits only. Leave it empty for an open broadcast |
+| **Discord webhook URL (optional)** | Posts a Discord message when a demo has finished recording. See [Discord Demo Links](/games/cs2/plugins/cstv-discord) |
 
-CSTV starts with the server process, so the change applies on the next restart. Restart from the panel.
+The CSTV port is assigned automatically, so there is no port to fill in.
 
-::: tip That Is the Whole Setup
-Once CSTV is enabled and the server has restarted, demo recording works on its own. The commands in the next section are optional adjustments, not required steps.
-:::
+### Step 3: Save and Restart
 
-## Configuration
-
-The panel handles the settings that matter for a normal setup. Use the commands below only when you want to change the defaults, for example to rename the broadcast or change the broadcast delay.
-
-### Basic Settings
-
-| Command | Description |
-|---------|-------------|
-| `tv_name "name"` | Set broadcaster name shown in server browser |
-| `tv_delay 90` | Broadcast delay in seconds. The default is `90` |
-| `tv_record "filename"` | Start recording a demo |
-| `tv_stoprecord` | Stop current demo recording |
-
-### Example Configuration
-
-```bash
-// CSTV Settings
-tv_enable 1
-tv_name "FSHOST Match Server"
-tv_delay 90 // Broadcast delay in seconds, 90 is the default
-tv_maxclients 10 // Max spectators
-```
+Click **Save changes**, then restart the server. CSTV starts with the server, so the change applies on the next restart.
 
 ## Connecting to CSTV
 
-### As a Spectator
+Open the **Files** tab on your server's page. The **CSTV** box shows the full command under **Spectate server**. Paste it into the CS2 console:
 
-**Via Console:**
 ```bash
 connect SERVER_IP:CSTV_PORT
 ```
 
-**Example:**
-```bash
-connect 123.45.67.89:27020
-```
+If you set a CSTV password, the command shown on the **Files** tab includes it.
 
-::: tip Finding Your Port
-Open the **Files** tab on your server's page in the Pro Panel. The **CSTV** box shows the full `connect` command under **Spectate server**, including the CSTV port. The CSTV port is not the same as your game port.
+::: tip Use the CSTV Port
+The CSTV port is not the same as your game port. Always copy the command from **Spectate server**.
 :::
 
-### Spectator Commands
+## Recording Demos
 
-Once connected to CSTV:
+The **CSTV** box on the **Files** tab recommends [MatchZy](/games/cs2/plugins/matchzy) auto-recording, which records demos for matches and practice sessions on its own.
+
+To record by hand, run these in the console after logging in to RCON as described in the [RCON guide](/games/cs2/rcon):
+
 ```bash
-spec_mode // Cycle spectator modes
-spec_next // Next player
-spec_prev // Previous player
-spec_player NAME // Spectate specific player
+fake_rcon tv_record demoname
+fake_rcon tv_stoprecord
 ```
 
-## Demo Recording
+The demo is finished once `tv_stoprecord` has run or the map has ended.
 
-### Recording Demos
+## Accessing Demos
 
-**Manual Recording:**
-```bash
-tv_record match_de_dust2_team1_vs_team2
-tv_stoprecord
-```
+Recorded demos are listed under **Demo files** on the **Files** tab of your server's page. Each demo has a **Download** button and a **Copy link** button, and shows when it expires.
 
-### Demo Playback
+- The list is cached and refreshed every minute.
+- Demos are deleted after 7 days, so download the ones you want to keep. See [CS2 Demo Retention Change](/news/cs2-demo-retention).
+- **Copy feed URL** gives you a JSON feed of the same list for your own tools. The feed URL expires after 1 year.
 
-**Enable voice chat in demos:**
+If you turn CSTV off, no new demos are recorded. Existing demos stay available until they are deleted after 7 days.
+
+Demos are not available over FTP. CS2 FTP access covers the `addons` and `cfg` folders only, see [FTP Access](/servers/pro/ftp).
+
+## Playing Downloaded Demos
+
+1. Open Steam
+2. Right-click **Counter-Strike 2**
+3. Select **Properties** → **Installed Files** → **Browse**
+4. Open the `game/csgo/` folder
+5. Put your `.dem` file there
+6. Start CS2, open the console and type `playdemo filename`
+
+To hear voice chat in a demo, run these before `playdemo`:
+
 ```bash
 tv_listen_voice_indices -1
 tv_listen_voice_indices_h -1
 ```
-
-**Play demo:**
-```bash
-playdemo yourdemo.dem
-```
-
-### Demo File Location
-
-Demos are saved to your server's `demos` directory:
-```bash
-/game/csgo/demos/yourdemo.dem
-```
-
-## Advanced Spectating
-
-### Camera Positions
-
-**Save current spectator position:**
-```bash
-spec_pos
-```
-*Requires `sv_cheats 1`*
-
-**Teleport to coordinates:**
-```bash
-spec_goto x y z pitch yaw
-```
-
-**Example:**
-```bash
-spec_goto 1234.5 -678.9 100.0 0 90
-```
-
-## Demo Management
-
-### Accessing Demos
-
-Recorded demos are listed under **Demo files** on the **Files** tab of your server's page. The list is refreshed every minute and demos are deleted after 7 days, so download the ones you want to keep. **Copy feed URL** gives you a JSON feed of the same list for your own tools.
-
-Demos are not available over FTP yet. CS2 FTP access covers the `addons` and `cfg` folders only, see [FTP Access](/servers/pro/ftp).
-
-### Playing Downloaded Demos
-
-**Windows Installation Path:**
-```
-C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\
-```
-
-**Steps:**
-1. Open Steam
-2. Right-click Counter-Strike 2
-3. Select **Properties** → **Installed Files** → **Browse**
-4. Navigate to `game/csgo/` folder
-5. Place your `.dem` file here
-6. Launch CS2 and use console: `playdemo filename`
 
 ## Troubleshooting
 
@@ -168,43 +100,28 @@ C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\ga
 Work through these in order:
 
 1. **Wait a minute.** The **Demo files** list on the **Files** tab refreshes every minute, and a demo only appears once `tv_stoprecord` has run or the map has ended.
-2. **Check the age.** Demos older than 7 days are deleted automatically. See [CS2 Demo Retention Change](/news/cs2-demo-retention).
-3. **Check that CSTV is enabled.** Without CSTV nothing is recorded. See [Enabling CSTV](#enabling-cstv).
+2. **Check the age.** Demos older than 7 days are deleted automatically.
+3. **Check that CSTV is on.** Without CSTV nothing is recorded. See [Enabling CSTV](#enabling-cstv).
+4. **Check that a recording was started.** Use MatchZy or `fake_rcon tv_record`. See [Recording Demos](#recording-demos).
 
 Still missing? Open a ticket on [Pro Support](https://fshost.me/pro/support) with the server number and roughly when the demo was recorded.
 :::
 
-::: details Demo file won't play
-**Error Message:**
-```bash
-[Demo] Requesting playback of 'demo.dem'
-CDemoFile::Open: couldn't open file demo.dem for reading
-```
-
-**Solution:**
-1. Delete the corrupted file
-2. Re-download from your server
-3. Verify file is in the correct directory: `.../game/csgo/`
-4. Ensure file has `.dem` extension
+::: details The demo will not play
+1. Check that the file is in the `game/csgo/` folder of your CS2 install
+2. Check that the file name ends in `.dem`
+3. Download the demo again if the download was interrupted
 :::
 
-::: details No voice chat in demo
-Enable voice indices before playback:
-```bash
-tv_listen_voice_indices -1
-tv_listen_voice_indices_h -1
-playdemo yourdemo.dem
-```
+::: details No voice chat in the demo
+Run `tv_listen_voice_indices -1` and `tv_listen_voice_indices_h -1` in the console before `playdemo`.
 :::
 
 ::: details Cannot connect to CSTV
-Verify:
-- CSTV is enabled in the panel
-- Using the port shown under **Files** → **CSTV** → **Spectate server**, not the game port
-- Server is running
-- No firewall blocking connection
+Check that:
+
+- The **CSTV** tile is **On** in **Game settings** and the server has restarted since
+- The server is running
+- You use the command from **Files** → **CSTV** → **Spectate server**, not the game port
+- You include the CSTV password if one is set
 :::
-
-## CSTV + Discord Integration
-
-To get a Discord message each time a demo has finished recording, add a webhook in **Discord webhook URL (optional)**. See [Discord Demo Links](/games/cs2/plugins/cstv-discord).

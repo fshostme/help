@@ -1,3 +1,7 @@
+---
+description: "Post a download link to your Discord channel each time a CSTV demo on your CS2 Pro server finishes recording."
+---
+
 # Discord Demo Links
 
 Get a message with a download link in your Discord channel each time a CSTV demo on your CS2 Pro server has finished recording.
@@ -29,14 +33,14 @@ You need the **Manage Webhooks** permission on the Discord server.
 5. Give it a name, for example `CS2 Demos`, and check the channel
 6. Click **Copy Webhook URL**
 
-![New webhook in Discord channel settings](https://help.fshost.me/img/image-2.png)
+![New webhook in Discord channel settings](https://help.fshost.me/img/discord-new-webhook.png)
 
 ## Step 2: Add the Webhook in the Pro Panel
 
 1. Go to the [Pro Panel](https://fshost.me/pro/servers)
 2. Click on your server name
-3. Open the **Settings** tab. It opens on **Game settings**
-4. Scroll down to **CSTV** and set **Enable CSTV** to **Yes**. The webhook field only shows when CSTV is on
+3. Open the **Settings** tab, or click **Edit** in the top right. Both open **Game settings**
+4. In the **Features** section, click the **CSTV** tile so it shows **On**. The webhook field only shows when CSTV is on
 5. Paste the address into **Discord webhook URL (optional)**
 
 ![CSTV section with the Discord webhook URL field](https://help.fshost.me/img/pro-cs2-cstv-discord.png)
@@ -70,7 +74,7 @@ Anyone with the webhook address can post in your Discord channel. If it leaks, d
 ## Troubleshooting
 
 ::: details I cannot see the Discord webhook URL field
-Set **Enable CSTV** to **Yes** in the **CSTV** section. The field only shows when CSTV is on.
+Click the **CSTV** tile in the **Features** section of **Game settings** so it shows **On**. The field only shows when CSTV is on.
 :::
 
 ::: details The panel refuses the webhook address
